@@ -1,0 +1,1412 @@
+@charset "utf-8";
+/**
+* @description	Standard Layout
+* @author		Nombre_programador
+* @version		1.0
+*/
+
+
+/* ---------- Globales -------------- */
+body,html{
+	margin:0;
+	padding:0;
+	width:100%;
+	height:100%;
+	
+	}
+
+@font-face {
+    font-family: 'code_pro_demoregular';
+    src: url('fonts/code_pro.eot');
+    src: url('fonts/code_pro.eot?#iefix') format('embedded-opentype'),
+         url('fonts/code_pro.woff') format('woff'),
+         url('fonts/code_pro.ttf') format('truetype'),
+         url('fonts/code_pro.svg#code_pro_demoregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+	
+.btns { 
+
+    // background-image: image-url("sprite.png");
+  background-image: image-url('sprite.png');
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.no_background{
+	background-position: 500px 500px;
+	
+}
+.sprite{
+        background-image: image-url('sprite.png');
+	// background-image: image-url("sprite.png");
+	background-repeat:no-repeat;
+  	border: none;
+  	background-color: transparent;
+
+	}
+
+.clear_block:after {
+    clear: both;
+    content: ".";
+    display: block;
+    font-size: 0;
+    height: 0;
+    visibility: hidden;
+}
+.ti{
+    text-indent: -9999px;
+}
+
+/* ----------  End Globales -------------- */
+
+.page{
+	width: 100%;
+	height: 100%;
+    background-color: #d6d5da;
+}
+
+.menu_principal{
+    position: fixed;
+    top: 0;
+    height: 70px;
+    width: 100%;
+    z-index: 200;
+    background-color: #ffffff;
+    border-bottom: 20px solid #6c4723;
+    
+    .cont_menu{
+        width: 950px;
+        margin: auto;
+        padding-top: 23px;
+        position: relative;
+
+
+    }
+
+    .menu_items{
+        float: left;
+        margin-right: 26px;
+        height: 28px;
+
+        a{
+            width: 100%;
+            height: 100%;
+            display: block;
+            text-indent: -9999px;
+        }
+
+    }
+    .menu_item_0{
+        width: 95px;
+
+        a{
+            background-position: 0 0;    
+        }      
+        a:hover{
+            background-position: 0 -32px;
+        }
+        a.activo{
+            background-position: 0 -65px;
+        }
+
+    }
+    .menu_item_1{
+        width: 122px;
+
+        a{
+            background-position: -114px 0;   
+        }
+        a:hover{
+            background-position: -114px -32px;
+        }
+        a.activo{
+            background-position: -114px -65px;
+        }
+    }
+    .menu_item_2{
+        width: 124px;
+        
+        a{
+            background-position: -274px 0;   
+        }
+        a:hover{
+            background-position: -274px -32px;
+        }
+        a.activo{
+            background-position: -274px -65px;
+        }
+    }
+    .menu_item_3{
+        width: 124px;
+        
+        a{
+            background-position: -414px 0;   
+        }
+        a:hover{
+            background-position: -414px -32px;
+        }
+        a.activo{
+            background-position: -414px -65px;
+        }
+    }
+    .menu_item_4{
+        width: 103px;
+        
+        a{
+            background-position: -548px 0;   
+        }
+        a:hover{
+            background-position: -548px -32px;
+        }
+        a.activo{
+            background-position: -548px -65px;
+        }
+    }
+}
+
+
+.menu_interior li{
+    float: left;
+    width: 82px;
+    height: 82px;
+    margin-right: 7px;
+
+    a{
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+    a.btn_beneficio{
+        background-position: -4px -98px;
+    }
+    a.btn_cello{
+        background-position: -95px -98px;
+    }
+    a.btn_familia{
+        background-position: -185px -98px;
+    }
+    a.btn_video{
+        background-position: -275px -98px;
+    }
+    a.btn_beneficio:hover{
+        background-position: -4px -182px;
+    }
+    a.btn_cello:hover{
+        background-position: -95px -182px;
+    }
+    a.btn_familia:hover{
+        background-position: -185px -182px;
+    }
+    a.btn_video:hover{
+        background-position: -275px -182px;
+    }
+    a.btn_beneficio:active{
+        background-position: -4px -265px;
+    }
+    a.btn_cello:active{
+        background-position: -95px -265px;
+    }
+    a.btn_familia:active{
+        background-position: -185px -265px;
+    }
+    a.btn_video:active{
+        background-position: -275px -265px;
+    }
+
+}
+
+.logo{
+    width: 114px;
+    height: 60px;
+    float: right;
+    margin-right: 13px;
+    margin-top: -16px;
+}
+.menu_sociales{
+    width: 100px;
+    height: 20px;
+    position: absolute;
+    right: 19px;
+    bottom: -24px;
+    .btns_sociales{
+        float: left;
+        width: 18px;
+        height: 16px;
+        margin-right: 11px;
+    }
+    .face{
+        background-position: 0 -107px;
+    }
+    .tw{
+        background-position: -29px -107px;
+    }
+    .email{
+        background-position: -60px -107px;
+    }
+    .face:hover{
+        background-position: 0 -129px;
+    }
+    .tw:hover{
+        background-position: -29px -129px;
+    }
+    .email:hover{
+        background-position: -60px -129px;
+    }
+
+}
+.contenedor{
+    width: 100%;
+    background-color: #d6d5da;
+}
+
+.bloques{
+    width: 100%;
+    height: 700px;
+    display: block;
+    position: relative;
+    overflow: hidden;
+    img.bg{
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        z-index: 10;
+        visibility: hidden;
+        
+    }
+}
+.bloques.bloque_0{
+/*
+    background-image: image-url("bg_0.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    */
+    img{
+        // margin-left: -68%;
+
+    }
+    .info_block_inicio{
+        position: absolute;
+        width: 590px;
+        height: 290px;
+        top: 60px;
+
+        .titulo_img{
+            background-position: -2px -538px;
+            width: 547px;
+            height: 88px;
+
+        }
+        p{
+
+            font-family: 'samsung_interfacebold';
+            color: #3f3f3f;
+            font-size: 20px;
+            margin: 23px 0 25px 0;
+
+        }
+    }
+}
+.bloques.bloque_1{
+
+    img.bg{
+        // margin-left: -71%;
+
+    }
+}
+.bloques.bloque_2{   
+    img.bg{
+        // margin-left: -71%;
+
+    }
+}
+.bloques.bloque_3{
+    img.bg{
+        // margin-left: -71%;
+
+    }
+}
+.bloques.bloque_4{
+    img.bg{
+        // margin-left: -71%;
+
+    }
+}
+
+.contenido{
+    width: 904px;
+    height: 630px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -452px;
+    margin-top: -315px;
+    z-index: 20;
+    .logo_cheft{
+        width: 133px;
+        height: 83px;
+        position: absolute;
+        right: 0;
+        top: 24px;
+        background-position: -7px -624px;
+    }
+
+    .info_block{
+        padding-top: 34px;
+
+        h2.titulo{
+            color: #00a9df;
+            font-family:"samsung_interfacebold";
+            font-size: 38px;
+            margin-bottom: 17px;
+        }
+
+        p.descripcion{
+            color: #53555b;
+            font-family: "samsung_interfaceregular";
+            font-size: 16px;
+            strong{
+                font-family: "samsung_interfacebold";
+            }
+
+
+        }
+    }
+
+
+}
+
+
+@media all and (max-height: 730px){
+    .contenido{
+        width: 904px;
+        height: 630px;
+        position: absolute;        
+        top: 50px;
+        left: 50%;
+        margin-left: -452px;
+        margin-top: 0;
+        z-index: 20;
+
+    }
+}
+
+
+
+/* -------------------  bloques genereales ---------------*/
+.slide_pager.slide_beneficios_pager{
+    width: 165px;
+    height: 30px;
+}
+.slide_pager.slide_cello_pager{
+    width: 130px;
+    height: 30px;
+    padding-left: 20px
+}
+.slide_pager.slide_familia_pager{
+    width: 255px;
+    height: 30px;
+    padding-left: 12px;
+}
+.slide_pager.slide_videos_pager{
+    width: 100px;
+    height: 30px;
+    padding-left: 30px
+}
+
+.slide_pager{
+    margin: auto;
+
+    a{
+        display: block;
+        float: left;
+        text-align: center;
+        text-decoration: none;
+
+        width: 29px;
+        // width: 30px\9;
+        height: 26px;
+        margin-right: 11px;
+        background-image: image-url("sprite.png");
+        background-repeat: no-repeat;
+        background-position: -8px -361px;
+
+        color: #d2d2d2;
+        font-family: "samsung_interfaceblack";
+        font-size: 18px;
+        text-shadow: 0 1px 0 rgba(0,0,0,.4);
+        padding-top: 4px;
+
+
+    } 
+
+
+    a:hover{
+        background-position: -8px -407px;
+        color: #4d688b;
+
+    }  
+    a.activeSlide{
+        background-position: -8px -454px;
+        color: #4d688b;
+
+    }
+}
+
+
+.btn_tooltip{
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    background-position: -361px -492px;  
+    z-index: 200;
+}
+.btn_tooltip.activo{
+    background-position: -404px -492px;  
+}
+.btn_tooltip:hover{
+    background-position: -404px -492px;  
+}
+
+.tooltip{
+    display: inline-block;
+    background-color: #4a4e57;
+    background-image: image-url("bg_tooltip.png");
+    background-repeat:repeat;
+    border: 1px solid #dadada;
+    border-radius: 5px;
+    position: absolute;
+
+    .btn_cerrar_tooltip{
+        width: 23px;
+        height: 23px;
+        background-position: -494px -273px;
+        position: absolute;
+        right: -10px;
+        top: -10px;
+        z-index: 200;
+
+    }
+    .flecha{
+        position: absolute;
+        background-image: image-url("flechas.png");
+        background-repeat: no-repeat;
+
+    }
+
+    .btn_cerrar_tooltip:hover{
+        background-position: -521px -273px;        
+    }
+    
+    h3.tooltip_titulo{
+        color: #4dd3ff;
+        font-family: "samsung_interfaceregular";
+        font-size: 18px;
+        height: 26px;
+        padding: 15px 15px 0;
+        margin-bottom: 12px;
+
+        background-image: image-url("brillo_tooltip.png");
+        background-repeat: no-repeat;
+        background-position: center center;
+        position: relative;
+    }
+    
+    p.tooltip_desc{
+        color: #ebebec;
+        font-family: "samsung_interfaceregular";
+        font-size: 13px;
+        padding: 0 15px;
+        line-height: 1.2;
+        margin-bottom: 15px;
+        
+        strong{
+            font-family: "samsung_interfaceblack";
+
+        }
+    }
+}
+
+/* ----------------- Beneficios ------------------*/
+.slide_contenedor_beneficios{
+    width: 540px;
+    height: 323px;
+    margin: auto;
+    margin-top: 55px;
+
+    .slide_beneficios{
+        width: 540px;
+        height: 323px;          
+        .slide_items{
+            width: 540px;
+            height: 323px;
+            background-image: image-url("microondas.png");
+            background-repeat: no-repeat;
+
+        }
+        .slide_item_0{
+            background-position: 0 0;
+
+        }
+        .slide_item_1{
+            background-position: -540px 0;
+            
+        }
+        .slide_item_2{
+            background-position: -540px 0;
+            
+        }
+        .slide_item_3{
+            background-position: -1078px 0;
+            
+        }
+    }
+
+
+    .slide_item_0 .btn_tooltip{
+        left: 176px;
+        top: 104px;    
+    }
+    .slide_item_1 .btn_tooltip{
+        left: 388px;
+        top: 157px;  
+    }
+    .slide_item_2 .btn_tooltip{
+        left: 388px;
+        top: 92px;  
+    }
+    .slide_item_3{
+        .btn_tooltip{
+            left: 230px;
+            top: 136px;   
+        }
+
+        .ondas{
+            width: 92px;
+            height: 34px;
+            position: absolute;
+        }
+        .onda_0{
+            background-position: -172px -637px;
+            left: 130px;
+            top: 100px;
+        }
+        .onda_1{
+            background-position: -172px -637px;
+            left: 130px;
+            top: 160px;
+        }
+        .onda_2{
+            background-position: -274px -637px;
+            left: 270px;
+            top: 130px;
+        }
+
+    } 
+
+
+
+    .slide_item_0 .tooltip{
+        height: 327px;
+        left: 449px;
+        top: -32px;
+        width: 278px;
+
+        p.tooltip_desc.tested_bg{
+            background-image: image-url("tested_img.png");
+            background-repeat: no-repeat;
+            background-position: 12px 0;
+            padding: 20px 0 60px 128px;
+            margin-bottom: 0;
+
+        }
+        .flecha{
+            width: 257px;
+            height: 119px;
+            top: 24px;
+            left: -257px;
+        }
+
+    }
+    .slide_item_1 .tooltip{
+        height: 160px;
+        left: -168px;
+        top: 20px;
+        width: 278px;
+        
+        p.tooltip_desc.tested_bg{
+            background-image: image-url("tested_img.png");
+            background-repeat: no-repeat;
+            background-position: 12px 0;
+            padding: 20px 0 60px 128px;
+            margin-bottom: 0;
+
+        }
+        .flecha{
+            background-position: 0 -123px;
+            height: 119px;
+            left: 278px;
+            top: 24px;
+            width: 295px;
+        }
+        .icono_tit{
+            height: 29px;
+            position: relative;
+            margin-left:20px; 
+            width: 30px;    
+            img{
+                position: absolute;
+                left: 0px;
+                bottom: 0px;
+            } 
+        }
+
+    }
+    .slide_item_2 .tooltip{
+        height: 176px;
+        left: 429px;
+        top: -7px;
+        width: 285px;
+        
+        p.tooltip_desc.tested_bg{
+            background-image: image-url("tested_img.png");
+            background-repeat: no-repeat;
+            background-position: 12px 0;
+            padding: 20px 0 60px 128px;
+            margin-bottom: 0;
+
+        }
+        .flecha{
+            background-position: -270px 0;
+            height: 81px;
+            left: -25px;
+            top: 24px;
+            width: 25px;
+        }
+        .icono_tit{
+            height: 29px;
+            left: 170px;
+            position: absolute;
+            top: -15px;
+            width: 30px;    
+        }
+
+    }
+    .slide_item_3 .tooltip{
+        height: 164px;
+        left: 419px;
+        top: -24px;
+        width: 278px;
+        
+        p.tooltip_desc.tested_bg{
+            background-image: image-url("tested_img.png");
+            background-repeat: no-repeat;
+            background-position: 12px 0;
+            padding: 20px 0 60px 128px;
+            margin-bottom: 0;
+
+        }
+        .flecha{
+            background-position: 0px -266px;
+            height: 142px;
+            left: -173px;
+            top: 24px;
+            width: 172px;
+        }
+
+    }
+}
+
+
+/* ----------------- Cello ------------------*/
+.slide_contenedor_cello{
+    width: 540px;
+    height: 323px;
+    margin: auto;
+    margin-top: 20px;
+
+    .slide_cello{
+        width: 540px;
+        height: 323px;          
+        .slide_items{
+            width: 540px;
+            height: 323px;
+            background-image: image-url("microondas.png");
+            background-repeat: no-repeat;
+
+        }
+        .slide_item_0{
+            background-position: -540px 0;
+
+        }
+        .slide_item_1{
+            background-position: 0 0;
+            
+        }
+        .slide_item_2{
+            background-position: -1078px 0;
+            // background-position: -540px 0;
+            
+        }
+
+    }
+
+
+    .slide_item_0 .btn_tooltip{
+        left: 366px;
+        top: 90px;   
+    }
+    .slide_item_1 .btn_tooltip_a{
+        left: 138px;
+        top: 156px;
+    }
+    .slide_item_1 .btn_tooltip_b{
+        left: 203px;
+        top: 20px;
+    }
+    .slide_item_2 .btn_tooltip{
+        left: 230px;
+        top: 163px;
+    }
+
+
+
+    .slide_item_0 .tooltip{
+        height: 146px;
+        left: -161px;
+        top: -2px;
+        width: 280px;
+
+        .flecha{
+            background-position: -28px -123px;
+            width: 267px;
+            height: 74px;
+            top: 24px;
+            left: 278px;
+        }
+
+    }
+    .slide_item_1 .tooltip{
+        height: 175px;
+        left: 486px;
+        top: -15px;
+        width: 280px;
+        
+        p.tooltip_desc.tested_bg{
+            background-image: image-url("tested_img.png");
+            background-repeat: no-repeat;
+            background-position: 12px 0;
+            padding: 20px 0 60px 128px;
+            margin-bottom: 0;
+        }
+        h3.tooltip_titulo{
+            height: 65px;
+            background-image: image-url("brillo_tooltip2.png");
+            background-repeat: no-repeat;
+            line-height: 1.15;
+        }
+        .flecha{
+            background-position: 0 -411px;
+            height: 154px;
+            left: -332px;
+            top: 24px;
+            width: 332px;
+        }
+        .icono_tit{
+            height: 29px;
+            left: 107px;
+            position: absolute;
+            top: 6px;
+            width: 30px;     
+        }
+
+    }
+    .slide_item_2 .tooltip{
+        height: 137px;
+        left: 429px;
+        top: -7px;
+        width: 280px;
+        
+        p.tooltip_desc.tested_bg{
+            background-image: image-url("tested_img.png");
+            background-repeat: no-repeat;
+            background-position: 12px 0;
+            padding: 20px 0 60px 128px;
+            margin-bottom: 0;
+
+        }
+        .flecha{
+            background-position: 0 -567px;
+            height: 152px;
+            left: -183px;
+            top: 24px;
+            width: 182px;
+        }
+        .icono_tit{
+            height: 29px;
+            left: 150px;
+            position: absolute;
+            top: -15px;
+            width: 30px;    
+        }
+
+    }
+}
+
+
+
+.btns_sociales_cello{
+    position: absolute;
+    height: 31px;
+    left: 540px;
+}
+    
+.btns_sociales_cello.btn_vermas{
+    width: 102px;
+    top: 170px;
+    background-position: -365px -181px;
+}
+.btns_sociales_cello.btn_vermas:hover{
+    background-position: -365px -218px;
+}
+.btns_sociales_cello.btn_compartir{
+    width: 112px;
+    top: 210px;
+    background-position: -485px -181px;
+}
+.btns_sociales_cello.btn_compartir:hover{                    
+    background-position: -485px -218px;
+}
+
+
+
+/* ----------------- Familia ------------------*/
+.slide_contenedor_familia{
+    width: 852px;
+    height: 344px;
+    margin: auto;
+    margin-top: 20px;
+
+    .slide_familia{
+        width: 852px;
+        height: 344px;          
+        .slide_items{
+            width: 852px;
+            height: 344px; 
+
+        }
+        .slide_item_0{
+            background-position: -540px 0;
+
+        }
+        .slide_item_1{
+            background-position: 0 0;
+            
+        }
+        .slide_item_2{
+            background-position: -1078px 0;
+            
+        }
+
+    }
+
+
+}
+
+
+/*.btns_sociales_familia{
+    position: absolute;
+    height: 31px;
+    left: 540px;
+    .btn_vermas{
+        width: 102px;
+        top: 170px;
+        background-position: -365px -181px;
+    }
+    .btn_vermas:hover{
+        background-position: -365px -218px;
+    }
+    .btn_compartir{
+        width: 112px;
+        top: 210px;
+        background-position: -485px -181px;
+    }
+    .btn_compartir:hover{                    
+        background-position: -485px -218px;
+    }
+
+}
+*/
+
+.btns_colores_contenedor{
+    position: absolute;
+    right: 0;
+    bottom: 10px;
+    width: 215px;
+    height: 40px;
+
+    .txt_colores{
+        color: #53555b;
+        font-family: "samsung_interfacebold";
+        font-size: 13px;
+        line-height: 3.3;
+        float: left;
+        height: 39px;
+        margin-right: 20px;
+    }
+    .btns_color{
+        width: 39px;
+        height: 39px;
+        float: left;
+        margin-right: 20px;
+    }
+    .btn_gris{
+        background-position: -362px -393px;
+    }
+    .btn_gris:hover{
+        background-position: -362px -443px;
+    }
+    .btn_gris.activo{
+        background-position: -362px -443px;
+    }
+    .btn_blanco{
+        background-position: -422px -393px;
+    }
+    .btn_blanco:hover{
+        background-position: -422px -443px;
+    }
+    .btn_blanco.activo{
+        background-position: -422px -443px;
+    }
+
+}
+
+.btns_sociales_familia_cont{
+    width: 300px;
+    height: 35px;
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+
+    .btns_sociales_familia{
+        height: 31px;
+        float: left;
+        margin-right: 20px;
+    }
+
+    .btn_vermas{
+        width: 102px;
+        background-position: -365px -181px;
+        margin-left: 15px;
+    }
+    .btn_vermas:hover{
+        background-position: -365px -218px;
+    }
+    .btn_compartir{
+        width: 112px;
+        background-position: -485px -181px;
+    }
+    .btn_compartir:hover{                    
+        background-position: -485px -218px;
+    }
+
+}
+
+
+.slide_contenedor_familia .slide_items .color_gris{            
+        width: 852px;
+        height: 344px;
+        display: none;            
+}
+.slide_contenedor_familia .slide_items .color_blanco{            
+        width: 852px;
+        height: 344px;
+        display: none;            
+}
+
+.slide_contenedor_familia .slide_items .color_gris.activo{
+    display: block;
+}  
+.slide_contenedor_familia .slide_items .color_blanco.activo{
+    display: block;
+}   
+
+.slide_familia .info_microonda{
+    float: left;
+    width: 300px;
+    height: 100%;
+    margin-left: 40px;
+    
+    h3.titulo{
+        color: #0689d8;
+        font-family: "samsung_interfacebold";
+        font-size: 27px;
+        padding-left: 11px;
+        background-image: image-url("icon1.png");
+        background-position: left center;
+        background-repeat: no-repeat;
+        margin-bottom: 11px;
+
+
+    }
+    .bajada{
+        color: #53555b;
+        font-family: "samsung_interfacebold";
+        font-size: 17px;
+        padding-left: 11px;
+        margin-bottom: 10px;
+    }
+    .modelos{
+        color: #0689d8;
+        font-family: "samsung_interfacebold";
+        font-size: 17px;  
+        padding-left: 11px;   
+        line-height: 1.2;
+        margin-bottom: 14px;
+    }
+    ul{
+        list-style: none inside image-url("bullet.png");
+
+    }
+    li{
+        color: #53555b;
+        font-family: "samsung_interfaceregular";
+        font-size: 16px;
+    }
+
+
+}
+
+.slide_familia .foto_microonda{
+    width: 448px;
+    float: right;
+    height: 100%;
+    margin-right: 25px;
+    img.microonda_img{
+        width: 448px;
+    }
+}
+
+.flechas{
+    width: 28px;
+    height: 97px;
+    position: absolute;
+    top: 280px;
+
+}
+
+.flechas.flecha_left{
+    background-position: -374px -639px;
+    left: -2px;
+}
+.flechas.flecha_right{
+    background-position: -434px -639px;
+    left: 878px;
+}
+
+.flechas.flecha_left:hover{
+    background-position: -494px -639px;
+}
+.flechas.flecha_right:hover{
+    background-position: -554px -639px;
+}
+
+
+/* ----------------- Videos ------------------*/
+.slide_contenedor_videos{
+    width: 630px;
+    height: 368px;
+    margin: auto;
+    margin-top: 0px;
+
+    .slide_videos{
+        width: 630px;
+        height: 368px;         
+        .slide_items{
+            width: 630px;
+            height: 368px;
+
+        }
+        .slide_item_0{
+
+        }
+        .slide_item_1{
+            
+        }
+
+    }
+
+
+}
+
+.video_items {
+    // width: 272px;
+    // height: 161px;
+    // border: 1px solid #aaaaaa;
+    // position: relative;
+    // float: left;
+    // margin-bottom: 27px;
+
+    border: 1px solid #AAAAAA;
+    float: left;
+    height: 161px;
+    margin-bottom: 27px;
+    margin-left: 176px;
+    margin-top: 100px;
+    position: relative;
+    width: 272px;
+
+    .video_miniatura_img{
+        width: 263px;
+        height: 152px;
+        margin: 4px 0 0 4px;
+    }
+    .miniatira_img{
+        width: 263px;
+        height: 152px;        
+    }
+    .video_btn_play{
+        background-position: -374px -107px;
+        position: absolute;
+        left: 15px;
+        top: 14px;
+        width: 40px;
+        height: 40px;
+
+    }
+    .video_info_contenedor{
+        position: absolute;
+        left: 70px;
+        top: 12px;
+        color: #eff1f1;
+        
+        font-size: 15px;        
+        .video_titulo{
+            font-family: "samsung_interfacebold";
+        }
+        .video_info{
+            font-family: "samsung_interfaceregular";
+
+        }
+    }
+    .sombra_video{
+        width: 274px;
+        height: 18px;
+        position: absolute;
+        bottom: -18px;
+        background-position: 0 -713px;
+
+    }
+
+}
+.video_items.left{
+    margin-right:80px;
+}
+
+/* ----------------------- footer ------------------*/
+.footer{
+    position: fixed;
+    /*top: 80px;*/
+    bottom: 0px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    z-index: 200;
+
+    .cont_footer{
+        width: 904px;
+        margin: auto;
+        height: 1px;
+        position: relative;
+    }
+
+    .btn_compartir{
+        width: 94px;
+        height: 24px;
+        background-position: -365px -314px;
+        float: left;
+        margin-top: -44px;
+        
+    }
+    .btn_compartir:hover{
+        background-position: -365px -354px;
+
+    }
+    .btn_clases_gratis{
+        width: 75px;
+        height: 74px;
+        background-position: -468px -308px;
+        float: right;
+        margin-top: -94px;
+        display: none
+
+    }
+    .btn_clases_gratis:hover{
+        background-position: -558px -308px;
+
+    }
+    .btn_cont_abajo{
+        width: 100px;
+        height: 40px;
+        background-position: -103px -107px;
+        position: absolute;
+        left: 50%;
+        margin-left: -50px;
+        margin-top: -37px;
+        top: 1px;
+
+    }
+    .btn_cont_abajo:hover{
+        background-position: -214px -107px;
+
+    }
+    .btn_volver_arriba{
+        width: 46px;
+        height: 37px;
+        background-position: -478px -393px;
+        position: absolute;
+        left: 50%;
+        margin-left: -23px;
+        margin-top: -37px;
+        top: 1px;
+        display: none;
+    }
+    .btn_volver_arriba:hover{
+        background-position: -558px -393px;
+
+    }
+
+}
+
+/* -------------------- modal ------------------------*/
+.modal{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 300;
+    width: 100%;
+    height: 100%;
+    background-image: image-url("px_negro.png");
+    background-repeat: repeat;
+    opacity: 0;
+    visibility: hidden;    
+    
+    .btn_cerra_modal{
+    width: 49px;
+    height: 49px;
+    position: absolute;
+    background-position: -364px -259px;
+    }
+    .btn_cerra_modal:hover{
+        background-position: -424px -259px;        
+
+    }
+}
+
+.clases_popup{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -325px;
+    margin-top: -325px;
+    width: 651px;
+    height: 651px;
+    background-image: image-url("clases.png");
+    display: none;
+
+    .btn_cerrar_clases{
+        top: 80px;
+        right: 80px;
+    }
+
+    /*.logo_chef{
+        background-position: -7px -624px;
+        height: 83px;
+        position: absolute;
+        right: 0;
+        top: 24px;
+        width: 133px;
+    }
+    .info_clases{
+        width: 285px;
+        height: 190px;
+        position: absolute;
+
+        .gratis{
+
+        }
+        .clases_5{
+
+        }
+        .melisa{
+
+        }
+        .compra{
+
+        }
+
+    }
+    .registro{
+
+        .reg_txt{
+
+        }
+        .reg_num{
+
+        }
+
+    }*/
+}
+
+.video_popup{
+    width: 760px;
+    height: 524px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -380px;
+    margin-top: -262px;
+    display: none;
+
+    .btn_cerrar_video{
+        right: -50px;
+        top: 60px;
+
+    }
+    .titulo_video{
+        color: #eff1f1;
+        font-family: "samsung_interfacebold";
+        font-size: 30px;
+            padding-left: 14px;
+
+    }
+    .descripcion_video{
+        color: #eff1f1;
+        font-family: "samsung_interfaceregular";
+        font-size: 23px;
+            padding-left: 14px;
+    }
+    .video_contendor{
+        width: 743px;
+        height: 443px;
+        margin: 26px auto auto auto;   
+
+    }
+    .video_contendor.add_sombra{
+        background-image: image-url("sombra_video_popup.png");
+        background-repeat: no-repeat;
+        background-position: center center;
+    }
+    .video_embed{
+        width: 733px;
+        height: 433px;
+        margin: auto;
+        padding-top: 5px;
+    }
+}
