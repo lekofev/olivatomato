@@ -56,19 +56,6 @@ $(document).ready(function(){
 	}
 	
 
-	//alto inicial de cada bloque
-	var altoInicioSite=getAltoVentana();
-
-	$('.bloques').css('height',altoInicioSite+'px')
-	var anchoBg=parseInt($('.bloques .bg').css('width'));
-
-	$('.bloques .bg').css({
-		marginLeft:'-'+anchoBg/2+'px'
-	})
-
-	TweenMax.to($('.bloques .bg'), 1, {autoAlpha:1, delay:0.5})	
-
-
 	//Funcion obtiene la url, de acuerdo a la url devuelve un balor en bloque
 	function pullHistory(url)
 	{
@@ -204,81 +191,7 @@ $(document).ready(function(){
 		}
 	}// end pushHistory
 
-	//esto no se usa, pero lo dejo aqui porsiacaso	
-	// function pushHistoryBeneficios(a)
-	// {
-	// 	if(msie)
-	// 	{
-	// 		switch(a)
-	// 		{
-	// 			case 0:
-	// 				location.hash='beneficios-CeramicaEnemel';
-	// 			break;
-	// 			case 1:
-	// 				location.hash='beneficios-BotonEco';
-	// 			break;
-	// 			case 2:
-	// 				location.hash='beneficios-FuncionAderezo';
-	// 			break;
-	// 			case 3:
-	// 				location.hash='beneficios-TripleDistribuciónDeOndas';
-	// 			break;
-	// 		}			
-	// 	}
-	// 	else
-	// 	{
-	// 		switch(a)
-	// 		{
-	// 			case 0:
-	// 				history.pushState(null, null, urlLimpia+'#beneficios-CeramicaEnemel');
-	// 			break;
-	// 			case 1:
-	// 				history.pushState(null, null, urlLimpia+'#beneficios-BotonEco');
-	// 			break;
-	// 			case 2:
-	// 				history.pushState(null, null, urlLimpia+'#beneficios-FuncionAderezo');
-	// 			break;
-	// 			case 3:
-	// 				history.pushState(null, null, urlLimpia+'#beneficios-TripleDistribuciónDeOndas');
-	// 			break;
-	// 		}
-	// 	}
-	// }
 
-
-	// function pushHistoryCello(a)
-	// {
-	// 	if(msie)
-	// 	{
-	// 		switch(a)
-	// 		{
-	// 			case 0:
-	// 				location.hash='cello-SlimFry';
-	// 			break;
-	// 			case 1:
-	// 				location.hash='cello-DisenoElegante';
-	// 			break;
-	// 			case 2:
-	// 				location.hash='cello-BandejaMasGrande';
-	// 			break;
-	// 		}	
-	// 	}
-	// 	else
-	// 	{
-	// 		switch(a)
-	// 		{
-	// 			case 0:
-	// 				history.pushState(null, null, urlLimpia+'#cello-SlimFry');
-	// 			break;
-	// 			case 1:
-	// 				history.pushState(null, null, urlLimpia+'#cello-DisenoElegante');
-	// 			break;
-	// 			case 2:
-	// 				history.pushState(null, null, urlLimpia+'#cello-BandejaMasGrande');
-	// 			break;
-	// 		}
-	// 	}
-	// }
 
 	//me escribe el history de la seccion familia
 	function pushHistoryFamilia(a)
@@ -371,9 +284,6 @@ $(document).ready(function(){
 
 
 
-
-
-
 	//Arreglo solo para IE
 	function setALtoIe()
 	{
@@ -423,6 +333,18 @@ $(document).ready(function(){
 	}
 
 
+	//alto inicial de cada bloque
+	var altoInicioSite=getAltoVentana();
+	$('.bloques, .bloques .bg').css('height',altoInicioSite+'px')
+
+	var anchoBg=parseInt($('.bloques .bg').css('width'));
+	console.log(altoInicioSite,anchoBg,  $('.bloques .bg').width())
+
+	$('.bloques .bg').css({
+		marginLeft:'-'+anchoBg/2+'px'
+	})
+
+	TweenMax.to($('.bloques .bg'), 1, {autoAlpha:1, delay:0.5})	
 
 	//Con esto hago que la pagina haga un scroll automatico en caso de te tenga un "#", por ejemplo #familia
 	if(urlHash!="")
@@ -679,165 +601,25 @@ $(document).ready(function(){
 	var vuelta_completa_beneficio=false;
 
 	//aqui inician los cycles de todo el site
-	$('.slide_beneficios').cycle({
+
+	$('.slide_inicio').cycle({
 			fx: animacionSlide,
 			timeout:0,
 			speed:1000,
 			cleartype:false,
-			pager:'.slide_beneficios_pager',
+			pager:'.slide_contenedor_inicio_pager',
 			startingSlide:0,
+			prev:".slide_contenedor_inicio .flecha_left",
+			next:".slide_contenedor_inicio .flecha_right",
 			before:function(curr, next, opts){
-
 			},	
 			after:function(curr, next, opts){
-				switch(opts.currSlide)
-				{
-					case 0:
-						//aqui hago la prueba para comprobar que el cycle se movio almenos una vez, de este modo evito lanzar muchos pageview
-						if(vuelta_completa_beneficio)
-						{
-							_gaq.push(['_trackEvent', 'samsung-landingmicroondas','beneficios','beneficio1']);
-							vuelta_completa_beneficio=true;
-						}
-					break;
-					case 1:
-							_gaq.push(['_trackEvent', 'samsung-landingmicroondas','beneficios','beneficio2']);
-							vuelta_completa_beneficio=true;
-					break;
-					case 2:
-							_gaq.push(['_trackEvent', 'samsung-landingmicroondas','beneficios','beneficio3']);
-							vuelta_completa_beneficio=true;
-					break;
-					case 3:
-							_gaq.push(['_trackEvent', 'samsung-landingmicroondas','beneficios','beneficio4']);
-							vuelta_completa_beneficio=true;
-					break;
-				}
 			},			
 			end:function(){
 				}
 	})
 
-	var vuelta_completa_cello=false;
-	$('.slide_cello').cycle({
-			fx: animacionSlide,
-			timeout:0,
-			speed:1000,
-			cleartype:false,
-			pager:'.slide_cello_pager',
-			startingSlide:0,
-			after:function(curr, next, opts){
-				switch(opts.currSlide)
-				{
-					case 0:
-						if(vuelta_completa_cello)
-						{
-							_gaq.push(['_trackEvent', 'samsung-landingmicroondas','cello','cello1']);
-							vuelta_completa_cello=true;
-						}
-					break;
-					case 1:
-							_gaq.push(['_trackEvent', 'samsung-landingmicroondas','cello','cello2']);
-							vuelta_completa_cello=true;
-					break;
-					case 2:
-							_gaq.push(['_trackEvent', 'samsung-landingmicroondas','cello','cello3']);
-							vuelta_completa_cello=true;
-					break;
-				}
-			},
-			before:function(curr, next, opts){
-			},			
-			end:function(){
-				}
-	})
-
-	var vuelta_completa_familia=false;
-	$('.slide_familia').cycle({
-			fx: animacionSlide,
-			timeout:0,
-			speed:1000,
-			cleartype:false,
-			pager:'.slide_familia_pager',
-			startingSlide:pullHistory(urlHash).slideFamilia,
-			next:'.flecha_right',
-			prev:'.flecha_left',
-			before:function(curr, next, opts)
-			{
-			},
-			after:function(curr, next, opts){
-				if(primeraVez==false)
-				{
-					if(!lt_ie9)
-					{
-						pushHistoryFamilia(opts.currSlide);	
-					}
-					
-				}
-
-				switch(opts.currSlide)
-				{
-					case 0:
-						if(vuelta_completa_familia)
-						{
-							_gaq.push(['_trackPageview', '/samsung-landingmicroondas-familia/modelo1']);
-							vuelta_completa_familia=true;	
-						}
-					break;
-					case 1:
-						_gaq.push(['_trackPageview', '/samsung-landingmicroondas-familia/modelo2']);
-						vuelta_completa_familia=true;
-					break;
-					case 2:
-						_gaq.push(['_trackPageview', '/samsung-landingmicroondas-familia/modelo3']);
-						vuelta_completa_familia=true;
-					break;
-					case 3:
-						_gaq.push(['_trackPageview', '/samsung-landingmicroondas-familia/modelo4']);
-						vuelta_completa_familia=true;
-					break;
-					case 4:
-						_gaq.push(['_trackPageview', '/samsung-landingmicroondas-familia/modelo5']);
-						vuelta_completa_familia=true;
-					break;
-					case 5:
-						_gaq.push(['_trackPageview', '/samsung-landingmicroondas-familia/modelo6']);
-						vuelta_completa_familia=true;
-					break;
-				}
-
-			},			
-			end:function(){
-				}
-	})
-	var vuelta_completa_video=false;
-	$('.slide_videos').cycle({
-			fx: animacionSlide,
-			timeout:0,
-			speed:1000,
-			cleartype:false,
-			// pager:'.slide_videos_pager',
-			startingSlide:0,
-			after:function(curr, next, opts){
-				switch(opts.currSlide)
-				{
-					case 0:
-						if(vuelta_completa_video)
-						{
-							_gaq.push(['_trackPageview', '/samsung-landingmicroondas-videos1']);	
-						}						
-					break;
-					case 1:
-						_gaq.push(['_trackPageview', '/samsung-landingmicroondas-videos2']);
-						vuelta_completa_video=true
-					break;
-				}
-			},		
-			before:function(curr, next, opts){
-			},			
-			end:function(){
-				}
-	})
+	$(".slide_contenedor_inicio_pager").css("margin-left","-"+parseInt($(".slide_contenedor_inicio_pager").width())/2+"px") 
 
 
 
