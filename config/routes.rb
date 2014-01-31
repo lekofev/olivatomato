@@ -1,6 +1,7 @@
 Olivdaytomato::Application.routes.draw do
 
-  root :to => "landings#index"
+  # root :to => "landings#index"
+  root :to => "trabajando#index"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
