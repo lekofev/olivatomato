@@ -16,4 +16,3 @@
 //= require TweenMax.min
 //= require cycle
 //= require swfobject
-//= require init

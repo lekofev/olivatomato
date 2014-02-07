@@ -82,6 +82,11 @@ body,html{
 	height: 100%;
     background-color: #d6d5da;
 }
+.page.trabajando{
+    background-image: image-url("trabajando.jpg");
+    background-repeat: no-repeat;
+    background-position: top center;
+}
 
 .menu_principal{
     position: fixed;
