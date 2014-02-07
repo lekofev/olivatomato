@@ -2,7 +2,12 @@
 .page.clear_block
 	.menu_principal
 		.cont_menu.clear_block
-			ul
+
+			.logo
+				= image_tag("logo_ol.jpg", class:"")
+			.personajes.sprite.oliva
+			.personajes.sprite.tomato	
+			ul.menu_list.clear_block
 				li.menu_items.menu_item_0
 					a.btns.btn_inicio.ti.activo(data-id="0") inicio
 				li.menu_items.menu_item_1
@@ -14,13 +19,10 @@
 				li.menu_items.menu_item_4
 					a.btns.btn_video.ti(data-id="4") videos
 			
-			.logo
-				= image_tag("oliva_y_tomato.png", class:"")
-
-			.menu_sociales
-				.btns.btns_sociales.face.ti facebook
-				.btns.btns_sociales.tw.ti twitter
-				.btns.btns_sociales.email.ti email
+			/.menu_sociales
+			/	.btns.btns_sociales.face.ti facebook
+			/	.btns.btns_sociales.tw.ti twitter
+			/	.btns.btns_sociales.email.ti email
 
 
 	.footer
@@ -38,8 +40,8 @@
 			= image_tag("bg_0.jpg", class:"bg")
 			/ img.bg(src="/assets/bg_0.jpg" alt="")
 			.contenido.clear_block
-				.logo_oliva_tomato
-					= image_tag("oliva_y_tomato_logo.png", class:"")
+				/.logo_oliva_tomato
+				/	= image_tag("oliva_y_tomato_logo.png", class:"")
 				.titulo
 					| Queremos invitarte a descubrir un nuevo estilo de vida. Comer sano es facil, rápido y delicioso.
 

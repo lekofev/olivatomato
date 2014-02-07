@@ -91,18 +91,40 @@ body,html{
 .menu_principal{
     position: fixed;
     top: 0;
-    height: 70px;
+    height: 68px;
     width: 100%;
     z-index: 200;
     background-color: #ffffff;
-    border-bottom: 20px solid #6c4723;
+    border-bottom: 32px solid #6c4723;
     
     .cont_menu{
         width: 950px;
         margin: auto;
-        padding-top: 23px;
+        padding-top: 13px;
         position: relative;
 
+        .menu_list{
+            margin: 17px auto 0 auto;
+            width: 680px;
+
+
+        }
+        .personajes{
+            position: absolute;
+            width: 90px;
+            height: 185px;
+            top: 5px;
+
+        }
+        .personajes.oliva{
+            left: 0;
+            background-position: 0 -166px;
+
+        }
+        .personajes.tomato{      
+            right: 0;
+            background-position: -103px -166px;
+        }
 
     }
 
@@ -174,6 +196,7 @@ body,html{
     }
     .menu_item_4{
         width: 103px;
+        margin-right: 0;
         
         a{
             background-position: -548px 0;   
@@ -188,11 +211,10 @@ body,html{
 }
 
 .logo{
-    width: 114px;
-    height: 60px;
-    float: right;
-    margin-right: 13px;
-    margin-top: -16px;
+
+    width: 308px;
+    height: 40px;
+    margin: auto;
 }
 .menu_sociales{
     width: 100px;
@@ -261,9 +283,9 @@ body,html{
     }
     .titulo{
         width: 766px;
-        height: 61px;
+        height: 77px;
         text-indent: -99999px;
-        margin:20px auto 0 auto;
+        margin:80px auto 0 auto;
         background-image:  image-url("titulo.png");
         background-repeat: no-repeat;
         background-position: center center;
@@ -317,7 +339,7 @@ body,html{
     a{
         background-image:image-url("sprite.png");
         background-repeat: no-repeat;
-        background-position:  -35px -156px;
+        background-position:  -542px -107px;
         text-indent: -99999px;
         width: 21px;
         height: 22px;
@@ -326,7 +348,7 @@ body,html{
         margin-right: 8px;
     }
     a.activeSlide{
-        background-position:  0px -156px;
+        background-position: -513px -107px;
 
     }
 
