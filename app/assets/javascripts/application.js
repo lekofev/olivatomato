@@ -11,7 +11,12 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery-1.8.1.min
+//= require cufon-yui
+//= require Ponsi_Rounded_Slab_400
+//= require Code_Pro_Light_Demo_300.font
+//= require Code_Pro_Demo_400.font
 //= require app.fb
+//= require jquery.jcarousel.min
 //= require jquery.scrollTo-1.4.3.1-min
 //= require TweenMax.min
 //= require cycle

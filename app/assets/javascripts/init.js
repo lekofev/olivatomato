@@ -42,6 +42,48 @@ $(document).ready(function(){
 	var bloqueVisible=0;
 
 
+
+
+	Cufon.replace('.titulo H2, .ensalada_titulo, .ensalada_desc', { fontFamily: 'Ponsi Rounded Slab' });
+	Cufon.replace('.titulo p', { fontFamily: 'Code Pro Light Demo' });
+
+
+
+    $('.jcarousel').jcarousel({
+        // Configuration goes here
+    });
+
+        /*
+         Prev control initialization
+         */
+        $('.flecha_left')
+            // .on('jcarouselcontrol:active', function() {
+            //     $(this).removeClass('inactive');
+            // })
+            // .on('jcarouselcontrol:inactive', function() {
+            //     $(this).addClass('inactive');
+            // })
+            .jcarouselControl({
+                // Options go here
+                target: '-=1'
+            });
+
+        /*
+         Next control initialization
+         */
+        $('.flecha_right')
+            // .on('jcarouselcontrol:active', function() {
+            //     $(this).removeClass('inactive');
+            // })
+            // .on('jcarouselcontrol:inactive', function() {
+            //     $(this).addClass('inactive');
+            // })
+            .jcarouselControl({
+                // Options go here
+                target: '+=1'
+            });
+
+
 	//funcion que det4ecta el alto del navegador y retorna el valor
 	function getAltoVentana(){
 		var alto=$(window).height();
@@ -591,7 +633,7 @@ $(document).ready(function(){
 	});
 
 	//el efecto fade del cycle, para IE es "none"
-	var animacionSlide='fade';
+	var animacionSlide='scrollHorz';
 	if(lt_ie9)
 	{
 		animacionSlide='none';
@@ -621,7 +663,21 @@ $(document).ready(function(){
 
 	$(".slide_contenedor_inicio_pager").css("margin-left","-"+parseInt($(".slide_contenedor_inicio_pager").width())/2+"px") 
 
-
+	$('.slide_historia').cycle({
+			fx: animacionSlide,
+			timeout:0,
+			speed:1000,
+			cleartype:false,
+			startingSlide:0,
+			prev:".slide_contenedor_historia .flecha_left",
+			next:".slide_contenedor_historia .flecha_right",
+			before:function(curr, next, opts){
+			},	
+			after:function(curr, next, opts){
+			},			
+			end:function(){
+				}
+	})
 
 
 	// Los tooltips
