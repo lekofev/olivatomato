@@ -217,19 +217,22 @@ body,html{
     margin: auto;
 }
 .menu_sociales{
-    width: 100px;
-    height: 20px;
+    width: 18px;
+    height: 65px;
     position: absolute;
-    right: 19px;
-    bottom: -24px;
-    .btns_sociales{
-        float: left;
-        width: 18px;
-        height: 16px;
-        margin-right: 11px;
+    top: 98px;
+    left: 35px;
+    li{
+        height: 18px;
+        margin-bottom: 8px;
+        a{
+            display: block;
+            width: 100%;
+            height: 100%;
+        }
     }
     .face{
-        background-position: 0 -107px;
+        background-position: -2px -107px;
     }
     .tw{
         background-position: -29px -107px;
@@ -238,13 +241,13 @@ body,html{
         background-position: -60px -107px;
     }
     .face:hover{
-        background-position: 0 -129px;
+        background-position: -2px -133px;
     }
     .tw:hover{
-        background-position: -29px -129px;
+        background-position: -29px -133px;
     }
     .email:hover{
-        background-position: -60px -129px;
+        background-position: -60px -133px;
     }
 
 }
@@ -259,6 +262,7 @@ body,html{
     display: block;
     position: relative;
     overflow: hidden;
+    min-width: 960px;
     img.bg{
         height: 100%;
         position: absolute;
@@ -284,6 +288,93 @@ body,html{
     }
 
 }
+
+
+
+.contenido{
+    width: 904px;
+    height: 630px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -452px;
+    margin-top: -315px;
+    z-index: 20;
+
+    .info_block{
+        padding-top: 34px;
+
+        h2.titulo{
+            color: #00a9df;
+            font-family:"samsung_interfacebold";
+            font-size: 38px;
+            margin-bottom: 17px;
+        }
+
+        p.descripcion{
+            color: #53555b;
+            font-family: "samsung_interfaceregular";
+            font-size: 16px;
+            strong{
+                font-family: "samsung_interfacebold";
+            }
+
+
+        }
+    }
+
+    .telefono{
+        width: 194px;
+        height: 66px;
+        position: absolute;
+        background-position: -474px -202px;
+        display: block;
+        color: #ed3424;
+        font-size: 20px;
+        .tlf{
+            width: 123px;
+            margin: 24px 0 0 63px;
+        }
+    }
+    .btn_prepara_tu_ensalada{
+        width: 194px;
+        height: 66px;
+        display: block;
+        background-position: -266px -202px;
+        position: absolute;
+    }
+    .btn_prepara_tu_ensalada:hover{
+        background-position: -266px -273px;
+
+    }
+}
+
+
+@media all and (max-height: 700px){
+    .contenido{
+        width: 904px;
+        height: 630px;
+        position: absolute;        
+        top: 50px;
+        left: 50%;
+        margin-left: -452px;
+        margin-top: 0;
+        z-index: 20;
+    
+        .slide_contenedor_historia{
+
+        }        
+
+
+        .telefono{
+
+        }
+    }
+}
+
+
+
+
 .bloques.bloque_0{
 /*
     background-image: image-url("bg_0.jpg");
@@ -299,7 +390,14 @@ body,html{
     .titulo p{
         text-align: center;
     }
-
+    .telefono{
+        bottom: 24px;
+        left: 120px;
+    }
+    .btn_prepara_tu_ensalada{
+        bottom: 24px;
+        right: 120px;
+    }
 
 }
 
@@ -308,15 +406,20 @@ body,html{
     height: 348px;
     margin: 25px auto 0 auto;
     position: relative;
+
+    border: 4px solid #ffffff;
+    margin: auto;
+    -webkit-box-shadow: 3px 3px 5px 1px rgba(0,0,0,0.4);
+    box-shadow: 3px 3px 5px 1px rgba(0,0,0,0.4);
+
     .slide_items{
         width: 658px;
         height: 348px;        
     }
     .img_ensaladas{
-        border: 4px solid #ffffff;
         margin: auto;
-        -webkit-box-shadow: 3px 3px 5px 1px rgba(0,0,0,0.4);
-        box-shadow: 3px 3px 5px 1px rgba(0,0,0,0.4)
+        width: 100%;
+        height: 100%;
     }
     .flechas{
         width: 26px;
@@ -372,10 +475,17 @@ body,html{
     }
     */
     .contenido{
-        background-image: image-url("txt_carton.jpg")  ;
-
+        background-image: image-url("txt_carton.jpg");
+        -webkit-box-shadow: 3px 3px 14px 0px rgba(0, 0, 0, 0.2);
     }
-
+    .telefono{
+        bottom: 60px;
+        left: 120px;
+    }
+    .btn_prepara_tu_ensalada{
+        bottom: 60px;
+        right: 120px;
+    }
 }
 
 .slide_contenedor_ensaladas{
@@ -503,15 +613,90 @@ body,html{
 .bloques.bloque_2{   
     .contenido{
         background-color: #ffffff;
+        -webkit-box-shadow: 3px 3px 14px 0px rgba(0, 0, 0, 0.2);
+    }
+
+    
+}
+
+.titulo_sabias_que{
+    width: 672px;
+    height: 40px;
+    margin: 20px auto 0 auto;
+
+    h2{
+        color: #4a2b0b;
+        font-size: 24px;
     }
 }
+
+.info_nutricional{
+    width: 670px;
+    height: 184px;
+    margin: 0 auto;
+    background-color: #f1f2ea;
+    margin-top: 10px;
+
+    .tabla_nutricional{
+        width: 312px;
+        height: 160px;
+        float: left;
+        margin: 15px 0 0 15px;
+        table{
+            color: #ffffff;
+            width: 100%;
+            height: 100%;
+            font-size: 14px;
+            font-family: arial;
+
+            tr{
+
+            }
+            td{
+                background: #b54529;
+                border-collapse: collapse;
+                border:1px solid #f7ac94;
+                padding: 5px 0 0 10px;
+
+            }
+            td.titulo_tabla{
+                background-color: #8f161a;
+
+            }
+            td.left{
+                width: 155px;
+            }
+            td.right{
+
+            }
+            
+        }
+    }
+    .recurso_nutricional{
+        float: right;
+        width: 312px;
+        height: 160px;
+        margin: 15px 15px 0 0;
+    }
+
+}
+
 .bloques.bloque_3{
     .contenido{
-        background-image: image-url("txt_carton.jpg")  ;
+        background-image: image-url("txt_carton.jpg");
+        -webkit-box-shadow: 3px 3px 14px 0px rgba(0, 0, 0, 0.2);
 
+    }
+    .titulo{
+        padding-top: 30px;
+        height: 30px;
     }
     .titulo p{
         text-align: center;
+    }
+    .telefono{
+        bottom: 24px;
+        left: 120px;
     }
 
     .slide_contenedor_historia{
@@ -561,59 +746,194 @@ body,html{
 .bloques.bloque_4{
     .contenido{
         background-image: image-url("txt_carton.jpg")  ;
+        -webkit-box-shadow: 3px 3px 14px 0px rgba(0, 0, 0, 0.2);
 
     }
+    .telefono{
+        bottom: 24px;
+        left: 120px;
+    }
+    .btn_prepara_tu_ensalada{
+        bottom: 24px;
+        right: 120px;
+    }
+    .titulo.galeria_videos{
+        margin: 20px auto 0 auto;
+
+    }
+
+
 }
+.slide_contenedor_galeria_foto{
+    width: 640px;
+    height: 130px;
+    margin: auto;
+    position: relative;
 
-.contenido{
-    width: 904px;
-    height: 630px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-left: -452px;
-    margin-top: -315px;
-    z-index: 20;
 
-    .info_block{
-        padding-top: 34px;
+    .flechas{
+        width: 26px;
+        height: 94px;
+        position: absolute;
+        top: 17px;
+    }
+    .flechas.flecha_left {
+        background-position: -345px -98px;
+        left: -47px;
+    }
+    .flechas.flecha_right {
+        background-position: -468px -98px;
+        right: -47px;
+    }
+    .flechas.flecha_left:hover {
+        background-position: -382px -98px;
+        left: -47px;
+    }
+    .flechas.flecha_right:hover {
+        background-position: -430px -98px;
+        right: -47px;
+    }
+    .jcarousel {
+        position: relative;
+        overflow: hidden;
+        width: 640px;
+    }
+    .jcarousel ul {
+        width: 1700px;
+        position: relative;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    .jcarousel li {
+        float: left;
+    }
 
-        h2.titulo{
-            color: #00a9df;
-            font-family:"samsung_interfacebold";
-            font-size: 38px;
-            margin-bottom: 17px;
-        }
 
-        p.descripcion{
-            color: #53555b;
-            font-family: "samsung_interfaceregular";
-            font-size: 16px;
-            strong{
-                font-family: "samsung_interfacebold";
+    .jcarousel{
+
+        li{
+            width: 160px;
+            height: 130px;
+            a{
+                display: block;
+                width: 120px;
+                height: 120px;
+                border:2px solid #ffffff;
+                background-color: #ffffff;
+                -webkit-box-shadow: 3px 3px 4px 0px rgba(0, 0, 0, 0.2);
+                -moz-box-shadow:  3px 3px 4px 0px rgba(0, 0, 0, 0.2);
+                box-shadow:  3px 3px 4px 0px rgba(0, 0, 0, 0.2);
+                margin:2px auto 0 auto;
+
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
+
             }
-
+        }
+        .ensalada_item{
+            width: 150px;
+            height: 138px;
+            margin:0 auto;
+            border: 1px solid #ffffff;
+            -webkit-box-shadow: 3px 3px 4px 0px rgba(0, 0, 0, 0.2);
+            -moz-box-shadow:  3px 3px 4px 0px rgba(0, 0, 0, 0.2);
+            box-shadow:  3px 3px 4px 0px rgba(0, 0, 0, 0.2);
+            background-color: #c6c6c6;
 
         }
     }
 
-
 }
 
 
-@media all and (max-height: 730px){
-    .contenido{
-        width: 904px;
-        height: 630px;
-        position: absolute;        
-        top: 50px;
-        left: 50%;
-        margin-left: -452px;
-        margin-top: 0;
-        z-index: 20;
 
+.slide_contenedor_galeria_video{
+    width: 640px;
+    height: 130px;
+    margin: auto;
+    position: relative;
+
+
+    .flechas{
+        width: 26px;
+        height: 94px;
+        position: absolute;
+        top: 17px;
     }
+    .flechas.flecha_left {
+        background-position: -345px -98px;
+        left: -47px;
+    }
+    .flechas.flecha_right {
+        background-position: -468px -98px;
+        right: -47px;
+    }
+    .flechas.flecha_left:hover {
+        background-position: -382px -98px;
+        left: -47px;
+    }
+    .flechas.flecha_right:hover {
+        background-position: -430px -98px;
+        right: -47px;
+    }
+    .jcarousel {
+        position: relative;
+        overflow: hidden;
+        width: 640px;
+    }
+    .jcarousel ul {
+        width: 1700px;
+        position: relative;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+    .jcarousel li {
+        float: left;
+    }
+
+
+    .jcarousel{
+
+        li{
+            width: 160px;
+            height: 130px;
+            a{
+                display: block;
+                width: 120px;
+                height: 120px;
+                border:2px solid #ffffff;
+                background-color: #ffffff;
+                -webkit-box-shadow: 3px 3px 4px 0px rgba(0, 0, 0, 0.2);
+                -moz-box-shadow:  3px 3px 4px 0px rgba(0, 0, 0, 0.2);
+                box-shadow:  3px 3px 4px 0px rgba(0, 0, 0, 0.2);
+                margin:2px auto 0 auto;
+
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
+
+            }
+        }
+        .ensalada_item{
+            width: 150px;
+            height: 138px;
+            margin:0 auto;
+            border: 1px solid #ffffff;
+            -webkit-box-shadow: 3px 3px 4px 0px rgba(0, 0, 0, 0.2);
+            -moz-box-shadow:  3px 3px 4px 0px rgba(0, 0, 0, 0.2);
+            box-shadow:  3px 3px 4px 0px rgba(0, 0, 0, 0.2);
+            background-color: #c6c6c6;
+
+        }
+    }
+
 }
+
 
 
 

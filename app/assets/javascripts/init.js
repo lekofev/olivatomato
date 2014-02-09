@@ -44,7 +44,7 @@ $(document).ready(function(){
 
 
 
-	Cufon.replace('.titulo H2, .ensalada_titulo, .ensalada_desc', { fontFamily: 'Ponsi Rounded Slab' });
+	Cufon.replace('.titulo H2, .titulo_sabias_que,  .ensalada_titulo, .ensalada_desc, .telefono', { fontFamily: 'Ponsi Rounded Slab' });
 	Cufon.replace('.titulo p', { fontFamily: 'Code Pro Light Demo' });
 
 

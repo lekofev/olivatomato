@@ -4,9 +4,17 @@
 		.cont_menu.clear_block
 
 			.logo
-				= image_tag("logo_ol.jpg", class:"")
+				= link_to image_tag("logo_ol.jpg", class:"").html_safe, '#'
 			.personajes.sprite.oliva
-			.personajes.sprite.tomato	
+			.personajes.sprite.tomato
+				ul.menu_sociales
+					li
+						a.btns.icon_sociales.face(href="http://facebook.com")
+					li
+						a.btns.icon_sociales.tw(href="http://twitter.com")
+					li
+						a.btns.icon_sociales.email(href="http://gmail.com")
+
 			ul.menu_list.clear_block
 				li.menu_items.menu_item_0
 					a.btns.btn_inicio.ti.activo(data-id="0") inicio
@@ -42,6 +50,11 @@
 				.titulo
 					p Queremos invitarte a descubrir un nuevo estilo de vida. Comer sano es facil, rápido y delicioso.
 
+				.sprite.telefono 
+					.tlf 971-161-039
+
+				= link_to("", {constroller: "landings"}, id: "news", class: "btns btn_prepara_tu_ensalada")
+
 				.slide_contenedor_inicio
 					.slie.slide_inicio
 						.slide_items.slide_item_0
@@ -68,6 +81,11 @@
 				.titulo
 					h2 Ensaladas Preparadas
 					p Tenemos una selección de ensaladas listas para pedir
+
+				.sprite.telefono 
+					.tlf 971-161-039
+
+				= link_to("", {constroller: "landings"}, id: "news", class: "btns btn_prepara_tu_ensalada")
 
 				.slide_contenedor_ensaladas
 					.jcarousel
@@ -168,6 +186,35 @@
 					h2 Tips Nutricionales
 					p Si tienes alguna condición de salud y quieres saber Cómo alimentarte, estás en el lugar correcto.
 
+				.info_nutricional
+					.tabla_nutricional
+						table
+							tr
+								td.left.titulo_tabla Produce
+								td.right.titulo_tabla %With Neurotoxins
+							tr
+								td.left Nectarins
+								td.right 53.2%	
+							tr
+								td.left Nectarins
+								td.right 53.2%	
+							tr
+								td.left Nectarins
+								td.right 53.2%	
+							tr
+								td.left Nectarins
+								td.right 53.2%
+							tr
+								td.left Nectarins
+								td.right 53.2%		
+
+					.recurso_nutricional 
+
+				.titulo_sabias_que
+					h2 Sabías que...
+
+
+
 		.bloques.bloque_3
 
 			= image_tag("bg_3.jpg", class:"bg")
@@ -175,6 +222,9 @@
 			.contenido.clear_block
 				.titulo
 					p CONOCE LA HISTORIA DETRÁS DE ESTA FRESCA UNIÓN
+
+				.sprite.telefono 
+					.tlf 971-161-039
 
 				.slide_contenedor_historia
 					.slie.slide_historia
@@ -200,6 +250,109 @@
 				.titulo
 					h2 Fotos
 					p LA naturaleza nos inspira, inspírate tu también.
+
+				.sprite.telefono 
+					.tlf 971-161-039
+				= link_to("", {constroller: "landings"}, id: "news", class: "btns btn_prepara_tu_ensalada")
+
+				.slide_contenedor_galeria_foto
+					.jcarousel
+						ul
+							li
+								a.galeria_foto_item(href="javascript:void(0)")
+									= image_tag("ensalada_menu.jpg", class:"")
+									/ h5.foto_descripcion
+									/ 	| Del Cesar 1 inspírate tu también.
+							li
+								a.galeria_foto_item(href="javascript:void(0)")
+									= image_tag("ensalada_menu.jpg", class:"")
+									/ h5.foto_descripcion
+									/ 	| Del Cesar 1 inspírate tu también.
+							li
+								a.galeria_foto_item(href="javascript:void(0)")
+									= image_tag("ensalada_menu.jpg", class:"")
+									/ h5.foto_descripcion
+									/ 	| Del Cesar 1 inspírate tu también.
+							li
+								a.galeria_foto_item(href="javascript:void(0)")
+									= image_tag("ensalada_menu.jpg", class:"")
+									/ h5.foto_descripcion
+									/ 	| Del Cesar 1 inspírate tu también.
+							li
+								a.galeria_foto_item(href="javascript:void(0)")
+									= image_tag("ensalada_menu.jpg", class:"")
+									/ h5.foto_descripcion
+									/ 	| Del Cesar 1 inspírate tu también.
+							li
+								a.galeria_foto_item(href="javascript:void(0)")
+									= image_tag("ensalada_menu.jpg", class:"")
+									/ h5.foto_descripcion
+									/ 	| Del Cesar 1 inspírate tu también.
+							li
+								a.galeria_foto_item(href="javascript:void(0)")
+									= image_tag("ensalada_menu.jpg", class:"")
+									/ h5.foto_descripcion
+									/ 	| Del Cesar 1 inspírate tu también.
+							li
+								a.galeria_foto_item(href="javascript:void(0)")
+									= image_tag("ensalada_menu.jpg", class:"")
+									/ h5.foto_descripcion
+									/ 	| Del Cesar 1 inspírate tu también.
+
+					input.btns.flechas.flecha_left(type="button")
+					input.btns.flechas.flecha_right(type="button")
+
+
+				.titulo.galeria_videos
+					h2 Videos
+					p Lo MÁS NUTRITIVO QUE ENCONTRAMOS EN LA WEB.
+
+				.slide_contenedor_galeria_video
+					.jcarousel
+						ul
+							li
+								a.galeria_foto_item(href="javascript:void(0)")
+									= image_tag("ensalada_menu.jpg", class:"")
+									/ h5.foto_descripcion
+									/ 	| Del Cesar 1 inspírate tu también.
+							li
+								a.galeria_foto_item(href="javascript:void(0)")
+									= image_tag("ensalada_menu.jpg", class:"")
+									/ h5.foto_descripcion
+									/ 	| Del Cesar 1 inspírate tu también.
+							li
+								a.galeria_foto_item(href="javascript:void(0)")
+									= image_tag("ensalada_menu.jpg", class:"")
+									/ h5.foto_descripcion
+									/ 	| Del Cesar 1 inspírate tu también.
+							li
+								a.galeria_foto_item(href="javascript:void(0)")
+									= image_tag("ensalada_menu.jpg", class:"")
+									/ h5.foto_descripcion
+									/ 	| Del Cesar 1 inspírate tu también.
+							li
+								a.galeria_foto_item(href="javascript:void(0)")
+									= image_tag("ensalada_menu.jpg", class:"")
+									/ h5.foto_descripcion
+									/ 	| Del Cesar 1 inspírate tu también.
+							li
+								a.galeria_foto_item(href="javascript:void(0)")
+									= image_tag("ensalada_menu.jpg", class:"")
+									/ h5.foto_descripcion
+									/ 	| Del Cesar 1 inspírate tu también.
+							li
+								a.galeria_foto_item(href="javascript:void(0)")
+									= image_tag("ensalada_menu.jpg", class:"")
+									/ h5.foto_descripcion
+									/ 	| Del Cesar 1 inspírate tu también.
+							li
+								a.galeria_foto_item(href="javascript:void(0)")
+									= image_tag("ensalada_menu.jpg", class:"")
+									/ h5.foto_descripcion
+									/ 	| Del Cesar 1 inspírate tu también.
+
+					input.btns.flechas.flecha_left(type="button")
+					input.btns.flechas.flecha_right(type="button")
 								
 
 	.modal
