@@ -2,7 +2,12 @@
 .page.clear_block
 	.menu_principal
 		.cont_menu.clear_block
-			ul
+
+			.logo
+				= image_tag("logo_ol.jpg", class:"")
+			.personajes.sprite.oliva
+			.personajes.sprite.tomato	
+			ul.menu_list.clear_block
 				li.menu_items.menu_item_0
 					a.btns.btn_inicio.ti.activo(data-id="0") inicio
 				li.menu_items.menu_item_1
@@ -14,13 +19,10 @@
 				li.menu_items.menu_item_4
 					a.btns.btn_video.ti(data-id="4") videos
 			
-			.logo
-				= image_tag("oliva_y_tomato.png", class:"")
-
-			.menu_sociales
-				.btns.btns_sociales.face.ti facebook
-				.btns.btns_sociales.tw.ti twitter
-				.btns.btns_sociales.email.ti email
+			/.menu_sociales
+			/	.btns.btns_sociales.face.ti facebook
+			/	.btns.btns_sociales.tw.ti twitter
+			/	.btns.btns_sociales.email.ti email
 
 
 	.footer
@@ -36,12 +38,9 @@
 	.contenedor.clear_block
 		.bloques.bloque_0
 			= image_tag("bg_0.jpg", class:"bg")
-			/ img.bg(src="/assets/bg_0.jpg" alt="")
 			.contenido.clear_block
-				.logo_oliva_tomato
-					= image_tag("oliva_y_tomato_logo.png", class:"")
 				.titulo
-					| Queremos invitarte a descubrir un nuevo estilo de vida. Comer sano es facil, rápido y delicioso.
+					p Queremos invitarte a descubrir un nuevo estilo de vida. Comer sano es facil, rápido y delicioso.
 
 				.slide_contenedor_inicio
 					.slie.slide_inicio
@@ -50,6 +49,10 @@
 						.slide_items.slide_item_1
 							= image_tag("ensalada.jpg", class:"img_ensaladas")
 						.slide_items.slide_item_2
+							/= link_to "hiii #{image_tag(yourimagepath)}", "link_path"
+							/= link_to image_tag("ensalada.jpg", class:"img_ensaladas"). "link"
+							= link_to image_tag("ensalada.jpg", class:"img_ensaladas").html_safe, '#'
+						.slide_items.slide_item_3
 							= image_tag("ensalada.jpg", class:"img_ensaladas")
 
 					.btns.flechas.flecha_left.ti flecha inzquierda
@@ -60,117 +63,133 @@
 			
 
 		.bloques.bloque_1
-
 			= image_tag("bg_1.jpg", class:"bg")
-			/ img.bg(src="/assets/bg_1.jpg" alt="")
 			.contenido.clear_block
-				.logo_cheft.sprite
-				.info_block
-					h2.titulo Historia
-					p.descripcion
-						/ |Ten un Cheff Samsung en casa y deleita a todos preparando <br>
-						/ |deliciosos platillos. 
+				.titulo
+					h2 Ensaladas Preparadas
+					p Tenemos una selección de ensaladas listas para pedir
 
-				/ .slide_contenedor_beneficios
-				/ 	.slie.slide_beneficios
-				/ 		.slide_items.slide_item_0
-				/ 			input.btns.btn_tooltip.activo(type="button" value="")
+				.slide_contenedor_ensaladas
+					.jcarousel
+						ul
+							li
+								.ensalada_item
+									.ensalada_imagen	
+										= link_to image_tag("ensalada_menu.jpg", class:"").html_safe, '#'
+									h4.ensalada_titulo
+										| Del Cesar 1
 
-				/ 			.tooltip
-				/ 				.flecha
-				/ 				input.btns.btn_cerrar_tooltip(type="button" value="")
-				/ 				h3.tooltip_titulo							
-				/ 					|Cerámica Enamel
-				/ 				p.tooltip_desc
-				/ 					|El Cheff Samsung tiene un recubrimiento de <br>
-				/ 					|cerámica Enamel en su interior, <br>
-				/ 					|caracterizándose por ser anti-ralladuras, <br>
-				/ 					|anti-bacterial y altamente resistente ante el <br>
-				/ 					|desgaste diario. 
+									p.ensalada_desc Lechugas orgánicas, pollo grillé, huevo y tomate acompañado con pasas de estación, mayonesa baja en colesterol  con su toque picante
 
-				/ 				p.tooltip_desc.tested_bg
-				/ 					|Además cuenta con  <br>
-				/ 					|el certificado de  <br>
-				/ 					|calidad del instituto  <br>
-				/ 					|Hohenstein de  <br>
-				/ 					|Alemania. 
-							
+									.ensalada_precio
+										| S/. 25.00
+									/ link_to("#", controller: "landings", class: "btns btn_detalle_ensalada")
+									a.btns.btn_detalle_ensalada(href="#")
+							li
+								.ensalada_item
+									.ensalada_imagen	
+										= link_to image_tag("ensalada_menu.jpg", class:"").html_safe, '#'
+									h4.ensalada_titulo
+										| Del Cesar 2
 
-				/ .slide_pager.slide_beneficios_pager				
+									p.ensalada_desc Lechugas orgánicas, pollo grillé, huevo y tomate acompañado con pasas de estación, mayonesa baja en colesterol  con su toque picante
+
+									.ensalada_precio
+										| S/. 25.00
+									/ link_to("#", controller: "landings", class: "btns btn_detalle_ensalada")
+									a.btns.btn_detalle_ensalada(href="#")
+							li
+								.ensalada_item
+									.ensalada_imagen	
+										= link_to image_tag("ensalada_menu.jpg", class:"").html_safe, '#'
+									h4.ensalada_titulo
+										| Del Cesar 3
+
+									p.ensalada_desc Lechugas orgánicas, pollo grillé, huevo y tomate acompañado con pasas de estación, mayonesa baja en colesterol  con su toque picante
+
+									.ensalada_precio
+										| S/. 25.00
+									/ link_to("#", controller: "landings", class: "btns btn_detalle_ensalada")
+									a.btns.btn_detalle_ensalada(href="#")
+							li
+								.ensalada_item
+									.ensalada_imagen	
+										= link_to image_tag("ensalada_menu.jpg", class:"").html_safe, '#'
+									h4.ensalada_titulo
+										| Del Cesar 4
+
+									p.ensalada_desc Lechugas orgánicas, pollo grillé, huevo y tomate acompañado con pasas de estación, mayonesa baja en colesterol  con su toque picante
+
+									.ensalada_precio
+										| S/. 25.00
+									/ link_to("#", controller: "landings", class: "btns btn_detalle_ensalada")
+									a.btns.btn_detalle_ensalada(href="#")
+							li
+								.ensalada_item
+									.ensalada_imagen	
+										= link_to image_tag("ensalada_menu.jpg", class:"").html_safe, '#'
+									h4.ensalada_titulo
+										| Del Cesar 5
+
+									p.ensalada_desc Lechugas orgánicas, pollo grillé, huevo y tomate acompañado con pasas de estación, mayonesa baja en colesterol  con su toque picante
+
+									.ensalada_precio
+										| S/. 25.00
+									/ link_to("#", controller: "landings", class: "btns btn_detalle_ensalada")
+									a.btns.btn_detalle_ensalada(href="#")
+							li
+								.ensalada_item
+									.ensalada_imagen	
+										= link_to image_tag("ensalada_menu.jpg", class:"").html_safe, '#'
+									h4.ensalada_titulo
+										| Del Cesar 6
+
+									p.ensalada_desc Lechugas orgánicas, pollo grillé, huevo y tomate acompañado con pasas de estación, mayonesa baja en colesterol  con su toque picante
+
+									.ensalada_precio
+										| S/. 25.00
+									/ link_to("#", controller: "landings", class: "btns btn_detalle_ensalada")
+									a.btns.btn_detalle_ensalada(href="#")
+
+
+
+					input.btns.flechas.flecha_left(type="button")
+					input.btns.flechas.flecha_right(type="button")
+
+
+
 
 		.bloques.bloque_2
 
 			= image_tag("bg_2.jpg", class:"bg")
 			/ img.bg(src="/assets/bg_2.jpg" alt="")
 			.contenido.clear_block
-				.logo_cheft.sprite
-				.info_block
-					h2.titulo Ensaladas
-				/ 	p.descripcion
-				/ 		|<strong> Nuevo horno de Convección / Healthy & Smart Oven</strong><br>
-				/ 		|Con el Cello podrás hornear, dorar, cocinar, rostizar, además de <br>
-				/ 		|recalentar y descongelar. Cualquier alimento puede ser cocinado <br>
-				/ 		|rápido y uniformemente en un microondas de convección y de <br>
-				/ 		|una manera más saludable.
-
-				/ .slide_contenedor_cello
-				/ 	.slie.slide_cello
-				/ 		.slide_items.slide_item_0
-				/ 			input.btns.btn_tooltip.activo(type="button" value="")
-				/ 			a.btns.btns_sociales_cello.btn_vermas.ti(href="http://www.samsung.com/" target="_blank" value="" onclick="_gaq.push(['_trackEvent', 'samsung-landingmicroondas','cello','vermas']);")
-				/ 			input.btns.btns_sociales_cello.btn_compartir.ti(type="button" value="" onclick="compartirCello();")
-
-				/ 			.tooltip
-				/ 				.flecha
-				/ 				input.btns.btn_cerrar_tooltip(type="button" value="")
-				/ 				h3.tooltip_titulo							
-				/ 					|Slim Fry
-				/ 				p.tooltip_desc
-				/ 					|Con más de 10 platos ya pre programados <br>
-				/ 					|podrás freír con una mínima cantidad de <br>
-				/ 					|aceite. Es mucho más saludable que la<br> manera 
-				/ 					|convencional de freír tus alimentos. 				
+				.titulo
+					h2 Tips Nutricionales
+					p Si tienes alguna condición de salud y quieres saber Cómo alimentarte, estás en el lugar correcto.
 
 		.bloques.bloque_3
 
 			= image_tag("bg_3.jpg", class:"bg")
 			/ img.bg(src="/assets/bg_3.jpg" alt="")
 			.contenido.clear_block
-				.logo_cheft.sprite
-				.info_block
-					h2.titulo Nutricion
-				/ 	p.descripcion
-				/ 		|Conoce toda la gama de hornos microondas Samsung <br>
-				/ 		|que tenemos para ti y elige el ideal para preparar los <br>
-				/ 		|mejores platillos.						
+				.titulo
+					p CONOCE LA HISTORIA DETRÁS DE ESTA FRESCA UNIÓN
 
-				/ .slide_contenedor_familia
-				/ 	.slie.slide_familia
-				/ 		.slide_items.slide_item_0
-				/ 			.color_gris.activo	
-				/ 				.btns_sociales_familia_cont
-				/ 					a.btns.btns_sociales_familia.btn_vermas.ti(href="javascript:void(0)" target="_blank" onclick="_gaq.push(['_trackEvent', 'samsung-landingmicroondas','familia/modelo1','vermas']);")
-				/ 					input.btns.btns_sociales_familia.btn_compartir(type="button" value="" onclick="compartir_0()")
-				/ 				.info_microonda
-				/ 					h3.titulo MIRROR
-				/ 					.bajada Línea Con Dorador
-				/ 					.modelos
-				/ 						|MG402MADXBB/PE (40L)<br>
-				/ 						|AGE0103MB/XPE (28L)<br>
-				/ 						|AGE83X/XPE (22.4L)
-				/ 					ul
-				/ 						li Interior de Enamel
-				/ 						li Botón Eco – Ahorro de Energía
-				/ 						li Función Aderezo
-				/ 						li Sistema Triple Distribución de Onda
-				/ 						li Pantalla Tipo LED
-				/ 						li Autodescongelado
-				/ 						li 30 Segundos más	
-				/ 				.foto_microonda
-				/ 					= image_tag("/assets/microondas/microonda_0.png", class:"microonda_img", alt:"MG402MADXBB/PE (40L)")
-				/ .btns.flechas.flecha_left.ti flecha inzquierda
-				/ .btns.flechas.flecha_right.ti flecha derecha
-				/ .slide_pager.slide_familia_pager
+				.slide_contenedor_historia
+					.slie.slide_historia
+						.slide_items.slide_item_0
+							= image_tag("historia.jpg", class:"img_historia")
+						.slide_items.slide_item_1
+							= image_tag("historia.jpg", class:"img_historia")
+						.slide_items.slide_item_2
+							= image_tag("historia.jpg", class:"img_historia")
+						.slide_items.slide_item_3
+							= image_tag("historia.jpg", class:"img_historia")
+
+					.btns.flechas.flecha_left.ti flecha inzquierda
+					.btns.flechas.flecha_right.ti flecha derecha
+
 
 			
 
@@ -178,29 +197,9 @@
 			= image_tag("bg_4.jpg", class:"bg")
 			/ img.bg(src="/assets/bg_4.jpg" alt="")
 			.contenido.clear_block
-				.logo_cheft.sprite
-				.info_block
-					h2.titulo Galeria
-				/ 	p.descripcion
-				/ 		|Cocina los platos más exquisitos de la comida peruana <br>
-				/ 		|e internacional, gracias a los consejos y secretos de tu <br>
-				/ 		|Cheff Samsung.
-
-				/ .slide_contenedor_videos
-				/ 	.slie.slide_videos
-
-				/ 		.slide_items.slide_item_0
-
-				/ 			.video_items.video_item_0.left
-				/ 				.video_miniatura_img
-				/ 					= image_tag("/assets/video/video_img_1.jpg", class:"miniatira_img")
-				/ 				input.btns.video_btn_play(value="" type="button" data-videoid="Ad0P2qVa334" onclick="_gaq.push(['_trackEvent', 'samsung-landingmicroondas','videos1','video1_play']);" data-titulo="Samsung Cello" data-info="New Smart Oven" data-time="1:03 m")
-				/ 				.video_info_contenedor
-				/ 					.video_titulo Samsung Cello
-				/ 					.video_info
-				/ 						|New Smart Oven<br>
-				/ 						|1:03 m
-				/ 				.sombra_video.sprite		
+				.titulo
+					h2 Fotos
+					p LA naturaleza nos inspira, inspírate tu también.
 								
 
 	.modal
