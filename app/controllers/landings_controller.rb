@@ -3,6 +3,8 @@ class LandingsController < ApplicationController
 
 	def index
 		render "landings/index" 
-	end
 
+		
+	end
+	@cc = "Hola mundo"
 end

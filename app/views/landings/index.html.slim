@@ -4,7 +4,7 @@
 		.cont_menu.clear_block
 
 			.logo
-				= link_to image_tag("logo_ol.jpg", class:"").html_safe, '#'
+				= link_to image_tag("logo_ol.jpg", class:"").html_safe, '/'
 			.personajes.sprite.oliva
 			.personajes.sprite.tomato
 				ul.menu_sociales
@@ -48,7 +48,9 @@
 			= image_tag("bg_0.jpg", class:"bg")
 			.contenido.clear_block
 				.titulo
-					p Queremos invitarte a descubrir un nuevo estilo de vida. Comer sano es facil, rápido y delicioso.
+					== @cc
+					/ p Queremos invitarte a descubrir un nuevo estilo de vida. Comer sano es facil, rápido y delicioso.
+					p 
 
 				.sprite.telefono 
 					.tlf 971-161-039
