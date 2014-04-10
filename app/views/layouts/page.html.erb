@@ -5,19 +5,19 @@
 <!--[if gt IE 8]><!--> <html lang="es" class="no-js"> <!--<![endif]-->
 <head>
 	<meta charset="utf-8">
-	<title>Olvia y Tomato</title>
-	<meta name="title" content="">
-	<meta name="description" content="">
-	<meta name="keywords" content="">
+	<title> <%= @siteinfo.doc_title %> </title>
+	<meta name="title" content=" <%= @siteinfo.site_title %>">
+	<meta name="description" content=" <%= @siteinfo.site_desc %>">
+	<meta name="keywords" content="<%= @siteinfo.site_keywords %>">
 	
 	<!-- Opciones para compartir en Facebook -->
-	<meta property="og:title" content="Tu ayudante perfecto en la cocina.">
-	<meta property="og:description" content="Prepara exquisitos platos de comida y deliciosos postres gracias a la línea de hornos microondas Samsung. ¡Conócelos tú también!">
+	<meta property="og:title" content="<%= @siteinfo.og_title %>">
+	<meta property="og:description" content="<%= @siteinfo.og_desc %>">
 	<meta property="og:type" content="website">
-	<meta property="og:url" content="http://cheffsamsung.samsung-peru.com//">
-	<meta property="og:image" content="http://cheffsamsung.samsung-peru.com//assets/face/site.jpg">
+	<meta property="og:url" content="<%= @siteinfo.og_url %>">
+	<meta property="og:image" content="<%= @siteinfo.og_image %>">
 	<!-- <meta property="og:image:secure_url" content=""> -->
-	<meta property="og:site_name" content="Samsung">
+	<meta property="og:site_name" content="<%= @siteinfo.og_site_name %>">
 	
 	<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
   	<%= stylesheet_link_tag "application" %>

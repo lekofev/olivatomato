@@ -216,6 +216,35 @@ body,html{
     height: 40px;
     margin: auto;
 }
+
+.telefono{
+    width: 190px;
+    height: 32px;
+    position: absolute;
+    left: 0;
+    top: 9px;
+    background-position: -7px -426px;
+    display: block;
+    color: #ed3424;
+    font-size: 20px;
+    .tlf{
+        width: 123px;
+        margin: 5px 0 0 43px;
+    }
+}
+.btn_prepara_tu_ensalada{
+    width: 178px;
+    height: 34px;
+    position: absolute;
+    right: 0;
+    top: 14px;
+    background-position: -7px -473px;
+}
+.btn_prepara_tu_ensalada:hover{
+    background-position: -201px -473px;
+
+}
+
 .menu_sociales{
     width: 18px;
     height: 65px;
@@ -323,30 +352,7 @@ body,html{
         }
     }
 
-    .telefono{
-        width: 194px;
-        height: 66px;
-        position: absolute;
-        background-position: -474px -202px;
-        display: block;
-        color: #ed3424;
-        font-size: 20px;
-        .tlf{
-            width: 123px;
-            margin: 24px 0 0 63px;
-        }
-    }
-    .btn_prepara_tu_ensalada{
-        width: 194px;
-        height: 66px;
-        display: block;
-        background-position: -266px -202px;
-        position: absolute;
-    }
-    .btn_prepara_tu_ensalada:hover{
-        background-position: -266px -273px;
 
-    }
 }
 
 
@@ -1711,73 +1717,49 @@ body,html{
 /* ----------------------- footer ------------------*/
 .footer{
     position: fixed;
-    /*top: 80px;*/
     bottom: 0px;
     left: 0;
     width: 100%;
-    height: 1px;
+    height: 60px;
     z-index: 200;
+    background-image: image-url("px_png_blanco.png");
+    background-repeat: repeat;
 
     .cont_footer{
         width: 904px;
         margin: auto;
-        height: 1px;
+        height: 60px;
         position: relative;
     }
 
-    .btn_compartir{
-        width: 94px;
-        height: 24px;
-        background-position: -365px -314px;
-        float: left;
-        margin-top: -44px;
-        
-    }
-    .btn_compartir:hover{
-        background-position: -365px -354px;
-
-    }
-    .btn_clases_gratis{
-        width: 75px;
-        height: 74px;
-        background-position: -468px -308px;
-        float: right;
-        margin-top: -94px;
-        display: none
-
-    }
-    .btn_clases_gratis:hover{
-        background-position: -558px -308px;
-
-    }
     .btn_cont_abajo{
         width: 100px;
-        height: 40px;
-        background-position: -103px -107px;
+        height: 42px;
+        background-position: -103px -102px;
         position: absolute;
         left: 50%;
         margin-left: -50px;
         margin-top: -37px;
-        top: 1px;
+        bottom: 0px;
 
     }
     .btn_cont_abajo:hover{
-        background-position: -214px -107px;
+        background-position: -214px -102px;
 
     }
     .btn_volver_arriba{
-        width: 46px;
-        height: 37px;
-        background-position: -478px -393px;
+        width: 94px;
+        height: 44px;
+        background-position: -105px -363px;
         position: absolute;
         left: 50%;
-        margin-left: -23px;
-        margin-top: -37px;
-        top: 1px;
+        margin-left: -47px;
+        margin-top: -22px;
+        bottom: 0px;
         display: none;
     }
     .btn_volver_arriba:hover{
-        background-position: -558px -393px;
+        background-position: -216px -363px;
 
     }
 

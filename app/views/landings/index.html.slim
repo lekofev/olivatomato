@@ -9,11 +9,12 @@
 			.personajes.sprite.tomato
 				ul.menu_sociales
 					li
-						a.btns.icon_sociales.face(href="http://facebook.com")
+						/ a.btns.icon_sociales.face(href="http://facebook.com")
+						= link_to "", @siteinfo.facebook_link, class:"btns icon_sociales face", target:"_blank"
 					li
-						a.btns.icon_sociales.tw(href="http://twitter.com")
+						= link_to "", @siteinfo.twitter_link, class:"btns icon_sociales tw", target:"_blank"
 					li
-						a.btns.icon_sociales.email(href="http://gmail.com")
+						= link_to "", @siteinfo.email_link, class:"btns icon_sociales email", target:"_blank"
 
 			ul.menu_list.clear_block
 				li.menu_items.menu_item_0
@@ -38,9 +39,14 @@
 
 			/ input.btns.btn_compartir(type="button" value="" onclick="compartirPagina(); _gaq.push(['_trackEvent', 'samsung-landingmicroondas','home','compartir']);") compartir
 			/ input.btns.btn_clases_gratis(type="button" value="" onclick="_gaq.push(['_trackEvent', 'samsung-landingmicroondas','beneficios','clasescocina']);") 5 clases de cocina gratis
+
+			.sprite.telefono 
+				.tlf 971-161-039
 			
-			input.btns.btn_cont_abajo(value="" type="button") continuar abajo
-			input.btns.btn_volver_arriba.ti(type="button" value="") volver al inicio
+			= link_to "", "#", class: "btns btn_prepara_tu_ensalada"
+
+			input.btns.btn_cont_abajo(value="" type="button")
+			input.btns.btn_volver_arriba.ti(type="button" value="")
 
 			
 	.contenedor.clear_block
@@ -48,27 +54,38 @@
 			= image_tag("bg_0.jpg", class:"bg")
 			.contenido.clear_block
 				.titulo
-					== @cc
+					
 					/ p Queremos invitarte a descubrir un nuevo estilo de vida. Comer sano es facil, rápido y delicioso.
-					p 
-
-				.sprite.telefono 
-					.tlf 971-161-039
-
-				= link_to("", {constroller: "landings"}, id: "news", class: "btns btn_prepara_tu_ensalada")
+					p = @inicio.parrafo
 
 				.slide_contenedor_inicio
 					.slie.slide_inicio
-						.slide_items.slide_item_0
-							= image_tag("ensalada.jpg", class:"img_ensaladas")
-						.slide_items.slide_item_1
-							= image_tag("ensalada.jpg", class:"img_ensaladas")
-						.slide_items.slide_item_2
-							/= link_to "hiii #{image_tag(yourimagepath)}", "link_path"
-							/= link_to image_tag("ensalada.jpg", class:"img_ensaladas"). "link"
-							= link_to image_tag("ensalada.jpg", class:"img_ensaladas").html_safe, '#'
-						.slide_items.slide_item_3
-							= image_tag("ensalada.jpg", class:"img_ensaladas")
+
+					    - if @banners.any?
+					    	/ - for banner in @banners
+					    	- @banners.each_with_index do |banner, index|
+								<div class="slide_items slide_item_#{index}" data-banner-id="#{banner.id}"> 
+									/ = image_tag("ensalada.jpg", class:"img_ensaladas")
+									- if banner.img_link == "nolink" or banner.img_link == ""
+										= image_tag(banner.img_url, class:"img_ensaladas")
+									- else
+										= link_to image_tag(banner.img_url, class:"img_ensaladas").html_safe, banner.img_link, target:"_blank", class:"banner_inicio_link"
+								</div>
+					    - else
+							p No items found Please add some inventory. Thank you!
+
+						/ .slide_items.slide_item_0
+						/ 	= image_tag("ensalada.jpg", class:"img_ensaladas")
+						/ .slide_items.slide_item_1
+						/ 	= image_tag("ensalada.jpg", class:"img_ensaladas")
+						/ .slide_items.slide_item_2
+						/ 	/= link_to "hiii #{image_tag(yourimagepath)}", "link_path"
+						/ 	/= link_to image_tag("ensalada.jpg", class:"img_ensaladas"). "link"
+						/ 	= link_to image_tag("ensalada.jpg", class:"img_ensaladas").html_safe, '#'
+						/ .slide_items.slide_item_3
+						/ 	= image_tag("ensalada.jpg", class:"img_ensaladas")
+
+
 
 					.btns.flechas.flecha_left.ti flecha inzquierda
 					.btns.flechas.flecha_right.ti flecha derecha
@@ -81,8 +98,9 @@
 			= image_tag("bg_1.jpg", class:"bg")
 			.contenido.clear_block
 				.titulo
-					h2 Ensaladas Preparadas
-					p Tenemos una selección de ensaladas listas para pedir
+					# h2 = @ensalada.titulo
+					# p = @ensalada.parrafo
+					/ p Tenemos una selección de ensaladas listas para pedir
 
 				.sprite.telefono 
 					.tlf 971-161-039

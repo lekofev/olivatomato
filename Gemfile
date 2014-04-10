@@ -39,4 +39,5 @@ gem 'jquery-rails', "<= 2.3.0"
 # gem 'jquery-ui-rails'
 gem 'activeadmin'
 gem 'slim'
+gem 'carrierwave'
 gem 'thin'

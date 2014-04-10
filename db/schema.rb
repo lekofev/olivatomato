@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140403011617) do
+ActiveRecord::Schema.define(:version => 20140410044028) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -45,5 +45,49 @@ ActiveRecord::Schema.define(:version => 20140403011617) do
 
   add_index "admin_users", ["email"], :name => "index_admin_users_on_email", :unique => true
   add_index "admin_users", ["reset_password_token"], :name => "index_admin_users_on_reset_password_token", :unique => true
+
+  create_table "banner_inicios", :force => true do |t|
+    t.string   "img_titulo"
+    t.text     "img_parrafo"
+    t.string   "img_url"
+    t.string   "img_link"
+    t.integer  "orden",       :default => 0
+    t.boolean  "visible",     :default => true
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+    t.string   "seccion_id"
+  end
+
+  create_table "seccions", :force => true do |t|
+    t.string   "titulo"
+    t.text     "parrafo"
+    t.text     "txt_adicional_1"
+    t.text     "txt_adicional_2"
+    t.boolean  "visible",         :default => true
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
+  end
+
+  create_table "site_infos", :force => true do |t|
+    t.string   "doc_title"
+    t.string   "facebook_link"
+    t.string   "twitter_link"
+    t.string   "email_link"
+    t.string   "telefono"
+    t.string   "site_title"
+    t.string   "site_desc"
+    t.string   "site_keywords"
+    t.string   "og_title"
+    t.string   "og_desc"
+    t.string   "og_url"
+    t.string   "og_image"
+    t.string   "og_site_name"
+    t.string   "texto_adicional_1"
+    t.string   "texto_adicional_2"
+    t.string   "texto_adicional_3"
+    t.string   "texto_adicional_4"
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
+  end
 
 end
