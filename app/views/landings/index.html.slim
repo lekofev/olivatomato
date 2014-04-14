@@ -1,37 +1,6 @@
 #fb-root.fb_reset
-.page.clear_block
-	.menu_principal
-		.cont_menu.clear_block
-
-			.logo
-				= link_to image_tag("logo_ol.jpg", class:"").html_safe, '/'
-			.personajes.sprite.oliva
-			.personajes.sprite.tomato
-				ul.menu_sociales
-					li
-						/ a.btns.icon_sociales.face(href="http://facebook.com")
-						= link_to "", @siteinfo.facebook_link, class:"btns icon_sociales face", target:"_blank"
-					li
-						= link_to "", @siteinfo.twitter_link, class:"btns icon_sociales tw", target:"_blank"
-					li
-						= link_to "", @siteinfo.email_link, class:"btns icon_sociales email", target:"_blank"
-
-			ul.menu_list.clear_block
-				li.menu_items.menu_item_0
-					a.btns.btn_inicio.ti.activo(data-id="0") inicio
-				li.menu_items.menu_item_1
-					a.btns.btn_beneficio.ti(data-id="1") beneficio
-				li.menu_items.menu_item_2
-					a.btns.btn_cello.ti(data-id="2") cello
-				li.menu_items.menu_item_3
-					a.btns.btn_familia.ti(data-id="3") familia
-				li.menu_items.menu_item_4
-					a.btns.btn_video.ti(data-id="4") videos
-			
-			/.menu_sociales
-			/	.btns.btns_sociales.face.ti facebook
-			/	.btns.btns_sociales.tw.ti twitter
-			/	.btns.btns_sociales.email.ti email
+.page.landing.clear_block
+	= render "shared/menu"
 
 
 	.footer
@@ -98,96 +67,120 @@
 			= image_tag("bg_1.jpg", class:"bg")
 			.contenido.clear_block
 				.titulo
-					# h2 = @ensalada.titulo
-					# p = @ensalada.parrafo
+					h2 = @ensalada.titulo
+					p = @ensalada.parrafo
 					/ p Tenemos una selección de ensaladas listas para pedir
-
-				.sprite.telefono 
-					.tlf 971-161-039
-
-				= link_to("", {constroller: "landings"}, id: "news", class: "btns btn_prepara_tu_ensalada")
 
 				.slide_contenedor_ensaladas
 					.jcarousel
 						ul
-							li
-								.ensalada_item
-									.ensalada_imagen	
-										= link_to image_tag("ensalada_menu.jpg", class:"").html_safe, '#'
-									h4.ensalada_titulo
-										| Del Cesar 1
 
-									p.ensalada_desc Lechugas orgánicas, pollo grillé, huevo y tomate acompañado con pasas de estación, mayonesa baja en colesterol  con su toque picante
+						    - if @listaEnsaladas.any?
+						    	/ - for banner in @banners
+						    	- @listaEnsaladas.each_with_index do |ensalada, index|
+						    		li
+										.ensalada_item
+											.ensalada_imagen
+						    					a.abrir_ensalada_detalle(href="/popup/#{ensalada.id}")
+						    						= image_tag(ensalada.img_chica, class:"").html_safe
+											h4.ensalada_titulo
+												= ensalada.titulo
 
-									.ensalada_precio
-										| S/. 25.00
-									/ link_to("#", controller: "landings", class: "btns btn_detalle_ensalada")
-									a.btns.btn_detalle_ensalada(href="#")
-							li
-								.ensalada_item
-									.ensalada_imagen	
-										= link_to image_tag("ensalada_menu.jpg", class:"").html_safe, '#'
-									h4.ensalada_titulo
-										| Del Cesar 2
+											p.ensalada_desc 
+												= ensalada.descripcion
 
-									p.ensalada_desc Lechugas orgánicas, pollo grillé, huevo y tomate acompañado con pasas de estación, mayonesa baja en colesterol  con su toque picante
+											.ensalada_precio 
+												= ensalada.precio
+												/ = ensaladas_path
 
-									.ensalada_precio
-										| S/. 25.00
-									/ link_to("#", controller: "landings", class: "btns btn_detalle_ensalada")
-									a.btns.btn_detalle_ensalada(href="#")
-							li
-								.ensalada_item
-									.ensalada_imagen	
-										= link_to image_tag("ensalada_menu.jpg", class:"").html_safe, '#'
-									h4.ensalada_titulo
-										| Del Cesar 3
+											a.btns.btn_detalle_ensalada.abrir_ensalada_detalle(href="/popup/#{ensalada.id}")
+						    				/ = link_to "", ensalada_path, class:"btns btn_detalle_ensalada abrir_ensalada_detalle"
+						    				/ = link_to "", controller: "ensaladas", action: "popup", id: "1", class: "btns btn_detalle_ensalada abrir_ensalada_detalle"
 
-									p.ensalada_desc Lechugas orgánicas, pollo grillé, huevo y tomate acompañado con pasas de estación, mayonesa baja en colesterol  con su toque picante
+						    - else
+								p No hay ensaladas
 
-									.ensalada_precio
-										| S/. 25.00
-									/ link_to("#", controller: "landings", class: "btns btn_detalle_ensalada")
-									a.btns.btn_detalle_ensalada(href="#")
-							li
-								.ensalada_item
-									.ensalada_imagen	
-										= link_to image_tag("ensalada_menu.jpg", class:"").html_safe, '#'
-									h4.ensalada_titulo
-										| Del Cesar 4
+							/ li
+							/ 	.ensalada_item
+							/ 		.ensalada_imagen	
+							/ 			= link_to image_tag("ensalada_menu.jpg", class:"").html_safe, '#'
+							/ 		h4.ensalada_titulo
+							/ 			| Del Cesar 1
 
-									p.ensalada_desc Lechugas orgánicas, pollo grillé, huevo y tomate acompañado con pasas de estación, mayonesa baja en colesterol  con su toque picante
+							/ 		p.ensalada_desc Lechugas orgánicas, pollo grillé, huevo y tomate acompañado con pasas de estación, mayonesa baja en colesterol  con su toque picante
 
-									.ensalada_precio
-										| S/. 25.00
-									/ link_to("#", controller: "landings", class: "btns btn_detalle_ensalada")
-									a.btns.btn_detalle_ensalada(href="#")
-							li
-								.ensalada_item
-									.ensalada_imagen	
-										= link_to image_tag("ensalada_menu.jpg", class:"").html_safe, '#'
-									h4.ensalada_titulo
-										| Del Cesar 5
+							/ 		.ensalada_precio
+							/ 			| S/. 25.00
+							/ 		/ link_to("#", controller: "landings", class: "btns btn_detalle_ensalada")
+							/ 		a.btns.btn_detalle_ensalada(href="#")
 
-									p.ensalada_desc Lechugas orgánicas, pollo grillé, huevo y tomate acompañado con pasas de estación, mayonesa baja en colesterol  con su toque picante
 
-									.ensalada_precio
-										| S/. 25.00
-									/ link_to("#", controller: "landings", class: "btns btn_detalle_ensalada")
-									a.btns.btn_detalle_ensalada(href="#")
-							li
-								.ensalada_item
-									.ensalada_imagen	
-										= link_to image_tag("ensalada_menu.jpg", class:"").html_safe, '#'
-									h4.ensalada_titulo
-										| Del Cesar 6
 
-									p.ensalada_desc Lechugas orgánicas, pollo grillé, huevo y tomate acompañado con pasas de estación, mayonesa baja en colesterol  con su toque picante
+							/ li
+							/ 	.ensalada_item
+							/ 		.ensalada_imagen	
+							/ 			= link_to image_tag("ensalada_menu.jpg", class:"").html_safe, '#'
+							/ 		h4.ensalada_titulo
+							/ 			| Del Cesar 2
 
-									.ensalada_precio
-										| S/. 25.00
-									/ link_to("#", controller: "landings", class: "btns btn_detalle_ensalada")
-									a.btns.btn_detalle_ensalada(href="#")
+							/ 		p.ensalada_desc Lechugas orgánicas, pollo grillé, huevo y tomate acompañado con pasas de estación, mayonesa baja en colesterol  con su toque picante
+
+							/ 		.ensalada_precio
+							/ 			| S/. 25.00
+							/ 		/ link_to("#", controller: "landings", class: "btns btn_detalle_ensalada")
+							/ 		a.btns.btn_detalle_ensalada(href="#")
+							/ li
+							/ 	.ensalada_item
+							/ 		.ensalada_imagen	
+							/ 			= link_to image_tag("ensalada_menu.jpg", class:"").html_safe, '#'
+							/ 		h4.ensalada_titulo
+							/ 			| Del Cesar 3
+
+							/ 		p.ensalada_desc Lechugas orgánicas, pollo grillé, huevo y tomate acompañado con pasas de estación, mayonesa baja en colesterol  con su toque picante
+
+							/ 		.ensalada_precio
+							/ 			| S/. 25.00
+							/ 		/ link_to("#", controller: "landings", class: "btns btn_detalle_ensalada")
+							/ 		a.btns.btn_detalle_ensalada(href="#")
+							/ li
+							/ 	.ensalada_item
+							/ 		.ensalada_imagen	
+							/ 			= link_to image_tag("ensalada_menu.jpg", class:"").html_safe, '#'
+							/ 		h4.ensalada_titulo
+							/ 			| Del Cesar 4
+
+							/ 		p.ensalada_desc Lechugas orgánicas, pollo grillé, huevo y tomate acompañado con pasas de estación, mayonesa baja en colesterol  con su toque picante
+
+							/ 		.ensalada_precio
+							/ 			| S/. 25.00
+							/ 		/ link_to("#", controller: "landings", class: "btns btn_detalle_ensalada")
+							/ 		a.btns.btn_detalle_ensalada(href="#")
+							/ li
+							/ 	.ensalada_item
+							/ 		.ensalada_imagen	
+							/ 			= link_to image_tag("ensalada_menu.jpg", class:"").html_safe, '#'
+							/ 		h4.ensalada_titulo
+							/ 			| Del Cesar 5
+
+							/ 		p.ensalada_desc Lechugas orgánicas, pollo grillé, huevo y tomate acompañado con pasas de estación, mayonesa baja en colesterol  con su toque picante
+
+							/ 		.ensalada_precio
+							/ 			| S/. 25.00
+							/ 		/ link_to("#", controller: "landings", class: "btns btn_detalle_ensalada")
+							/ 		a.btns.btn_detalle_ensalada(href="#")
+							/ li
+							/ 	.ensalada_item
+							/ 		.ensalada_imagen	
+							/ 			= link_to image_tag("ensalada_menu.jpg", class:"").html_safe, '#'
+							/ 		h4.ensalada_titulo
+							/ 			| Del Cesar 6
+
+							/ 		p.ensalada_desc Lechugas orgánicas, pollo grillé, huevo y tomate acompañado con pasas de estación, mayonesa baja en colesterol  con su toque picante
+
+							/ 		.ensalada_precio
+							/ 			| S/. 25.00
+							/ 		/ link_to("#", controller: "landings", class: "btns btn_detalle_ensalada")
+							/ 		a.btns.btn_detalle_ensalada(href="#")
 
 
 
@@ -203,35 +196,51 @@
 			/ img.bg(src="/assets/bg_2.jpg" alt="")
 			.contenido.clear_block
 				.titulo
-					h2 Tips Nutricionales
-					p Si tienes alguna condición de salud y quieres saber Cómo alimentarte, estás en el lugar correcto.
+					h2
+						= @nutricion.titulo
+					p
+						= @nutricion.parrafo
 
 				.info_nutricional
 					.tabla_nutricional
 						table
 							tr
-								td.left.titulo_tabla Produce
-								td.right.titulo_tabla %With Neurotoxins
+								td.left.titulo_tabla(colspan="2") 
+									= @nutricion.nombre_producto
 							tr
-								td.left Nectarins
-								td.right 53.2%	
+								td.left = @nutricion_1[0]
+								td.right = @nutricion_1[1]
 							tr
-								td.left Nectarins
-								td.right 53.2%	
+								td.left = @nutricion_2[0]
+								td.right = @nutricion_2[1]
 							tr
-								td.left Nectarins
-								td.right 53.2%	
+								td.left = @nutricion_3[0]
+								td.right = @nutricion_3[1]
 							tr
-								td.left Nectarins
-								td.right 53.2%
+								td.left = @nutricion_4[0]
+								td.right = @nutricion_4[1]
 							tr
-								td.left Nectarins
-								td.right 53.2%		
+								td.left = @nutricion_5[0]
+								td.right = @nutricion_5[1]	
 
-					.recurso_nutricional 
+					.recurso_nutricional
+						= image_tag( @nutricion.img_producto)
+					
+				.textos_adicionales
+					.txt_sabias_que
+						h3 Sabías que...
+						ul
+							/ - @sabias_que.each_with_index do |t, i|
+							- @sabias_que.each do |t|
+								li = t
 
-				.titulo_sabias_que
-					h2 Sabías que...
+					.txt_fuente
+						h3 Fuente
+						ul
+							- @fuente.each do |t|
+								li
+									=link_to "#{t}", t, target:"_blank"
+						
 
 
 
@@ -242,9 +251,6 @@
 			.contenido.clear_block
 				.titulo
 					p CONOCE LA HISTORIA DETRÁS DE ESTA FRESCA UNIÓN
-
-				.sprite.telefono 
-					.tlf 971-161-039
 
 				.slide_contenedor_historia
 					.slie.slide_historia
@@ -270,10 +276,6 @@
 				.titulo
 					h2 Fotos
 					p LA naturaleza nos inspira, inspírate tu también.
-
-				.sprite.telefono 
-					.tlf 971-161-039
-				= link_to("", {constroller: "landings"}, id: "news", class: "btns btn_prepara_tu_ensalada")
 
 				.slide_contenedor_galeria_foto
 					.jcarousel

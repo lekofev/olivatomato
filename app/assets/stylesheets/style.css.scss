@@ -576,6 +576,12 @@ body,html{
             -moz-box-shadow:  3px 3px 4px 0px rgba(0, 0, 0, 0.2);
             box-shadow:  3px 3px 4px 0px rgba(0, 0, 0, 0.2);
             background-color: #c6c6c6;
+            position: relative;
+
+            img{
+                width: 149px;
+                height: 153px;
+            }
 
         }
         .ensalada_titulo{
@@ -593,9 +599,11 @@ body,html{
         }
         .ensalada_precio{
             font-size: 18px;
-            color: #ffffff;
+            color: #4a2b0b;
             font-family: Arial;
             padding: 0 5px;
+            bottom: 5px;
+            position: absolute;
         }
         .btn_detalle_ensalada{
             width: 23px;
@@ -605,6 +613,9 @@ body,html{
             float: right;
             margin-top: -24px;
             margin-right: 3px;
+            position: absolute;
+            right: 0;
+            bottom: 5px;
 
         }
         .btn_detalle_ensalada:hover{
@@ -640,7 +651,6 @@ body,html{
     width: 670px;
     height: 184px;
     margin: 0 auto;
-    background-color: #f1f2ea;
     margin-top: 10px;
 
     .tabla_nutricional{
@@ -667,6 +677,7 @@ body,html{
             }
             td.titulo_tabla{
                 background-color: #8f161a;
+                font-size: 17px;
 
             }
             td.left{
@@ -683,9 +694,57 @@ body,html{
         width: 312px;
         height: 160px;
         margin: 15px 15px 0 0;
+        overflow: hidden;
+        img{
+            height: 100%;
+            display: block;
+            margin: auto;
+        }
     }
 
 }
+.textos_adicionales{
+    width: 670px;
+    height: 184px;
+    margin: 0 auto;
+    margin-top: 20px;
+    .txt_sabias_que{
+        float: left;
+        width: 334px;
+
+    }
+    .txt_fuente{
+        float: right;
+        width: 334px;
+
+    }
+    h3{
+        color: #4a2b0b;
+        font-size: 24px;
+    }
+    ul{
+        list-style-image: image-url("bullet.png");
+        width: 90%;
+
+    } 
+    ul li{
+        font-size: 14px;
+        color: #676766;
+        line-height: 1.3;
+        margin-bottom: 5px;
+        margin-left: 12px;
+        font-family: arial;
+
+        a{
+            color: #676766;
+            text-decoration: none;            
+        }
+        a:hover{
+            text-decoration: underline;  
+        }
+    }
+}
+
 
 .bloques.bloque_3{
     .contenido{
@@ -1893,3 +1952,118 @@ body,html{
 }
 
 
+#cboxLoadedContent{
+    background-color: none;
+}
+.popup{
+    width: 755px;
+    height: 422px;
+    background-color: #ece5d7;
+    border:2px solid #ffffff;
+    border-radius: 2px;
+
+    .imagen_ensalada{
+        width: 540px;
+        height: 422px;
+        float: left;
+        overflow: hidden;
+
+        img{
+            height: 100%;
+        }
+
+    }
+    .info_ensalada{
+        width: 190px;
+        float: right;
+        padding: 0 12px;
+
+    }
+
+    .ensalada_titulo{
+        font-size: 22px;
+        color: #4a2b0b;
+        margin-top: 12px;
+    }
+    .ensalada_descripcion{
+        font-family: arial;
+        font-size: 13px;
+        line-height: 1.3;
+
+    }
+    table.informacion_nutricional{
+        width: 100%;
+        margin-top: 12px;
+        vertical-align: middle;
+        .table_titulo{
+            height: 30px;
+            color: #ffffff;
+            background-color: #88857e;
+            font-size: 14px;
+            text-align: center;
+            td{
+                vertical-align: middle;
+            }
+        }
+        .minerales{
+            height: 20px;
+            color: #4a2b0b;
+            vertical-align: middle;
+            font-family: arial;
+            font-size: 12px; 
+            td{
+                vertical-align: middle;
+            }  
+        }
+        .mineral{
+            padding-left: 10px;
+
+        }
+        .porcentaje{
+            width: 50px;
+            text-align: center;
+
+        }
+        .minerales.even{
+            background-color: #d6d2c9;
+
+        }
+        .minerales.odd{
+            background-color: #f6f0e5;
+
+        }
+    }
+
+    .btn_comprar_ensalada{
+        display: block;
+        width: 178px;
+        height: 46px;
+        background-position: -529px -165px;
+        margin: 12px auto 0 auto;
+
+    }
+    .btn_comprar_ensalada:hover{
+        background-position: -529px -220px;
+
+    }
+
+    .precio_cont{
+        width: 165px;
+        height: 77px;
+        margin: 0 auto;
+        background-position: -395px -460px;
+        .txt_costo{
+            font-size: 14px;
+            color: #ffffff;
+            padding:6px 0 0 20px;
+
+        }
+        .txt_monto{
+            font-size: 30px;
+            color: #ffffff;
+            padding:2px 0 0 20px;
+
+        }
+    }
+
+}

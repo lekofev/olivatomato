@@ -3,6 +3,8 @@ Olivdaytomato::Application.routes.draw do
   root :to => "landings#index"
   # root :to => "trabajando#index"
   match 'home/:id' => 'landings#index'
+  match 'popup/:id' => 'ensaladas#popup'
+
   
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

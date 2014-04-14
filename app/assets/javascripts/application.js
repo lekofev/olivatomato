@@ -17,6 +17,7 @@
 //= require Code_Pro_Demo_400.font
 //= require app.fb
 //= require jquery.jcarousel.min
+//= require jquery.colorbox
 //= require jquery.scrollTo-1.4.3.1-min
 //= require TweenMax.min
 //= require cycle

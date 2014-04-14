@@ -6,6 +6,331 @@
 * @version 1.0
 */
 
+//funcion que det4ecta el alto del navegador y retorna el valor
+
+
+function cufon_popup(){
+	console.log("cusfon ppup")
+	Cufon.replace('.popup .ensalada_titulo, .popup .precio_cont, .popup .table_titulo', { fontFamily: 'Ponsi Rounded Slab' });		
+}
+
+function getAltoVentana(){
+	var alto=$(window).height();
+		if(alto<630)
+		{
+			return 630
+		}
+		else
+		{
+			return alto
+		}
+}
+
+
+//Funcion obtiene la url, de acuerdo a la url devuelve un balor en bloque
+function pullHistory(url)
+{
+	var bloque;
+	var slideFamilia;
+	switch(url)
+	{
+		case '':
+			bloque=0;
+		break
+		case 'inicio':
+			bloque=0;
+		break
+		case 'beneficio':
+			bloque=1;
+		break
+		case 'cello':
+			bloque=2;
+		break
+		case 'familia':
+			bloque=3;
+		break
+		case 'videos':
+			bloque=4;
+		break
+		case 'familia-MG402MADXBB':
+			bloque=3;
+			slideFamilia=0;
+		break
+		case 'familia-AGE1103TST':
+			bloque=3;
+			slideFamilia=1;
+		break
+		case 'familia-AGE1103TW':
+			bloque=3;
+			slideFamilia=1;
+
+			$('.slide_item_1 .btns_colores_contenedor .btns_color').removeClass('activo')
+			$('.slide_item_1 .btns_colores_contenedor .btns_color.btn_blanco').addClass('activo')
+
+
+			$('.slide_item_1 .color_contenedor_slide').removeClass('activo')
+			$('.slide_item_1 .color_contenedor_slide.color_blanco').addClass('activo')
+
+		break
+		case 'familia-MS402MADXBB':
+			bloque=3;
+			slideFamilia=2;
+		break
+		case 'familia-AME1113TST':
+			bloque=3;
+			slideFamilia=3;
+		break
+		case 'familia-AME1113TW':
+			bloque=3;
+			slideFamilia=3;
+
+			$('.slide_item_3 .btns_colores_contenedor .btns_color').removeClass('activo')
+			$('.slide_item_3 .btns_colores_contenedor .btns_color.btn_blanco').addClass('activo')
+
+
+			$('.slide_item_3 .color_contenedor_slide').removeClass('activo')
+			$('.slide_item_3 .color_contenedor_slide.color_blanco').addClass('activo')
+		break
+		case 'familia-AME83M':
+			bloque=3;
+			slideFamilia=4;
+		break
+		case 'familia-AMW831K':
+			bloque=3;
+			slideFamilia=5;
+		break
+		default:			
+			bloque=0;
+			slideFamilia=0;
+
+		break
+	}
+	return {
+			bloque:bloque,
+			slideFamilia:slideFamilia
+		}
+	
+}
+
+//funcion que escribe la url, debo pasarle un parametro
+function pushHistory(a)
+{
+	//para IE
+	if(msie)
+	{
+		switch(a)
+		{
+			case 0:
+				location.hash='inicio';
+			break;
+			case 1:
+				location.hash='beneficio';
+			break;
+			case 2:
+				location.hash='cello';
+			break;
+			case 3:
+				location.hash='familia';
+			break;
+			case 4:
+				location.hash='videos';
+			break;
+		}			
+	}
+	else
+	{
+		//para otros navegadores
+		switch(a)
+		{
+			case 0:
+				history.pushState(null, null, urlLimpia+'#inicio');
+			break;
+			case 1:
+				history.pushState(null, null, urlLimpia+'#beneficio');
+			break;
+			case 2:
+				history.pushState(null, null, urlLimpia+'#cello');
+			break;
+			case 3:
+				history.pushState(null, null, urlLimpia+'#familia');
+			break;
+			case 4:
+				history.pushState(null, null, urlLimpia+'#videos');
+			break;
+		}
+
+	}
+}// end pushHistory
+
+
+
+//me escribe el history de la seccion familia
+function pushHistoryFamilia(a)
+{
+	if(msie)
+	{
+		switch(a)
+		{
+			case 0:
+				location.hash='familia-MG402MADXBB';
+			break;
+			case 1:
+				// location.hash='familia-AGE1103TST';
+
+				if($('.slide_item_1 .btns_colores_contenedor .btn_gris').hasClass('activo'))
+				{
+					location.hash='familia-AGE1103TST';
+				}
+				else if($('.slide_item_1 .btns_colores_contenedor .btn_blanco').hasClass('activo'))
+				{
+					location.hash='familia-AGE1103TW';
+				}
+
+			break;
+			case 2:
+				location.hash='familia-MS402MADXBB';
+			break;
+			case 3:
+				// location.hash='familia-AME1113TST';
+				if($('.slide_item_3 .btns_colores_contenedor .btn_gris').hasClass('activo'))
+				{
+					location.hash='familia-AME1113TST';
+				}
+				else if($('.slide_item_3 .btns_colores_contenedor .btn_blanco').hasClass('activo'))
+				{
+					location.hash='familia-AME1113TW';
+				}
+			break;
+			case 4:
+				location.hash='familia-AME83M';
+			break;
+			case 5:
+				location.hash='familia-AMW831K';
+			break;
+
+		}	
+	}
+	else
+	{
+		switch(a)
+		{
+			case 0:
+				history.pushState(null, null, urlLimpia+'#familia-MG402MADXBB');
+			break;
+			case 1:
+					// history.pushState(null, null, urlLimpia+'#familia-AGE1103TST');
+				if($('.slide_item_1 .btns_colores_contenedor .btn_gris').hasClass('activo'))
+				{
+					history.pushState(null, null, urlLimpia+'#familia-AGE1103TST');
+				}
+				else if($('.slide_item_1 .btns_colores_contenedor .btn_blanco').hasClass('activo'))
+				{
+					history.pushState(null, null, urlLimpia+'#familia-AGE1103TW');	
+				}
+
+			break;
+			case 2:
+				history.pushState(null, null, urlLimpia+'#familia-MS402MADXBB');
+			break;
+			case 3:
+					// history.pushState(null, null, urlLimpia+'#familia-AME1113TST');
+				if($('.slide_item_3 .btns_colores_contenedor .btn_gris').hasClass('activo'))
+				{
+					history.pushState(null, null, urlLimpia+'#familia-AME1113TST');
+				}
+				else if($('.slide_item_3 .btns_colores_contenedor .btn_blanco').hasClass('activo'))
+				{
+					history.pushState(null, null, urlLimpia+'#familia-AME1113TW');					
+				}
+			break;
+			case 4:
+				history.pushState(null, null, urlLimpia+'#familia-AME83M');
+			break;
+			case 5:
+				history.pushState(null, null, urlLimpia+'#familia-AMW831K');
+			break;
+		}
+	}
+}
+
+
+
+//Arreglo solo para IE
+function setALtoIe()
+{
+	if(getAltoVentana()<760)
+	{
+		$('.contenido').css({
+	        width: '904px',
+	        height: '630px',
+	        position: 'absolute',        
+	        top: '50px',
+	        left: '50%',
+	        marginLeft:' -452px',
+	        marginTop: '0px',
+	        zIndex: 20
+		})
+	}
+
+}
+
+
+//swfObject, el video se pone play cuando carga
+function onYouTubePlayerReady(playerId) {
+	ytplayer = document.getElementById("ytPlayer");
+	playVideo();
+	addSombraVideo()
+}
+function addSombraVideo()
+{
+	$('.video_contendor').addClass('add_sombra')
+}
+function playVideo() {
+	if (ytplayer)
+	{
+	ytplayer.playVideo();
+	}
+}
+
+function pauseVideo() {
+	if (ytplayer)
+	{
+	ytplayer.pauseVideo();
+	}
+}  
+
+//funcion que lanza el page view para google, no afecta en nada a la navegacion
+function lanzarPageView(a)
+{
+	switch(a)
+	{
+		case 0:
+			_gaq.push(['_trackPageview', '/samsung-landingmicroondas-home']);
+		break;
+		case 1:
+			_gaq.push(['_trackPageview', '/samsung-landingmicroondas-beneficios']);
+		break;
+		case 2:
+			_gaq.push(['_trackPageview', '/samsung-landingmicroondas-cello']);
+		break;
+		case 3:
+			_gaq.push(['_trackPageview', '/samsung-landingmicroondas-familia/modelo1']);
+		break;
+		case 4:
+			_gaq.push(['_trackPageview', '/samsung-landingmicroondas-videos1']);
+		break;
+	}
+}
+
+
+function cargarVideo(videoid)
+{	
+	var videoID = videoid
+	var params = { allowScriptAccess: "always", wmode: "transparent" };
+	var atts = { id: "ytPlayer" };
+	swfobject.embedSWF("//www.youtube.com/v/" + videoID + "?version=3&enablejsapi=1&playerapiid=player1&wmode=transparent", "video_id", "733", "433", "9", null, null, params, atts);
+}
+
 $(document).ready(function(){
 
 	//metodos inciales para detectar el navegador
@@ -44,7 +369,7 @@ $(document).ready(function(){
 
 
 
-	Cufon.replace('.titulo H2, .titulo_sabias_que,  .ensalada_titulo, .ensalada_desc, .telefono', { fontFamily: 'Ponsi Rounded Slab' });
+	Cufon.replace('.titulo H2, .titulo_sabias_que,  .ensalada_titulo, .ensalada_desc, .telefono, .precio_cont, .table_titulo, .textos_adicionales h3', { fontFamily: 'Ponsi Rounded Slab' });
 	Cufon.replace('.titulo p', { fontFamily: 'Code Pro Light Demo' });
 
 
@@ -52,7 +377,12 @@ $(document).ready(function(){
     $('.jcarousel').jcarousel({
         // Configuration goes here
     });
-
+	$('.jcarousel').on('jcarousel:firstin', 'li', function(event, carousel) {
+	    // "this" refers to the item element
+	    // "carousel" is the jCarousel instance
+	    console.log("first in")
+	    $('.flecha_left').hide();
+	});
         /*
          Prev control initialization
          */
@@ -84,295 +414,12 @@ $(document).ready(function(){
             });
 
 
-	//funcion que det4ecta el alto del navegador y retorna el valor
-	function getAltoVentana(){
-		var alto=$(window).height();
-			if(alto<630)
-			{
-				return 630
-			}
-			else
-			{
-				return alto
-			}
-	}
-	
-
-	//Funcion obtiene la url, de acuerdo a la url devuelve un balor en bloque
-	function pullHistory(url)
-	{
-		var bloque;
-		var slideFamilia;
-		switch(url)
-		{
-			case '':
-				bloque=0;
-			break
-			case 'inicio':
-				bloque=0;
-			break
-			case 'beneficio':
-				bloque=1;
-			break
-			case 'cello':
-				bloque=2;
-			break
-			case 'familia':
-				bloque=3;
-			break
-			case 'videos':
-				bloque=4;
-			break
-			case 'familia-MG402MADXBB':
-				bloque=3;
-				slideFamilia=0;
-			break
-			case 'familia-AGE1103TST':
-				bloque=3;
-				slideFamilia=1;
-			break
-			case 'familia-AGE1103TW':
-				bloque=3;
-				slideFamilia=1;
-
-				$('.slide_item_1 .btns_colores_contenedor .btns_color').removeClass('activo')
-				$('.slide_item_1 .btns_colores_contenedor .btns_color.btn_blanco').addClass('activo')
-
-
-				$('.slide_item_1 .color_contenedor_slide').removeClass('activo')
-				$('.slide_item_1 .color_contenedor_slide.color_blanco').addClass('activo')
-
-			break
-			case 'familia-MS402MADXBB':
-				bloque=3;
-				slideFamilia=2;
-			break
-			case 'familia-AME1113TST':
-				bloque=3;
-				slideFamilia=3;
-			break
-			case 'familia-AME1113TW':
-				bloque=3;
-				slideFamilia=3;
-
-				$('.slide_item_3 .btns_colores_contenedor .btns_color').removeClass('activo')
-				$('.slide_item_3 .btns_colores_contenedor .btns_color.btn_blanco').addClass('activo')
-
-
-				$('.slide_item_3 .color_contenedor_slide').removeClass('activo')
-				$('.slide_item_3 .color_contenedor_slide.color_blanco').addClass('activo')
-			break
-			case 'familia-AME83M':
-				bloque=3;
-				slideFamilia=4;
-			break
-			case 'familia-AMW831K':
-				bloque=3;
-				slideFamilia=5;
-			break
-			default:			
-				bloque=0;
-				slideFamilia=0;
-
-			break
-		}
-		return {
-				bloque:bloque,
-				slideFamilia:slideFamilia
-			}
-		
-	}
-
-	//funcion que escribe la url, debo pasarle un parametro
-	function pushHistory(a)
-	{
-		//para IE
-		if(msie)
-		{
-			switch(a)
-			{
-				case 0:
-					location.hash='inicio';
-				break;
-				case 1:
-					location.hash='beneficio';
-				break;
-				case 2:
-					location.hash='cello';
-				break;
-				case 3:
-					location.hash='familia';
-				break;
-				case 4:
-					location.hash='videos';
-				break;
-			}			
-		}
-		else
-		{
-			//para otros navegadores
-			switch(a)
-			{
-				case 0:
-					history.pushState(null, null, urlLimpia+'#inicio');
-				break;
-				case 1:
-					history.pushState(null, null, urlLimpia+'#beneficio');
-				break;
-				case 2:
-					history.pushState(null, null, urlLimpia+'#cello');
-				break;
-				case 3:
-					history.pushState(null, null, urlLimpia+'#familia');
-				break;
-				case 4:
-					history.pushState(null, null, urlLimpia+'#videos');
-				break;
-			}
-
-		}
-	}// end pushHistory
-
-
-
-	//me escribe el history de la seccion familia
-	function pushHistoryFamilia(a)
-	{
-		if(msie)
-		{
-			switch(a)
-			{
-				case 0:
-					location.hash='familia-MG402MADXBB';
-				break;
-				case 1:
-					// location.hash='familia-AGE1103TST';
-
-					if($('.slide_item_1 .btns_colores_contenedor .btn_gris').hasClass('activo'))
-					{
-						location.hash='familia-AGE1103TST';
-					}
-					else if($('.slide_item_1 .btns_colores_contenedor .btn_blanco').hasClass('activo'))
-					{
-						location.hash='familia-AGE1103TW';
-					}
-
-				break;
-				case 2:
-					location.hash='familia-MS402MADXBB';
-				break;
-				case 3:
-					// location.hash='familia-AME1113TST';
-					if($('.slide_item_3 .btns_colores_contenedor .btn_gris').hasClass('activo'))
-					{
-						location.hash='familia-AME1113TST';
-					}
-					else if($('.slide_item_3 .btns_colores_contenedor .btn_blanco').hasClass('activo'))
-					{
-						location.hash='familia-AME1113TW';
-					}
-				break;
-				case 4:
-					location.hash='familia-AME83M';
-				break;
-				case 5:
-					location.hash='familia-AMW831K';
-				break;
-
-			}	
-		}
-		else
-		{
-			switch(a)
-			{
-				case 0:
-					history.pushState(null, null, urlLimpia+'#familia-MG402MADXBB');
-				break;
-				case 1:
-						// history.pushState(null, null, urlLimpia+'#familia-AGE1103TST');
-					if($('.slide_item_1 .btns_colores_contenedor .btn_gris').hasClass('activo'))
-					{
-						history.pushState(null, null, urlLimpia+'#familia-AGE1103TST');
-					}
-					else if($('.slide_item_1 .btns_colores_contenedor .btn_blanco').hasClass('activo'))
-					{
-						history.pushState(null, null, urlLimpia+'#familia-AGE1103TW');	
-					}
-
-				break;
-				case 2:
-					history.pushState(null, null, urlLimpia+'#familia-MS402MADXBB');
-				break;
-				case 3:
-						// history.pushState(null, null, urlLimpia+'#familia-AME1113TST');
-					if($('.slide_item_3 .btns_colores_contenedor .btn_gris').hasClass('activo'))
-					{
-						history.pushState(null, null, urlLimpia+'#familia-AME1113TST');
-					}
-					else if($('.slide_item_3 .btns_colores_contenedor .btn_blanco').hasClass('activo'))
-					{
-						history.pushState(null, null, urlLimpia+'#familia-AME1113TW');					
-					}
-				break;
-				case 4:
-					history.pushState(null, null, urlLimpia+'#familia-AME83M');
-				break;
-				case 5:
-					history.pushState(null, null, urlLimpia+'#familia-AMW831K');
-				break;
-			}
-		}
-	}
-
-
-
-	//Arreglo solo para IE
-	function setALtoIe()
-	{
-		if(getAltoVentana()<760)
-		{
-			$('.contenido').css({
-		        width: '904px',
-		        height: '630px',
-		        position: 'absolute',        
-		        top: '50px',
-		        left: '50%',
-		        marginLeft:' -452px',
-		        marginTop: '0px',
-		        zIndex: 20
-			})
-		}
-	
-	}
-
 	//Arreglo solo para IE
 	if(lt_ie9)
 	{
 		setALtoIe()	
 	}
 	
-	//funcion que lanza el page view para google, no afecta en nada a la navegacion
-	function lanzarPageView(a)
-	{
-		switch(a)
-		{
-			case 0:
-				_gaq.push(['_trackPageview', '/samsung-landingmicroondas-home']);
-			break;
-			case 1:
-				_gaq.push(['_trackPageview', '/samsung-landingmicroondas-beneficios']);
-			break;
-			case 2:
-				_gaq.push(['_trackPageview', '/samsung-landingmicroondas-cello']);
-			break;
-			case 3:
-				_gaq.push(['_trackPageview', '/samsung-landingmicroondas-familia/modelo1']);
-			break;
-			case 4:
-				_gaq.push(['_trackPageview', '/samsung-landingmicroondas-videos1']);
-			break;
-		}
-	}
 
 
 	//alto inicial de cada bloque
@@ -795,40 +842,54 @@ $(document).ready(function(){
 		})
 	})
 
-	function cargarVideo(videoid)
-	{	
-		var videoID = videoid
-		var params = { allowScriptAccess: "always", wmode: "transparent" };
-		var atts = { id: "ytPlayer" };
-		swfobject.embedSWF("//www.youtube.com/v/" + videoID + "?version=3&enablejsapi=1&playerapiid=player1&wmode=transparent", "video_id", "733", "433", "9", null, null, params, atts);
-	}
+
+
+	// $('.abrir_ensalada_detalle').each(function(){
+	// 	$(this).on('click', function(e){
+	// 		e.preventDefault()
+	// 		var id = $(this).attr("data-id")
+			$('.abrir_ensalada_detalle').colorbox({
+				// iframe:true,
+				width:761,
+				height:460,
+				// transition:"none",
+				opacity:0.5,
+				scrolling:false,
+				fixed:true,
+				overlayClose:false,
+				//escKey: false,
+				arrowKey:false,
+				// href:'fotos_agrupadas.html',
+				// href:"http://localhost:3000/popup/"+id,
+					
+				onComplete:function(){
+					cufon_popup();
+					setTimeout(function(){$('#cboxClose').fadeIn();},100)
+					
+				},
+				//href:'fotos_grande.html'
+				onClosed:function(){
+					$('#cboxClose').hide()
+								/*$.colorbox({
+											iframe:true,
+											width:670,
+											height:720,
+											transition:"none",
+											opacity:0.5,
+											scrolling:false,
+											//overlayClose:false,
+											//escKey: false,
+											arrowKey:false,
+											href:'fotos_agrupadas.html'
+											//href:'fotos_grande.html'
+								}); */
+				}				
+			}); 
+	// 	});
+	// });
 
 
 });// end jQuery
-
-//swfObject, el video se pone play cuando carga
-function onYouTubePlayerReady(playerId) {
-	ytplayer = document.getElementById("ytPlayer");
-	playVideo();
-	addSombraVideo()
-}
-function addSombraVideo()
-{
-	$('.video_contendor').addClass('add_sombra')
-}
-function playVideo() {
-	if (ytplayer)
-	{
-	ytplayer.playVideo();
-	}
-}
-
-function pauseVideo() {
-	if (ytplayer)
-	{
-	ytplayer.pauseVideo();
-	}
-}  
 
 
 

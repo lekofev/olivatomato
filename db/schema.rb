@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140410044028) do
+ActiveRecord::Schema.define(:version => 20140413223436) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -56,6 +56,60 @@ ActiveRecord::Schema.define(:version => 20140410044028) do
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
     t.string   "seccion_id"
+  end
+
+  create_table "ensaladas", :force => true do |t|
+    t.string   "titulo"
+    t.text     "parrafo"
+    t.text     "txt_adicional_1"
+    t.text     "txt_adicional_2"
+    t.boolean  "visible",         :default => true
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
+  end
+
+  create_table "lista_ensaladas", :force => true do |t|
+    t.string   "titulo"
+    t.text     "descripcion"
+    t.text     "txt_adicional_1"
+    t.text     "txt_adicional_2"
+    t.string   "img_grande"
+    t.string   "img_chica"
+    t.string   "precio"
+    t.string   "mineral_1"
+    t.string   "mineral_2"
+    t.string   "mineral_3"
+    t.string   "mineral_4"
+    t.string   "mineral_5"
+    t.string   "mineral_6"
+    t.string   "mineral_7"
+    t.integer  "orden",           :default => 0
+    t.boolean  "visible",         :default => true
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
+    t.string   "ensalada_id"
+  end
+
+  create_table "nutricions", :force => true do |t|
+    t.string   "titulo"
+    t.text     "parrafo"
+    t.string   "nombre_producto"
+    t.string   "img_producto"
+    t.string   "mineral_1"
+    t.string   "mineral_2"
+    t.string   "mineral_3"
+    t.string   "mineral_4"
+    t.string   "mineral_5"
+    t.string   "mineral_6"
+    t.string   "mineral_7"
+    t.text     "sabias_que"
+    t.text     "fuente"
+    t.text     "txt_adicional_1"
+    t.text     "txt_adicional_2"
+    t.integer  "orden",           :default => 0
+    t.boolean  "visible",         :default => true
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
   end
 
   create_table "seccions", :force => true do |t|

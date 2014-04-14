@@ -1,0 +1,46 @@
+#popup_ajax
+	.popup
+		.imagen_ensalada
+			= image_tag(@ensalada_popup.img_grande, class:"")
+
+		.info_ensalada
+			h2.ensalada_titulo
+				= @ensalada_popup.titulo
+			p.ensalada_descripcion
+				/ | is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text e
+				= @ensalada_popup.descripcion
+
+			table.informacion_nutricional
+				tr.table_titulo
+					td(colspan="2")
+						| Información nutricional
+				tr.minerales.even
+					td.mineral
+						/ | Calorías
+						= @mineral_1[0]
+					td.porcentaje
+						/ | 20%
+						= @mineral_1[1]
+				tr.minerales.odd
+					td.mineral
+						= @mineral_2[0]
+					td.porcentaje
+						= @mineral_2[1]
+				tr.minerales.even
+					td.mineral
+						= @mineral_3[0]
+					td.porcentaje
+						= @mineral_3[1]
+				tr.minerales.odd
+					td.mineral
+						= @mineral_4[0]
+					td.porcentaje
+						= @mineral_4[1]
+
+			= link_to "", "#", class:"btns btn_comprar_ensalada"
+			.precio_cont.sprite
+				.txt_costo
+					| Costo:
+				.txt_monto
+					/ | S/.15.00
+					= @ensalada_popup.precio
