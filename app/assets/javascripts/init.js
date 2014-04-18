@@ -10,7 +10,6 @@
 
 
 function cufon_popup(){
-	console.log("cusfon ppup")
 	Cufon.replace('.popup .ensalada_titulo, .popup .precio_cont, .popup .table_titulo', { fontFamily: 'Ponsi Rounded Slab' });		
 }
 
@@ -231,6 +230,8 @@ $(document).ready(function(){
 	Cufon.replace('.titulo H2, .titulo_sabias_que,  .ensalada_titulo, .ensalada_desc, .telefono, .precio_cont, .table_titulo, .textos_adicionales h3, .slide_contenedor_galeria_foto p.foto_titulo, .slide_contenedor_galeria_video p.foto_titulo', { fontFamily: 'Ponsi Rounded Slab' });
 	Cufon.replace('.titulo p', { fontFamily: 'Code Pro Light Demo' });
 
+	Cufon.replace('.formulario_contenedor h1', { fontFamily: 'Ponsi Rounded Slab' });
+	Cufon.replace('.titulo p', { fontFamily: 'Code Pro Light Demo' });
 
 
     $('.jcarousel').jcarousel({
@@ -590,6 +591,8 @@ $(document).ready(function(){
 			$('#cboxClose').hide()
 		}				
 	}); 
+
+
 
 
 

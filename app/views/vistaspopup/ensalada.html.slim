@@ -37,7 +37,8 @@
 					td.porcentaje
 						= @mineral_4[1]
 
-			= link_to "", "#", class:"btns btn_comprar_ensalada"
+			= link_to "", "/pedido/#{@ensalada_popup.id}", class:"btns btn_comprar_ensalada"
+			/ = link_to "", :controller => "pedido", :action => "formulario_compra", :id => @ensalada_popup.id, :class=>"btns btn_comprar_ensalada"
 			.precio_cont.sprite
 				.txt_costo
 					| Costo:

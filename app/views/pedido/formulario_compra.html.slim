@@ -1,4 +1,36 @@
 #fb-root.fb_reset
-.page
+.page.formulario_pedido
+	= render "shared/menu"
 	.container
-		h1	kaakakak
+		.formulario_contenedor
+			h1 Formulario de compra
+			p.parrafo_titulo Complete el formulario para hacerle llegar el pedido.
+
+			.cont_formulario
+				form.form_pedido
+					ul
+						li
+							label(for="nombre") Nombre
+							input(type="text" id="nombre")
+						li
+							label(for="apellido") Apellido
+							input(type="text" id="apellido")
+
+					.cont_pedido
+						.pedido_imagen.pedido_cont
+							= image_tag(@pedido.img_chica)
+						.pedido_detalles.pedido_cont
+							h2.web_marron
+								= @pedido.titulo
+							p
+							= @pedido.descripcion
+
+						.pedido_datos.pedido_cont
+							input.btns.btn_hacer_pedido(type="button" value="")
+							.precio.sprite
+								.txt_costo
+									| Costo:
+								.txt_monto
+									= @pedido.precio
+
+	= render "shared/footer"

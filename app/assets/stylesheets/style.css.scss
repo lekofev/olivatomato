@@ -110,14 +110,24 @@ body,html{
     background-position: top center;
 }
 
-.menu_principal{
+.landing .menu_principal{
     position: fixed;
     top: 0;
+
+}
+
+.formulario_pedido .menu_principal{
+
+}
+
+
+.menu_principal{
     height: 68px;
     width: 100%;
     z-index: 200;
     background-color: #ffffff;
     border-bottom: 32px solid #6c4723;
+    box-sizing: content-box;
     
     .cont_menu{
         width: 950px;
@@ -128,6 +138,7 @@ body,html{
         .menu_list{
             margin: 20px auto 0 auto;
             width: 680px;
+            padding: 0;
 
 
         }
@@ -273,6 +284,8 @@ body,html{
     position: absolute;
     top: 98px;
     left: 35px;
+    list-style: none;
+    padding: 0;
     li{
         height: 18px;
         margin-bottom: 8px;
@@ -1289,5 +1302,126 @@ body,html{
     }
 }
 
+.web_marron{
+    color: #4a2b0b;
+}
+
+.page.formulario_pedido .container{
+    width: 970px;
+    background-image: image-url("txt_carton.jpg");
+    background-repeat: repeat;
+    margin: auto;
+    font-family: 'open_sansregular';
+    font-size: 16px;
+}
+
+.page.formulario_pedido .footer .btn_cont_abajo,
+.page.formulario_pedido .footer .btn_volver_arriba{
+    display: none;
+
+}
 
 
+.formulario_contenedor{
+    width: 740px;
+    margin:auto;
+    padding-top: 70px;
+    padding-bottom: 50px;
+    h1{
+        color: #4a2b0b;
+        font-size: 28px;
+        margin-bottom: 7px;
+    }
+    p.parrafo_titulo{
+        font-size: 16px;
+        color: #4a2b0b;
+    }
+
+    .cont_formulario{
+        background-color: #e4c8a8;
+        padding-top: 28px;
+        margin-top: 20px;
+        padding-bottom: 28px;
+    }
+
+}
+.form_pedido{
+    width: 680px;
+    background-color: #e8e5d7;
+    border:1px solid #ffffff;
+    margin: auto;
+
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+
+    -webkid-box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+
+    
+}
+.cont_pedido{
+    margin-top: 30px;
+    height: 150px;
+    background-color: #c6c6c6;
+
+    .pedido_cont{
+        float: left;
+    }
+    .pedido_imagen{
+        width: 150px;
+        height: 150px;
+        img{
+            width: 150px;
+            height: 150px;
+        }
+
+    }
+    .pedido_detalles{
+        width: 325px;
+        padding: 16px 16px 0 16px;
+        h2{
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        p{
+            font-size: 14px;
+            line-height: 1.2;
+        }
+
+    }
+    .pedido_datos{
+        width: 170px;
+        height: 150px;
+
+    }
+    .btn_hacer_pedido{
+        width: 158px;
+        height: 46px;
+        display: block;
+        margin:5px 0 0 0;
+        padding: 0;
+        background-position: -562px -442px;
+
+    }
+    .btn_hacer_pedido:hover{
+        background-position: -562px -493px;
+
+    }
+    .precio{
+        width: 139px;
+        height: 95px;
+        background-position: -405px -442px;
+        margin: 0px 0 0 10px;
+        .txt_costo{
+            font-size: 14px;
+            color: #ffffff;
+            padding:15px 0 0 8px;
+
+        }
+        .txt_monto{
+            font-size: 30px;
+            color: #ffffff;
+            padding:2px 0 0 8px;
+
+        }
+
+    }
+}

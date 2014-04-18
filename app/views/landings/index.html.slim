@@ -2,21 +2,7 @@
 .page.landing.clear_block
 	= render "shared/menu"
 
-
-	.footer
-		.cont_footer
-
-			/ input.btns.btn_compartir(type="button" value="" onclick="compartirPagina(); _gaq.push(['_trackEvent', 'samsung-landingmicroondas','home','compartir']);") compartir
-			/ input.btns.btn_clases_gratis(type="button" value="" onclick="_gaq.push(['_trackEvent', 'samsung-landingmicroondas','beneficios','clasescocina']);") 5 clases de cocina gratis
-
-			.sprite.telefono 
-				.tlf = @siteinfo.telefono
-			
-			= link_to "", "#", class: "btns btn_prepara_tu_ensalada"
-
-			input.btns.btn_cont_abajo(value="" type="button")
-			input.btns.btn_volver_arriba.ti(type="button" value="")
-
+	= render "shared/footer"
 			
 	.contenedor.clear_block
 		.bloques.bloque_0
