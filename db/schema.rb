@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140413223436) do
+ActiveRecord::Schema.define(:version => 20140417201320) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -66,6 +66,59 @@ ActiveRecord::Schema.define(:version => 20140413223436) do
     t.boolean  "visible",         :default => true
     t.datetime "created_at",                        :null => false
     t.datetime "updated_at",                        :null => false
+  end
+
+  create_table "galeria_fotos", :force => true do |t|
+    t.string   "titulo"
+    t.text     "descripcion"
+    t.string   "img_grande"
+    t.string   "miniatura"
+    t.text     "txt_adicional_1"
+    t.text     "txt_adicional_2"
+    t.integer  "orden",           :default => 0
+    t.boolean  "visible",         :default => true
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
+    t.string   "imagen_id"
+  end
+
+  create_table "galeria_videos", :force => true do |t|
+    t.string   "titulo"
+    t.string   "descripcion"
+    t.string   "url_video"
+    t.string   "miniatura"
+    t.text     "txt_adicional_1"
+    t.text     "txt_adicional_2"
+    t.integer  "orden",           :default => 0
+    t.boolean  "visible",         :default => true
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
+    t.string   "imagen_id"
+  end
+
+  create_table "historia", :force => true do |t|
+    t.string   "titulo"
+    t.text     "descripcion"
+    t.string   "imagen"
+    t.text     "txt_adicional_1"
+    t.text     "txt_adicional_2"
+    t.integer  "orden",           :default => 0
+    t.boolean  "visible",         :default => true
+    t.datetime "created_at",                        :null => false
+    t.datetime "updated_at",                        :null => false
+  end
+
+  create_table "imagens", :force => true do |t|
+    t.string   "foto_titulo"
+    t.text     "foto_descripcion"
+    t.string   "video_titulo"
+    t.text     "video_descripcion"
+    t.text     "txt_adicional_1"
+    t.text     "txt_adicional_2"
+    t.integer  "orden",             :default => 0
+    t.boolean  "visible",           :default => true
+    t.datetime "created_at",                          :null => false
+    t.datetime "updated_at",                          :null => false
   end
 
   create_table "lista_ensaladas", :force => true do |t|

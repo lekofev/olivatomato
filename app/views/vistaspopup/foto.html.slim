@@ -1,0 +1,12 @@
+#galeria_popup_items
+	.galeria_popup_item.galeria_foto
+		.cont_descripcion
+			.cont_titulo
+				h3  = @galeria_foto.titulo
+			.cont_desc
+				p.desc
+					= @galeria_foto.descripcion
+		.cont_imagen
+			.imagen
+				= image_tag(@galeria_foto.img_grande)
+

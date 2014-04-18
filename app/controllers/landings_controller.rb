@@ -40,6 +40,17 @@ class LandingsController < ApplicationController
 		@fuente = @nutricion.fuente.split(',')
 		
 
+		# historia
+
+		@historias = Historia.where(visible:true).order("orden ASC")
+
+		#Imagen
+
+		@galeria_fotos = GaleriaFoto.where(visible:true).order("orden ASC")
+		@galeria_videos = GaleriaVideo.where(visible:true).order("orden ASC")
+
+
+
 		@cc = "Hola mundo"
 	end
 

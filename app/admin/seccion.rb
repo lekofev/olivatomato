@@ -5,6 +5,7 @@ ActiveAdmin.register Seccion do
     sidebar "Banner Rotativo",:only => :show do 
       ul do
         li link_to("Lista de banners", admin_seccion_banner_inicios_path(seccion))
+        li link_to("Lista de banners", admin_seccion_galeria_fotos_path(seccion))
       end
     end
 

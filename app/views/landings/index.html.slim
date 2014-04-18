@@ -10,7 +10,7 @@
 			/ input.btns.btn_clases_gratis(type="button" value="" onclick="_gaq.push(['_trackEvent', 'samsung-landingmicroondas','beneficios','clasescocina']);") 5 clases de cocina gratis
 
 			.sprite.telefono 
-				.tlf 971-161-039
+				.tlf = @siteinfo.telefono
 			
 			= link_to "", "#", class: "btns btn_prepara_tu_ensalada"
 
@@ -81,7 +81,7 @@
 						    		li
 										.ensalada_item
 											.ensalada_imagen
-						    					a.abrir_ensalada_detalle(href="/popup/#{ensalada.id}")
+						    					a.abrir_ensalada_detalle(href="/ensalada/#{ensalada.id}")
 						    						= image_tag(ensalada.img_chica, class:"").html_safe
 											h4.ensalada_titulo
 												= ensalada.titulo
@@ -93,7 +93,7 @@
 												= ensalada.precio
 												/ = ensaladas_path
 
-											a.btns.btn_detalle_ensalada.abrir_ensalada_detalle(href="/popup/#{ensalada.id}")
+											a.btns.btn_detalle_ensalada.abrir_ensalada_detalle(href="/ensalada/#{ensalada.id}")
 						    				/ = link_to "", ensalada_path, class:"btns btn_detalle_ensalada abrir_ensalada_detalle"
 						    				/ = link_to "", controller: "ensaladas", action: "popup", id: "1", class: "btns btn_detalle_ensalada abrir_ensalada_detalle"
 
@@ -254,14 +254,22 @@
 
 				.slide_contenedor_historia
 					.slie.slide_historia
-						.slide_items.slide_item_0
-							= image_tag("historia.jpg", class:"img_historia")
-						.slide_items.slide_item_1
-							= image_tag("historia.jpg", class:"img_historia")
-						.slide_items.slide_item_2
-							= image_tag("historia.jpg", class:"img_historia")
-						.slide_items.slide_item_3
-							= image_tag("historia.jpg", class:"img_historia")
+					    - if @historias.any?								
+							- for historia in @historias
+								.slide_items.slide_item_0
+									= image_tag(historia.imagen, class:"img_historia")
+					    - else
+							p No items found Please add some inventory. Thank you!
+
+
+						/ .slide_items.slide_item_0
+						/ 	= image_tag("historia.jpg", class:"img_historia")
+						/ .slide_items.slide_item_1
+						/ 	= image_tag("historia.jpg", class:"img_historia")
+						/ .slide_items.slide_item_2
+						/ 	= image_tag("historia.jpg", class:"img_historia")
+						/ .slide_items.slide_item_3
+						/ 	= image_tag("historia.jpg", class:"img_historia")
 
 					.btns.flechas.flecha_left.ti flecha inzquierda
 					.btns.flechas.flecha_right.ti flecha derecha
@@ -280,46 +288,43 @@
 				.slide_contenedor_galeria_foto
 					.jcarousel
 						ul
-							li
-								a.galeria_foto_item(href="javascript:void(0)")
-									= image_tag("ensalada_menu.jpg", class:"")
-									/ h5.foto_descripcion
-									/ 	| Del Cesar 1 inspírate tu también.
-							li
-								a.galeria_foto_item(href="javascript:void(0)")
-									= image_tag("ensalada_menu.jpg", class:"")
-									/ h5.foto_descripcion
-									/ 	| Del Cesar 1 inspírate tu también.
-							li
-								a.galeria_foto_item(href="javascript:void(0)")
-									= image_tag("ensalada_menu.jpg", class:"")
-									/ h5.foto_descripcion
-									/ 	| Del Cesar 1 inspírate tu también.
-							li
-								a.galeria_foto_item(href="javascript:void(0)")
-									= image_tag("ensalada_menu.jpg", class:"")
-									/ h5.foto_descripcion
-									/ 	| Del Cesar 1 inspírate tu también.
-							li
-								a.galeria_foto_item(href="javascript:void(0)")
-									= image_tag("ensalada_menu.jpg", class:"")
-									/ h5.foto_descripcion
-									/ 	| Del Cesar 1 inspírate tu también.
-							li
-								a.galeria_foto_item(href="javascript:void(0)")
-									= image_tag("ensalada_menu.jpg", class:"")
-									/ h5.foto_descripcion
-									/ 	| Del Cesar 1 inspírate tu también.
-							li
-								a.galeria_foto_item(href="javascript:void(0)")
-									= image_tag("ensalada_menu.jpg", class:"")
-									/ h5.foto_descripcion
-									/ 	| Del Cesar 1 inspírate tu también.
-							li
-								a.galeria_foto_item(href="javascript:void(0)")
-									= image_tag("ensalada_menu.jpg", class:"")
-									/ h5.foto_descripcion
-									/ 	| Del Cesar 1 inspírate tu también.
+						    - if @galeria_fotos.any?								
+								- for galeria_foto in @galeria_fotos
+									li
+										= image_tag(galeria_foto.miniatura, class:"")
+										p.foto_titulo = galeria_foto.titulo
+										
+										a.galeria_foto_item.galeria_popup(href="/foto/#{galeria_foto.id}")
+										/ = link_to "", "javascript:void(0)", "data-id":"sdf"
+						    - else
+								p No items found Please add some inventory. Thank you!
+
+
+							/ li 
+
+							/ 	= image_tag("ensalada_menu.jpg", class:"")
+							/ 	p.foto_titulo Titulo de la foto
+							/ 	a.galeria_foto_item(href="javascript:void(0)")
+							/ li 
+
+							/ 	= image_tag("ensalada_menu.jpg", class:"")
+							/ 	p.foto_titulo Titulo de la foto
+							/ 	a.galeria_foto_item(href="javascript:void(0)")
+							/ li 
+
+							/ 	= image_tag("ensalada_menu.jpg", class:"")
+							/ 	p.foto_titulo Titulo de la foto
+							/ 	a.galeria_foto_item(href="javascript:void(0)")
+							/ li 
+
+							/ 	= image_tag("ensalada_menu.jpg", class:"")
+							/ 	p.foto_titulo Titulo de la foto
+							/ 	a.galeria_foto_item(href="javascript:void(0)")
+							/ li 
+
+							/ 	= image_tag("ensalada_menu.jpg", class:"")
+							/ 	p.foto_titulo Titulo de la foto
+							/ 	a.galeria_foto_item(href="javascript:void(0)")
 
 					input.btns.flechas.flecha_left(type="button")
 					input.btns.flechas.flecha_right(type="button")
@@ -332,46 +337,41 @@
 				.slide_contenedor_galeria_video
 					.jcarousel
 						ul
-							li
-								a.galeria_foto_item(href="javascript:void(0)")
-									= image_tag("ensalada_menu.jpg", class:"")
-									/ h5.foto_descripcion
-									/ 	| Del Cesar 1 inspírate tu también.
-							li
-								a.galeria_foto_item(href="javascript:void(0)")
-									= image_tag("ensalada_menu.jpg", class:"")
-									/ h5.foto_descripcion
-									/ 	| Del Cesar 1 inspírate tu también.
-							li
-								a.galeria_foto_item(href="javascript:void(0)")
-									= image_tag("ensalada_menu.jpg", class:"")
-									/ h5.foto_descripcion
-									/ 	| Del Cesar 1 inspírate tu también.
-							li
-								a.galeria_foto_item(href="javascript:void(0)")
-									= image_tag("ensalada_menu.jpg", class:"")
-									/ h5.foto_descripcion
-									/ 	| Del Cesar 1 inspírate tu también.
-							li
-								a.galeria_foto_item(href="javascript:void(0)")
-									= image_tag("ensalada_menu.jpg", class:"")
-									/ h5.foto_descripcion
-									/ 	| Del Cesar 1 inspírate tu también.
-							li
-								a.galeria_foto_item(href="javascript:void(0)")
-									= image_tag("ensalada_menu.jpg", class:"")
-									/ h5.foto_descripcion
-									/ 	| Del Cesar 1 inspírate tu también.
-							li
-								a.galeria_foto_item(href="javascript:void(0)")
-									= image_tag("ensalada_menu.jpg", class:"")
-									/ h5.foto_descripcion
-									/ 	| Del Cesar 1 inspírate tu también.
-							li
-								a.galeria_foto_item(href="javascript:void(0)")
-									= image_tag("ensalada_menu.jpg", class:"")
-									/ h5.foto_descripcion
-									/ 	| Del Cesar 1 inspírate tu también.
+						    - if @galeria_videos.any?								
+								- for galeria_video in @galeria_videos
+									li
+										= image_tag(galeria_video.miniatura, class:"")
+										p.foto_titulo = galeria_video.titulo
+										a.galeria_foto_item.galeria_popup(href="/video/#{galeria_video.id}")
+
+
+						    - else
+								p No items found Please add some inventory. Thank you!
+
+
+							li 
+
+
+							/ li 
+
+							/ 	= image_tag("ensalada_menu.jpg", class:"")
+							/ 	p.foto_titulo Titulo de la foto
+							/ 	a.galeria_foto_item(href="javascript:void(0)")
+							/ li 
+
+							/ 	= image_tag("ensalada_menu.jpg", class:"")
+							/ 	p.foto_titulo Titulo de la foto
+							/ 	a.galeria_foto_item(href="javascript:void(0)")
+							/ li 
+
+							/ 	= image_tag("ensalada_menu.jpg", class:"")
+							/ 	p.foto_titulo Titulo de la foto
+							/ 	a.galeria_foto_item(href="javascript:void(0)")
+							/ li 
+
+							/ 	= image_tag("ensalada_menu.jpg", class:"")
+							/ 	p.foto_titulo Titulo de la foto
+							/ 	a.galeria_foto_item(href="javascript:void(0)")
 
 					input.btns.flechas.flecha_left(type="button")
 					input.btns.flechas.flecha_right(type="button")

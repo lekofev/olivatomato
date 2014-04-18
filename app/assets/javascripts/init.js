@@ -14,6 +14,10 @@ function cufon_popup(){
 	Cufon.replace('.popup .ensalada_titulo, .popup .precio_cont, .popup .table_titulo', { fontFamily: 'Ponsi Rounded Slab' });		
 }
 
+function cufon_popup_galeria(){
+	Cufon.replace('.galeria_popup_item .cont_titulo h3', { fontFamily: 'Ponsi Rounded Slab' });		
+}
+
 function getAltoVentana(){
 	var alto=$(window).height();
 		if(alto<630)
@@ -40,80 +44,27 @@ function pullHistory(url)
 		case 'inicio':
 			bloque=0;
 		break
-		case 'beneficio':
+		case 'ensaladas':
 			bloque=1;
 		break
-		case 'cello':
+		case 'historia':
 			bloque=2;
 		break
-		case 'familia':
+		case 'nutricion':
 			bloque=3;
 		break
-		case 'videos':
+		case 'galeria':
 			bloque=4;
-		break
-		case 'familia-MG402MADXBB':
-			bloque=3;
-			slideFamilia=0;
-		break
-		case 'familia-AGE1103TST':
-			bloque=3;
-			slideFamilia=1;
-		break
-		case 'familia-AGE1103TW':
-			bloque=3;
-			slideFamilia=1;
-
-			$('.slide_item_1 .btns_colores_contenedor .btns_color').removeClass('activo')
-			$('.slide_item_1 .btns_colores_contenedor .btns_color.btn_blanco').addClass('activo')
-
-
-			$('.slide_item_1 .color_contenedor_slide').removeClass('activo')
-			$('.slide_item_1 .color_contenedor_slide.color_blanco').addClass('activo')
-
-		break
-		case 'familia-MS402MADXBB':
-			bloque=3;
-			slideFamilia=2;
-		break
-		case 'familia-AME1113TST':
-			bloque=3;
-			slideFamilia=3;
-		break
-		case 'familia-AME1113TW':
-			bloque=3;
-			slideFamilia=3;
-
-			$('.slide_item_3 .btns_colores_contenedor .btns_color').removeClass('activo')
-			$('.slide_item_3 .btns_colores_contenedor .btns_color.btn_blanco').addClass('activo')
-
-
-			$('.slide_item_3 .color_contenedor_slide').removeClass('activo')
-			$('.slide_item_3 .color_contenedor_slide.color_blanco').addClass('activo')
-		break
-		case 'familia-AME83M':
-			bloque=3;
-			slideFamilia=4;
-		break
-		case 'familia-AMW831K':
-			bloque=3;
-			slideFamilia=5;
-		break
-		default:			
-			bloque=0;
-			slideFamilia=0;
-
 		break
 	}
 	return {
-			bloque:bloque,
-			slideFamilia:slideFamilia
+			bloque:bloque
 		}
 	
 }
 
 //funcion que escribe la url, debo pasarle un parametro
-function pushHistory(a)
+function pushHistory(a, msie, urlLimpia)
 {
 	//para IE
 	if(msie)
@@ -124,16 +75,16 @@ function pushHistory(a)
 				location.hash='inicio';
 			break;
 			case 1:
-				location.hash='beneficio';
+				location.hash='ensaladas';
 			break;
 			case 2:
-				location.hash='cello';
+				location.hash='nutricion';
 			break;
 			case 3:
-				location.hash='familia';
+				location.hash='historia';
 			break;
 			case 4:
-				location.hash='videos';
+				location.hash='galeria';
 			break;
 		}			
 	}
@@ -146,112 +97,21 @@ function pushHistory(a)
 				history.pushState(null, null, urlLimpia+'#inicio');
 			break;
 			case 1:
-				history.pushState(null, null, urlLimpia+'#beneficio');
+				history.pushState(null, null, urlLimpia+'#ensaladas');
 			break;
 			case 2:
-				history.pushState(null, null, urlLimpia+'#cello');
+				history.pushState(null, null, urlLimpia+'#nutricion');
 			break;
 			case 3:
-				history.pushState(null, null, urlLimpia+'#familia');
+				history.pushState(null, null, urlLimpia+'#historia');
 			break;
 			case 4:
-				history.pushState(null, null, urlLimpia+'#videos');
+				history.pushState(null, null, urlLimpia+'#galeria');
 			break;
 		}
 
 	}
 }// end pushHistory
-
-
-
-//me escribe el history de la seccion familia
-function pushHistoryFamilia(a)
-{
-	if(msie)
-	{
-		switch(a)
-		{
-			case 0:
-				location.hash='familia-MG402MADXBB';
-			break;
-			case 1:
-				// location.hash='familia-AGE1103TST';
-
-				if($('.slide_item_1 .btns_colores_contenedor .btn_gris').hasClass('activo'))
-				{
-					location.hash='familia-AGE1103TST';
-				}
-				else if($('.slide_item_1 .btns_colores_contenedor .btn_blanco').hasClass('activo'))
-				{
-					location.hash='familia-AGE1103TW';
-				}
-
-			break;
-			case 2:
-				location.hash='familia-MS402MADXBB';
-			break;
-			case 3:
-				// location.hash='familia-AME1113TST';
-				if($('.slide_item_3 .btns_colores_contenedor .btn_gris').hasClass('activo'))
-				{
-					location.hash='familia-AME1113TST';
-				}
-				else if($('.slide_item_3 .btns_colores_contenedor .btn_blanco').hasClass('activo'))
-				{
-					location.hash='familia-AME1113TW';
-				}
-			break;
-			case 4:
-				location.hash='familia-AME83M';
-			break;
-			case 5:
-				location.hash='familia-AMW831K';
-			break;
-
-		}	
-	}
-	else
-	{
-		switch(a)
-		{
-			case 0:
-				history.pushState(null, null, urlLimpia+'#familia-MG402MADXBB');
-			break;
-			case 1:
-					// history.pushState(null, null, urlLimpia+'#familia-AGE1103TST');
-				if($('.slide_item_1 .btns_colores_contenedor .btn_gris').hasClass('activo'))
-				{
-					history.pushState(null, null, urlLimpia+'#familia-AGE1103TST');
-				}
-				else if($('.slide_item_1 .btns_colores_contenedor .btn_blanco').hasClass('activo'))
-				{
-					history.pushState(null, null, urlLimpia+'#familia-AGE1103TW');	
-				}
-
-			break;
-			case 2:
-				history.pushState(null, null, urlLimpia+'#familia-MS402MADXBB');
-			break;
-			case 3:
-					// history.pushState(null, null, urlLimpia+'#familia-AME1113TST');
-				if($('.slide_item_3 .btns_colores_contenedor .btn_gris').hasClass('activo'))
-				{
-					history.pushState(null, null, urlLimpia+'#familia-AME1113TST');
-				}
-				else if($('.slide_item_3 .btns_colores_contenedor .btn_blanco').hasClass('activo'))
-				{
-					history.pushState(null, null, urlLimpia+'#familia-AME1113TW');					
-				}
-			break;
-			case 4:
-				history.pushState(null, null, urlLimpia+'#familia-AME83M');
-			break;
-			case 5:
-				history.pushState(null, null, urlLimpia+'#familia-AMW831K');
-			break;
-		}
-	}
-}
 
 
 
@@ -361,7 +221,6 @@ $(document).ready(function(){
 		//si es ie, la variable se volvera true
 		msie=true;
 	}	
-	
 
 	//declaro la variable bloqueVisible= 0, por que el primer bloque q se ve cuando carga el site por primera vez
 	var bloqueVisible=0;
@@ -369,7 +228,7 @@ $(document).ready(function(){
 
 
 
-	Cufon.replace('.titulo H2, .titulo_sabias_que,  .ensalada_titulo, .ensalada_desc, .telefono, .precio_cont, .table_titulo, .textos_adicionales h3', { fontFamily: 'Ponsi Rounded Slab' });
+	Cufon.replace('.titulo H2, .titulo_sabias_que,  .ensalada_titulo, .ensalada_desc, .telefono, .precio_cont, .table_titulo, .textos_adicionales h3, .slide_contenedor_galeria_foto p.foto_titulo, .slide_contenedor_galeria_video p.foto_titulo', { fontFamily: 'Ponsi Rounded Slab' });
 	Cufon.replace('.titulo p', { fontFamily: 'Code Pro Light Demo' });
 
 
@@ -377,41 +236,29 @@ $(document).ready(function(){
     $('.jcarousel').jcarousel({
         // Configuration goes here
     });
-	$('.jcarousel').on('jcarousel:firstin', 'li', function(event, carousel) {
-	    // "this" refers to the item element
-	    // "carousel" is the jCarousel instance
-	    console.log("first in")
-	    $('.flecha_left').hide();
-	});
-        /*
-         Prev control initialization
-         */
-        $('.flecha_left')
-            // .on('jcarouselcontrol:active', function() {
-            //     $(this).removeClass('inactive');
-            // })
-            // .on('jcarouselcontrol:inactive', function() {
-            //     $(this).addClass('inactive');
-            // })
-            .jcarouselControl({
-                // Options go here
-                target: '-=1'
-            });
+    $('.flecha_left').jcarouselControl({
+            target: '-=1'
+    });
+    $('.flecha_right').jcarouselControl({
+            target: '+=1'
+    });
 
-        /*
-         Next control initialization
-         */
-        $('.flecha_right')
-            // .on('jcarouselcontrol:active', function() {
-            //     $(this).removeClass('inactive');
-            // })
-            // .on('jcarouselcontrol:inactive', function() {
-            //     $(this).addClass('inactive');
-            // })
-            .jcarouselControl({
-                // Options go here
-                target: '+=1'
-            });
+	$('.jcarousel').on('jcarousel:firstin', 'li', function(event, carousel) {
+
+	    console.log("first in")
+	});
+
+
+	$('.jcarousel').on('jcarousel:firstout', 'li', function(event, carousel) {
+
+	    console.log("first out")
+	});  
+
+
+
+
+
+
 
 
 	//Arreglo solo para IE
@@ -424,36 +271,33 @@ $(document).ready(function(){
 
 	//alto inicial de cada bloque
 	var altoInicioSite=getAltoVentana();
-	$('.bloques, .bloques .bg').css('height',altoInicioSite+'px')
 
+	var nuevoAnchoPorcentaje = parseInt((100*altoInicioSite)/700);
+	var nuevoAnchoBg = parseInt((2000*nuevoAnchoPorcentaje)/100);
+
+	$('.bloques, .bloques .bg').css('height',altoInicioSite+'px')
+		
 	var anchoBg=parseInt($('.bloques .bg').css('width'));
-	console.log(altoInicioSite,anchoBg,  $('.bloques .bg').width())
 
 	$('.bloques .bg').css({
-		marginLeft:'-'+anchoBg/2+'px'
+		marginLeft:'-'+nuevoAnchoBg/2+'px'
 	})
 
-	TweenMax.to($('.bloques .bg'), 1, {autoAlpha:1, delay:0.5})	
+	TweenMax.to($('.bloques .bg'), 1, {autoAlpha:1, delay:0.5})
+
+
+
 
 	//Con esto hago que la pagina haga un scroll automatico en caso de te tenga un "#", por ejemplo #familia
 	if(urlHash!="")
 	{
-		$.scrollTo(getAltoVentana()*pullHistory(urlHash).bloque, 800,
+		var scrollInicial = getAltoVentana()*pullHistory(urlHash).bloque;
+		$.scrollTo({top:scrollInicial, left:0}, 800,
 				{
 						onAfter:function(){
 							bloqueVisible=pullHistory(urlHash).bloque;
 							// console.log(bloqueVisible)
 							primeraVez=false;
-							if(bloqueVisible==1)
-							{
-								$('.btn_clases_gratis').show()
-							}
-							else
-							{
-								$('.btn_clases_gratis').hide()
-							}
-
-							lanzarPageView(bloqueVisible)
 						}
 
 				}
@@ -463,7 +307,7 @@ $(document).ready(function(){
 	}
 	else
 	{
-		lanzarPageView(0)
+		// lanzarPageView(0)
 	}
 
 
@@ -488,26 +332,16 @@ $(document).ready(function(){
 			//IMPORTANTE, el contador de id inicia en 0
 			var _x = getAltoVentana()*id;			
 			
-			$.scrollTo( _x, 800,
+			$.scrollTo( {top:_x, left:0}, 800,
 				{
 					onAfter:function(){
 						boton_menu_clicked=false;
-
-						//con esto muestro o oculto el boton de "btn_clases_gratis" ya que solo debe verse en el bloque "beneficios"
-						if(id==1)
-						{
-							$('.btn_clases_gratis').show()
-						}
-						else
-						{
-							$('.btn_clases_gratis').hide()
-						}
 					}
 				}
 			)
 			// aqui uso el "id" para agregar la url y google tags
-			pushHistory(id)
-			lanzarPageView(id)
+			pushHistory(id, msie, urlLimpia)
+			// lanzarPageView(id)
 
 			if(id!=4)
 			{	
@@ -519,7 +353,8 @@ $(document).ready(function(){
 
 	//Boton inferior que me permiete navegar
 	$('.btn_cont_abajo').on('click', function(){
-		$.scrollTo(getAltoVentana()*(bloqueVisible+1), 800,
+		var _x = getAltoVentana()*(bloqueVisible+1)
+		$.scrollTo({top:_x, left:0}, 800,
 				{
 						onAfter:function(){
 						}
@@ -534,52 +369,23 @@ $(document).ready(function(){
 			boton_menu_clicked=true;
 			$(this).hide();
 			$('.btn_cont_abajo').show()
-			$.scrollTo(0, 800,
+			$.scrollTo({top:0, left:0}, 800,
 				{
 					onAfter:function(){
 						boton_menu_clicked=false;
 					}
 				}
 			)
-			pushHistory(0)
+			pushHistory(0, msie, urlLimpia)
 	})
 
-	//modifico los colores de las microondas
-	$('.btns_color').each(function(){
-		$(this).on('click', function(){
-			if(!$(this).hasClass('activo'))
-			{
-				var c= $(this).attr('data-color')
-				var slide= parseInt( $(this).attr('data-slide'))
-				$(this).siblings('.btns_color').removeClass('activo')
-				$(this).addClass('activo')
-
-				$(this).parent('.btns_colores_contenedor').siblings('.color_contenedor_slide').removeClass('activo')
-				$(this).parent('.btns_colores_contenedor').siblings('.color_'+c).addClass('activo')
-
-				if(!lt_ie9)
-				{
-					if(slide==1)
-					{
-						pushHistoryFamilia(1);
-					}
-					if(slide==3)
-					{
-						pushHistoryFamilia(3);
-					}					
-				}
-				
-			}
-			
-		})
-	})
 
 
 	var _inicio=true;
-	var _beneficio=true;
-	var _cello=true;
-	var _familia=true;
-	var _video=true;
+	var _ensaladas=true;
+	var _nutricion=true;
+	var _historia=true;
+	var _galeria=true;
 
 	//aqui uso unas llaves que me permiten cambiar la URL del navegador mientras hago un scroll con la barrita lateral
 	//con esto evito que se haga un evento cada vez que se hace un scroll y optimizo el site
@@ -596,83 +402,80 @@ $(document).ready(function(){
 				{
 					$('.menu_items a').removeClass('activo')
 					$('.menu_items a.btn_inicio').addClass('activo')					
-					pushHistory(0)
+					pushHistory(0, msie, urlLimpia)
 					_inicio=false;	
-					_beneficio=true;
-					_cello=true;
-					_familia=true;
-					_video=true;
-					$('.btn_clases_gratis').hide()
-					bloqueVisible=0;				}
+					_ensaladas=true;
+					_nutricion=true;
+					_historia=true;
+					_galeria=true;
+					bloqueVisible=0;				
+				}
 			}
 			else if(st>alto*0.5 && st<alto*1.5 )
 			{
-				if(_beneficio)
+				if(_ensaladas)
 				{
 					$('.menu_items a').removeClass('activo')
-					$('.menu_items a.btn_beneficio').addClass('activo')				
-					pushHistory(1)
+					$('.menu_items a.btn_ensaladas').addClass('activo')				
+					pushHistory(1, msie, urlLimpia)
 					_inicio=true;	
-					_beneficio=false;
-					_cello=true;
-					_familia=true;
-					_video=true;	
+					_ensaladas=false;
+					_nutricion=true;
+					_historia=true;
+					_galeria=true;	
 
-					$('.btn_clases_gratis').show()
 					bloqueVisible=1;
 				}
 			}
 			else if(st>alto*1.5 && st<alto*2.5 )
 			{
-				if(_cello)
+				if(_nutricion)
 				{
 					$('.menu_items a').removeClass('activo')
-					$('.menu_items a.btn_cello').addClass('activo')
-					pushHistory(2)
+					$('.menu_items a.btn_nutricion').addClass('activo')
+					pushHistory(2, msie, urlLimpia)
 					_inicio=true;	
-					_beneficio=true;
-					_cello=false;
-					_familia=true;
-					_video=true;	
-					$('.btn_clases_gratis').hide()
+					_ensaladas=true;
+					_nutricion=false;
+					_historia=true;
+					_galeria=true;	
 					bloqueVisible=2;
 				}
 			}
 			else if(st>alto*2.5 && st<alto*3.5 )
 			{
-				if(_familia)
+				if(_historia)
 				{
 					$('.menu_items a').removeClass('activo')
-					$('.menu_items a.btn_familia').addClass('activo')
+					$('.menu_items a.btn_historia').addClass('activo')
 					
 					$('.btn_cont_abajo').show()
 					$('.btn_volver_arriba').hide()
-					pushHistory(3)
+					pushHistory(3, msie, urlLimpia)
 					_inicio=true;	
-					_beneficio=true;
-					_cello=true;
-					_familia=false;
-					_video=true;	
-					$('.btn_clases_gratis').hide()
+					_ensaladas=true;
+					_nutricion= true;
+					_historia=false;
+					_galeria=true;		
+
 					bloqueVisible=3;
 				}
 			}
 			else if(st>alto*3.5)
 			{
-				if(_video)
+				if(_galeria)
 				{
 					$('.menu_items a').removeClass('activo')
-					$('.menu_items a.btn_video').addClass('activo')
+					$('.menu_items a.btn_galeria').addClass('activo')
 					
 					$('.btn_cont_abajo').hide()
 					$('.btn_volver_arriba').show()
-					pushHistory(4)
+					pushHistory(4, msie, urlLimpia)
 					_inicio=true;	
-					_beneficio=true;
-					_cello=true;
-					_familia=true;
-					_video=false;	
-					$('.btn_clases_gratis').hide()
+					_ensaladas=true;
+					_nutricion= true;
+					_historia=true;
+					_galeria=false;	
 					bloqueVisible=4;
 				}	
 			}
@@ -727,166 +530,70 @@ $(document).ready(function(){
 	})
 
 
-	// Los tooltips
-	$('.btn_tooltip').each(function(){
-		$(this).on('click', function(){
-			var t=$(this).siblings('.tooltip');
-			t.siblings('.btn_tooltip').addClass('activo')
-			var s=0.5;
-			if(lt_ie9)
-			{
-				s=0;
-			}
 
-			TweenMax.to(t,s,
-				{
-					autoAlpha:1
-				}
-			)
+	$('.abrir_ensalada_detalle').colorbox({
+		// iframe:true,
+		width:775,
+		height:475,
+		// transition:"none",
+		opacity:0.5,
+		scrolling:false,
+		fixed:true,
+		overlayClose:false,
+		//escKey: false,
+		arrowKey:false,
+		// href:'fotos_agrupadas.html',
+		// href:"http://localhost:3000/popup/"+id,
+			
+		onComplete:function(){
+			cufon_popup();
+			setTimeout(function(){$('#cboxClose').fadeIn();},100)
+			
+		},
+		onClosed:function(){
+			$('#cboxClose').hide()
+		}				
+	}); 
+
+	$('a.galeria_foto_item').each(function(){
+		$(this).on('mouseover', function(){
+			$(this).siblings('.foto_titulo').stop().fadeIn()
 		})
-
-		
-	})
-
-
-	$('.btn_cerrar_tooltip').each(function(){
-		$(this).on('click', function(){
-
-			var t=$(this).parent('.tooltip')
-			t.siblings('.btn_tooltip').removeClass('activo')
-			var s=0.5;
-			if(lt_ie9)
-			{
-				s=0;
-			}
-
-			TweenMax.to(t,s,
-				{
-					autoAlpha:0
-				}
-			)			
-		})
-	})
-
-
-	$('.btn_clases_gratis').on('click', function(){
-		$('.clases_popup').show()
-		var s=0.5;
-		if(lt_ie9)
-		{
-			s=0;
-		}
-		TweenMax.to($('.modal'),s,
-						{
-							autoAlpha:1
-						}
-					)
-	})
-	$('.btn_cerrar_clases').on('click', function(){
-		$('.clases_popup').hide()
-		var s=0.5;
-		if(lt_ie9)
-		{
-			s=0;
-		}
-		TweenMax.to($('.modal'),s,
-						{
-							autoAlpha:0
-						}
-					)
-	})
-
-	//Video
-	$('.btn_cerrar_video').on('click', function(){
-		$('.video_popup').hide();
-		$('.video_contendor').removeClass('add_sombra');
-		var s=0.5;
-		if(lt_ie9)
-		{
-			s=0;
-		}
-		TweenMax.to($('.modal'),s,
-						{
-							autoAlpha:0,
-							onComplete:function(){
-								$('.video_embed').html('<div id="video_id"></div>')
-							}
-						}
-					)
-	})
-
-	//each para cada boton de video
-	$('.video_btn_play').each(function(){	
-		$(this).on('click', function(){
-			//LA informacion necesario para levantar el video se encuentra dentro el mismo html, aqui lo obtengo y guardo para posterior uso
-			var video_id=$(this).attr('data-videoid');
-			var video_titulo=$(this).attr('data-titulo');
-			var video_info=$(this).attr('data-info');
-			var video_time=$(this).attr('data-time');
-
-			$('.video_popup').show()
-			$('.video_popup .titulo_video').html(video_titulo)
-			$('.video_popup .descripcion_video').html(video_info)
-			var s=0.5;
-			if(lt_ie9)
-			{
-				s=0;
-			}
-			TweenMax.to($('.modal'),s,
-							{
-								autoAlpha:1
-							}
-			)
-			//esto ejecuta el video que se carga con swfObjetc
-			cargarVideo(video_id)
+		$(this).on('mouseout', function(){
+			$(this).siblings('.foto_titulo').stop().fadeOut()
 		})
 	})
 
 
 
-	// $('.abrir_ensalada_detalle').each(function(){
-	// 	$(this).on('click', function(e){
-	// 		e.preventDefault()
-	// 		var id = $(this).attr("data-id")
-			$('.abrir_ensalada_detalle').colorbox({
-				// iframe:true,
-				width:761,
-				height:460,
-				// transition:"none",
-				opacity:0.5,
-				scrolling:false,
-				fixed:true,
-				overlayClose:false,
-				//escKey: false,
-				arrowKey:false,
-				// href:'fotos_agrupadas.html',
-				// href:"http://localhost:3000/popup/"+id,
-					
-				onComplete:function(){
-					cufon_popup();
-					setTimeout(function(){$('#cboxClose').fadeIn();},100)
-					
-				},
-				//href:'fotos_grande.html'
-				onClosed:function(){
-					$('#cboxClose').hide()
-								/*$.colorbox({
-											iframe:true,
-											width:670,
-											height:720,
-											transition:"none",
-											opacity:0.5,
-											scrolling:false,
-											//overlayClose:false,
-											//escKey: false,
-											arrowKey:false,
-											href:'fotos_agrupadas.html'
-											//href:'fotos_grande.html'
-								}); */
-				}				
-			}); 
-	// 	});
-	// });
+	$('.galeria_popup').colorbox({
+		// iframe:true,
+		width:650,
+		height:510,
+		// transition:"none",
+		opacity:0.5,
+		scrolling:false,
+		fixed:true,
+		overlayClose:false,
+		//escKey: false,
+		arrowKey:false,
+		// href:'fotos_agrupadas.html',
+		// href:"http://localhost:3000/popup/"+id,
+			
+		onComplete:function(){
+			cufon_popup_galeria();
+			setTimeout(function(){$('#cboxClose').fadeIn();},100)
+			
+		},
+		//href:'fotos_grande.html'
+		onClosed:function(){
+			$('#cboxClose').hide()
+		}				
+	}); 
+
+
+
+
 
 
 });// end jQuery

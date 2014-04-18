@@ -19,8 +19,4 @@ class EnsaladasController < ApplicationController
 
 	end
 
-	def minerales
-
-	end
-
 end
