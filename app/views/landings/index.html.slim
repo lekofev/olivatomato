@@ -1,72 +1,46 @@
 #fb-root.fb_reset
-.page.clear_block
-	.menu_principal
-		.cont_menu.clear_block
+.page.landing.clear_block
+	= render "shared/menu"
 
-			.logo
-				= link_to image_tag("logo_ol.jpg", class:"").html_safe, '#'
-			.personajes.sprite.oliva
-			.personajes.sprite.tomato
-				ul.menu_sociales
-					li
-						a.btns.icon_sociales.face(href="http://facebook.com")
-					li
-						a.btns.icon_sociales.tw(href="http://twitter.com")
-					li
-						a.btns.icon_sociales.email(href="http://gmail.com")
-
-			ul.menu_list.clear_block
-				li.menu_items.menu_item_0
-					a.btns.btn_inicio.ti.activo(data-id="0") inicio
-				li.menu_items.menu_item_1
-					a.btns.btn_beneficio.ti(data-id="1") beneficio
-				li.menu_items.menu_item_2
-					a.btns.btn_cello.ti(data-id="2") cello
-				li.menu_items.menu_item_3
-					a.btns.btn_familia.ti(data-id="3") familia
-				li.menu_items.menu_item_4
-					a.btns.btn_video.ti(data-id="4") videos
-			
-			/.menu_sociales
-			/	.btns.btns_sociales.face.ti facebook
-			/	.btns.btns_sociales.tw.ti twitter
-			/	.btns.btns_sociales.email.ti email
-
-
-	.footer
-		.cont_footer
-
-			/ input.btns.btn_compartir(type="button" value="" onclick="compartirPagina(); _gaq.push(['_trackEvent', 'samsung-landingmicroondas','home','compartir']);") compartir
-			/ input.btns.btn_clases_gratis(type="button" value="" onclick="_gaq.push(['_trackEvent', 'samsung-landingmicroondas','beneficios','clasescocina']);") 5 clases de cocina gratis
-			
-			input.btns.btn_cont_abajo(value="" type="button") continuar abajo
-			input.btns.btn_volver_arriba.ti(type="button" value="") volver al inicio
-
+	= render "shared/footer"
 			
 	.contenedor.clear_block
 		.bloques.bloque_0
 			= image_tag("bg_0.jpg", class:"bg")
 			.contenido.clear_block
 				.titulo
-					p Queremos invitarte a descubrir un nuevo estilo de vida. Comer sano es facil, rápido y delicioso.
-
-				.sprite.telefono 
-					.tlf 971-161-039
-
-				= link_to("", {constroller: "landings"}, id: "news", class: "btns btn_prepara_tu_ensalada")
+					
+					/ p Queremos invitarte a descubrir un nuevo estilo de vida. Comer sano es facil, rápido y delicioso.
+					p = @inicio.parrafo
 
 				.slide_contenedor_inicio
 					.slie.slide_inicio
-						.slide_items.slide_item_0
-							= image_tag("ensalada.jpg", class:"img_ensaladas")
-						.slide_items.slide_item_1
-							= image_tag("ensalada.jpg", class:"img_ensaladas")
-						.slide_items.slide_item_2
-							/= link_to "hiii #{image_tag(yourimagepath)}", "link_path"
-							/= link_to image_tag("ensalada.jpg", class:"img_ensaladas"). "link"
-							= link_to image_tag("ensalada.jpg", class:"img_ensaladas").html_safe, '#'
-						.slide_items.slide_item_3
-							= image_tag("ensalada.jpg", class:"img_ensaladas")
+
+					    - if @banners.any?
+					    	/ - for banner in @banners
+					    	- @banners.each_with_index do |banner, index|
+								<div class="slide_items slide_item_#{index}" data-banner-id="#{banner.id}"> 
+									/ = image_tag("ensalada.jpg", class:"img_ensaladas")
+									- if banner.img_link == "nolink" or banner.img_link == ""
+										= image_tag(banner.img_url, class:"img_ensaladas")
+									- else
+										= link_to image_tag(banner.img_url, class:"img_ensaladas").html_safe, banner.img_link, target:"_blank", class:"banner_inicio_link"
+								</div>
+					    - else
+							p No items found Please add some inventory. Thank you!
+
+						/ .slide_items.slide_item_0
+						/ 	= image_tag("ensalada.jpg", class:"img_ensaladas")
+						/ .slide_items.slide_item_1
+						/ 	= image_tag("ensalada.jpg", class:"img_ensaladas")
+						/ .slide_items.slide_item_2
+						/ 	/= link_to "hiii #{image_tag(yourimagepath)}", "link_path"
+						/ 	/= link_to image_tag("ensalada.jpg", class:"img_ensaladas"). "link"
+						/ 	= link_to image_tag("ensalada.jpg", class:"img_ensaladas").html_safe, '#'
+						/ .slide_items.slide_item_3
+						/ 	= image_tag("ensalada.jpg", class:"img_ensaladas")
+
+
 
 					.btns.flechas.flecha_left.ti flecha inzquierda
 					.btns.flechas.flecha_right.ti flecha derecha
@@ -79,95 +53,120 @@
 			= image_tag("bg_1.jpg", class:"bg")
 			.contenido.clear_block
 				.titulo
-					h2 Ensaladas Preparadas
-					p Tenemos una selección de ensaladas listas para pedir
-
-				.sprite.telefono 
-					.tlf 971-161-039
-
-				= link_to("", {constroller: "landings"}, id: "news", class: "btns btn_prepara_tu_ensalada")
+					h2 = @ensalada.titulo
+					p = @ensalada.parrafo
+					/ p Tenemos una selección de ensaladas listas para pedir
 
 				.slide_contenedor_ensaladas
 					.jcarousel
 						ul
-							li
-								.ensalada_item
-									.ensalada_imagen	
-										= link_to image_tag("ensalada_menu.jpg", class:"").html_safe, '#'
-									h4.ensalada_titulo
-										| Del Cesar 1
 
-									p.ensalada_desc Lechugas orgánicas, pollo grillé, huevo y tomate acompañado con pasas de estación, mayonesa baja en colesterol  con su toque picante
+						    - if @listaEnsaladas.any?
+						    	/ - for banner in @banners
+						    	- @listaEnsaladas.each_with_index do |ensalada, index|
+						    		li
+										.ensalada_item
+											.ensalada_imagen
+						    					a.abrir_ensalada_detalle(href="/ensalada/#{ensalada.id}")
+						    						= image_tag(ensalada.img_chica, class:"").html_safe
+											h4.ensalada_titulo
+												= ensalada.titulo
 
-									.ensalada_precio
-										| S/. 25.00
-									/ link_to("#", controller: "landings", class: "btns btn_detalle_ensalada")
-									a.btns.btn_detalle_ensalada(href="#")
-							li
-								.ensalada_item
-									.ensalada_imagen	
-										= link_to image_tag("ensalada_menu.jpg", class:"").html_safe, '#'
-									h4.ensalada_titulo
-										| Del Cesar 2
+											p.ensalada_desc 
+												= ensalada.descripcion
 
-									p.ensalada_desc Lechugas orgánicas, pollo grillé, huevo y tomate acompañado con pasas de estación, mayonesa baja en colesterol  con su toque picante
+											.ensalada_precio 
+												= ensalada.precio
+												/ = ensaladas_path
 
-									.ensalada_precio
-										| S/. 25.00
-									/ link_to("#", controller: "landings", class: "btns btn_detalle_ensalada")
-									a.btns.btn_detalle_ensalada(href="#")
-							li
-								.ensalada_item
-									.ensalada_imagen	
-										= link_to image_tag("ensalada_menu.jpg", class:"").html_safe, '#'
-									h4.ensalada_titulo
-										| Del Cesar 3
+											a.btns.btn_detalle_ensalada.abrir_ensalada_detalle(href="/ensalada/#{ensalada.id}")
+						    				/ = link_to "", ensalada_path, class:"btns btn_detalle_ensalada abrir_ensalada_detalle"
+						    				/ = link_to "", controller: "ensaladas", action: "popup", id: "1", class: "btns btn_detalle_ensalada abrir_ensalada_detalle"
 
-									p.ensalada_desc Lechugas orgánicas, pollo grillé, huevo y tomate acompañado con pasas de estación, mayonesa baja en colesterol  con su toque picante
+						    - else
+								p No hay ensaladas
 
-									.ensalada_precio
-										| S/. 25.00
-									/ link_to("#", controller: "landings", class: "btns btn_detalle_ensalada")
-									a.btns.btn_detalle_ensalada(href="#")
-							li
-								.ensalada_item
-									.ensalada_imagen	
-										= link_to image_tag("ensalada_menu.jpg", class:"").html_safe, '#'
-									h4.ensalada_titulo
-										| Del Cesar 4
+							/ li
+							/ 	.ensalada_item
+							/ 		.ensalada_imagen	
+							/ 			= link_to image_tag("ensalada_menu.jpg", class:"").html_safe, '#'
+							/ 		h4.ensalada_titulo
+							/ 			| Del Cesar 1
 
-									p.ensalada_desc Lechugas orgánicas, pollo grillé, huevo y tomate acompañado con pasas de estación, mayonesa baja en colesterol  con su toque picante
+							/ 		p.ensalada_desc Lechugas orgánicas, pollo grillé, huevo y tomate acompañado con pasas de estación, mayonesa baja en colesterol  con su toque picante
 
-									.ensalada_precio
-										| S/. 25.00
-									/ link_to("#", controller: "landings", class: "btns btn_detalle_ensalada")
-									a.btns.btn_detalle_ensalada(href="#")
-							li
-								.ensalada_item
-									.ensalada_imagen	
-										= link_to image_tag("ensalada_menu.jpg", class:"").html_safe, '#'
-									h4.ensalada_titulo
-										| Del Cesar 5
+							/ 		.ensalada_precio
+							/ 			| S/. 25.00
+							/ 		/ link_to("#", controller: "landings", class: "btns btn_detalle_ensalada")
+							/ 		a.btns.btn_detalle_ensalada(href="#")
 
-									p.ensalada_desc Lechugas orgánicas, pollo grillé, huevo y tomate acompañado con pasas de estación, mayonesa baja en colesterol  con su toque picante
 
-									.ensalada_precio
-										| S/. 25.00
-									/ link_to("#", controller: "landings", class: "btns btn_detalle_ensalada")
-									a.btns.btn_detalle_ensalada(href="#")
-							li
-								.ensalada_item
-									.ensalada_imagen	
-										= link_to image_tag("ensalada_menu.jpg", class:"").html_safe, '#'
-									h4.ensalada_titulo
-										| Del Cesar 6
 
-									p.ensalada_desc Lechugas orgánicas, pollo grillé, huevo y tomate acompañado con pasas de estación, mayonesa baja en colesterol  con su toque picante
+							/ li
+							/ 	.ensalada_item
+							/ 		.ensalada_imagen	
+							/ 			= link_to image_tag("ensalada_menu.jpg", class:"").html_safe, '#'
+							/ 		h4.ensalada_titulo
+							/ 			| Del Cesar 2
 
-									.ensalada_precio
-										| S/. 25.00
-									/ link_to("#", controller: "landings", class: "btns btn_detalle_ensalada")
-									a.btns.btn_detalle_ensalada(href="#")
+							/ 		p.ensalada_desc Lechugas orgánicas, pollo grillé, huevo y tomate acompañado con pasas de estación, mayonesa baja en colesterol  con su toque picante
+
+							/ 		.ensalada_precio
+							/ 			| S/. 25.00
+							/ 		/ link_to("#", controller: "landings", class: "btns btn_detalle_ensalada")
+							/ 		a.btns.btn_detalle_ensalada(href="#")
+							/ li
+							/ 	.ensalada_item
+							/ 		.ensalada_imagen	
+							/ 			= link_to image_tag("ensalada_menu.jpg", class:"").html_safe, '#'
+							/ 		h4.ensalada_titulo
+							/ 			| Del Cesar 3
+
+							/ 		p.ensalada_desc Lechugas orgánicas, pollo grillé, huevo y tomate acompañado con pasas de estación, mayonesa baja en colesterol  con su toque picante
+
+							/ 		.ensalada_precio
+							/ 			| S/. 25.00
+							/ 		/ link_to("#", controller: "landings", class: "btns btn_detalle_ensalada")
+							/ 		a.btns.btn_detalle_ensalada(href="#")
+							/ li
+							/ 	.ensalada_item
+							/ 		.ensalada_imagen	
+							/ 			= link_to image_tag("ensalada_menu.jpg", class:"").html_safe, '#'
+							/ 		h4.ensalada_titulo
+							/ 			| Del Cesar 4
+
+							/ 		p.ensalada_desc Lechugas orgánicas, pollo grillé, huevo y tomate acompañado con pasas de estación, mayonesa baja en colesterol  con su toque picante
+
+							/ 		.ensalada_precio
+							/ 			| S/. 25.00
+							/ 		/ link_to("#", controller: "landings", class: "btns btn_detalle_ensalada")
+							/ 		a.btns.btn_detalle_ensalada(href="#")
+							/ li
+							/ 	.ensalada_item
+							/ 		.ensalada_imagen	
+							/ 			= link_to image_tag("ensalada_menu.jpg", class:"").html_safe, '#'
+							/ 		h4.ensalada_titulo
+							/ 			| Del Cesar 5
+
+							/ 		p.ensalada_desc Lechugas orgánicas, pollo grillé, huevo y tomate acompañado con pasas de estación, mayonesa baja en colesterol  con su toque picante
+
+							/ 		.ensalada_precio
+							/ 			| S/. 25.00
+							/ 		/ link_to("#", controller: "landings", class: "btns btn_detalle_ensalada")
+							/ 		a.btns.btn_detalle_ensalada(href="#")
+							/ li
+							/ 	.ensalada_item
+							/ 		.ensalada_imagen	
+							/ 			= link_to image_tag("ensalada_menu.jpg", class:"").html_safe, '#'
+							/ 		h4.ensalada_titulo
+							/ 			| Del Cesar 6
+
+							/ 		p.ensalada_desc Lechugas orgánicas, pollo grillé, huevo y tomate acompañado con pasas de estación, mayonesa baja en colesterol  con su toque picante
+
+							/ 		.ensalada_precio
+							/ 			| S/. 25.00
+							/ 		/ link_to("#", controller: "landings", class: "btns btn_detalle_ensalada")
+							/ 		a.btns.btn_detalle_ensalada(href="#")
 
 
 
@@ -183,35 +182,51 @@
 			/ img.bg(src="/assets/bg_2.jpg" alt="")
 			.contenido.clear_block
 				.titulo
-					h2 Tips Nutricionales
-					p Si tienes alguna condición de salud y quieres saber Cómo alimentarte, estás en el lugar correcto.
+					h2
+						= @nutricion.titulo
+					p
+						= @nutricion.parrafo
 
 				.info_nutricional
 					.tabla_nutricional
 						table
 							tr
-								td.left.titulo_tabla Produce
-								td.right.titulo_tabla %With Neurotoxins
+								td.left.titulo_tabla(colspan="2") 
+									= @nutricion.nombre_producto
 							tr
-								td.left Nectarins
-								td.right 53.2%	
+								td.left = @nutricion_1[0]
+								td.right = @nutricion_1[1]
 							tr
-								td.left Nectarins
-								td.right 53.2%	
+								td.left = @nutricion_2[0]
+								td.right = @nutricion_2[1]
 							tr
-								td.left Nectarins
-								td.right 53.2%	
+								td.left = @nutricion_3[0]
+								td.right = @nutricion_3[1]
 							tr
-								td.left Nectarins
-								td.right 53.2%
+								td.left = @nutricion_4[0]
+								td.right = @nutricion_4[1]
 							tr
-								td.left Nectarins
-								td.right 53.2%		
+								td.left = @nutricion_5[0]
+								td.right = @nutricion_5[1]	
 
-					.recurso_nutricional 
+					.recurso_nutricional
+						= image_tag( @nutricion.img_producto)
+					
+				.textos_adicionales
+					.txt_sabias_que
+						h3 Sabías que...
+						ul
+							/ - @sabias_que.each_with_index do |t, i|
+							- @sabias_que.each do |t|
+								li = t
 
-				.titulo_sabias_que
-					h2 Sabías que...
+					.txt_fuente
+						h3 Fuente
+						ul
+							- @fuente.each do |t|
+								li
+									=link_to "#{t}", t, target:"_blank"
+						
 
 
 
@@ -223,19 +238,24 @@
 				.titulo
 					p CONOCE LA HISTORIA DETRÁS DE ESTA FRESCA UNIÓN
 
-				.sprite.telefono 
-					.tlf 971-161-039
-
 				.slide_contenedor_historia
 					.slie.slide_historia
-						.slide_items.slide_item_0
-							= image_tag("historia.jpg", class:"img_historia")
-						.slide_items.slide_item_1
-							= image_tag("historia.jpg", class:"img_historia")
-						.slide_items.slide_item_2
-							= image_tag("historia.jpg", class:"img_historia")
-						.slide_items.slide_item_3
-							= image_tag("historia.jpg", class:"img_historia")
+					    - if @historias.any?								
+							- for historia in @historias
+								.slide_items.slide_item_0
+									= image_tag(historia.imagen, class:"img_historia")
+					    - else
+							p No items found Please add some inventory. Thank you!
+
+
+						/ .slide_items.slide_item_0
+						/ 	= image_tag("historia.jpg", class:"img_historia")
+						/ .slide_items.slide_item_1
+						/ 	= image_tag("historia.jpg", class:"img_historia")
+						/ .slide_items.slide_item_2
+						/ 	= image_tag("historia.jpg", class:"img_historia")
+						/ .slide_items.slide_item_3
+						/ 	= image_tag("historia.jpg", class:"img_historia")
 
 					.btns.flechas.flecha_left.ti flecha inzquierda
 					.btns.flechas.flecha_right.ti flecha derecha
@@ -251,53 +271,46 @@
 					h2 Fotos
 					p LA naturaleza nos inspira, inspírate tu también.
 
-				.sprite.telefono 
-					.tlf 971-161-039
-				= link_to("", {constroller: "landings"}, id: "news", class: "btns btn_prepara_tu_ensalada")
-
 				.slide_contenedor_galeria_foto
 					.jcarousel
 						ul
-							li
-								a.galeria_foto_item(href="javascript:void(0)")
-									= image_tag("ensalada_menu.jpg", class:"")
-									/ h5.foto_descripcion
-									/ 	| Del Cesar 1 inspírate tu también.
-							li
-								a.galeria_foto_item(href="javascript:void(0)")
-									= image_tag("ensalada_menu.jpg", class:"")
-									/ h5.foto_descripcion
-									/ 	| Del Cesar 1 inspírate tu también.
-							li
-								a.galeria_foto_item(href="javascript:void(0)")
-									= image_tag("ensalada_menu.jpg", class:"")
-									/ h5.foto_descripcion
-									/ 	| Del Cesar 1 inspírate tu también.
-							li
-								a.galeria_foto_item(href="javascript:void(0)")
-									= image_tag("ensalada_menu.jpg", class:"")
-									/ h5.foto_descripcion
-									/ 	| Del Cesar 1 inspírate tu también.
-							li
-								a.galeria_foto_item(href="javascript:void(0)")
-									= image_tag("ensalada_menu.jpg", class:"")
-									/ h5.foto_descripcion
-									/ 	| Del Cesar 1 inspírate tu también.
-							li
-								a.galeria_foto_item(href="javascript:void(0)")
-									= image_tag("ensalada_menu.jpg", class:"")
-									/ h5.foto_descripcion
-									/ 	| Del Cesar 1 inspírate tu también.
-							li
-								a.galeria_foto_item(href="javascript:void(0)")
-									= image_tag("ensalada_menu.jpg", class:"")
-									/ h5.foto_descripcion
-									/ 	| Del Cesar 1 inspírate tu también.
-							li
-								a.galeria_foto_item(href="javascript:void(0)")
-									= image_tag("ensalada_menu.jpg", class:"")
-									/ h5.foto_descripcion
-									/ 	| Del Cesar 1 inspírate tu también.
+						    - if @galeria_fotos.any?								
+								- for galeria_foto in @galeria_fotos
+									li
+										= image_tag(galeria_foto.miniatura, class:"")
+										p.foto_titulo = galeria_foto.titulo
+										
+										a.galeria_foto_item.galeria_popup(href="/foto/#{galeria_foto.id}")
+										/ = link_to "", "javascript:void(0)", "data-id":"sdf"
+						    - else
+								p No items found Please add some inventory. Thank you!
+
+
+							/ li 
+
+							/ 	= image_tag("ensalada_menu.jpg", class:"")
+							/ 	p.foto_titulo Titulo de la foto
+							/ 	a.galeria_foto_item(href="javascript:void(0)")
+							/ li 
+
+							/ 	= image_tag("ensalada_menu.jpg", class:"")
+							/ 	p.foto_titulo Titulo de la foto
+							/ 	a.galeria_foto_item(href="javascript:void(0)")
+							/ li 
+
+							/ 	= image_tag("ensalada_menu.jpg", class:"")
+							/ 	p.foto_titulo Titulo de la foto
+							/ 	a.galeria_foto_item(href="javascript:void(0)")
+							/ li 
+
+							/ 	= image_tag("ensalada_menu.jpg", class:"")
+							/ 	p.foto_titulo Titulo de la foto
+							/ 	a.galeria_foto_item(href="javascript:void(0)")
+							/ li 
+
+							/ 	= image_tag("ensalada_menu.jpg", class:"")
+							/ 	p.foto_titulo Titulo de la foto
+							/ 	a.galeria_foto_item(href="javascript:void(0)")
 
 					input.btns.flechas.flecha_left(type="button")
 					input.btns.flechas.flecha_right(type="button")
@@ -310,46 +323,41 @@
 				.slide_contenedor_galeria_video
 					.jcarousel
 						ul
-							li
-								a.galeria_foto_item(href="javascript:void(0)")
-									= image_tag("ensalada_menu.jpg", class:"")
-									/ h5.foto_descripcion
-									/ 	| Del Cesar 1 inspírate tu también.
-							li
-								a.galeria_foto_item(href="javascript:void(0)")
-									= image_tag("ensalada_menu.jpg", class:"")
-									/ h5.foto_descripcion
-									/ 	| Del Cesar 1 inspírate tu también.
-							li
-								a.galeria_foto_item(href="javascript:void(0)")
-									= image_tag("ensalada_menu.jpg", class:"")
-									/ h5.foto_descripcion
-									/ 	| Del Cesar 1 inspírate tu también.
-							li
-								a.galeria_foto_item(href="javascript:void(0)")
-									= image_tag("ensalada_menu.jpg", class:"")
-									/ h5.foto_descripcion
-									/ 	| Del Cesar 1 inspírate tu también.
-							li
-								a.galeria_foto_item(href="javascript:void(0)")
-									= image_tag("ensalada_menu.jpg", class:"")
-									/ h5.foto_descripcion
-									/ 	| Del Cesar 1 inspírate tu también.
-							li
-								a.galeria_foto_item(href="javascript:void(0)")
-									= image_tag("ensalada_menu.jpg", class:"")
-									/ h5.foto_descripcion
-									/ 	| Del Cesar 1 inspírate tu también.
-							li
-								a.galeria_foto_item(href="javascript:void(0)")
-									= image_tag("ensalada_menu.jpg", class:"")
-									/ h5.foto_descripcion
-									/ 	| Del Cesar 1 inspírate tu también.
-							li
-								a.galeria_foto_item(href="javascript:void(0)")
-									= image_tag("ensalada_menu.jpg", class:"")
-									/ h5.foto_descripcion
-									/ 	| Del Cesar 1 inspírate tu también.
+						    - if @galeria_videos.any?								
+								- for galeria_video in @galeria_videos
+									li
+										= image_tag(galeria_video.miniatura, class:"")
+										p.foto_titulo = galeria_video.titulo
+										a.galeria_foto_item.galeria_popup(href="/video/#{galeria_video.id}")
+
+
+						    - else
+								p No items found Please add some inventory. Thank you!
+
+
+							li 
+
+
+							/ li 
+
+							/ 	= image_tag("ensalada_menu.jpg", class:"")
+							/ 	p.foto_titulo Titulo de la foto
+							/ 	a.galeria_foto_item(href="javascript:void(0)")
+							/ li 
+
+							/ 	= image_tag("ensalada_menu.jpg", class:"")
+							/ 	p.foto_titulo Titulo de la foto
+							/ 	a.galeria_foto_item(href="javascript:void(0)")
+							/ li 
+
+							/ 	= image_tag("ensalada_menu.jpg", class:"")
+							/ 	p.foto_titulo Titulo de la foto
+							/ 	a.galeria_foto_item(href="javascript:void(0)")
+							/ li 
+
+							/ 	= image_tag("ensalada_menu.jpg", class:"")
+							/ 	p.foto_titulo Titulo de la foto
+							/ 	a.galeria_foto_item(href="javascript:void(0)")
 
 					input.btns.flechas.flecha_left(type="button")
 					input.btns.flechas.flecha_right(type="button")

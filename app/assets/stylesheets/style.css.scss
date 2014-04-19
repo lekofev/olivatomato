@@ -38,7 +38,29 @@ body,html{
     font-style: normal;
 
 }
-	
+
+@font-face {
+    font-family: 'open_sansregular';
+    src: url('font/opensans-regular.eot');
+    src: url('font/opensans-regular.eot?#iefix') format('embedded-opentype'),
+         url('font/opensans-regular.woff') format('woff'),
+         url('font/opensans-regular.ttf') format('truetype'),
+         url('font/opensans-regular.svg#open_sansregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'open_sanssemibold';
+    src: url('font/opensans-semibold.eot');
+    src: url('font/opensans-semibold.eot?#iefix') format('embedded-opentype'),
+         url('font/opensans-semibold.woff') format('woff'),
+         url('font/opensans-semibold.ttf') format('truetype'),
+         url('font/opensans-semibold.svg#open_sanssemibold') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
 .btns { 
 
     // background-image: image-url("sprite.png");
@@ -88,14 +110,24 @@ body,html{
     background-position: top center;
 }
 
-.menu_principal{
+.landing .menu_principal{
     position: fixed;
     top: 0;
+
+}
+
+.formulario_pedido .menu_principal{
+
+}
+
+
+.menu_principal{
     height: 68px;
     width: 100%;
     z-index: 200;
     background-color: #ffffff;
     border-bottom: 32px solid #6c4723;
+    box-sizing: content-box;
     
     .cont_menu{
         width: 950px;
@@ -106,6 +138,7 @@ body,html{
         .menu_list{
             margin: 20px auto 0 auto;
             width: 680px;
+            padding: 0;
 
 
         }
@@ -216,12 +249,43 @@ body,html{
     height: 40px;
     margin: auto;
 }
+
+.telefono{
+    width: 190px;
+    height: 32px;
+    position: absolute;
+    left: 0;
+    top: 9px;
+    background-position: -7px -426px;
+    display: block;
+    color: #ed3424;
+    font-size: 20px;
+    .tlf{
+        width: 123px;
+        margin: 5px 0 0 43px;
+    }
+}
+.btn_prepara_tu_ensalada{
+    width: 178px;
+    height: 34px;
+    position: absolute;
+    right: 0;
+    top: 14px;
+    background-position: -7px -473px;
+}
+.btn_prepara_tu_ensalada:hover{
+    background-position: -201px -473px;
+
+}
+
 .menu_sociales{
     width: 18px;
     height: 65px;
     position: absolute;
     top: 98px;
     left: 35px;
+    list-style: none;
+    padding: 0;
     li{
         height: 18px;
         margin-bottom: 8px;
@@ -301,6 +365,7 @@ body,html{
     margin-top: -315px;
     z-index: 20;
 
+
     .info_block{
         padding-top: 34px;
 
@@ -323,34 +388,12 @@ body,html{
         }
     }
 
-    .telefono{
-        width: 194px;
-        height: 66px;
-        position: absolute;
-        background-position: -474px -202px;
-        display: block;
-        color: #ed3424;
-        font-size: 20px;
-        .tlf{
-            width: 123px;
-            margin: 24px 0 0 63px;
-        }
-    }
-    .btn_prepara_tu_ensalada{
-        width: 194px;
-        height: 66px;
-        display: block;
-        background-position: -266px -202px;
-        position: absolute;
-    }
-    .btn_prepara_tu_ensalada:hover{
-        background-position: -266px -273px;
 
-    }
 }
 
 
 @media all and (max-height: 700px){
+
     .contenido{
         width: 904px;
         height: 630px;
@@ -360,16 +403,8 @@ body,html{
         margin-left: -452px;
         margin-top: 0;
         z-index: 20;
-    
-        .slide_contenedor_historia{
-
-        }        
-
-
-        .telefono{
-
-        }
     }
+
 }
 
 
@@ -570,6 +605,12 @@ body,html{
             -moz-box-shadow:  3px 3px 4px 0px rgba(0, 0, 0, 0.2);
             box-shadow:  3px 3px 4px 0px rgba(0, 0, 0, 0.2);
             background-color: #c6c6c6;
+            position: relative;
+
+            img{
+                width: 149px;
+                height: 153px;
+            }
 
         }
         .ensalada_titulo{
@@ -587,9 +628,11 @@ body,html{
         }
         .ensalada_precio{
             font-size: 18px;
-            color: #ffffff;
+            color: #4a2b0b;
             font-family: Arial;
             padding: 0 5px;
+            bottom: 5px;
+            position: absolute;
         }
         .btn_detalle_ensalada{
             width: 23px;
@@ -599,6 +642,9 @@ body,html{
             float: right;
             margin-top: -24px;
             margin-right: 3px;
+            position: absolute;
+            right: 0;
+            bottom: 5px;
 
         }
         .btn_detalle_ensalada:hover{
@@ -634,7 +680,6 @@ body,html{
     width: 670px;
     height: 184px;
     margin: 0 auto;
-    background-color: #f1f2ea;
     margin-top: 10px;
 
     .tabla_nutricional{
@@ -661,6 +706,7 @@ body,html{
             }
             td.titulo_tabla{
                 background-color: #8f161a;
+                font-size: 17px;
 
             }
             td.left{
@@ -677,9 +723,57 @@ body,html{
         width: 312px;
         height: 160px;
         margin: 15px 15px 0 0;
+        overflow: hidden;
+        img{
+            height: 100%;
+            display: block;
+            margin: auto;
+        }
     }
 
 }
+.textos_adicionales{
+    width: 670px;
+    height: 184px;
+    margin: 0 auto;
+    margin-top: 20px;
+    .txt_sabias_que{
+        float: left;
+        width: 334px;
+
+    }
+    .txt_fuente{
+        float: right;
+        width: 334px;
+
+    }
+    h3{
+        color: #4a2b0b;
+        font-size: 24px;
+    }
+    ul{
+        list-style-image: image-url("bullet.png");
+        width: 90%;
+
+    } 
+    ul li{
+        font-size: 14px;
+        color: #676766;
+        line-height: 1.3;
+        margin-bottom: 5px;
+        margin-left: 12px;
+        font-family: arial;
+
+        a{
+            color: #676766;
+            text-decoration: none;            
+        }
+        a:hover{
+            text-decoration: underline;  
+        }
+    }
+}
+
 
 .bloques.bloque_3{
     .contenido{
@@ -805,18 +899,27 @@ body,html{
         margin: 0;
         padding: 0;
     }
-    .jcarousel li {
-        float: left;
-    }
-
 
     .jcarousel{
 
         li{
+            float: left;
             width: 160px;
             height: 130px;
-            a{
+            position: relative;
+            overflow: hidden;
+            a.galeria_foto_item{
                 display: block;
+                width: 124px;
+                height: 124px;
+                position: absolute;
+                z-index: 100;
+                top: 2px;
+                left: 17px;
+
+            }
+
+            img{
                 width: 120px;
                 height: 120px;
                 border:2px solid #ffffff;
@@ -824,13 +927,23 @@ body,html{
                 -webkit-box-shadow: 3px 3px 4px 0px rgba(0, 0, 0, 0.2);
                 -moz-box-shadow:  3px 3px 4px 0px rgba(0, 0, 0, 0.2);
                 box-shadow:  3px 3px 4px 0px rgba(0, 0, 0, 0.2);
-                margin:2px auto 0 auto;
-
-                img{
-                    width: 100%;
-                    height: 100%;
-                }
-
+                position: absolute;
+                z-index: 10;
+                top: 2px;
+                left: 17px;
+            }
+            p.foto_titulo{
+                display: block;
+                width: 114px;
+                height: 84px;
+                position: absolute;
+                z-index: 30;
+                top: 2px;
+                left: 17px;
+                background-color: #ffffff;
+                color: #4a2b0b;
+                padding: 40px 5px 0 5px;
+                display: none;
             }
         }
         .ensalada_item{
@@ -899,10 +1012,23 @@ body,html{
     .jcarousel{
 
         li{
+            float: left;
             width: 160px;
             height: 130px;
-            a{
+            position: relative;
+            overflow: hidden;
+            a.galeria_foto_item{
                 display: block;
+                width: 124px;
+                height: 124px;
+                position: absolute;
+                z-index: 100;
+                top: 2px;
+                left: 17px;
+
+            }
+
+            img{
                 width: 120px;
                 height: 120px;
                 border:2px solid #ffffff;
@@ -910,13 +1036,23 @@ body,html{
                 -webkit-box-shadow: 3px 3px 4px 0px rgba(0, 0, 0, 0.2);
                 -moz-box-shadow:  3px 3px 4px 0px rgba(0, 0, 0, 0.2);
                 box-shadow:  3px 3px 4px 0px rgba(0, 0, 0, 0.2);
-                margin:2px auto 0 auto;
-
-                img{
-                    width: 100%;
-                    height: 100%;
-                }
-
+                position: absolute;
+                z-index: 10;
+                top: 2px;
+                left: 17px;
+            }
+            p.foto_titulo{
+                display: block;
+                width: 114px;
+                height: 84px;
+                position: absolute;
+                z-index: 30;
+                top: 2px;
+                left: 17px;
+                background-color: #ffffff;
+                color: #4a2b0b;
+                padding: 40px 5px 0 5px;
+                display: none;
             }
         }
         .ensalada_item{
@@ -936,978 +1072,384 @@ body,html{
 
 
 
-
-/* -------------------  bloques genereales ---------------*/
-.slide_pager.slide_beneficios_pager{
-    width: 165px;
-    height: 30px;
-}
-.slide_pager.slide_cello_pager{
-    width: 130px;
-    height: 30px;
-    padding-left: 20px
-}
-.slide_pager.slide_familia_pager{
-    width: 255px;
-    height: 30px;
-    padding-left: 12px;
-}
-.slide_pager.slide_videos_pager{
-    width: 100px;
-    height: 30px;
-    padding-left: 30px
-}
-
-
-.btn_tooltip{
-    width: 35px;
-    height: 35px;
-    position: absolute;
-    background-position: -361px -492px;  
-    z-index: 200;
-}
-.btn_tooltip.activo{
-    background-position: -404px -492px;  
-}
-.btn_tooltip:hover{
-    background-position: -404px -492px;  
-}
-
-.tooltip{
-    display: inline-block;
-    background-color: #4a4e57;
-    background-image: image-url("bg_tooltip.png");
-    background-repeat:repeat;
-    border: 1px solid #dadada;
-    border-radius: 5px;
-    position: absolute;
-
-    .btn_cerrar_tooltip{
-        width: 23px;
-        height: 23px;
-        background-position: -494px -273px;
-        position: absolute;
-        right: -10px;
-        top: -10px;
-        z-index: 200;
-
-    }
-    .flecha{
-        position: absolute;
-        background-image: image-url("flechas.png");
-        background-repeat: no-repeat;
-
-    }
-
-    .btn_cerrar_tooltip:hover{
-        background-position: -521px -273px;        
-    }
-    
-    h3.tooltip_titulo{
-        color: #4dd3ff;
-        font-family: "samsung_interfaceregular";
-        font-size: 18px;
-        height: 26px;
-        padding: 15px 15px 0;
-        margin-bottom: 12px;
-
-        background-image: image-url("brillo_tooltip.png");
-        background-repeat: no-repeat;
-        background-position: center center;
-        position: relative;
-    }
-    
-    p.tooltip_desc{
-        color: #ebebec;
-        font-family: "samsung_interfaceregular";
-        font-size: 13px;
-        padding: 0 15px;
-        line-height: 1.2;
-        margin-bottom: 15px;
-        
-        strong{
-            font-family: "samsung_interfaceblack";
-
-        }
-    }
-}
-
-/* ----------------- Beneficios ------------------*/
-.slide_contenedor_beneficios{
-    width: 540px;
-    height: 323px;
-    margin: auto;
-    margin-top: 55px;
-
-    .slide_beneficios{
-        width: 540px;
-        height: 323px;          
-        .slide_items{
-            width: 540px;
-            height: 323px;
-            background-image: image-url("microondas.png");
-            background-repeat: no-repeat;
-
-        }
-        .slide_item_0{
-            background-position: 0 0;
-
-        }
-        .slide_item_1{
-            background-position: -540px 0;
-            
-        }
-        .slide_item_2{
-            background-position: -540px 0;
-            
-        }
-        .slide_item_3{
-            background-position: -1078px 0;
-            
-        }
-    }
-
-
-    .slide_item_0 .btn_tooltip{
-        left: 176px;
-        top: 104px;    
-    }
-    .slide_item_1 .btn_tooltip{
-        left: 388px;
-        top: 157px;  
-    }
-    .slide_item_2 .btn_tooltip{
-        left: 388px;
-        top: 92px;  
-    }
-    .slide_item_3{
-        .btn_tooltip{
-            left: 230px;
-            top: 136px;   
-        }
-
-        .ondas{
-            width: 92px;
-            height: 34px;
-            position: absolute;
-        }
-        .onda_0{
-            background-position: -172px -637px;
-            left: 130px;
-            top: 100px;
-        }
-        .onda_1{
-            background-position: -172px -637px;
-            left: 130px;
-            top: 160px;
-        }
-        .onda_2{
-            background-position: -274px -637px;
-            left: 270px;
-            top: 130px;
-        }
-
-    } 
-
-
-
-    .slide_item_0 .tooltip{
-        height: 327px;
-        left: 449px;
-        top: -32px;
-        width: 278px;
-
-        p.tooltip_desc.tested_bg{
-            background-image: image-url("tested_img.png");
-            background-repeat: no-repeat;
-            background-position: 12px 0;
-            padding: 20px 0 60px 128px;
-            margin-bottom: 0;
-
-        }
-        .flecha{
-            width: 257px;
-            height: 119px;
-            top: 24px;
-            left: -257px;
-        }
-
-    }
-    .slide_item_1 .tooltip{
-        height: 160px;
-        left: -168px;
-        top: 20px;
-        width: 278px;
-        
-        p.tooltip_desc.tested_bg{
-            background-image: image-url("tested_img.png");
-            background-repeat: no-repeat;
-            background-position: 12px 0;
-            padding: 20px 0 60px 128px;
-            margin-bottom: 0;
-
-        }
-        .flecha{
-            background-position: 0 -123px;
-            height: 119px;
-            left: 278px;
-            top: 24px;
-            width: 295px;
-        }
-        .icono_tit{
-            height: 29px;
-            position: relative;
-            margin-left:20px; 
-            width: 30px;    
-            img{
-                position: absolute;
-                left: 0px;
-                bottom: 0px;
-            } 
-        }
-
-    }
-    .slide_item_2 .tooltip{
-        height: 176px;
-        left: 429px;
-        top: -7px;
-        width: 285px;
-        
-        p.tooltip_desc.tested_bg{
-            background-image: image-url("tested_img.png");
-            background-repeat: no-repeat;
-            background-position: 12px 0;
-            padding: 20px 0 60px 128px;
-            margin-bottom: 0;
-
-        }
-        .flecha{
-            background-position: -270px 0;
-            height: 81px;
-            left: -25px;
-            top: 24px;
-            width: 25px;
-        }
-        .icono_tit{
-            height: 29px;
-            left: 170px;
-            position: absolute;
-            top: -15px;
-            width: 30px;    
-        }
-
-    }
-    .slide_item_3 .tooltip{
-        height: 164px;
-        left: 419px;
-        top: -24px;
-        width: 278px;
-        
-        p.tooltip_desc.tested_bg{
-            background-image: image-url("tested_img.png");
-            background-repeat: no-repeat;
-            background-position: 12px 0;
-            padding: 20px 0 60px 128px;
-            margin-bottom: 0;
-
-        }
-        .flecha{
-            background-position: 0px -266px;
-            height: 142px;
-            left: -173px;
-            top: 24px;
-            width: 172px;
-        }
-
-    }
-}
-
-
-/* ----------------- Cello ------------------*/
-.slide_contenedor_cello{
-    width: 540px;
-    height: 323px;
-    margin: auto;
-    margin-top: 20px;
-
-    .slide_cello{
-        width: 540px;
-        height: 323px;          
-        .slide_items{
-            width: 540px;
-            height: 323px;
-            background-image: image-url("microondas.png");
-            background-repeat: no-repeat;
-
-        }
-        .slide_item_0{
-            background-position: -540px 0;
-
-        }
-        .slide_item_1{
-            background-position: 0 0;
-            
-        }
-        .slide_item_2{
-            background-position: -1078px 0;
-            // background-position: -540px 0;
-            
-        }
-
-    }
-
-
-    .slide_item_0 .btn_tooltip{
-        left: 366px;
-        top: 90px;   
-    }
-    .slide_item_1 .btn_tooltip_a{
-        left: 138px;
-        top: 156px;
-    }
-    .slide_item_1 .btn_tooltip_b{
-        left: 203px;
-        top: 20px;
-    }
-    .slide_item_2 .btn_tooltip{
-        left: 230px;
-        top: 163px;
-    }
-
-
-
-    .slide_item_0 .tooltip{
-        height: 146px;
-        left: -161px;
-        top: -2px;
-        width: 280px;
-
-        .flecha{
-            background-position: -28px -123px;
-            width: 267px;
-            height: 74px;
-            top: 24px;
-            left: 278px;
-        }
-
-    }
-    .slide_item_1 .tooltip{
-        height: 175px;
-        left: 486px;
-        top: -15px;
-        width: 280px;
-        
-        p.tooltip_desc.tested_bg{
-            background-image: image-url("tested_img.png");
-            background-repeat: no-repeat;
-            background-position: 12px 0;
-            padding: 20px 0 60px 128px;
-            margin-bottom: 0;
-        }
-        h3.tooltip_titulo{
-            height: 65px;
-            background-image: image-url("brillo_tooltip2.png");
-            background-repeat: no-repeat;
-            line-height: 1.15;
-        }
-        .flecha{
-            background-position: 0 -411px;
-            height: 154px;
-            left: -332px;
-            top: 24px;
-            width: 332px;
-        }
-        .icono_tit{
-            height: 29px;
-            left: 107px;
-            position: absolute;
-            top: 6px;
-            width: 30px;     
-        }
-
-    }
-    .slide_item_2 .tooltip{
-        height: 137px;
-        left: 429px;
-        top: -7px;
-        width: 280px;
-        
-        p.tooltip_desc.tested_bg{
-            background-image: image-url("tested_img.png");
-            background-repeat: no-repeat;
-            background-position: 12px 0;
-            padding: 20px 0 60px 128px;
-            margin-bottom: 0;
-
-        }
-        .flecha{
-            background-position: 0 -567px;
-            height: 152px;
-            left: -183px;
-            top: 24px;
-            width: 182px;
-        }
-        .icono_tit{
-            height: 29px;
-            left: 150px;
-            position: absolute;
-            top: -15px;
-            width: 30px;    
-        }
-
-    }
-}
-
-
-
-.btns_sociales_cello{
-    position: absolute;
-    height: 31px;
-    left: 540px;
-}
-    
-.btns_sociales_cello.btn_vermas{
-    width: 102px;
-    top: 170px;
-    background-position: -365px -181px;
-}
-.btns_sociales_cello.btn_vermas:hover{
-    background-position: -365px -218px;
-}
-.btns_sociales_cello.btn_compartir{
-    width: 112px;
-    top: 210px;
-    background-position: -485px -181px;
-}
-.btns_sociales_cello.btn_compartir:hover{                    
-    background-position: -485px -218px;
-}
-
-
-
-/* ----------------- Familia ------------------*/
-.slide_contenedor_familia{
-    width: 852px;
-    height: 344px;
-    margin: auto;
-    margin-top: 20px;
-
-    .slide_familia{
-        width: 852px;
-        height: 344px;          
-        .slide_items{
-            width: 852px;
-            height: 344px; 
-
-        }
-        .slide_item_0{
-            background-position: -540px 0;
-
-        }
-        .slide_item_1{
-            background-position: 0 0;
-            
-        }
-        .slide_item_2{
-            background-position: -1078px 0;
-            
-        }
-
-    }
-
-
-}
-
-
-/*.btns_sociales_familia{
-    position: absolute;
-    height: 31px;
-    left: 540px;
-    .btn_vermas{
-        width: 102px;
-        top: 170px;
-        background-position: -365px -181px;
-    }
-    .btn_vermas:hover{
-        background-position: -365px -218px;
-    }
-    .btn_compartir{
-        width: 112px;
-        top: 210px;
-        background-position: -485px -181px;
-    }
-    .btn_compartir:hover{                    
-        background-position: -485px -218px;
-    }
-
-}
-*/
-
-.btns_colores_contenedor{
-    position: absolute;
-    right: 0;
-    bottom: 10px;
-    width: 215px;
-    height: 40px;
-
-    .txt_colores{
-        color: #53555b;
-        font-family: "samsung_interfacebold";
-        font-size: 13px;
-        line-height: 3.3;
-        float: left;
-        height: 39px;
-        margin-right: 20px;
-    }
-    .btns_color{
-        width: 39px;
-        height: 39px;
-        float: left;
-        margin-right: 20px;
-    }
-    .btn_gris{
-        background-position: -362px -393px;
-    }
-    .btn_gris:hover{
-        background-position: -362px -443px;
-    }
-    .btn_gris.activo{
-        background-position: -362px -443px;
-    }
-    .btn_blanco{
-        background-position: -422px -393px;
-    }
-    .btn_blanco:hover{
-        background-position: -422px -443px;
-    }
-    .btn_blanco.activo{
-        background-position: -422px -443px;
-    }
-
-}
-
-.btns_sociales_familia_cont{
-    width: 300px;
-    height: 35px;
-    position: absolute;
-    bottom: 10px;
-    left: 20px;
-
-    .btns_sociales_familia{
-        height: 31px;
-        float: left;
-        margin-right: 20px;
-    }
-
-    .btn_vermas{
-        width: 102px;
-        background-position: -365px -181px;
-        margin-left: 15px;
-    }
-    .btn_vermas:hover{
-        background-position: -365px -218px;
-    }
-    .btn_compartir{
-        width: 112px;
-        background-position: -485px -181px;
-    }
-    .btn_compartir:hover{                    
-        background-position: -485px -218px;
-    }
-
-}
-
-
-.slide_contenedor_familia .slide_items .color_gris{            
-        width: 852px;
-        height: 344px;
-        display: none;            
-}
-.slide_contenedor_familia .slide_items .color_blanco{            
-        width: 852px;
-        height: 344px;
-        display: none;            
-}
-
-.slide_contenedor_familia .slide_items .color_gris.activo{
-    display: block;
-}  
-.slide_contenedor_familia .slide_items .color_blanco.activo{
-    display: block;
-}   
-
-.slide_familia .info_microonda{
-    float: left;
-    width: 300px;
-    height: 100%;
-    margin-left: 40px;
-    
-    h3.titulo{
-        color: #0689d8;
-        font-family: "samsung_interfacebold";
-        font-size: 27px;
-        padding-left: 11px;
-        background-image: image-url("icon1.png");
-        background-position: left center;
-        background-repeat: no-repeat;
-        margin-bottom: 11px;
-
-
-    }
-    .bajada{
-        color: #53555b;
-        font-family: "samsung_interfacebold";
-        font-size: 17px;
-        padding-left: 11px;
-        margin-bottom: 10px;
-    }
-    .modelos{
-        color: #0689d8;
-        font-family: "samsung_interfacebold";
-        font-size: 17px;  
-        padding-left: 11px;   
-        line-height: 1.2;
-        margin-bottom: 14px;
-    }
-    ul{
-        list-style: none inside image-url("bullet.png");
-
-    }
-    li{
-        color: #53555b;
-        font-family: "samsung_interfaceregular";
-        font-size: 16px;
-    }
-
-
-}
-
-.slide_familia .foto_microonda{
-    width: 448px;
-    float: right;
-    height: 100%;
-    margin-right: 25px;
-    img.microonda_img{
-        width: 448px;
-    }
-}
-/*
-.flechas{
-    width: 28px;
-    height: 97px;
-    position: absolute;
-    top: 280px;
-
-}
-
-.flechas.flecha_left{
-    background-position: -374px -639px;
-    left: -2px;
-}
-.flechas.flecha_right{
-    background-position: -434px -639px;
-    left: 878px;
-}
-
-.flechas.flecha_left:hover{
-    background-position: -494px -639px;
-}
-.flechas.flecha_right:hover{
-    background-position: -554px -639px;
-}
-*/
-
-/* ----------------- Videos ------------------*/
-.slide_contenedor_videos{
-    width: 630px;
-    height: 368px;
-    margin: auto;
-    margin-top: 0px;
-
-    .slide_videos{
-        width: 630px;
-        height: 368px;         
-        .slide_items{
-            width: 630px;
-            height: 368px;
-
-        }
-        .slide_item_0{
-
-        }
-        .slide_item_1{
-            
-        }
-
-    }
-
-
-}
-
-.video_items {
-    // width: 272px;
-    // height: 161px;
-    // border: 1px solid #aaaaaa;
-    // position: relative;
-    // float: left;
-    // margin-bottom: 27px;
-
-    border: 1px solid #AAAAAA;
-    float: left;
-    height: 161px;
-    margin-bottom: 27px;
-    margin-left: 176px;
-    margin-top: 100px;
-    position: relative;
-    width: 272px;
-
-    .video_miniatura_img{
-        width: 263px;
-        height: 152px;
-        margin: 4px 0 0 4px;
-    }
-    .miniatira_img{
-        width: 263px;
-        height: 152px;        
-    }
-    .video_btn_play{
-        background-position: -374px -107px;
-        position: absolute;
-        left: 15px;
-        top: 14px;
-        width: 40px;
-        height: 40px;
-
-    }
-    .video_info_contenedor{
-        position: absolute;
-        left: 70px;
-        top: 12px;
-        color: #eff1f1;
-        
-        font-size: 15px;        
-        .video_titulo{
-            font-family: "samsung_interfacebold";
-        }
-        .video_info{
-            font-family: "samsung_interfaceregular";
-
-        }
-    }
-    .sombra_video{
-        width: 274px;
-        height: 18px;
-        position: absolute;
-        bottom: -18px;
-        background-position: 0 -713px;
-
-    }
-
-}
-.video_items.left{
-    margin-right:80px;
-}
-
 /* ----------------------- footer ------------------*/
 .footer{
     position: fixed;
-    /*top: 80px;*/
     bottom: 0px;
     left: 0;
     width: 100%;
-    height: 1px;
+    height: 60px;
     z-index: 200;
+    background-image: image-url("px_png_blanco.png");
+    background-repeat: repeat;
 
     .cont_footer{
         width: 904px;
         margin: auto;
-        height: 1px;
+        height: 60px;
         position: relative;
     }
 
-    .btn_compartir{
-        width: 94px;
-        height: 24px;
-        background-position: -365px -314px;
-        float: left;
-        margin-top: -44px;
-        
-    }
-    .btn_compartir:hover{
-        background-position: -365px -354px;
-
-    }
-    .btn_clases_gratis{
-        width: 75px;
-        height: 74px;
-        background-position: -468px -308px;
-        float: right;
-        margin-top: -94px;
-        display: none
-
-    }
-    .btn_clases_gratis:hover{
-        background-position: -558px -308px;
-
-    }
     .btn_cont_abajo{
         width: 100px;
-        height: 40px;
-        background-position: -103px -107px;
+        height: 42px;
+        background-position: -103px -102px;
         position: absolute;
         left: 50%;
         margin-left: -50px;
         margin-top: -37px;
-        top: 1px;
+        bottom: 0px;
 
     }
     .btn_cont_abajo:hover{
-        background-position: -214px -107px;
+        background-position: -214px -102px;
 
     }
     .btn_volver_arriba{
-        width: 46px;
-        height: 37px;
-        background-position: -478px -393px;
+        width: 94px;
+        height: 44px;
+        background-position: -105px -363px;
         position: absolute;
         left: 50%;
-        margin-left: -23px;
-        margin-top: -37px;
-        top: 1px;
+        margin-left: -47px;
+        margin-top: -22px;
+        bottom: 0px;
         display: none;
     }
     .btn_volver_arriba:hover{
-        background-position: -558px -393px;
+        background-position: -216px -363px;
 
     }
 
 }
 
-/* -------------------- modal ------------------------*/
-.modal{
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 300;
-    width: 100%;
-    height: 100%;
-    background-image: image-url("px_negro.png");
+
+#cboxLoadedContent{
+    background-color: none;
+}
+.popup{
+    width: 755px;
+    height: 422px;
+    background-color: #ece5d7;
+    border:2px solid #ffffff;
+    border-radius: 2px;
+    -webkit-box-shadow: 2px 3px 7px 1px rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 3px 7px 1px rgba(0, 0, 0, 0.2);
+
+    .imagen_ensalada{
+        width: 540px;
+        height: 422px;
+        float: left;
+        overflow: hidden;
+
+        img{
+            height: 100%;
+        }
+
+    }
+    .info_ensalada{
+        width: 190px;
+        float: right;
+        padding: 0 12px;
+
+    }
+
+    .ensalada_titulo{
+        font-size: 22px;
+        color: #4a2b0b;
+        margin-top: 12px;
+    }
+    .ensalada_descripcion{
+        font-family: arial;
+        font-size: 13px;
+        line-height: 1.3;
+
+    }
+    table.informacion_nutricional{
+        width: 100%;
+        margin-top: 12px;
+        vertical-align: middle;
+        .table_titulo{
+            height: 30px;
+            color: #ffffff;
+            background-color: #88857e;
+            font-size: 14px;
+            text-align: center;
+            td{
+                vertical-align: middle;
+            }
+        }
+        .minerales{
+            height: 20px;
+            color: #4a2b0b;
+            vertical-align: middle;
+            font-family: arial;
+            font-size: 12px; 
+            td{
+                vertical-align: middle;
+            }  
+        }
+        .mineral{
+            padding-left: 10px;
+
+        }
+        .porcentaje{
+            width: 50px;
+            text-align: center;
+
+        }
+        .minerales.even{
+            background-color: #d6d2c9;
+
+        }
+        .minerales.odd{
+            background-color: #f6f0e5;
+
+        }
+    }
+
+    .btn_comprar_ensalada{
+        display: block;
+        width: 178px;
+        height: 46px;
+        background-position: -529px -165px;
+        margin: 12px auto 0 auto;
+
+    }
+    .btn_comprar_ensalada:hover{
+        background-position: -529px -220px;
+
+    }
+
+    .precio_cont{
+        width: 165px;
+        height: 77px;
+        margin: 0 auto;
+        background-position: -395px -460px;
+        .txt_costo{
+            font-size: 14px;
+            color: #ffffff;
+            padding:6px 0 0 20px;
+
+        }
+        .txt_monto{
+            font-size: 30px;
+            color: #ffffff;
+            padding:2px 0 0 20px;
+
+        }
+    }
+
+}
+
+
+.galeria_popup_item{
+    width: 635px;
+    height: 435px;
+    border:2px solid #ffffff;
+    background-color: #ffffff;
+    border-radius: 3px;
+    -webkit-box-shadow: 2px 3px 7px 1px rgba(0, 0, 0, 0.2);
+    box-shadow:2px 3px 7px 1px rgba(0, 0, 0, 0.2);
+
+    .cont_descripcion{
+        height: 74px;
+        width: 100%;
+        background-image:  image-url("bg_galeria_patt.jpg");
+        background-repeat: repeat-x;
+        color: #4a2b0b;
+
+        .cont_titulo{
+            display: table;
+            float: left;
+            width: 250px;
+            height: 74px;
+
+        }
+        h3{
+            font-size: 20px;
+            height: 74px;
+            display: table-cell;
+            vertical-align: middle;
+            padding-left: 20px;
+
+        }
+        .cont_desc{
+            display: table;
+            float: left;
+            width: 340px;
+            padding-left: 30px;
+            height: 74px;
+        }
+        p.desc{
+            font-family: 'open_sansregular';
+            font-size: 14px;
+            height: 74px;
+            display: table-cell;
+            vertical-align: middle;
+        }
+    }
+    .cont_imagen{
+        overflow: hidden;
+        height: 361px;
+        .video_embed{
+            width: 100%;
+            height: 100%;
+            background-image: image-url('loading.gif');
+            background-position: center center;
+            background-repeat: no-repeat;
+        }
+    }
+}
+
+.web_marron{
+    color: #4a2b0b;
+}
+
+.page.formulario_pedido .container{
+    width: 970px;
+    background-color: #ffffff;
     background-repeat: repeat;
-    opacity: 0;
-    visibility: hidden;    
+    margin: auto;
+    font-family: 'open_sansregular';
+    font-size: 16px;
+    min-height: 600px;
+}
+
+.page.formulario_pedido .footer .btn_cont_abajo,
+.page.formulario_pedido .footer .btn_volver_arriba{
+    display: none;
+
+}
+
+
+.formulario_contenedor{
+    width: 740px;
+    margin:auto;
+    padding-top: 70px;
+    padding-bottom: 50px;
+    h1{
+        color: #4a2b0b;
+        font-size: 28px;
+        margin-bottom: 7px;
+    }
+    p.parrafo_titulo{
+        font-size: 16px;
+        color: #4a2b0b;
+    }
+
+    .cont_formulario{
+        background-color: #e4c8a8;
+        padding-top: 28px;
+        margin-top: 20px;
+        padding-bottom: 28px;
+    }
+
+}
+.form_pedido{
+    width: 680px;
+    background-color: #e8e5d7;
+    border:1px solid #ffffff;
+    margin: auto;
+
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+
+    -webkid-box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+
     
-    .btn_cerra_modal{
-    width: 49px;
-    height: 49px;
-    position: absolute;
-    background-position: -364px -259px;
+}
+.cont_pedido{
+    margin-top: 30px;
+    height: 150px;
+    background-color: #c6c6c6;
+
+    .pedido_cont{
+        float: left;
     }
-    .btn_cerra_modal:hover{
-        background-position: -424px -259px;        
+    .pedido_imagen{
+        width: 150px;
+        height: 150px;
+        img{
+            width: 150px;
+            height: 150px;
+        }
+
+    }
+    .pedido_detalles{
+        width: 325px;
+        padding: 16px 16px 0 16px;
+        h2{
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+        p{
+            font-size: 14px;
+            line-height: 1.2;
+        }
+
+    }
+    .pedido_datos{
+        width: 170px;
+        height: 150px;
+
+    }
+    .btn_hacer_pedido{
+        width: 158px;
+        height: 46px;
+        display: block;
+        margin:5px 0 0 0;
+        padding: 0;
+        background-position: -562px -442px;
+
+    }
+    .btn_hacer_pedido:hover{
+        background-position: -562px -493px;
+
+    }
+    .precio{
+        width: 139px;
+        height: 95px;
+        background-position: -405px -442px;
+        margin: 0px 0 0 10px;
+        .txt_costo{
+            font-size: 14px;
+            color: #ffffff;
+            padding:15px 0 0 8px;
+
+        }
+        .txt_monto{
+            font-size: 30px;
+            color: #ffffff;
+            padding:2px 0 0 8px;
+
+        }
 
     }
 }
 
-.clases_popup{
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    margin-left: -325px;
-    margin-top: -325px;
-    width: 651px;
-    height: 651px;
-    background-image: image-url("clases.png");
-    display: none;
+.formulario_contenedor{
 
-    .btn_cerrar_clases{
-        top: 80px;
-        right: 80px;
-    }
-
-    /*.logo_chef{
-        background-position: -7px -624px;
-        height: 83px;
-        position: absolute;
-        right: 0;
-        top: 24px;
-        width: 133px;
-    }
-    .info_clases{
-        width: 285px;
-        height: 190px;
-        position: absolute;
-
-        .gratis{
+    .msj_gracias{
+    
+        h3{
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 6px;
+        }
+        p{
+            text-align: center;
+        }
+        a.btn_inicio{
+            display: block;
+            width: 158px;
+            height: 46px;
+            background-position: -2px -530px;
+            margin: 40px auto;
 
         }
-        .clases_5{
-
-        }
-        .melisa{
-
-        }
-        .compra{
-
+        a.btn_inicio:hover{
+            background-position: -2px -580px;
         }
 
-    }
-    .registro{
-
-        .reg_txt{
-
-        }
-        .reg_num{
-
-        }
-
-    }*/
-}
-
-.video_popup{
-    width: 760px;
-    height: 524px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-left: -380px;
-    margin-top: -262px;
-    display: none;
-
-    .btn_cerrar_video{
-        right: -50px;
-        top: 60px;
-
-    }
-    .titulo_video{
-        color: #eff1f1;
-        font-family: "samsung_interfacebold";
-        font-size: 30px;
-            padding-left: 14px;
-
-    }
-    .descripcion_video{
-        color: #eff1f1;
-        font-family: "samsung_interfaceregular";
-        font-size: 23px;
-            padding-left: 14px;
-    }
-    .video_contendor{
-        width: 743px;
-        height: 443px;
-        margin: 26px auto auto auto;   
-
-    }
-    .video_contendor.add_sombra{
-        background-image: image-url("sombra_video_popup.png");
-        background-repeat: no-repeat;
-        background-position: center center;
-    }
-    .video_embed{
-        width: 733px;
-        height: 433px;
-        margin: auto;
-        padding-top: 5px;
     }
 }
-
-

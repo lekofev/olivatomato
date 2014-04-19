@@ -1,0 +1,34 @@
+
+.menu_principal
+	.cont_menu.clear_block
+
+		.logo
+			= link_to image_tag("logo_ol.jpg", class:"").html_safe, '/'
+		.personajes.sprite.oliva
+		.personajes.sprite.tomato
+			ul.menu_sociales
+				li
+					/ a.btns.icon_sociales.face(href="http://facebook.com")
+					= link_to "", @siteinfo.facebook_link, class:"btns icon_sociales face", target:"_blank"
+				li
+					= link_to "", @siteinfo.twitter_link, class:"btns icon_sociales tw", target:"_blank"
+				li
+					= link_to "", @siteinfo.email_link, class:"btns icon_sociales email", target:"_blank"
+
+		ul.menu_list.clear_block
+			li.menu_items.menu_item_0
+				a.btns.btn_inicio.ti.activo(data-id="0" href="/#inicio") inicio
+			li.menu_items.menu_item_1
+				a.btns.btn_ensaladas.ti(data-id="1" href="/#ensaladas") ensaladas
+			li.menu_items.menu_item_2
+				a.btns.btn_nutricion.ti(data-id="2" href="/#nutricion") nutricion
+			li.menu_items.menu_item_3
+				a.btns.btn_historia.ti(data-id="3" href="/#historia") historia
+			li.menu_items.menu_item_4
+				a.btns.btn_galeria.ti(data-id="4" href="/#galeria") galeria
+		
+		/.menu_sociales
+		/	.btns.btns_sociales.face.ti facebook
+		/	.btns.btns_sociales.tw.ti twitter
+		/	.btns.btns_sociales.email.ti email
+

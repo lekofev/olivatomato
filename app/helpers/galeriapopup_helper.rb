@@ -1,0 +1,2 @@
+module GaleriapopupHelper
+end

@@ -1,0 +1,47 @@
+#fb-root.fb_reset
+.page.formulario_pedido
+	= render "shared/menu"
+	.container
+		.formulario_contenedor
+			h1 Formulario de compra
+			p.parrafo_titulo Complete el formulario para hacerle llegar el pedido.
+
+			.cont_formulario
+
+				form.form_pedido
+					ul
+						li
+							label(for="nombre") Nombre
+							input(type="text" id="nombre" name="nombre")
+						li
+							label(for="telefono") Telefono
+							input(type="text" id="telefono" name="telefono")
+
+						input(type="hidden" value="#{@pedido.id}" name="ensalada_id")
+						input(type="hidden" value="#{@pedido.titulo}" name="ensalada_nombre")
+						input(type="hidden" value="#{@pedido.precio}" name="ensalada_precio")
+					.cont_pedido
+						.pedido_imagen.pedido_cont
+							= image_tag(@pedido.img_chica)
+						.pedido_detalles.pedido_cont
+							h2.web_marron
+								= @pedido.titulo
+							p
+							= @pedido.descripcion
+
+						.pedido_datos.pedido_cont
+							input.btns.btn_hacer_pedido(type="button" value="")
+							.precio.sprite
+								.txt_costo
+									| Costo:
+								.txt_monto
+									= @pedido.precio
+
+			/ .msj_gracias
+			/ 	h3.web_marron ¡Muchas gracias por su compra!
+			/ 	p Le haremos llegar su pedido lo más pronto posible
+			/ 	= link_to "","/", class:"btns btn_inicio"
+
+
+
+	= render "shared/footer"
