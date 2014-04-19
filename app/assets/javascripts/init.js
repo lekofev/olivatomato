@@ -321,7 +321,8 @@ $(document).ready(function(){
 	var boton_menu_clicked=false;
 
 	$('.menu_items a').each(function(){
-		$(this).on('click', function(){
+		$(this).on('click', function(e){
+			e.preventDefault();
 			//qui la varibale la vuelvo true, por que se clickeo en el menu.
 			boton_menu_clicked=true;
 			$('.menu_items a').removeClass('activo')

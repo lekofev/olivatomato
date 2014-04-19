@@ -7,15 +7,19 @@
 			p.parrafo_titulo Complete el formulario para hacerle llegar el pedido.
 
 			.cont_formulario
+
 				form.form_pedido
 					ul
 						li
 							label(for="nombre") Nombre
-							input(type="text" id="nombre")
+							input(type="text" id="nombre" name="nombre")
 						li
-							label(for="apellido") Apellido
-							input(type="text" id="apellido")
+							label(for="telefono") Telefono
+							input(type="text" id="telefono" name="telefono")
 
+						input(type="hidden" value="#{@pedido.id}" name="ensalada_id")
+						input(type="hidden" value="#{@pedido.titulo}" name="ensalada_nombre")
+						input(type="hidden" value="#{@pedido.precio}" name="ensalada_precio")
 					.cont_pedido
 						.pedido_imagen.pedido_cont
 							= image_tag(@pedido.img_chica)
@@ -32,5 +36,12 @@
 									| Costo:
 								.txt_monto
 									= @pedido.precio
+
+			/ .msj_gracias
+			/ 	h3.web_marron ¡Muchas gracias por su compra!
+			/ 	p Le haremos llegar su pedido lo más pronto posible
+			/ 	= link_to "","/", class:"btns btn_inicio"
+
+
 
 	= render "shared/footer"

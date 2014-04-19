@@ -14,6 +14,8 @@ Olivdaytomato::Application.routes.draw do
 
   match 'pedido/:id' => 'pedido#formulario_compra'
 
+  match 'check' => 'check#crear_pedido'
+
   
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

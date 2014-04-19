@@ -1308,11 +1308,12 @@ body,html{
 
 .page.formulario_pedido .container{
     width: 970px;
-    background-image: image-url("txt_carton.jpg");
+    background-color: #ffffff;
     background-repeat: repeat;
     margin: auto;
     font-family: 'open_sansregular';
     font-size: 16px;
+    min-height: 600px;
 }
 
 .page.formulario_pedido .footer .btn_cont_abajo,
@@ -1421,6 +1422,33 @@ body,html{
             color: #ffffff;
             padding:2px 0 0 8px;
 
+        }
+
+    }
+}
+
+.formulario_contenedor{
+
+    .msj_gracias{
+    
+        h3{
+            font-size: 24px;
+            text-align: center;
+            margin-bottom: 6px;
+        }
+        p{
+            text-align: center;
+        }
+        a.btn_inicio{
+            display: block;
+            width: 158px;
+            height: 46px;
+            background-position: -2px -530px;
+            margin: 40px auto;
+
+        }
+        a.btn_inicio:hover{
+            background-position: -2px -580px;
         }
 
     }
