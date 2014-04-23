@@ -1,5 +1,5 @@
 class TestMailer < ActionMailer::Base
-	default from: "from@example.com"
+	default from: "prueba@yomequiero.com.pe"
 
   def welcome_email()
     # @user = user
