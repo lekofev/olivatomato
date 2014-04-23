@@ -268,8 +268,8 @@
 			/ img.bg(src="/assets/bg_4.jpg" alt="")
 			.contenido.clear_block
 				.titulo
-					h2 Fotos
-					p LA naturaleza nos inspira, inspírate tu también.
+					h2 = @galeria.foto_titulo
+					p = @galeria.foto_descripcion
 
 				.slide_contenedor_galeria_foto
 					.jcarousel
@@ -317,8 +317,8 @@
 
 
 				.titulo.galeria_videos
-					h2 Videos
-					p Lo MÁS NUTRITIVO QUE ENCONTRAMOS EN LA WEB.
+					h2 = @galeria.video_titulo
+					p = @galeria.video_descripcion
 
 				.slide_contenedor_galeria_video
 					.jcarousel

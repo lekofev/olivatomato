@@ -1,12 +1,27 @@
 ActiveAdmin.register Ensalada do
 
 	config.filters = false
-    # menu :priority => 1, :label => "Inicio"
+    menu :priority => 2, :label => "Ensaladas"
 
     sidebar "Lista de ensaladas",:only => :show do 
       ul do
         li link_to("Ver lista de ensaladas", admin_ensalada_lista_ensaladas_path(ensalada))
       end
     end
+
+	index do             
+		column :id
+		column "Titulo", :titulo                     
+		column "Parrafo", :parrafo             
+		default_actions                   
+	end 
+
+	form do |f|                         
+		f.inputs "Formulario Ensalada" do      
+		  f.input :titulo, :label => "Titulo"
+		  f.input :parrafo, :label => "Parrafo"
+		end                               
+		f.actions
+	end
 
 end

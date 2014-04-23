@@ -23,7 +23,7 @@ class CheckController < ApplicationController
 		# p.telefono = "9595959"
 		# p.save
 		if 	p.save
-			TestMailer.welcome_email().deliver
+			# TestMailer.welcome_email().deliver
 			respond_to do |format|
 			  format.jsonr do
 			    render :json => { 

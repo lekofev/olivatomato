@@ -6,20 +6,124 @@
 			h1 Formulario de compra
 			p.parrafo_titulo Complete el formulario para hacerle llegar el pedido.
 
-			.cont_formulario
+			.cont_formulario.clearfix
 
-				form.form_pedido
-					ul
+				form.form_pedido.clearfix
+					ul.campos
 						li
-							label(for="nombre") Nombre
+							label(for="nombre") Nombre:
 							input(type="text" id="nombre" name="nombre")
 						li
-							label(for="telefono") Telefono
+							label(for="epellido") Apellido:
+							input(type="text" id="epellido" name="epellido")
+						li
+							label(for="telefono") Teléfono:
 							input(type="text" id="telefono" name="telefono")
+						li
+							label(for="direccion") Dirección:
+							input(type="text" id="direccion" name="direccion")
+						li
+							label(for="referencia") Referencia:
+							input(type="text" id="referencia" name="referencia")
+
+						/ li
+						/ 	label Cancelar con:
+						/ 	input(type="radio" id="efectivo" name="tipo_de_pago")
+						/ 	label(for="efectivo") Efectivo:
+						/ 	input(type="radio" id="tarjeta" name="tipo_de_pago")
+						/ 	label(for="tarjeta") Tarjeta:
+
+						li.txt_area
+							label(for="mensaje") Mensaje
+							textarea(id="mensaje" name="mensaje")
 
 						input(type="hidden" value="#{@pedido.id}" name="ensalada_id")
 						input(type="hidden" value="#{@pedido.titulo}" name="ensalada_nombre")
 						input(type="hidden" value="#{@pedido.precio}" name="ensalada_precio")
+
+					.alinos
+						p Seleccione los Aliños para su ensalda.
+						.cont_alinos.clearfix
+							label.alino
+							
+								/ .alino_tooltip
+								/ 	= image_tag "alino.jpg", class:"img_alino_tooltip"
+								/ 	.cont_detalles_alino
+								/ 		h4.web_marron Alino de Aji Rojo
+								/ 		p Consectetur adipiscing elit. Integer eget nisl massa. Donec in dapibus magna
+
+
+								= image_tag "alino.jpg", class:"img_label"
+								input(type="checkbox" value="" name="")
+							label.alino
+								= image_tag "alino.jpg", class:"img_label"
+								input(type="checkbox" value="" name="")
+							label.alino
+								= image_tag "alino.jpg", class:"img_label"
+								input(type="checkbox" value="" name="")
+							label.alino
+								= image_tag "alino.jpg", class:"img_label"
+								input(type="checkbox" value="" name="")
+
+							label.alino
+								input(type="checkbox" value="" name="")
+							label.alino
+								input(type="checkbox" value="" name="")
+							label.alino
+								input(type="checkbox" value="" name="")
+							label.alino
+								input(type="checkbox" value="" name="")
+								
+							label.alino
+								input(type="checkbox" value="" name="")
+							label.alino
+								input(type="checkbox" value="" name="")
+							label.alino
+								input(type="checkbox" value="" name="")
+							label.alino
+								input(type="checkbox" value="" name="")
+								
+							label.alino
+								input(type="checkbox" value="" name="")
+							label.alino
+								input(type="checkbox" value="" name="")
+							label.alino
+								input(type="checkbox" value="" name="")
+							label.alino
+								input(type="checkbox" value="" name="")
+								
+							label.alino
+								input(type="checkbox" value="" name="")
+							label.alino
+								input(type="checkbox" value="" name="")
+							label.alino
+								input(type="checkbox" value="" name="")
+							label.alino
+								input(type="checkbox" value="" name="")
+								
+							label.alino
+								input(type="checkbox" value="" name="")
+							label.alino
+								input(type="checkbox" value="" name="")
+							label.alino
+								input(type="checkbox" value="" name="")
+							label.alino
+								input(type="checkbox" value="" name="")
+								
+							label.alino
+								input(type="checkbox" value="" name="")
+							label.alino
+								input(type="checkbox" value="" name="")
+							label.alino
+								input(type="checkbox" value="" name="")
+							label.alino
+								input(type="checkbox" value="" name="")
+								
+							label.alino
+								input(type="checkbox" value="" name="")
+							label.alino
+								input(type="checkbox" value="" name="")
+						
 					.cont_pedido
 						.pedido_imagen.pedido_cont
 							= image_tag(@pedido.img_chica)
