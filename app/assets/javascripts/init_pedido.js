@@ -87,7 +87,7 @@ $(document).ready(function(){
 		h+='<div class="msj_gracias">';
 			h+='<h3 class="web_marron">¡Muchas Gracias por tu compra!</h3>';
 			h+='<p>Le haremos llegar el pedido lo más pronto posible</p>'
-			h+='<a class="btns btn_inicio"></a>'
+			h+='<a class="btns btn_inicio" href="/"></a>'
 		h+="</div>";
 
 

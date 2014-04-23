@@ -97,6 +97,14 @@ body,html{
     text-indent: -9999px;
 }
 
+.clearfix:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
 /* ----------  End Globales -------------- */
 
 .page{
@@ -1082,6 +1090,7 @@ body,html{
     z-index: 200;
     background-image: image-url("px_png_blanco.png");
     background-repeat: repeat;
+    display: none;
 
     .cont_footer{
         width: 904px;
@@ -1305,7 +1314,9 @@ body,html{
 .web_marron{
     color: #4a2b0b;
 }
-
+.page.formulario_pedido{
+    height: auto;
+}
 .page.formulario_pedido .container{
     width: 970px;
     background-color: #ffffff;
@@ -1324,7 +1335,7 @@ body,html{
 
 
 .formulario_contenedor{
-    width: 740px;
+    width: 780px;
     margin:auto;
     padding-top: 70px;
     padding-bottom: 50px;
@@ -1340,28 +1351,60 @@ body,html{
 
     .cont_formulario{
         background-color: #e4c8a8;
-        padding-top: 28px;
+        padding-top: 8px;
         margin-top: 20px;
         padding-bottom: 28px;
     }
 
 }
 .form_pedido{
-    width: 680px;
+    width: 760px;
     background-color: #e8e5d7;
     border:1px solid #ffffff;
     margin: auto;
-
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-
     -webkid-box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
 
+    ul.campos{
+        width: 400px;
+        padding: 15px 0 0 18px;
+        li{
+            height: 40px;
+        }
+        li.txt_area{
+            height: 100px;
+
+            textarea{
+                width: 275px;
+                border-radius: 4px;
+                border: 1px solid #cccccc;
+                height: 90px;
+            }
+        }
+
+        label{
+            width: 110px;
+            display: block;
+            float: left;
+            padding: 6px 0 0 0px;
+            color: #4a2b0b;
+            font-size: 15px;
+        }
+        input[type="text"]{
+            width: 280px;
+            border-radius: 4px;
+            height: 26px;
+            border: 1px solid #cccccc;
+        }
+        
+    }
     
 }
 .cont_pedido{
     margin-top: 30px;
     height: 150px;
     background-color: #c6c6c6;
+    float: left;
 
     .pedido_cont{
         float: left;
@@ -1376,7 +1419,7 @@ body,html{
 
     }
     .pedido_detalles{
-        width: 325px;
+        width: 407px;
         padding: 16px 16px 0 16px;
         h2{
             font-size: 20px;
@@ -1453,3 +1496,73 @@ body,html{
 
     }
 }
+.alinos{
+    width: 753px;
+    min-height: 200px;
+    margin: 15px 0px 0px 7px;
+    font-size: 15px;
+    clear: both;
+    .cont_alinos{
+        margin-top: 12px;
+    }
+
+    label.alino{
+        width: 70px;
+        height: 73px;
+        float: left;
+        border-radius: 3px;
+        border: 1px solid #ffffff;
+        position: relative;
+        margin: 0 3px 3px 0;
+
+
+
+
+
+        img.img_label{
+            height: 100%;
+            position: absolute;
+            z-index: 10;
+            top: 0;
+            left: 0;
+        }
+        input[type="checkbox"]{
+            position: absolute;
+            bottom: 5px;
+            left: 28px;
+            z-index: 20;
+        }
+    }
+
+}
+/*
+.alino_tooltip{
+    position: absolute;
+    left: -120px;
+    top: -120px;
+    width: 300px;
+    height: 100px;
+    border-radius: 5px;
+    border: 1px solid #cccccc;
+    background-color: #ffffff;
+    img.img_alino_tooltip{
+        height: 100px;
+        width: 100px;
+        float: left;
+    }
+    .cont_detalles_alino{
+        width: 200px;
+        height: 100px;
+        float: left;
+        h4{
+            font-size: 16px;
+            margin-top: 6px;
+            padding: 0 9px;
+            margin-bottom: 4px;
+        }
+        p{
+            font-size: 14px;
+            padding: 0 9px;
+        }
+    }
+}*/

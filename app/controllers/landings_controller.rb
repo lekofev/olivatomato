@@ -46,6 +46,8 @@ class LandingsController < ApplicationController
 
 		#Imagen
 
+		@galeria = Imagen.find(1)
+
 		@galeria_fotos = GaleriaFoto.where(visible:true).order("orden ASC")
 		@galeria_videos = GaleriaVideo.where(visible:true).order("orden ASC")
 
