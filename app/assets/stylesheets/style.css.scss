@@ -274,16 +274,88 @@ body,html{
     }
 }
 .btn_prepara_tu_ensalada{
-    width: 178px;
-    height: 34px;
+    width: 190px;
+    height: 56px;
     position: absolute;
     right: 0;
-    top: 14px;
-    background-position: -7px -473px;
+    top: -12px;
+    display: none;
 }
 .btn_prepara_tu_ensalada:hover{
-    background-position: -201px -473px;
+    background-position: -221px 0px;
 
+}
+.btn_custom_salad{
+    position: absolute;
+    display: block;
+    overflow: hidden;
+    width: 196px;
+    height: 68px;
+    right: -2px;
+    top: -11px;
+    background-position: 0px bottom;
+    background-image: image-url("btn_custom_salad.png");
+    background-repeat: no-repeat;
+
+    .pronto{
+        display: none;
+        width: 184px;
+        background-image: image-url("pronto_tooltip.png");
+        background-position: center bottom;
+    }
+
+    .prepara_ensalada{
+        width: 184px;
+        height: 339px;
+        background-image: image-url("bg_prepara_tooltip.png");
+        background-position: center bottom;
+        display: none;
+        p{
+            padding: 130px 0 0 0;
+            text-align: center;
+            color: #ffffff;
+            font-family: arial;
+            font-size: 12px;
+            line-height: 1.3;
+            width: 158px;
+            margin-left: 12px;
+        }
+        a{
+            display: block;
+            width: 145px;
+            height: 45px;
+            margin-left: 23px;
+            margin-top: 12px;
+
+        }
+        a.btn_asesoramiento_si{
+            background-position: -361px -321px;
+
+        }
+        a.btn_asesoramiento_si:hover{
+            background-position: -526px -321px;
+        }
+        a.btn_asesoramiento_no{
+            background-position: -361px -374px;
+
+        }
+        a.btn_asesoramiento_no:hover{
+            background-position: -526px -374px;
+        }
+
+    }
+
+
+}
+.btn_custom_salad:hover{
+    width: 196px;
+    height: 399px;
+    right: -2px;
+    top: -342px;
+    background-position: -221px bottom;
+    .prepara_ensalada{
+        display: block;
+    }
 }
 
 .menu_sociales{
@@ -1090,7 +1162,7 @@ body,html{
     z-index: 200;
     background-image: image-url("px_png_blanco.png");
     background-repeat: repeat;
-    display: none;
+    /*display: none;*/
 
     .cont_footer{
         width: 904px;

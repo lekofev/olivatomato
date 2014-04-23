@@ -3,7 +3,15 @@
 		.sprite.telefono 
 			.tlf = @siteinfo.telefono
 		
-		= link_to "", "#", class: "btns btn_prepara_tu_ensalada"
+		= link_to "", "#", class: "btn_prepara_tu_ensalada"
+
+		.btn_custom_salad
+			.pronto
+			.prepara_ensalada
+				p El asesoramiento nutricional es para ayudar a las personas con una dieta restringida.
+				= link_to "", "javascript:void(0)", class: "btns btn_asesoramiento_si"
+				= link_to "", "javascript:void(0)", class: "btns btn_asesoramiento_no"
+
 
 		input.btns.btn_cont_abajo(value="" type="button")
 		input.btns.btn_volver_arriba.ti(type="button" value="")
