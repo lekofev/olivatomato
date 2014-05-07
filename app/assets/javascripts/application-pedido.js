@@ -16,5 +16,6 @@
 //= require Ponsi_Rounded_Slab_400.font
 //= require Code_Pro_Light_Demo_300.font
 //= require Code_Pro_Demo_400.font
-//= require jquery.colorbox
+//= require jquery.alphanumeric.pack
+//= require jquery.validate
 //= require init_pedido

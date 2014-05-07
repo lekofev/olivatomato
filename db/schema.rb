@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140418222035) do
+ActiveRecord::Schema.define(:version => 20140502163619) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -173,8 +173,18 @@ ActiveRecord::Schema.define(:version => 20140418222035) do
     t.string   "ensalada_precio"
     t.integer  "orden",           :default => 0
     t.boolean  "visible",         :default => true
-    t.datetime "created_at",                        :null => false
-    t.datetime "updated_at",                        :null => false
+    t.datetime "created_at",                               :null => false
+    t.datetime "updated_at",                               :null => false
+    t.string   "apellido"
+    t.string   "email"
+    t.string   "direccion"
+    t.string   "referencia"
+    t.string   "mensaje"
+    t.string   "tipo_de_pago"
+    t.string   "monto"
+    t.string   "tipo_tarjeta"
+    t.string   "pago"
+    t.string   "estado",          :default => "Pendiente"
   end
 
   create_table "seccions", :force => true do |t|
