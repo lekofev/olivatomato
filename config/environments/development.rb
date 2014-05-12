@@ -39,12 +39,12 @@ Olivdaytomato::Application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address:              'prueba@yomequiero.com.pe',
+    address:              'localhost',
     port:                 25,
-    domain:               'yomequiero.com.pe',
-    user_name:            'prueba@yomequiero.com.pe',
-    password:             '990249',
-    authentication:       'plain',
+    #domain:               'yomequiero.com.pe',
+    #user_name:            'prueba@yomequiero.com.pe',
+    #password:             '990249',
+    #authentication:       'plain',
     enable_starttls_auto: true  }
 
 
