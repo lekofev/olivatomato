@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Apr 19, 2014 at 05:14 PM
+-- Generation Time: May 12, 2014 at 01:16 AM
 -- Server version: 5.5.24-log
 -- PHP Version: 5.3.13
 
@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `admin_users` (
 --
 
 INSERT INTO `admin_users` (`id`, `email`, `encrypted_password`, `reset_password_token`, `reset_password_sent_at`, `remember_created_at`, `sign_in_count`, `current_sign_in_at`, `last_sign_in_at`, `current_sign_in_ip`, `last_sign_in_ip`, `created_at`, `updated_at`) VALUES
-(1, 'admin@example.com', '$2a$10$zlTSFoQgsffDHg5ktaFMOuPfY55CcpraF/M9gaq7mSX.pfiPycLtG', NULL, NULL, NULL, 13, '2014-04-19 06:05:13', '2014-04-18 20:06:58', '127.0.0.1', '127.0.0.1', '2014-04-03 01:16:47', '2014-04-19 06:05:13');
+(1, 'admin@example.com', '$2a$10$zlTSFoQgsffDHg5ktaFMOuPfY55CcpraF/M9gaq7mSX.pfiPycLtG', NULL, NULL, NULL, 18, '2014-04-26 21:32:45', '2014-04-26 21:22:33', '127.0.0.1', '127.0.0.1', '2014-04-03 01:16:47', '2014-04-26 21:32:45');
 
 -- --------------------------------------------------------
 
@@ -92,7 +92,7 @@ CREATE TABLE IF NOT EXISTS `banner_inicios` (
   `updated_at` datetime NOT NULL,
   `seccion_id` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Dumping data for table `banner_inicios`
@@ -100,9 +100,10 @@ CREATE TABLE IF NOT EXISTS `banner_inicios` (
 
 INSERT INTO `banner_inicios` (`id`, `img_titulo`, `img_parrafo`, `img_url`, `img_link`, `orden`, `visible`, `created_at`, `updated_at`, `seccion_id`) VALUES
 (1, 'Ensalada Francesa', 'Ensalada Francesa', 'ensalada.jpg', 'https://mail.google.com', 0, 1, '2014-04-09 01:52:54', '2014-04-09 01:57:14', '1'),
-(2, 'Ensalada Chilena', 'Ensalada Chilena', 'ensalada.jpg', '', 1, 1, '2014-04-09 01:55:55', '2014-04-10 04:29:16', '1'),
+(2, 'Ensalada Chilena', 'Ensalada Chilena', 'ensalada.jpg', '', 5, 1, '2014-04-09 01:55:55', '2014-04-26 21:29:06', '1'),
 (3, 'Ensalada Peruana', 'Ensalada Peruana', 'ensalada.jpg', 'nolink', 2, 1, '2014-04-09 01:56:20', '2014-04-09 01:56:29', '1'),
-(4, 'Ensalada Rusa', 'Ensalada Rusa', 'ensalada.jpg', 'https://www.facebook.com/', 3, 1, '2014-04-09 01:56:55', '2014-04-09 01:56:55', '1');
+(4, 'Ensalada Rusa', 'Ensalada Rusa', 'ensalada.jpg', 'https://www.facebook.com/', 3, 1, '2014-04-09 01:56:55', '2014-04-09 01:56:55', '1'),
+(5, NULL, NULL, 'ensalada.jpg', 'https://www.google.com.pe', 1, 1, '2014-04-26 21:28:01', '2014-04-26 21:28:01', '1');
 
 -- --------------------------------------------------------
 
@@ -246,7 +247,7 @@ CREATE TABLE IF NOT EXISTS `imagens` (
 --
 
 INSERT INTO `imagens` (`id`, `foto_titulo`, `foto_descripcion`, `video_titulo`, `video_descripcion`, `txt_adicional_1`, `txt_adicional_2`, `orden`, `visible`, `created_at`, `updated_at`) VALUES
-(1, 'Fotos', 'estas son las fotos', 'Videos', 'los videos lalaala', '', '', 0, 1, '2014-04-16 01:45:00', '2014-04-16 01:45:00');
+(1, 'Fotos', 'La naturaleza nos inspira, inspírate tu también.', 'Videos', 'Lo más nutritivo que encontramos en la web.', '', '', 0, 1, '2014-04-16 01:45:00', '2014-04-23 01:21:10');
 
 -- --------------------------------------------------------
 
@@ -285,9 +286,9 @@ CREATE TABLE IF NOT EXISTS `lista_ensaladas` (
 INSERT INTO `lista_ensaladas` (`id`, `titulo`, `descripcion`, `txt_adicional_1`, `txt_adicional_2`, `img_grande`, `img_chica`, `precio`, `mineral_1`, `mineral_2`, `mineral_3`, `mineral_4`, `mineral_5`, `mineral_6`, `mineral_7`, `orden`, `visible`, `created_at`, `updated_at`, `ensalada_id`) VALUES
 (1, 'Del cesar', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at elit arcu. ', '', '', 'salad_g.jpg', 'salad_s.jpg', 'S/.15.30', 'Calorías,20% ', 'Proteínas,20%', 'Carbohidratos,20%', 'Grasas,20%', '', '', '', 0, 1, '2014-04-11 02:58:25', '2014-04-13 20:52:04', '1'),
 (3, 'Pardo de Tomato', 'make a type specimen book. It has survived not only five centuries, but also the leap ', '', '', 'salad_g.jpg', 'salad_s.jpg', 'S/.20.50', 'Proteinas1, 20%', 'Proteinas2, 20%', 'Proteinas3, 20%', 'Proteinas4, 20%', '', '', '', 1, 1, '2014-04-12 21:18:58', '2014-04-12 21:19:49', '1'),
-(4, 'Tomate al Pesto', 's that it has a more-or-less normal distribution of letters, as opposed to using ''Content here, content here'', making it look like readable English. Many des\r\n', '', '', NULL, NULL, '', 'energía, 10%', 'energía, 10%', 'energía, 10%', 'energía, 10%', '', '', '', 4, 1, '2014-04-12 21:20:01', '2014-04-12 21:22:19', '1'),
+(4, 'Tomate al Pesto', 's that it has a more-or-less normal distribution of letters, as opposed to using ''Content here, content here'', making it look like readable English. Many des\r\n', '', '', 'ensalada.jpg', 'salad_s.jpg', 'S/.17.5', 'energía, 10%', 'energía, 10%', 'energía, 10%', 'energía, 10%', '', '', '', 4, 1, '2014-04-12 21:20:01', '2014-04-23 01:17:10', '1'),
 (5, 'Papa y Camote', 's, as opposed to using ''Content here, content here'', making ', '', '', 'salad_g.jpg', 'salad_s.jpg', 'S/20.50', 'Carbohidraots, 12%', 'Carbohidraots, 12%', 'Carbohidraots, 12%', 'Carbohidraots, 12%', '', '', '', 3, 1, '2014-04-12 21:21:45', '2014-04-12 21:22:34', '1'),
-(6, 'Ensalada Rusa', ' been the industry''s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into', '', '', 'salad_g.jpg', 'salad_s.jpg', 'S/.10.30', 'Calorías,20% ', 'Calorías,20% ', 'Calorías,20% ', 'Calorías,20% ', '', '', '', 0, 1, '2014-04-12 21:23:41', '2014-04-13 20:51:36', '1');
+(6, 'Ensalada Rusa', ' been the industry''s standard dummy text ever since the 1500s, when an unknown printer took a galley', '', '', 'salad_g.jpg', 'salad_s.jpg', 'S/.10.30', 'Calorías,20% ', 'Calorías,20% ', 'Calorías,20% ', 'Calorías,20% ', '', '', '', 0, 1, '2014-04-12 21:23:41', '2014-04-23 01:16:21', '1');
 
 -- --------------------------------------------------------
 
@@ -343,27 +344,28 @@ CREATE TABLE IF NOT EXISTS `pedidos` (
   `visible` tinyint(1) DEFAULT '1',
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
+  `apellido` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `direccion` varchar(255) DEFAULT NULL,
+  `referencia` varchar(255) DEFAULT NULL,
+  `mensaje` varchar(255) DEFAULT NULL,
+  `tipo_de_pago` varchar(255) DEFAULT NULL,
+  `monto` varchar(255) DEFAULT NULL,
+  `tipo_tarjeta` varchar(255) DEFAULT NULL,
+  `pago` varchar(255) DEFAULT NULL,
+  `estado` varchar(255) DEFAULT 'Pendiente',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
 
 --
 -- Dumping data for table `pedidos`
 --
 
-INSERT INTO `pedidos` (`id`, `nombre`, `telefono`, `ensalada_id`, `ensalada_nombre`, `ensalada_precio`, `orden`, `visible`, `created_at`, `updated_at`) VALUES
-(1, 'roly', '95959', NULL, NULL, NULL, 0, 1, '2014-04-19 00:54:48', '2014-04-19 00:54:48'),
-(2, NULL, NULL, NULL, NULL, NULL, 0, 1, '2014-04-19 02:00:24', '2014-04-19 02:00:24'),
-(3, 'erickson', '9595959', NULL, NULL, NULL, 0, 1, '2014-04-19 02:04:15', '2014-04-19 02:04:15'),
-(4, 'erickson', '9595959', NULL, NULL, NULL, 0, 1, '2014-04-19 02:04:24', '2014-04-19 02:04:24'),
-(5, 'ericksonn', '9595959', '2', NULL, NULL, 0, 1, '2014-04-19 02:09:22', '2014-04-19 02:09:22'),
-(6, 'chamus', NULL, '1', NULL, NULL, 0, 1, '2014-04-19 02:10:34', '2014-04-19 02:10:34'),
-(7, 'carlo', '11111', '1', NULL, NULL, 0, 1, '2014-04-19 02:14:56', '2014-04-19 02:14:56'),
-(8, 'maroc', '344443443', '1', NULL, NULL, 0, 1, '2014-04-19 05:30:23', '2014-04-19 05:30:23'),
-(9, 'daniel', '669966', '1', NULL, NULL, 0, 1, '2014-04-19 05:55:40', '2014-04-19 05:55:40'),
-(10, 'ttyyt', '3443434', '1', NULL, NULL, 0, 1, '2014-04-19 05:56:21', '2014-04-19 05:56:21'),
-(11, 'fdhgfdg', '33443', '1', NULL, NULL, 0, 1, '2014-04-19 06:04:17', '2014-04-19 06:04:17'),
-(12, 'maria', '121212121', '5', NULL, NULL, 0, 1, '2014-04-19 06:22:22', '2014-04-19 06:22:22'),
-(13, 'pedro', '33444', '1', NULL, NULL, 0, 1, '2014-04-19 07:13:47', '2014-04-19 07:13:47');
+INSERT INTO `pedidos` (`id`, `nombre`, `telefono`, `ensalada_id`, `ensalada_nombre`, `ensalada_precio`, `orden`, `visible`, `created_at`, `updated_at`, `apellido`, `email`, `direccion`, `referencia`, `mensaje`, `tipo_de_pago`, `monto`, `tipo_tarjeta`, `pago`, `estado`) VALUES
+(1, 'roly', '95959', NULL, NULL, NULL, 0, 1, '2014-04-19 00:54:48', '2014-04-19 00:54:48', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Pendiente'),
+(17, 'erick', '1231313213', '6', 'Ensalada Rusa', 'S/.10.30', 0, 1, '2014-05-02 19:52:44', '2014-05-02 19:52:44', 'rodri', 'aa@aa.cc', 'sdf f ds', 'f sd dsf ', 's fdsf ', 'efectivo', '20', 'visa', 'soles 20', 'Pendiente'),
+(18, 'daniela', '123123213', '6', 'Ensalada Rusa', 'S/.10.30', 0, 1, '2014-05-02 20:20:03', '2014-05-02 20:20:03', 'chia', 'ass@sdfccc.cc', 'sfsdf', 'casa', 'cambi no se q', 'efectivo', '50.00', 'visa', 'soles 50.00', 'Pendiente'),
+(19, 'saaa', '2112323232', '6', 'Ensalada Rusa', 'S/.10.30', 0, 1, '2014-05-02 20:21:06', '2014-05-02 20:21:06', 'aa', 'hugui8427@hotmail.com', 'ccd', 'casa', 'cascs sd fds fsdfds', 'efectivo', '50', 'visa', 'soles 50', 'Pendiente');
 
 -- --------------------------------------------------------
 
@@ -403,7 +405,8 @@ INSERT INTO `schema_migrations` (`version`) VALUES
 ('20140416011314'),
 ('20140416012923'),
 ('20140417201320'),
-('20140418222035');
+('20140418222035'),
+('20140502163619');
 
 -- --------------------------------------------------------
 

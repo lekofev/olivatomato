@@ -15,6 +15,7 @@ body,html{
 	
 	}
 
+
 @font-face {
     font-family: 'code_pro_demoregular';
     src: url('fonts/code_pro.eot');
@@ -1440,11 +1441,13 @@ body,html{
     ul.campos{
         width: 400px;
         padding: 15px 0 0 18px;
+        float: left;
         li{
             height: 40px;
+            position: relative;
         }
         li.txt_area{
-            height: 100px;
+            height: 110px;
 
             textarea{
                 width: 275px;
@@ -1461,6 +1464,16 @@ body,html{
             padding: 6px 0 0 0px;
             color: #4a2b0b;
             font-size: 15px;
+            
+            span{
+                font-size: 10px;
+                font-family:Arial, "Helvetica Neue", Helvetica, sans-serif;
+                line-height: 1.2;
+                padding-left: 6px;
+                color: #5F5A57;
+                display: block;
+
+            }
         }
         input[type="text"]{
             width: 280px;
@@ -1468,10 +1481,116 @@ body,html{
             height: 26px;
             border: 1px solid #cccccc;
         }
+
+        li.li_referencia{
+            height: 60px;
+        }
+        li.span_bajada{
+            input, textarea{
+                margin-top: 10px;
+            }
+
+        }
+
+        li.tipo_pago{
+            height: 110px;
+
+            .cont_tipo_pago{
+                float: left;
+
+                label{
+                    float: none;
+                    display: inline-block;
+                }
+
+            }
+            .cont_pagos{
+                width: 100%;
+                clear: both;
+
+                .pagos{
+                    width: 274px;
+                    margin-left: 116px;
+                    padding-top: 10px;
+                    .db_inline{
+                        display: inline-block;
+                        float: none;
+
+                    }
+                }
+                .pagos.cont_pago_efectivo{
+                    
+                }
+                .pagos.cont_pago_tarjeta{
+                    display: none;
+                    
+                }
+                #tipo_moneda{
+                    border-radius: 4px;
+                    height: 30px;
+                    border: 1px solid #cccccc;
+                    width: 58px;
+                    margin-right: 6px;
+                }
+                #monto{
+                    width: 60px;
+                }
+            }
+        }
         
     }
-    
+    .rango_pedidos{
+        float: left;
+        width: 260px;
+        border-radius: 10px;
+        border: 4px solid #ffffff;
+        margin-left: 30px;
+        margin-top: 40px;
+        font-size: 16px;
+        padding: 10px;
+        font-size: 16px;
+        .rango_pedidos_titulo{
+            margin-bottom: 6px;
+        }
+
+        ul.lista_distritos{
+            margin-bottom: 6px;
+
+            li{
+                padding-left: 20px;
+                font-size: 14px;
+            }
+
+        }
+
+    }
+
+    ul.campos label.error{
+        position: absolute;
+        display: block;
+        top: 0;
+        right: -256px;
+        width: 250px;
+        float: none;
+        padding: 6px 0 6px 25px;
+        background-color: orange;
+        z-index: 100;
+    }
+    ul.campos label.error[for="referencia"]
+    {
+        top: 11px;
+    }
+    ul.campos label.error[for="mensaje"]
+    {
+        top: 12px;
+    }
+    ul.campos label.error[for="monto"]
+    {
+        top: 32px;
+        right: -210px;
+    }
 }
+
 .cont_pedido{
     margin-top: 30px;
     height: 150px;

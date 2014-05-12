@@ -12,19 +12,22 @@
 					ul.campos
 						li
 							label(for="nombre") Nombre:
-							input(type="text" id="nombre" name="nombre")
+							input(type="text" id="nombre" name="nombre" maxlength="40")
 						li
-							label(for="epellido") Apellido:
-							input(type="text" id="epellido" name="epellido")
+							label(for="apellido") Apellido:
+							input(type="text" id="apellido" name="apellido" maxlength="40")
+						li
+							label(for="email") E-mail:
+							input(type="text" id="email" name="email" maxlength="200")
 						li
 							label(for="telefono") Teléfono:
-							input(type="text" id="telefono" name="telefono")
+							input(type="text" id="telefono" name="telefono" maxlength="12")
 						li
 							label(for="direccion") Dirección:
-							input(type="text" id="direccion" name="direccion")
-						li
-							label(for="referencia") Referencia:
-							input(type="text" id="referencia" name="referencia")
+							input(type="text" id="direccion" name="direccion" maxlength="200")
+						li.li_referencia.span_bajada
+							label(for="referencia") Referencia: <span class="">Nombre de la empresa o calle conocida</span>
+							input(type="text" id="referencia" name="referencia" maxlength="200")
 
 						/ li
 						/ 	label Cancelar con:
@@ -33,97 +36,54 @@
 						/ 	input(type="radio" id="tarjeta" name="tipo_de_pago")
 						/ 	label(for="tarjeta") Tarjeta:
 
-						li.txt_area
-							label(for="mensaje") Mensaje
-							textarea(id="mensaje" name="mensaje")
+						li.txt_area.span_bajada
+							label(for="mensaje") Mensaje <span class="">Si deseas cambiar de Aliño, escríbelo aquí.</span>
+							textarea(id="mensaje" name="mensaje" maxlength="300")
+
+						li.tipo_pago
+							label Tipo de pago
+							.cont_tipo_pago
+								input(type="radio" name="tipo_de_pago" value="efectivo" id="pago_efectivo" checked="checked" class="radios_card")
+								label(for="pago_efectivo"  class="radios_card") Efectivo
+
+							.cont_tipo_pago
+								input(type="radio" name="tipo_de_pago" value="tarjeta" id="pago_tarjeta" class="radios_card")
+								label(for="pago_tarjeta"  class="radios_card") Tarjeta
+
+							.cont_pagos
+								.pagos.cont_pago_efectivo
+									label Pagaré con
+									select(id="tipo_moneda" name="tipo_moneda")
+										option(value="soles") S/.
+										option(value="dolares") US$/.
+									input(type="text" id="monto" name="monto" maxlength="10" value="00.00")
+
+								.pagos.cont_pago_tarjeta
+									input(type="radio" name="tarjeta" value="visa" id="visa" class="db_inline"  checked="checked")
+									label(for="visa" id="visa" class="db_inline" checked="checked") Visa
+									input(type="radio" name="tarjeta" value="mastarcard" id="mastercard" class="db_inline")
+									label(for="mastercard" id="visa" class="db_inline") Master Card
+
+
+						li
+							| Todo pedido que se haga antes de las 10:30, será entregado antes de la 1pm
+
+
 
 						input(type="hidden" value="#{@pedido.id}" name="ensalada_id")
 						input(type="hidden" value="#{@pedido.titulo}" name="ensalada_nombre")
 						input(type="hidden" value="#{@pedido.precio}" name="ensalada_precio")
-
-					.alinos
-						p Seleccione los Aliños para su ensalda.
-						.cont_alinos.clearfix
-							label.alino
-							
-								/ .alino_tooltip
-								/ 	= image_tag "alino.jpg", class:"img_alino_tooltip"
-								/ 	.cont_detalles_alino
-								/ 		h4.web_marron Alino de Aji Rojo
-								/ 		p Consectetur adipiscing elit. Integer eget nisl massa. Donec in dapibus magna
+					
+					.rango_pedidos
+						.rango_pedidos_titulo.font_ponsi_rounded_slab
+							| Delivery solo en los distritos de
+						ul.lista_distritos
+							li San Isidro
+							li Miraflores
+						.msj_mas_distritos
+							| Próximamente más distritos
 
 
-								= image_tag "alino.jpg", class:"img_label"
-								input(type="checkbox" value="" name="")
-							label.alino
-								= image_tag "alino.jpg", class:"img_label"
-								input(type="checkbox" value="" name="")
-							label.alino
-								= image_tag "alino.jpg", class:"img_label"
-								input(type="checkbox" value="" name="")
-							label.alino
-								= image_tag "alino.jpg", class:"img_label"
-								input(type="checkbox" value="" name="")
-
-							label.alino
-								input(type="checkbox" value="" name="")
-							label.alino
-								input(type="checkbox" value="" name="")
-							label.alino
-								input(type="checkbox" value="" name="")
-							label.alino
-								input(type="checkbox" value="" name="")
-								
-							label.alino
-								input(type="checkbox" value="" name="")
-							label.alino
-								input(type="checkbox" value="" name="")
-							label.alino
-								input(type="checkbox" value="" name="")
-							label.alino
-								input(type="checkbox" value="" name="")
-								
-							label.alino
-								input(type="checkbox" value="" name="")
-							label.alino
-								input(type="checkbox" value="" name="")
-							label.alino
-								input(type="checkbox" value="" name="")
-							label.alino
-								input(type="checkbox" value="" name="")
-								
-							label.alino
-								input(type="checkbox" value="" name="")
-							label.alino
-								input(type="checkbox" value="" name="")
-							label.alino
-								input(type="checkbox" value="" name="")
-							label.alino
-								input(type="checkbox" value="" name="")
-								
-							label.alino
-								input(type="checkbox" value="" name="")
-							label.alino
-								input(type="checkbox" value="" name="")
-							label.alino
-								input(type="checkbox" value="" name="")
-							label.alino
-								input(type="checkbox" value="" name="")
-								
-							label.alino
-								input(type="checkbox" value="" name="")
-							label.alino
-								input(type="checkbox" value="" name="")
-							label.alino
-								input(type="checkbox" value="" name="")
-							label.alino
-								input(type="checkbox" value="" name="")
-								
-							label.alino
-								input(type="checkbox" value="" name="")
-							label.alino
-								input(type="checkbox" value="" name="")
-						
 					.cont_pedido
 						.pedido_imagen.pedido_cont
 							= image_tag(@pedido.img_chica)
