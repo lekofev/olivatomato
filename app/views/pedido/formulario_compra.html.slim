@@ -1,5 +1,5 @@
 #fb-root.fb_reset
-.page.formulario_pedido
+.page.formulario_pedido.staticos
 	= render "shared/menu"
 	.container
 		.formulario_contenedor
@@ -69,10 +69,6 @@
 							| Todo pedido que se haga antes de las 10:30, será entregado antes de la 1pm
 
 
-
-						input(type="hidden" value="#{@pedido.id}" name="ensalada_id")
-						input(type="hidden" value="#{@pedido.titulo}" name="ensalada_nombre")
-						input(type="hidden" value="#{@pedido.precio}" name="ensalada_precio")
 					
 					.rango_pedidos
 						.rango_pedidos_titulo.font_ponsi_rounded_slab
@@ -86,12 +82,23 @@
 
 					.cont_pedido
 						.pedido_imagen.pedido_cont
-							= image_tag(@pedido.img_chica)
+							- if @pedido
+								= image_tag(@pedido.img_chica)
+							- else
+								| customimage
 						.pedido_detalles.pedido_cont
 							h2.web_marron
-								= @pedido.titulo
+								- if @pedido
+									= @pedido.titulo
+
+								- elsif @parametros
+									= @parametros['titulo']
 							p
-							= @pedido.descripcion
+								- if @pedido
+									= @pedido.descripcion
+
+								- elsif @parametros
+									= @parametros['descripcion']
 
 						.pedido_datos.pedido_cont
 							input.btns.btn_hacer_pedido(type="button" value="")
@@ -99,13 +106,33 @@
 								.txt_costo
 									| Costo:
 								.txt_monto
-									= @pedido.precio
+									- if @pedido
+										| #{@pedido.precio}
+
+									- elsif @parametros
+										| S/.#{@parametros['precio']}
+
+
+
+					- if @pedido
+						input(type="hidden" value="#{@pedido.id}" name="ensalada_id")
+						input(type="hidden" value="#{@pedido.titulo}" name="ensalada_nombre")
+						input(type="hidden" value="#{@pedido.precio}" name="ensalada_precio")
+					- elsif @parametros
+						input(type="hidden" value="null" name="ensalada_id")
+						input(type="hidden" value="#{@parametros['titulo']}: #{@parametros['descripcion']}" name="ensalada_nombre")
+						input(type="hidden" value="#{@parametros['precio']}" name="ensalada_precio")
+
+
+
 
 			/ .msj_gracias
 			/ 	h3.web_marron ¡Muchas gracias por su compra!
 			/ 	p Le haremos llegar su pedido lo más pronto posible
 			/ 	= link_to "","/", class:"btns btn_inicio"
-
-
+			= @pedido.inspect
+			br
+			br
+			= @parametros.inspect
 
 	= render "shared/footer"

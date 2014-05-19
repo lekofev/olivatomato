@@ -12,7 +12,10 @@ Olivdaytomato::Application.routes.draw do
   match 'video/:id' => 'vistaspopup#video'
 
 
-  match 'pedido/:id' => 'pedido#formulario_compra'
+  match 'pedido' => 'pedido#formulario_compra'
+  match 'pedido/:id' => 'pedido#formulario_compra'  
+  match 'asesoramiento' => 'pedido#asesoramiento'
+  match 'arma-tu-ensalada' => 'pedido#ensalada'
 
   match 'check' => 'check#crear_pedido'
 

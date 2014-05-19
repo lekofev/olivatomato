@@ -10,6 +10,9 @@ class CheckController < ApplicationController
 		# @nombre = params[:nombre]
 		# @telefono = params[:telefono]
 
+
+		nu = false
+
 		nombre = params[:nombre]
 		apellido = params[:apellido]
 		email = params[:email]
@@ -25,6 +28,26 @@ class CheckController < ApplicationController
 		ensalada_precio = params[:ensalada_precio]
 		pago = "#{params[:tipo_moneda]} #{params[:monto]}"
 
+		newCliente = Cliente.where(email:email)
+		if newCliente.blank?
+			logger.debug "Nuevo cliente"
+			t = Cliente.new(
+			:nombre=>nombre, 
+			:apellido=>apellido, 
+			:email=>email, 
+			:telefono=>telefono, 
+			:direccion=>direccion, 
+			:referencia=>referencia
+			)
+			if t.save
+				nu = true
+			else
+				nu = false
+			end
+		else
+			logger.debug "Cliente ya registrado"
+			nu = 'Cliente registrado'
+		end
 
 
 		p = Pedido.new(
@@ -39,17 +62,20 @@ class CheckController < ApplicationController
 			:monto=>monto, 
 			:tipo_tarjeta=>tarjeta, 
 			:pago=>pago,
-			:ensalada_id=>ensalada_id, 
+			:ensalada_id=>ensalada_id,
 			:ensalada_nombre=>ensalada_nombre, 
 			:ensalada_precio=>ensalada_precio
 			)
 
 		if 	p.save
 			# TestMailer.welcome_email().deliver
+
+			PedidoMailer.nuevo_pedido_email(p).deliver
 			respond_to do |format|
 			  format.jsonr do
 			    render :json => { 
 			    	:ok=>true,
+			    	:new_user=> nu,
 					:id => p.ensalada_id, 
 					:nombre => p.nombre,
 					:telefono => p.telefono

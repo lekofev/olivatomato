@@ -18,4 +18,6 @@
 //= require Code_Pro_Demo_400.font
 //= require jquery.alphanumeric.pack
 //= require jquery.validate
+//= require jquery.colorbox
+//= require TweenMax.min
 //= require init_pedido

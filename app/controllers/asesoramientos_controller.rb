@@ -1,0 +1,2 @@
+class AsesoramientosController < ApplicationController
+end
