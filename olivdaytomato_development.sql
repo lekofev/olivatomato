@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 12, 2014 at 01:16 AM
+-- Generation Time: May 19, 2014 at 09:11 PM
 -- Server version: 5.5.24-log
 -- PHP Version: 5.3.13
 
@@ -72,7 +72,7 @@ CREATE TABLE IF NOT EXISTS `admin_users` (
 --
 
 INSERT INTO `admin_users` (`id`, `email`, `encrypted_password`, `reset_password_token`, `reset_password_sent_at`, `remember_created_at`, `sign_in_count`, `current_sign_in_at`, `last_sign_in_at`, `current_sign_in_ip`, `last_sign_in_ip`, `created_at`, `updated_at`) VALUES
-(1, 'admin@example.com', '$2a$10$zlTSFoQgsffDHg5ktaFMOuPfY55CcpraF/M9gaq7mSX.pfiPycLtG', NULL, NULL, NULL, 18, '2014-04-26 21:32:45', '2014-04-26 21:22:33', '127.0.0.1', '127.0.0.1', '2014-04-03 01:16:47', '2014-04-26 21:32:45');
+(1, 'admin@example.com', '$2a$10$zlTSFoQgsffDHg5ktaFMOuPfY55CcpraF/M9gaq7mSX.pfiPycLtG', NULL, NULL, NULL, 33, '2014-05-19 20:36:40', '2014-05-19 20:34:59', '127.0.0.1', '127.0.0.1', '2014-04-03 01:16:47', '2014-05-19 20:36:40');
 
 -- --------------------------------------------------------
 
@@ -104,6 +104,112 @@ INSERT INTO `banner_inicios` (`id`, `img_titulo`, `img_parrafo`, `img_url`, `img
 (3, 'Ensalada Peruana', 'Ensalada Peruana', 'ensalada.jpg', 'nolink', 2, 1, '2014-04-09 01:56:20', '2014-04-09 01:56:29', '1'),
 (4, 'Ensalada Rusa', 'Ensalada Rusa', 'ensalada.jpg', 'https://www.facebook.com/', 3, 1, '2014-04-09 01:56:55', '2014-04-09 01:56:55', '1'),
 (5, NULL, NULL, 'ensalada.jpg', 'https://www.google.com.pe', 1, 1, '2014-04-26 21:28:01', '2014-04-26 21:28:01', '1');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cat_alimentos`
+--
+
+CREATE TABLE IF NOT EXISTS `cat_alimentos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cat_ingredientes`
+--
+
+CREATE TABLE IF NOT EXISTS `cat_ingredientes` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(255) DEFAULT NULL,
+  `precio` varchar(255) DEFAULT NULL,
+  `descripcion` varchar(255) DEFAULT NULL,
+  `text_1` varchar(255) DEFAULT NULL,
+  `text_2` varchar(255) DEFAULT NULL,
+  `orden` int(11) DEFAULT '0',
+  `visible` tinyint(1) DEFAULT '1',
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+--
+-- Dumping data for table `cat_ingredientes`
+--
+
+INSERT INTO `cat_ingredientes` (`id`, `nombre`, `precio`, `descripcion`, `text_1`, `text_2`, `orden`, `visible`, `created_at`, `updated_at`) VALUES
+(1, 'Frutas', '2.30', '', '', '', 0, 1, '2014-05-13 20:08:12', '2014-05-16 17:45:37'),
+(2, 'Verduras', '3.50', '', '', '', 0, 1, '2014-05-13 20:08:35', '2014-05-16 17:45:29'),
+(3, 'Protehínas', '3.50', '', '', '', 0, 1, '2014-05-13 21:46:07', '2014-05-16 17:45:21');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `clientes`
+--
+
+CREATE TABLE IF NOT EXISTS `clientes` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(255) DEFAULT NULL,
+  `apellido` varchar(255) DEFAULT NULL,
+  `telefono` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `direccion` varchar(255) DEFAULT NULL,
+  `referencia` varchar(255) DEFAULT NULL,
+  `text_1` varchar(255) DEFAULT NULL,
+  `text_2` varchar(255) DEFAULT NULL,
+  `text_3` varchar(255) DEFAULT NULL,
+  `orden` int(11) DEFAULT '0',
+  `visible` tinyint(1) DEFAULT '1',
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `clientes`
+--
+
+INSERT INTO `clientes` (`id`, `nombre`, `apellido`, `telefono`, `email`, `direccion`, `referencia`, `text_1`, `text_2`, `text_3`, `orden`, `visible`, `created_at`, `updated_at`) VALUES
+(1, 'ERick', 'rodri', '12121212121', 'rodrigzer@gmail.com', 'sdf', 'sdfs', '', '', '', 0, 1, '2014-05-19 20:26:33', '2014-05-19 20:26:33'),
+(2, 'dsaf', 'dsf', '32143124', 'hugui8427@hotmail.com', '4234', '234324', NULL, NULL, NULL, 0, 1, '2014-05-19 20:34:22', '2014-05-19 20:34:22');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `enfermedads`
+--
+
+CREATE TABLE IF NOT EXISTS `enfermedads` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(255) DEFAULT NULL,
+  `tipo` varchar(255) DEFAULT NULL,
+  `descripcion` varchar(255) DEFAULT NULL,
+  `text_1` varchar(255) DEFAULT NULL,
+  `text_2` varchar(255) DEFAULT NULL,
+  `orden` int(11) DEFAULT '0',
+  `visible` tinyint(1) DEFAULT '1',
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+
+--
+-- Dumping data for table `enfermedads`
+--
+
+INSERT INTO `enfermedads` (`id`, `nombre`, `tipo`, `descripcion`, `text_1`, `text_2`, `orden`, `visible`, `created_at`, `updated_at`) VALUES
+(1, 'Lácteos', 'alergia', 'Aliquam eget viverra elit. Nulla dictum placerat velit convallis dignissim. In hac', 'lacteos', '', 0, 1, '2014-05-13 03:39:44', '2014-05-13 22:11:26'),
+(2, 'Huevos', 'alergia', 'Viverra elit. Nulla dictum placerat velit convallis dignissim. In hac', 'huevos', '', 0, 1, '2014-05-13 03:40:05', '2014-05-13 22:11:12'),
+(3, 'Hipertensión', 'enfermedad', 'In hac habitasse platea dictumst. Fusce commodo auctor urna. ', 'hipertencion', '', 0, 1, '2014-05-13 03:46:04', '2014-05-13 22:11:00'),
+(4, 'Obesidad', 'enfermedad', 'Dd vestibulum libero at suscipit viverra. Nunc condimentum nulla eu quam vehicula bibendum.', 'obesidad', '', 0, 1, '2014-05-13 03:46:32', '2014-05-13 22:10:42'),
+(5, 'Obesidad camión', 'enfermedad', 'sdf sfdsfdsfdsf sdf sfsdf ', 'obesidad_camion', '', 0, 1, '2014-05-13 22:04:11', '2014-05-13 22:10:15'),
+(6, 'Gastritis', 'EnFermeDad', 'onec lobortis faucibus lacus sit amet malesuada. Sed quis tellus cursus, fermentum quam quis, sollicitudin metus', 'gastritis', '', 0, 1, '2014-05-14 19:44:35', '2014-05-14 19:44:35');
 
 -- --------------------------------------------------------
 
@@ -252,6 +358,42 @@ INSERT INTO `imagens` (`id`, `foto_titulo`, `foto_descripcion`, `video_titulo`, 
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `ingredientes`
+--
+
+CREATE TABLE IF NOT EXISTS `ingredientes` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(255) DEFAULT NULL,
+  `peso` varchar(255) DEFAULT NULL,
+  `descripcion` varchar(255) DEFAULT NULL,
+  `calorias` varchar(255) DEFAULT NULL,
+  `grasas` varchar(255) DEFAULT NULL,
+  `protehinas` varchar(255) DEFAULT NULL,
+  `carbohidratos` varchar(255) DEFAULT NULL,
+  `text_1` varchar(255) DEFAULT NULL,
+  `text_2` varchar(255) DEFAULT NULL,
+  `orden` int(11) DEFAULT '0',
+  `visible` tinyint(1) DEFAULT '1',
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  `cat_ingrediente_id` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
+
+--
+-- Dumping data for table `ingredientes`
+--
+
+INSERT INTO `ingredientes` (`id`, `nombre`, `peso`, `descripcion`, `calorias`, `grasas`, `protehinas`, `carbohidratos`, `text_1`, `text_2`, `orden`, `visible`, `created_at`, `updated_at`, `cat_ingrediente_id`) VALUES
+(1, 'Apio', '80', 'Maecenas felis purus, consequat eu aliquet eu, gravida eu ipsum', '130', '80', '120', '40', 'hipertencion', 'apio', 0, 1, '2014-05-13 20:13:15', '2014-05-16 20:05:13', '2'),
+(2, 'Tomate', '150', 'pellentesque. Mauris scelerisque, nisi sodales imperdiet bibendum,', '80', '10', '130', '150', 'hipertencion', 'tomate', 0, 1, '2014-05-13 20:14:16', '2014-05-16 20:05:01', '2'),
+(3, 'Naranja', '90', 'pellentesque. Mauris scelerisque, nisi sodales imperdiet bibendum,', '20', '10', '80', '120', 'gastritis', 'naranja', 0, 1, '2014-05-13 20:14:55', '2014-05-16 20:04:35', '1'),
+(4, 'Pera', '30', 'Mauris scele pellentesque pellentesque.. risque, nisi sodales imperdiet bibendum,', '30', '10', '30', '115', '', 'pera', 0, 1, '2014-05-13 20:15:54', '2014-05-16 20:04:14', '1'),
+(5, 'Carne', '85', 'e, nisi sodales imperdiet bib pellentesque. Mauris scelerisquendum,', '0', '65', '20', '35', 'obesidad, hipertencion', 'carne', 0, 1, '2014-05-13 21:46:46', '2014-05-17 20:13:01', '3');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `lista_ensaladas`
 --
 
@@ -286,9 +428,9 @@ CREATE TABLE IF NOT EXISTS `lista_ensaladas` (
 INSERT INTO `lista_ensaladas` (`id`, `titulo`, `descripcion`, `txt_adicional_1`, `txt_adicional_2`, `img_grande`, `img_chica`, `precio`, `mineral_1`, `mineral_2`, `mineral_3`, `mineral_4`, `mineral_5`, `mineral_6`, `mineral_7`, `orden`, `visible`, `created_at`, `updated_at`, `ensalada_id`) VALUES
 (1, 'Del cesar', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent at elit arcu. ', '', '', 'salad_g.jpg', 'salad_s.jpg', 'S/.15.30', 'Calorías,20% ', 'Proteínas,20%', 'Carbohidratos,20%', 'Grasas,20%', '', '', '', 0, 1, '2014-04-11 02:58:25', '2014-04-13 20:52:04', '1'),
 (3, 'Pardo de Tomato', 'make a type specimen book. It has survived not only five centuries, but also the leap ', '', '', 'salad_g.jpg', 'salad_s.jpg', 'S/.20.50', 'Proteinas1, 20%', 'Proteinas2, 20%', 'Proteinas3, 20%', 'Proteinas4, 20%', '', '', '', 1, 1, '2014-04-12 21:18:58', '2014-04-12 21:19:49', '1'),
-(4, 'Tomate al Pesto', 's that it has a more-or-less normal distribution of letters, as opposed to using ''Content here, content here'', making it look like readable English. Many des\r\n', '', '', 'ensalada.jpg', 'salad_s.jpg', 'S/.17.5', 'energía, 10%', 'energía, 10%', 'energía, 10%', 'energía, 10%', '', '', '', 4, 1, '2014-04-12 21:20:01', '2014-04-23 01:17:10', '1'),
-(5, 'Papa y Camote', 's, as opposed to using ''Content here, content here'', making ', '', '', 'salad_g.jpg', 'salad_s.jpg', 'S/20.50', 'Carbohidraots, 12%', 'Carbohidraots, 12%', 'Carbohidraots, 12%', 'Carbohidraots, 12%', '', '', '', 3, 1, '2014-04-12 21:21:45', '2014-04-12 21:22:34', '1'),
-(6, 'Ensalada Rusa', ' been the industry''s standard dummy text ever since the 1500s, when an unknown printer took a galley', '', '', 'salad_g.jpg', 'salad_s.jpg', 'S/.10.30', 'Calorías,20% ', 'Calorías,20% ', 'Calorías,20% ', 'Calorías,20% ', '', '', '', 0, 1, '2014-04-12 21:23:41', '2014-04-23 01:16:21', '1');
+(4, 'Tomate al Pesto', 's that it has a more-or-less normal distribution of letters, as opposed to using ''Content here, content here'', making it look like readable English. Many des\r\n', '', '', 'ensalada.jpg', 'salad_s.jpg', 's/.17.5', 'energía, 10%', 'energía, 10%', 'energía, 10%', 'energía, 10%', '', '', '', 4, 1, '2014-04-12 21:20:01', '2014-05-19 17:28:43', '1'),
+(5, 'Papa y Camote', 's, as opposed to using ''Content here, content here'', making ', '', '', 'salad_g.jpg', 'salad_s.jpg', 'S/.20.50', 'Carbohidraots, 12%', 'Carbohidraots, 12%', 'Carbohidraots, 12%', 'Carbohidraots, 12%', '', '', '', 3, 1, '2014-04-12 21:21:45', '2014-05-19 17:28:59', '1'),
+(6, 'Ensalada Rusa', ' been the industry''s standard dummy text ever since the 1500s, when an unknown printer took a galley', '', '', 'salad_g.jpg', 'salad_s.jpg', 'S/.10.30', 'Calorías,20% ', 'Calorías,20% ', 'Calorías,20% ', 'Calorías,20% ', '', '', '', 0, 1, '2014-04-12 21:23:41', '2014-05-19 17:29:09', '1');
 
 -- --------------------------------------------------------
 
@@ -355,7 +497,7 @@ CREATE TABLE IF NOT EXISTS `pedidos` (
   `pago` varchar(255) DEFAULT NULL,
   `estado` varchar(255) DEFAULT 'Pendiente',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=32 ;
 
 --
 -- Dumping data for table `pedidos`
@@ -365,7 +507,19 @@ INSERT INTO `pedidos` (`id`, `nombre`, `telefono`, `ensalada_id`, `ensalada_nomb
 (1, 'roly', '95959', NULL, NULL, NULL, 0, 1, '2014-04-19 00:54:48', '2014-04-19 00:54:48', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'Pendiente'),
 (17, 'erick', '1231313213', '6', 'Ensalada Rusa', 'S/.10.30', 0, 1, '2014-05-02 19:52:44', '2014-05-02 19:52:44', 'rodri', 'aa@aa.cc', 'sdf f ds', 'f sd dsf ', 's fdsf ', 'efectivo', '20', 'visa', 'soles 20', 'Pendiente'),
 (18, 'daniela', '123123213', '6', 'Ensalada Rusa', 'S/.10.30', 0, 1, '2014-05-02 20:20:03', '2014-05-02 20:20:03', 'chia', 'ass@sdfccc.cc', 'sfsdf', 'casa', 'cambi no se q', 'efectivo', '50.00', 'visa', 'soles 50.00', 'Pendiente'),
-(19, 'saaa', '2112323232', '6', 'Ensalada Rusa', 'S/.10.30', 0, 1, '2014-05-02 20:21:06', '2014-05-02 20:21:06', 'aa', 'hugui8427@hotmail.com', 'ccd', 'casa', 'cascs sd fds fsdfds', 'efectivo', '50', 'visa', 'soles 50', 'Pendiente');
+(19, 'saaa', '2112323232', '6', 'Ensalada Rusa', 'S/.10.30', 0, 1, '2014-05-02 20:21:06', '2014-05-02 20:21:06', 'aa', 'hugui8427@hotmail.com', 'ccd', 'casa', 'cascs sd fds fsdfds', 'efectivo', '50', 'visa', 'soles 50', 'Pendiente'),
+(20, 'Marco', '112312312321', 'null', 'Lechuga(2), Platano(1), Carne(1)', '18.60', 0, 1, '2014-05-19 19:41:01', '2014-05-19 19:41:01', 'Ordones', 'sdf@sdfcc.cc', 'sdfsd f', 's dfsd ', 'fsf sdf ', 'efectivo', '20.00', 'visa', 'soles 20.00', 'Pendiente'),
+(21, 'gggg', '234234324', 'null', 'Lechuga(2), Platano(1), Carne(1)', '18.60', 0, 1, '2014-05-19 19:43:01', '2014-05-19 19:43:01', 'dfgd f', 'rodrigzer@gmail.com', 'sdfsdfdsf', 'sdf sd', 'f sdf', 'efectivo', '25.00', 'visa', 'soles 25.00', 'Pendiente'),
+(22, 'sdfd', '213131312321', 'null', 'Lechuga(2), Platano(1), Carne(1)', '18.60', 0, 1, '2014-05-19 19:43:42', '2014-05-19 19:43:42', 'sdf ds', 'rodrigzer@gmail.com', 'sdfdsf', 'sdf ds', 'fsd ', 'efectivo', '20', 'visa', 'soles 20', 'Pendiente'),
+(23, 'ggg', '3242343', 'null', 'Ensalada Personalizada: naranja(3),apio(2),carne(1),', '17.40', 0, 1, '2014-05-19 19:49:51', '2014-05-19 19:49:51', 'aaa', 'rodrigzer@gmail.com', 'sdfds', 'dfsdf', 'sdf', 'efectivo', '25', 'visa', 'soles 25', 'Pendiente'),
+(24, 'as', '341231312321', '1', 'Del cesar', 'S/.15.30', 0, 1, '2014-05-19 20:20:57', '2014-05-19 20:20:57', 'asdd', 'rodrigzer@gmail.com', 'sdf dsf', 'd fdsf', ' sdf', 'efectivo', '25', 'visa', 'soles 25', 'Pendiente'),
+(25, 'asd', '12312312321', '1', 'Del cesar', 'S/.15.30', 0, 1, '2014-05-19 20:25:08', '2014-05-19 20:25:08', 'asd', 'rodrigzer@gmail.com', 'asd as', 'dsa dsad', ' asd ', 'efectivo', '00.00', 'visa', 'soles 00.00', 'Pendiente'),
+(26, 'sdf', '123312312321', '1', 'Del cesar', 'S/.15.30', 0, 1, '2014-05-19 20:29:41', '2014-05-19 20:29:41', 'sdf', 'rodrigzer@gmail.com', '213', '213', '123', 'efectivo', '00.00', 'visa', 'soles 00.00', 'Pendiente'),
+(27, 'sdf', '234234423423', '1', 'Del cesar', 'S/.15.30', 0, 1, '2014-05-19 20:30:13', '2014-05-19 20:30:13', 'sdf', 'hugui8427@hotmail.com', 'sdfsdfds', 'fsdfsdf', 'sdfsdf', 'efectivo', '00.00', 'visa', 'soles 00.00', 'Pendiente'),
+(28, 'sdf', '231432143', '1', 'Del cesar', 'S/.15.30', 0, 1, '2014-05-19 20:31:07', '2014-05-19 20:31:07', 'sdf', 'rodrigzer@gmail.com', '234234', '34234234234', '2342343242', 'efectivo', '00.00', 'visa', 'soles 00.00', 'Pendiente'),
+(29, 'effsdf', '1231231231', '1', 'Del cesar', 'S/.15.30', 0, 1, '2014-05-19 20:31:50', '2014-05-19 20:31:50', 'fsdf', 'asdf@hotmail.com', '2312312', '1231312', '32132121', 'efectivo', '25', 'visa', 'soles 25', 'Pendiente'),
+(30, 'dsaf', '32143124', '1', 'Del cesar', 'S/.15.30', 0, 1, '2014-05-19 20:34:22', '2014-05-19 20:34:22', 'dsf', 'hugui8427@hotmail.com', '4234', '234324', '234234', 'efectivo', '00.00', 'visa', 'soles 00.00', 'Pendiente'),
+(31, 'aaabbb', '23423423', '1', 'Del cesar', 'S/.15.30', 0, 1, '2014-05-19 20:36:22', '2014-05-19 20:36:22', 'sdfsdf', 'rodrigzer@gmail.com', 'sdfd', 'aaaaaaaaa', 'aaaaaaaaaaaaaaaa', 'efectivo', '00.00', 'visa', 'soles 00.00', 'Pendiente');
 
 -- --------------------------------------------------------
 
@@ -406,7 +560,13 @@ INSERT INTO `schema_migrations` (`version`) VALUES
 ('20140416012923'),
 ('20140417201320'),
 ('20140418222035'),
-('20140502163619');
+('20140502163619'),
+('20140513032112'),
+('20140513172546'),
+('20140513172637'),
+('20140513172745'),
+('20140513174552'),
+('20140519200753');
 
 -- --------------------------------------------------------
 
