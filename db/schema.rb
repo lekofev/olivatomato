@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140502163619) do
+ActiveRecord::Schema.define(:version => 20140519200753) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -56,6 +56,51 @@ ActiveRecord::Schema.define(:version => 20140502163619) do
     t.datetime "created_at",                    :null => false
     t.datetime "updated_at",                    :null => false
     t.string   "seccion_id"
+  end
+
+  create_table "cat_alimentos", :force => true do |t|
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "cat_ingredientes", :force => true do |t|
+    t.string   "nombre"
+    t.string   "precio"
+    t.string   "descripcion"
+    t.string   "text_1"
+    t.string   "text_2"
+    t.integer  "orden",       :default => 0
+    t.boolean  "visible",     :default => true
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
+  end
+
+  create_table "clientes", :force => true do |t|
+    t.string   "nombre"
+    t.string   "apellido"
+    t.string   "telefono"
+    t.string   "email"
+    t.string   "direccion"
+    t.string   "referencia"
+    t.string   "text_1"
+    t.string   "text_2"
+    t.string   "text_3"
+    t.integer  "orden",      :default => 0
+    t.boolean  "visible",    :default => true
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+  end
+
+  create_table "enfermedads", :force => true do |t|
+    t.string   "nombre"
+    t.string   "tipo"
+    t.string   "descripcion"
+    t.string   "text_1"
+    t.string   "text_2"
+    t.integer  "orden",       :default => 0
+    t.boolean  "visible",     :default => true
+    t.datetime "created_at",                    :null => false
+    t.datetime "updated_at",                    :null => false
   end
 
   create_table "ensaladas", :force => true do |t|
@@ -119,6 +164,23 @@ ActiveRecord::Schema.define(:version => 20140502163619) do
     t.boolean  "visible",           :default => true
     t.datetime "created_at",                          :null => false
     t.datetime "updated_at",                          :null => false
+  end
+
+  create_table "ingredientes", :force => true do |t|
+    t.string   "nombre"
+    t.string   "peso"
+    t.string   "descripcion"
+    t.string   "calorias"
+    t.string   "grasas"
+    t.string   "protehinas"
+    t.string   "carbohidratos"
+    t.string   "text_1"
+    t.string   "text_2"
+    t.integer  "orden",              :default => 0
+    t.boolean  "visible",            :default => true
+    t.datetime "created_at",                           :null => false
+    t.datetime "updated_at",                           :null => false
+    t.string   "cat_ingrediente_id"
   end
 
   create_table "lista_ensaladas", :force => true do |t|

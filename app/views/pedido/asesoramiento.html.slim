@@ -1,0 +1,39 @@
+#fb-root.fb_reset
+.page.asesoramiento.staticos
+	= render "shared/menu"
+	.container
+		.formulario_contenedor
+			h1 Asesoramiento Nutricional
+			p.parrafo_titulo Marque las enfermedades de las que padece para filtrar los ingredientes.
+			form(action="/arma-tu-ensalada" method="get")
+				.contendor_enfermedades
+					h2 Alergias.
+					ul	    
+					    - if @alergias.any?								
+							- for alergia in @alergias
+								li
+									label(for="#{alergia.text_1}" alt="#{alergia.text_1}") = alergia.nombre
+									input(type="checkbox" name="#{alergia.text_1}" id="#{alergia.text_1}")
+					    - else
+							p No items found Please add some inventory. Thank you!
+
+
+
+					br
+					br
+
+					h2 Enfermedades
+					ul
+					    - if @enfermedades.any?								
+							- for enfermedad in @enfermedades
+								li
+									label(for="#{enfermedad.text_1}" alt="#{enfermedad.text_1}") = enfermedad.nombre
+									input(type="checkbox" name="#{enfermedad.text_1}" id="#{enfermedad.text_1}")
+					    - else
+							p No items found Please add some inventory. Thank you!
+				
+				input(type="submit" value="Continuar" class="enviar_enfermedades")
+				label(for="123" alt="")
+
+
+	= render "shared/footer"

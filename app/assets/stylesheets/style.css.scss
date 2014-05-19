@@ -1163,7 +1163,7 @@ body,html{
     z-index: 200;
     background-image: image-url("px_png_blanco.png");
     background-repeat: repeat;
-    /*display: none;*/
+    display: none;
 
     .cont_footer{
         width: 904px;
@@ -1387,23 +1387,24 @@ body,html{
 .web_marron{
     color: #4a2b0b;
 }
-.page.formulario_pedido{
+.page.staticos{
     height: auto;
 }
-.page.formulario_pedido .container{
+.page.staticos .container{
     width: 970px;
     background-color: #ffffff;
     background-repeat: repeat;
     margin: auto;
-    font-family: 'open_sansregular';
+    /*font-family: 'open_sansregular';*/
+    font-family: verdana, arial;
     font-size: 16px;
     min-height: 600px;
 }
 
-.page.formulario_pedido .footer .btn_cont_abajo,
-.page.formulario_pedido .footer .btn_volver_arriba{
+.page.staticos .footer .btn_cont_abajo,
+.page.staticos .footer .btn_volver_arriba,
+.page.staticos .footer .btn_custom_salad{
     display: none;
-
 }
 
 
@@ -1726,6 +1727,159 @@ body,html{
     }
 
 }
+
+
+.contendor_ingredientes{
+    position: relative;
+    width: 100%;
+}
+
+.cuadro_estadistico{
+    width: 350px;
+    position: absolute;
+    top: -80px;
+    right: 30px;
+    background-color: #f7f0e6;
+    font-size: 12px;
+    padding-bottom: 10px;
+    box-shadow: 1px 1px 2px 1px rgba(0,0,0,0.2);
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+
+
+    .cabecera{
+        height: 70px;
+        padding: 0 15px 0 15px;
+        background-color: #7f7261;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        color: #ffffff;
+
+        .tit{
+            font-size: 16px;
+            padding-top: 6px;
+            margin-bottom: 4px;
+        }
+        p{
+            font-size: 12px;
+        }
+    }
+    p.descripcion{
+        padding: 20px;
+    }
+
+    .boton_ensalada_continuar{
+        width: 178px;
+        height: 46px;
+        background-position: -1px -637px;
+        margin: 0 15px 0 0;
+        float: right;
+    }
+    .boton_ensalada_continuar:hover{
+        background-position: -1px -687px;
+    }
+    .precio_ensalada{
+        width: 165px;
+        height: 76px;
+        position: absolute;
+        bottom: -76px;
+        right: 21px;
+        background-position: -395px -548px;
+
+        .txt_costo{
+            font-size: 14px;
+            color: #ffffff;
+            padding: 9px 0 0 8px;
+        }
+        .txt_monto{
+            font-size: 26px;
+            color: #ffffff;
+            padding: 2px 0 0 8px;
+            font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+            font-weight: lighter;
+        }
+    }
+
+}
+.chart{
+    background-color: red;
+    width: 350px;
+    height: 150px;
+    .numeros{
+        height: 150px;
+        float: left;
+        width: 65px;
+        .numero{
+            height: 17px;
+            text-align: right;
+            font-size: 10px;
+        }
+    }
+    .barras_contenedor
+    {
+        float: right;
+        width: 280px;
+        background-color: green;
+        position: relative;
+        height: 150px;
+
+        .barra{
+            width: 40px;
+            position: absolute;
+            bottom: 0;
+            background-color: #fff;
+            .valor_numerico{
+                position: absolute;
+                width: 40px;
+                height: 10px;
+                top: -10px;
+                left: 0;
+                font-size: 10px;
+                text-align: center;
+                color: #ffffff;
+                font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+
+
+            }
+        }
+        .barra_0{
+            left: 30px;
+            height: 0;
+        }
+        .barra_1{
+            left: 124px;
+            height: 0;
+        }
+        .barra_2{
+            left: 210px;
+            height: 0;
+        }
+    }
+    .nombres
+    {
+        float: right;
+        width: 310px;
+        height: 18px;
+        .nombre{
+            float: right;
+            width: 92px;
+            text-align: center;
+        }
+    }
+}
+.popup_resumen_pedido{
+    background-color: #ffffff;
+}
+
+
+
+label.match{
+    color: red;
+}
+.txt_cantidad.txt_disabled{
+    color: #cccccc;
+}
+
 /*
 .alino_tooltip{
     position: absolute;
