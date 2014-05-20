@@ -387,6 +387,8 @@ $(document).ready(function(){
 		{			
 			agregarDatos($(this));
 			$(this).siblings('.txt_cantidad').removeClass('txt_disabled')
+			$(this).siblings('.txt_cantidad').html('1')
+			// $(this).siblings('.txt_cantidad').attr('data-cantidad','1')
 			$(this).siblings('.btn_control_cantidad').removeAttr('disabled')
 
 			// var cantidad = parseInt($(this).siblings('input.input_cantidad').val());
@@ -402,6 +404,8 @@ $(document).ready(function(){
 		{
 			quitarDatos($(this));
 			$(this).siblings('.txt_cantidad').addClass('txt_disabled')
+			$(this).siblings('.txt_cantidad').html('0')
+			// $(this).siblings('.txt_cantidad').attr('data-cantidad','1')
 			$(this).siblings('.btn_control_cantidad').attr('disabled','disabled')
 
 			// // var cantidad = obj.siblings('input.input_cantidad').val();
@@ -534,8 +538,31 @@ $(document).ready(function(){
 
 
 
+	$('label.lbl_enfermedad').on('mouseover', function(){
+		var t = $(this);
+		t.children('.tooltip_enfermedad').css({
+			display:'block'
+		})
+	})
+
+	$('label.lbl_enfermedad').on('mouseout', function(){
+		var t = $(this);
+		t.children('.tooltip_enfermedad').hide();
+	})
 
 
+
+	$('label.lbl_ingrediente').on('mouseover', function(){
+		var t = $(this);
+		t.children('.tooltip_ingrediente').css({
+			display:'block'
+		})
+	})
+
+	$('label.lbl_ingrediente').on('mouseout', function(){
+		var t = $(this);
+		t.children('.tooltip_ingrediente').hide();
+	})
 
 
 
@@ -641,6 +668,8 @@ $(document).ready(function(){
 		console.log(precio)
 
 	}
+
+
 
 
 });// end jQuery

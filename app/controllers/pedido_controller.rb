@@ -1,4 +1,5 @@
 class PedidoController < ApplicationController
+	include ActionView::Helpers::NumberHelper
 
 	layout "pedido"
 
@@ -40,7 +41,20 @@ class PedidoController < ApplicationController
 			# logger.debug "Paramxx #{key}: #{value}"
 			# logger.debug "New post aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
 		end
-		logger.debug @parametros
+
+
+		if params[:imc_peso]!="" && params[:imc_talla]!=""
+			p = params[:imc_peso].to_f
+			t = params[:imc_talla].to_f*params[:imc_talla].to_f
+			r = p/t
+			@imc = number_with_precision(r, :precision => 1)
+		else
+			@imc = false
+		end
+
+
+
+		# logger.debug @parametros
 		# respond_to do |format|
 		#   format.jsonr do
 		#     render :json => { 

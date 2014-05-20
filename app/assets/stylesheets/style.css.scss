@@ -1739,7 +1739,7 @@ body,html{
     position: absolute;
     top: -80px;
     right: 30px;
-    background-color: #f7f0e6;
+    background-color: #F8ECDA;
     font-size: 12px;
     padding-bottom: 10px;
     box-shadow: 1px 1px 2px 1px rgba(0,0,0,0.2);
@@ -1799,10 +1799,13 @@ body,html{
             font-weight: lighter;
         }
     }
+    .total_calorias{
+        clear: both;
+        padding: 20px;  
+    }
 
 }
 .chart{
-    background-color: red;
     width: 350px;
     height: 150px;
     .numeros{
@@ -1819,7 +1822,9 @@ body,html{
     {
         float: right;
         width: 280px;
-        background-color: green;
+        background-image: image-url('chart_bg.png');
+        background-repeat: repeat;
+        border: 1px solid #ffffff;
         position: relative;
         height: 150px;
 
@@ -1827,7 +1832,7 @@ body,html{
             width: 40px;
             position: absolute;
             bottom: 0;
-            background-color: #fff;
+            background-color: #923233;
             .valor_numerico{
                 position: absolute;
                 width: 40px;
@@ -1836,8 +1841,9 @@ body,html{
                 left: 0;
                 font-size: 10px;
                 text-align: center;
-                color: #ffffff;
+                color: #923233;
                 font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+                font-weight: bold;
 
 
             }
@@ -1867,11 +1873,203 @@ body,html{
         }
     }
 }
-.popup_resumen_pedido{
-    background-color: #ffffff;
+
+.form_asesoramiento{
+    margin-top: 20px;
+
+    .titulo_enfermedad{
+        font-size: 16px;
+        margin-bottom: 10px;
+
+    }
+    .enviar_enfermedades{
+        width: 178px;
+        height: 46px;
+        background-position: -1px -637px;
+        margin: 40px 0 0 0;
+    }
+    .lista_enfermedades{
+        margin-left: 10px;
+    }
+    .contenedor_enfermedad{
+        font-size: 13px;
+        color: #4a2b0b;
+        width: 100%;
+        height: 22px;
+        position: relative;
+    }
+    .enviar_enfermedades:hover{        
+        background-position: -1px -687px;
+    }
+    .enfermedad_item{
+    }
+    .lbl_enfermedad{
+        margin: 0 0px 0 7px;
+        float: left;
+        position: relative;
+
+    }
+    .input_enfermedad{
+        margin: 0;
+        float: left;
+
+    }
+    .tooltip_enfermedad{
+        background-color: #ffffff;
+        border: 2px solid #ecebeb;
+        box-shadow: 3px 3px 5px -3px rgba(0, 0, 0, 0.1);
+        position: absolute;
+        top: -30px;
+        right: -350px;
+        width: 300px;
+        min-height: 40px;
+        border-radius: 5px;
+        padding: 15px;
+        display: none;
+        z-index: 100;
+    }
+    .tooltip_flecha{
+        width: 11px;
+        height: 15px;
+        position: absolute;
+        left: -11px;
+        top: 35px;
+        margin-top: -7px;
+        background-image: image-url("tooltip_flecha.png");
+        background-repeat: no-repeat;
+    }
+    .bloques_enfermedad{
+        margin-bottom: 30px;
+    }
+
+    .lbl_imc{
+        font-size: 13px;
+        color: #4a2b0b;
+    }
+    .input_imc{
+        width: 60px;
+        border: 1px solid #d1d1d1;
+        border-radius: 3px;
+        margin-left: 12px;
+    }
+    .imc_units{
+        font-size: 13px;
+        color: #4a2b0b;
+
+    }
 }
 
 
+.form_arma_ensalada{
+    margin-top: 20px;
+
+    .titulo_ingrediente{
+        font-size: 16px;
+        margin-bottom: 10px;
+        width: 100%;
+        height: 20px;
+
+    }
+    .nombre_categoria{
+        float: left;
+        display: block;
+    }
+    .precio_categoria{
+        float: left;
+        display: block;
+        font-size: 12px;
+        margin-left: 12px;
+        margin-top: 3px;
+        color: #676766;
+    }
+
+    .lista_ingredientes{
+        margin-left: 10px;
+    }
+    .cont_ingredientes{
+        font-size: 13px;
+        color: #4a2b0b;
+        width: 100%;
+        height: 24px;
+        position: relative;
+    }
+    .ingrediente_item{
+    }
+
+    .bloques_ingrediente{
+        margin-bottom: 30px;
+    }
+    .lbl_ingrediente{
+        margin: 0 0px 0 7px;
+        float: left;
+        position: relative;
+        font-size: 14px;
+
+    }
+    .input_ingrediente{
+        margin: 0;
+        float: left;
+
+    }
+    .txt_peso{
+        float: left;
+        margin: 2px 5px 0 5px;
+        font-size: 12px;
+
+    }
+    .txt_cantidad{
+        float: left;
+        padding: 1px 8px;
+        text-align: center;
+        background-color: #f6f0e5;
+        border: 1px solid #d0a980;
+
+    }
+    .btn_control_cantidad{
+        float: left;
+        margin-right: 5px;
+        height: 20px;
+        width: 20px;
+        padding: 0;     
+    }
+
+
+    .tooltip_ingrediente{
+        background-color: #ffffff;
+        border: 2px solid #ecebeb;
+        box-shadow: 3px 3px 5px -3px rgba(0, 0, 0, 0.1);
+        position: absolute;
+        top: -30px;
+        right: -480px;
+        width: 300px;
+        min-height: 40px;
+        border-radius: 5px;
+        padding: 15px;
+        display: none;
+        z-index: 100;
+    }
+    .tooltip_flecha{
+        width: 11px;
+        height: 15px;
+        position: absolute;
+        left: -11px;
+        top: 35px;
+        margin-top: -7px;
+        background-image: image-url("tooltip_flecha.png");
+        background-repeat: no-repeat;
+    }
+    label.no_recomendado{
+        color: #888383;
+        text-decoration: line-through;
+    }
+}
+
+
+
+
+.popup_resumen_pedido{
+    background-color: #ffffff;
+}
 
 label.match{
     color: red;

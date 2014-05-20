@@ -8,8 +8,8 @@
 			= @fff
 			.contendor_ingredientes
 
-				form.form_ensalada(method="get" action="/pedido")
-					.cuadro_estadistico
+				form.form_ensalada.form_arma_ensalada(method="get" action="/pedido")
+					.cuadro_estadistico.web_marron
 						.cabecera
 							.tit.font_ponsi_rounded_slab Cuadro Nutricional
 							p Porcentaje de cuadro de alimentos seleccionados
@@ -74,8 +74,9 @@
 									|Grasas 
 						.total_calorias Total Calorias: 0
 
-						p.descripcion
-							| Pellentesque a convallis leo, at faucibus lorem. Sed vel ante in tortor volutpat
+						- if @imc !=false
+							p.descripcion
+								| Su índice de masa corporal es: #{@imc}
 
 						input.btns.boton_ensalada_continuar(type="button" value="")
 						.precio_ensalada.sprite
@@ -86,45 +87,73 @@
 
 
 							
-				
+					
 				    - if @categoriaIngredientes.any?								
 						- for cat in @categoriaIngredientes
-							br
-							p = cat.nombre
-							ul
-							    - if @ingredientes.any?								
-									- for ingre in @ingredientes
-										- if cat.id.to_i == ingre.cat_ingrediente_id.to_i
-
-											- new_enfermedades = ingre.text_1.split(',')
-											- if new_enfermedades.count > 0
-												- new_enfermedades.each do |enfermedad|
-													- @parametros.each do |parametro|							
-														- if enfermedad == parametro
-															- @match = true
-											- if @match == true
-												li
-													label( alt="#{ingre.descripcion}" class="lbl_ingrediente match") = ingre.nombre
-													input(type="checkbox" name="#{ingre.text_2}" id="#{ingre.text_2}" class="input_ingrediente" data-precio="#{cat.precio}" data-peso="#{ingre.peso}" data-grasa="#{ingre.grasas}" data-proteina="#{ingre.protehinas}" data-carbohidrato="#{ingre.carbohidratos}" data-id="#{ingre.id}")
-													.txt_cantidad.txt_disabled(data-cantidad="1") 1
-													input(type="hidden" value="1" class="input_hidden_cantidad")
-													input(type="button" class="btn_control_cantidad btn_control_cantidad_mas" value="+" disabled="disabled")
-													input(type="button" class="btn_control_cantidad btn_control_cantidad_menos" value="-" disabled="disabled")
-											- else
-												li
-													label( alt="#{ingre.descripcion}" class="lbl_ingrediente") = ingre.nombre
-													input(type="checkbox" name="#{ingre.text_2}" id="#{ingre.text_2}" class="input_ingrediente" data-precio="#{cat.precio}" data-peso="#{ingre.peso}" data-grasa="#{ingre.grasas}" data-proteina="#{ingre.protehinas}" data-carbohidrato="#{ingre.carbohidratos}" data-id="#{ingre.id}")
-													.txt_cantidad.txt_disabled(data-cantidad="1") 1
-													input(type="hidden" value="1" class="input_hidden_cantidad")
-													input(type="button" class="btn_control_cantidad btn_control_cantidad_mas" value="+" disabled="disabled")
-													input(type="button" class="btn_control_cantidad btn_control_cantidad_menos" value="-" disabled="disabled")
-													br
-													br
-											- @match = false
+							.bloques_ingrediente
+								h2.titulo_ingrediente.web_marron 
+									.nombre_categoria.font_ponsi_rounded_slab
+										= cat.nombre 
+									.precio_categoria 
+										|(S/.#{cat.precio} por ingrediente)
 
 
-							    - else
-									p No items found Please add some inventory. Thank you!
+								ul.lista_ingredientes
+								    - if @ingredientes.any?								
+										- for ingre in @ingredientes
+											- if cat.id.to_i == ingre.cat_ingrediente_id.to_i
+
+												- new_enfermedades = ingre.text_1.split(',')
+												- if new_enfermedades.count > 0
+													- new_enfermedades.each do |enfermedad|
+														- @parametros.each do |parametro|							
+															- if enfermedad == parametro
+																- @match = true
+												- if @match == true
+													li.ingrediente_item
+														.cont_ingredientes
+															input(type="checkbox" name="#{ingre.text_2}" id="#{ingre.text_2}" class="input_ingrediente" data-precio="#{cat.precio}" data-peso="#{ingre.peso}" data-grasa="#{ingre.grasas}" data-proteina="#{ingre.protehinas}" data-carbohidrato="#{ingre.carbohidratos}" data-id="#{ingre.id}")
+
+															label( alt="#{ingre.descripcion}" class="no_recomendado lbl_ingrediente") 
+																= ingre.nombre
+																.tooltip_ingrediente
+																	= ingre.descripcion												
+																	.tooltip_flecha
+
+															.txt_peso 
+																|(#{ingre.peso} gr.)
+
+															.txt_cantidad.txt_disabled(data-cantidad="1") 0
+
+															input(type="button" class="btn_control_cantidad btn_control_cantidad_mas" value="+" disabled="disabled")
+															input(type="button" class="btn_control_cantidad btn_control_cantidad_menos" value="-" disabled="disabled")
+
+															input(type="hidden" value="1" class="input_hidden_cantidad")
+												- else
+													li.ingrediente_item
+														.cont_ingredientes
+															input(type="checkbox" name="#{ingre.text_2}" id="#{ingre.text_2}" class="input_ingrediente" data-precio="#{cat.precio}" data-peso="#{ingre.peso}" data-grasa="#{ingre.grasas}" data-proteina="#{ingre.protehinas}" data-carbohidrato="#{ingre.carbohidratos}" data-id="#{ingre.id}")
+
+															label( alt="#{ingre.descripcion}" class="lbl_ingrediente") 
+																= ingre.nombre
+																.tooltip_ingrediente
+																	= ingre.descripcion												
+																	.tooltip_flecha
+
+															.txt_peso 
+																|(#{ingre.peso} gr.)
+
+															.txt_cantidad.txt_disabled(data-cantidad="1") 0
+
+															input(type="button" class="btn_control_cantidad btn_control_cantidad_mas" value="+" disabled="disabled")
+															input(type="button" class="btn_control_cantidad btn_control_cantidad_menos" value="-" disabled="disabled")
+
+															input(type="hidden" value="1" class="input_hidden_cantidad")
+												- @match = false
+
+
+								    - else
+										p No items found Please add some inventory. Thank you!
 				    - else
 						p No items found Please add some inventory. Thank you!
 
