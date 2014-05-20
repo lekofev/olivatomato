@@ -56,7 +56,7 @@
 									select(id="tipo_moneda" name="tipo_moneda")
 										option(value="soles") S/.
 										option(value="dolares") US$/.
-									input(type="text" id="monto" name="monto" maxlength="10" value="00.00")
+									input(type="text" id="monto" name="monto" maxlength="10" value="0")
 
 								.pagos.cont_pago_tarjeta
 									input(type="radio" name="tarjeta" value="visa" id="visa" class="db_inline"  checked="checked")
@@ -85,7 +85,7 @@
 							- if @pedido
 								= image_tag(@pedido.img_chica)
 							- else
-								| customimage
+								| 
 						.pedido_detalles.pedido_cont
 							h2.web_marron
 								- if @pedido
