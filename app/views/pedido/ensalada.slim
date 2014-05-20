@@ -75,8 +75,16 @@
 						.total_calorias Total Calorias: 0
 
 						- if @imc !=false
-							p.descripcion
+							p.descripcion.msj_imc
 								| Su índice de masa corporal es: #{@imc}
+								- if @imc.to_f < 18
+									span.imc_cuidado  Peso bajo
+								- elsif @imc.to_f >= 18 && @imc.to_f <25
+									span.imc_normal  Normal
+								- elsif @imc.to_f >= 25 && @imc.to_f <27
+									span.imc_cuidado Sobrepeso
+								- elsif @imc.to_f >= 27
+									span.imc_cuidado ¡Obesidad!
 
 						input.btns.boton_ensalada_continuar(type="button" value="")
 						.precio_ensalada.sprite
