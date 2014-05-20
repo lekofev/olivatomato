@@ -2064,6 +2064,19 @@ body,html{
         color: #888383;
         text-decoration: line-through;
     }
+    .msj_imc{
+        span{
+            margin-left: 5px;
+        }
+        span.imc_cuidado{
+            color: #982010;
+            font-weight: bold;
+        }
+        span.imc_normal{
+            color: #8db461;
+            font-weight: bold;
+        }
+    }
 }
 
 
