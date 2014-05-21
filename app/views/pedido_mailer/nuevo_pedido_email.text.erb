@@ -1,9 +1,14 @@
-Welcome to example.com, <%= @user['nombre'] %>
+Hola <%= @user['nombre'] %>
 ===============================================
 
-Tu pedido es: 
-	<%= @user['descripcion'] %>
-	You have successfully signed up to example.com,
-your username is:<%= @user['email'] %>
+Gracias por comprar en Oliva y Tomato, éste es tu resumen de pedido: 
+<%= @user['ensalada_nombre'] %>
 
-Thanks for joining and have a great day!
+Total: S/. <%= @user['ensalada_precio'] %>
+
+Dirección de entrega: <%= @user['direccion'] %>
+Referencia: <%= @user['referencia'] %> 
+
+Para dudas y consultas
+Teléfono: 999888777
+e-mail: consultas@olivaytomato.com
