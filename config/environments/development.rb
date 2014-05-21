@@ -39,12 +39,12 @@ Olivdaytomato::Application.configure do
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address:              'smtp.gmail.com',
-    port:                 587,
-    domain:               'example.com',
-    user_name:            '<username>',
-    password:             '<password>',
-    authentication:       'plain',
+    address:              'localhost',
+    port:                 25,
+    #domain:               'yomequiero.com.pe',
+    #user_name:            'prueba@yomequiero.com.pe',
+    #password:             '990249',
+    #authentication:       'plain',
     enable_starttls_auto: true  }
 
 
