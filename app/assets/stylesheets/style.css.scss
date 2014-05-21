@@ -1426,20 +1426,30 @@ body,html{
 
 
     .cont_formulario{
-        background-color: #e4c8a8;
+      /*  background-color: #e4c8a8;
         padding-top: 8px;
         margin-top: 20px;
-        padding-bottom: 28px;
+        padding-bottom: 28px;*/
+
+
+        background-color: #e8e5d7;
+        border:1px solid #ffffff;
+        margin: auto;
+        box-shadow: 2px 2px 6px 1px rgba(0, 0, 0, 0.2);
+        -webkid-box-shadow: 2px 2px 6px 1px rgba(0, 0, 0, 0.2);
+        margin-top: 30px;
+
     }
 
 }
 .form_pedido{
     width: 760px;
-    background-color: #e8e5d7;
-    border:1px solid #ffffff;
+    /*background-color: #e8e5d7;*/
+    /*border:1px solid #ffffff;*/
     margin: auto;
-    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-    -webkid-box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    /*box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);*/
+    /*-webkid-box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);*/
+    position: relative;
 
     ul.campos{
         width: 400px;
@@ -1466,7 +1476,7 @@ body,html{
             float: left;
             padding: 6px 0 0 0px;
             color: #4a2b0b;
-            font-size: 15px;
+            font-size: 13px;
             
             span{
                 font-size: 10px;
@@ -1498,6 +1508,12 @@ body,html{
         li.tipo_pago{
             height: 110px;
 
+            .cont_tipo_pagos{
+                width: 100%;
+                height: 30px;
+
+            }
+
             .cont_tipo_pago{
                 float: left;
 
@@ -1513,8 +1529,6 @@ body,html{
 
                 .pagos{
                     width: 274px;
-                    margin-left: 116px;
-                    padding-top: 10px;
                     .db_inline{
                         display: inline-block;
                         float: none;
@@ -1522,7 +1536,7 @@ body,html{
                     }
                 }
                 .pagos.cont_pago_efectivo{
-                    
+                    margin-left: 6px;
                 }
                 .pagos.cont_pago_tarjeta{
                     display: none;
@@ -1540,30 +1554,42 @@ body,html{
                 }
             }
         }
+        .txt_tipo_pago{
+            font-size: 16px;
+            float: none;
+            width: 100%;
+            margin-bottom: 5px;
+
+        }
+
         
     }
     .rango_pedidos{
-        float: left;
-        width: 260px;
-        border-radius: 10px;
-        border: 4px solid #ffffff;
-        margin-left: 30px;
-        margin-top: 40px;
-        font-size: 16px;
-        padding: 10px;
-        font-size: 16px;
+        width: 270px;
+        padding: 20px;
+        background-color: #f6f0e5;
+        box-shadow: 2px 2px 1px 0px rgba(0, 0, 0, 0.1);
+        font-size: 12px;
+        position: absolute;
+        right: 11px;
+        top: 390px;
+        line-height: 1.2;
         .rango_pedidos_titulo{
             margin-bottom: 6px;
         }
-
+        span.bold{
+            font-style: italic;
+        }
         ul.lista_distritos{
             margin-bottom: 6px;
 
             li{
                 padding-left: 20px;
-                font-size: 14px;
             }
 
+        }
+        .msj_horario{
+            margin-top: 10px;
         }
 
     }
@@ -1572,12 +1598,14 @@ body,html{
         position: absolute;
         display: block;
         top: 0;
-        right: -256px;
+        right: -245px;
         width: 250px;
         float: none;
-        padding: 6px 0 6px 25px;
-        background-color: orange;
+        padding:6px 0 6px 13px;
         z-index: 100;
+        font-style: italic;
+        color: #923232;
+        font-size: 11px;
     }
     ul.campos label.error[for="referencia"]
     {
@@ -1592,6 +1620,9 @@ body,html{
         top: 32px;
         right: -210px;
     }
+
+
+
 }
 
 .cont_pedido{
@@ -1764,6 +1795,7 @@ body,html{
         }
         p{
             font-size: 12px;
+            line-height: 1.2;
         }
     }
     p.descripcion{
@@ -2021,18 +2053,40 @@ body,html{
     }
     .txt_cantidad{
         float: left;
-        padding: 1px 8px;
+        padding: 0px 8px;
         text-align: center;
-        background-color: #f6f0e5;
-        border: 1px solid #d0a980;
+        background-color: #ffffff;
+        border: 1px solid #c1c1c1;
+        margin-right: 7px;
+        margin-left: 4px;
 
     }
     .btn_control_cantidad{
         float: left;
         margin-right: 5px;
-        height: 20px;
-        width: 20px;
-        padding: 0;     
+        height: 14px;
+        width: 17px;
+        padding: 0;
+        margin-top: 1px;
+    }
+    .btn_control_cantidad_mas{
+        background-position: -203px -600px;
+    }
+    .btn_control_cantidad_mas:hover{
+        background-position: -203px -619px;        
+    }
+    .btn_control_cantidad_menos{
+        background-position: -223px -600px;
+    }
+    .btn_control_cantidad_menos:hover{
+        background-position: -223px -619px;        
+    }
+
+    .btn_control_cantidad_mas.btn_disabled{
+        background-position: -254px -600px;
+    }
+    .btn_control_cantidad_menos.btn_disabled{
+        background-position: -274px -600px;
     }
 
 
@@ -2079,6 +2133,82 @@ body,html{
     }
 }
 
+.tooltip_tutorial{
+    position: absolute;
+    color: #ffffff;
+    font-family: Verdana,Arial, "Helvetica Neue", Helvetica, sans-serif;
+    text-align: center;
+    padding: 5px;
+    font-size: 11px;
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.2);
+    background-color: #4c8012;
+    z-index: 200;
+    .flechita{
+        width: 19px;
+        height: 12px;
+        position: absolute;
+        top: -12px;
+        left: 50%;
+        margin-left: -10px;
+        background-image: image-url('tootip_tutorial.png');
+        background-repeat: no-repeat;
+    }
+
+}
+.tooltip_tutorial.selec_ingrediente{
+    width: 130px;
+    top: 53px;
+    left: -55px;
+}
+.tooltip_tutorial.selec_cantidad{
+    width: 130px;
+    top: 56px;
+    left: 105px;
+    display: none;
+}
+.tooltip_tutorial_chart{
+    position: absolute;
+    color: #ffffff;
+    font-family: Verdana,Arial, "Helvetica Neue", Helvetica, sans-serif;
+    text-align: center;
+    padding: 5px;
+    font-size: 11px;
+    border: 2px solid #ffffff;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.2);
+    background-color: #4c8012;
+    z-index: 200;
+    .flechita{
+        width: 12px;
+        height: 19px;
+        position: absolute;
+        right: -12px;
+        /*margin-left: -10px;*/
+        background-image: image-url('tootip_tutorial_r.png');
+        background-repeat: no-repeat;
+    }
+
+}
+.tooltip_tutorial_chart.info_chart{
+    width: 130px;
+    top: 153px;
+    left: -155px; 
+    display: none;
+    .flechita{
+        top: 19px;
+    }
+}
+.tooltip_tutorial_chart.info_precio{
+    width: 130px;
+    top: 446px;
+    left: 5px;    
+    display: none;
+    .flechita{
+        top: 12px;
+    }
+}
 
 
 
@@ -2091,6 +2221,7 @@ label.match{
 }
 .txt_cantidad.txt_disabled{
     color: #cccccc;
+    border: 1px solid #e6e6e6;
 }
 
 /*

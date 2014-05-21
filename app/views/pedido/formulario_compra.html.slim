@@ -41,14 +41,15 @@
 							textarea(id="mensaje" name="mensaje" maxlength="300")
 
 						li.tipo_pago
-							label Tipo de pago
-							.cont_tipo_pago
-								input(type="radio" name="tipo_de_pago" value="efectivo" id="pago_efectivo" checked="checked" class="radios_card")
-								label(for="pago_efectivo"  class="radios_card") Efectivo
+							label.txt_tipo_pago.font_ponsi_rounded_slab Método de pago:
+							.cont_tipo_pagos
+								.cont_tipo_pago
+									input(type="radio" name="tipo_de_pago" value="efectivo" id="pago_efectivo" checked="checked" class="radios_card")
+									label(for="pago_efectivo"  class="radios_card") Efectivo
 
-							.cont_tipo_pago
-								input(type="radio" name="tipo_de_pago" value="tarjeta" id="pago_tarjeta" class="radios_card")
-								label(for="pago_tarjeta"  class="radios_card") Tarjeta
+								.cont_tipo_pago
+									input(type="radio" name="tipo_de_pago" value="tarjeta" id="pago_tarjeta" class="radios_card")
+									label(for="pago_tarjeta"  class="radios_card") Tarjeta
 
 							.cont_pagos
 								.pagos.cont_pago_efectivo
@@ -65,20 +66,18 @@
 									label(for="mastercard" id="visa" class="db_inline") Master Card
 
 
-						li
-							| Todo pedido que se haga antes de las 10:30, será entregado antes de la 1pm
-
 
 					
 					.rango_pedidos
-						.rango_pedidos_titulo.font_ponsi_rounded_slab
-							| Delivery solo en los distritos de
-						ul.lista_distritos
-							li San Isidro
-							li Miraflores
-						.msj_mas_distritos
-							| Próximamente más distritos
-
+						.rango_pedidos_titulo
+							| Delivery solo en los distritos de <span class="bold">San Isidro y Miraflores</span>, próximamente más distritos.
+						/ ul.lista_distritos
+						/ 	li San Isidro
+						/ 	li Miraflores
+						/ .msj_mas_distritos
+						/ 	| Próximamente más distritos
+						.msj_horario
+							| Todo pedido que se haga antes de las 10:30, será entregado antes de la 1pm
 
 					.cont_pedido
 						.pedido_imagen.pedido_cont

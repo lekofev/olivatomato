@@ -12,10 +12,10 @@
 					.cuadro_estadistico.web_marron
 						.cabecera
 							.tit.font_ponsi_rounded_slab Cuadro Nutricional
-							p Porcentaje de cuadro de alimentos seleccionados
+							p Muestra el total de calorías consumidas de acuerdo a los ingredientes seleccionados.
 
 						p.descripcion
-							| Pellentesque a convallis leo, at faucibus lorem. Sed vel ante in tortor volutpat
+							/ | Pellentesque a convallis leo, at faucibus lorem. Sed vel ante in tortor volutpat
 
 						.chart
 							.numeros
@@ -93,9 +93,21 @@
 							.txt_monto
 								| S/.10.00
 
+						.tooltip_tutorial_chart.info_chart
+							.flechita
+							|El cuadro muestra la cantidad de calorias que contiene la ensalada.
+						.tooltip_tutorial_chart.info_precio
+							.flechita
+							|El costo de la ensalada <br>
+							|costo mínimo S/.10.00
 
-							
-					
+					.tooltip_tutorial.selec_ingrediente
+						.flechita
+						|Selecciona el ingrediente que deseas
+					.tooltip_tutorial.selec_cantidad
+						.flechita
+						|Indica la cantidad
+
 				    - if @categoriaIngredientes.any?								
 						- for cat in @categoriaIngredientes
 							.bloques_ingrediente
@@ -133,8 +145,8 @@
 
 															.txt_cantidad.txt_disabled(data-cantidad="1") 0
 
-															input(type="button" class="btn_control_cantidad btn_control_cantidad_mas" value="+" disabled="disabled")
-															input(type="button" class="btn_control_cantidad btn_control_cantidad_menos" value="-" disabled="disabled")
+															input(type="button" class="btns btn_control_cantidad btn_control_cantidad_mas btn_disabled" value="" disabled="disabled")
+															input(type="button" class="btns btn_control_cantidad btn_control_cantidad_menos btn_disabled" value="" disabled="disabled")
 
 															input(type="hidden" value="1" class="input_hidden_cantidad")
 												- else
@@ -153,8 +165,8 @@
 
 															.txt_cantidad.txt_disabled(data-cantidad="1") 0
 
-															input(type="button" class="btn_control_cantidad btn_control_cantidad_mas" value="+" disabled="disabled")
-															input(type="button" class="btn_control_cantidad btn_control_cantidad_menos" value="-" disabled="disabled")
+															input(type="button" class="btns btn_control_cantidad btn_control_cantidad_mas btn_disabled" value="" disabled="disabled")
+															input(type="button" class="btns btn_control_cantidad btn_control_cantidad_menos btn_disabled" value="" disabled="disabled")
 
 															input(type="hidden" value="1" class="input_hidden_cantidad")
 												- @match = false
