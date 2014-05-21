@@ -76,7 +76,7 @@
 												= ensalada.descripcion
 
 											.ensalada_precio 
-												= ensalada.precio
+												|S/. #{ensalada.precio}
 												/ = ensaladas_path
 
 											a.btns.btn_detalle_ensalada.abrir_ensalada_detalle(href="/ensalada/#{ensalada.id}")
