@@ -41,10 +41,6 @@ Olivdaytomato::Application.configure do
   config.action_mailer.smtp_settings = {
     address:              'localhost',
     port:                 25,
-    #domain:               'yomequiero.com.pe',
-    #user_name:            'prueba@yomequiero.com.pe',
-    #password:             '990249',
-    #authentication:       'plain',
     enable_starttls_auto: true  }
 
 

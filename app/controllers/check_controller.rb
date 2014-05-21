@@ -30,7 +30,6 @@ class CheckController < ApplicationController
 
 		newCliente = Cliente.where(email:email)
 		if newCliente.blank?
-			logger.debug "Nuevo cliente"
 			t = Cliente.new(
 			:nombre=>nombre, 
 			:apellido=>apellido, 
@@ -45,7 +44,6 @@ class CheckController < ApplicationController
 				nu = false
 			end
 		else
-			logger.debug "Cliente ya registrado"
 			nu = 'Cliente registrado'
 		end
 
