@@ -390,6 +390,7 @@ $(document).ready(function(){
 			$(this).siblings('.txt_cantidad').html('1')
 			// $(this).siblings('.txt_cantidad').attr('data-cantidad','1')
 			$(this).siblings('.btn_control_cantidad').removeAttr('disabled')
+			$(this).siblings('.btn_control_cantidad').removeClass('btn_disabled')
 
 			// var cantidad = parseInt($(this).siblings('input.input_cantidad').val());
 			// var nombre_ingrediente = $(this).attr('name')+'_'+$(this).attr('data-id');
@@ -407,6 +408,7 @@ $(document).ready(function(){
 			$(this).siblings('.txt_cantidad').html('0')
 			// $(this).siblings('.txt_cantidad').attr('data-cantidad','1')
 			$(this).siblings('.btn_control_cantidad').attr('disabled','disabled')
+			$(this).siblings('.btn_control_cantidad').addClass('btn_disabled')
 
 			// // var cantidad = obj.siblings('input.input_cantidad').val();
 			// var nombre_ingrediente = $(this).attr('name')+'_'+$(this).attr('data-id');
@@ -551,7 +553,6 @@ $(document).ready(function(){
 	})
 
 
-
 	$('label.lbl_ingrediente').on('mouseover', function(){
 		var t = $(this);
 		t.children('.tooltip_ingrediente').css({
@@ -562,6 +563,34 @@ $(document).ready(function(){
 	$('label.lbl_ingrediente').on('mouseout', function(){
 		var t = $(this);
 		t.children('.tooltip_ingrediente').hide();
+	})
+
+
+
+	var tutorial = true;
+	$('.lbl_ingrediente, .input_ingrediente').on('click', function(){
+		if(tutorial)
+		{
+			console.log('aaaaaaaa')
+			$('.selec_ingrediente').fadeOut(300)
+			$('.selec_cantidad').show();
+		}
+	})
+
+	$('.btn_control_cantidad').on('click', function(){
+		if(tutorial)
+		{
+			$('.selec_cantidad').fadeOut(200)
+			$('.info_chart').show();;
+			setTimeout(function(){
+				$('.tooltip_tutorial_chart').fadeOut(200);
+				$('.info_precio').show()
+				setTimeout(function(){
+					$('.tooltip_tutorial_chart').fadeOut(200)
+				},5000)
+			},5000)
+			tutorial = false;
+		}
 	})
 
 
