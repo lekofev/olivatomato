@@ -71,6 +71,7 @@ class CheckController < ApplicationController
 			# TestMailer.welcome_email().deliver
 
 			PedidoMailer.nuevo_pedido_email(p).deliver
+			AvisoMailer.aviso_email(p).deliver
 			respond_to do |format|
 			  format.jsonr do
 			    render :json => { 
