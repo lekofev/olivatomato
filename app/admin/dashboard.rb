@@ -30,5 +30,27 @@ ActiveAdmin.register_page "Dashboard" do
     #     end
     #   end
     # end
+
+
+    # columns do
+    #   column do
+    #     panel "Pedidos Recientes" do
+    #       ul do
+    #         Pedido.recent(5).map do |pedido|
+    #           li link_to(pedido.nombre, admin_pedido_path(pedido))
+    #         end
+    #       end
+    #     end
+    #   end
+    #   column do
+    #     panel "Info" do
+    #       para "Welcome to ActiveAdmin."
+    #     end
+    #   end
+    # end
+
+    
   end # content
+
+
 end

@@ -26,4 +26,21 @@ ActiveAdmin.register GaleriaFoto do
 		end                               
 		f.actions
 	end
+
+    show do |ad|
+      attributes_table do
+        row :titulo 
+        row :descripcion
+        row :img_grande do
+          image_tag(ad.img_grande.url)
+        end
+        row :miniatura do
+          image_tag(ad.miniatura.url)
+        end
+        row :orden
+        row :visible
+      end
+    end
+
+
 end

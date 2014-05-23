@@ -5,10 +5,10 @@
 		.formulario_contenedor
 			h1 Arma tu ensalada
 			p.parrafo_titulo Seleccina los ingredientes para tu ensalada
-			= @fff
+			= sanitize(@fff)
 			.contendor_ingredientes
 
-				form.form_ensalada.form_arma_ensalada(method="get" action="/pedido")
+				form.form_ensalada.form_arma_ensalada(method="post" action="/pedido")
 					.cuadro_estadistico.web_marron
 						.cabecera
 							.tit.font_ponsi_rounded_slab Cuadro Nutricional
@@ -113,7 +113,7 @@
 							.bloques_ingrediente
 								h2.titulo_ingrediente.web_marron 
 									.nombre_categoria.font_ponsi_rounded_slab
-										= cat.nombre 
+										= sanitize(cat.nombre)
 									.precio_categoria 
 										|(S/.#{cat.precio} por ingrediente)
 
@@ -135,9 +135,9 @@
 															input(type="checkbox" name="#{ingre.text_2}" id="#{ingre.text_2}" class="input_ingrediente" data-precio="#{cat.precio}" data-peso="#{ingre.peso}" data-grasa="#{ingre.grasas}" data-proteina="#{ingre.protehinas}" data-carbohidrato="#{ingre.carbohidratos}" data-id="#{ingre.id}")
 
 															label( alt="#{ingre.descripcion}" class="no_recomendado lbl_ingrediente") 
-																= ingre.nombre
+																= sanitize(ingre.nombre)
 																.tooltip_ingrediente
-																	= ingre.descripcion												
+																	= sanitize(ingre.descripcion)												
 																	.tooltip_flecha
 
 															.txt_peso 
@@ -155,9 +155,9 @@
 															input(type="checkbox" name="#{ingre.text_2}" id="#{ingre.text_2}" class="input_ingrediente" data-precio="#{cat.precio}" data-peso="#{ingre.peso}" data-grasa="#{ingre.grasas}" data-proteina="#{ingre.protehinas}" data-carbohidrato="#{ingre.carbohidratos}" data-id="#{ingre.id}")
 
 															label( alt="#{ingre.descripcion}" class="lbl_ingrediente") 
-																= ingre.nombre
+																= sanitize(ingre.nombre)
 																.tooltip_ingrediente
-																	= ingre.descripcion												
+																	= sanitize(ingre.descripcion)												
 																	.tooltip_flecha
 
 															.txt_peso 

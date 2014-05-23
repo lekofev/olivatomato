@@ -232,10 +232,9 @@ $(document).ready(function(){
 
 
 	$(".btn_hacer_pedido").click(function(){
-			if($(".form_pedido").valid() == true){
-				console.log("msj enviado")
+			if($(".form_pedido").valid() == true){	
+				$('.form_pedido').append('<div class="contact_loading">Procesando Pedido...</div>')	
 				$.post("/check.jsonr", $(".form_pedido").serialize(), function(data){
-					console.log(data)
 
 					if(data.ok)
 					{
@@ -247,7 +246,7 @@ $(document).ready(function(){
 					}
 					else
 					{
-
+						$('.formulario_contenedor').html('Lo sentimos, hubo un error al hacer el pedido')
 					}
 
 				});// end $.post 
@@ -263,11 +262,13 @@ $(document).ready(function(){
 	$('.radios_card').on('click', function(){
 		if($('#pago_efectivo').is(':checked'))
 		{
+			$('.monto').attr('value','')
 			$('.cont_pago_efectivo').show()
 			$('.cont_pago_tarjeta').hide()
 		}
 		else if($('#pago_tarjeta').is(':checked'))
 		{
+			$('.monto').attr('value','0')
 			$('.cont_pago_efectivo').hide()
 			$('.cont_pago_tarjeta').show()
 		}
@@ -276,9 +277,9 @@ $(document).ready(function(){
 
 
 	// $(".enviar_enfermedades").click(function(){
-	// 			console.log("enviar enfermedades")
+	// 			//console.log("enviar enfermedades")
 	// 			$.post("/check.jsonr", $(".form_pedido").serialize(), function(data){
-	// 				console.log(data)
+	// 				//console.log(data)
 
 	// 				if(data.ok)
 	// 				{
@@ -317,7 +318,7 @@ $(document).ready(function(){
 
 	var objCantidades={};
 	// var escala = (150*a)/2000;
-		// console.log(precios, pesos, carbohidratos, proteinas, grasas, calorias)
+		// //console.log(precios, pesos, carbohidratos, proteinas, grasas, calorias)
 
 
 	// $('.lbl_ingrediente, .input_ingrediente').each(function(){
@@ -328,23 +329,23 @@ $(document).ready(function(){
 	// 		grasas= $(this).attr('data-grasa')
 	// 		peso= $(this).attr('data-peso')
 
-	// 		console.log(precio, carbohidratos, protehinas, grasas, peso)			
+	// 		//console.log(precio, carbohidratos, protehinas, grasas, peso)			
 	// 	})
 	// })
 
 	// $('.lbl_ingrediente').on('click', function(){
-	// 	console.log("label")
+	// 	//console.log("label")
 	// 	newPrecio= $(this).siblings('input.input_ingrediente').attr('data-precio')
 	// 	newCarbohidrato= $(this).siblings('input.input_ingrediente').attr('data-carbohidrato')
 	// 	newProteina= $(this).siblings('input.input_ingrediente').attr('data-proteina')
 	// 	newGrasa= $(this).siblings('input.input_ingrediente').attr('data-grasa')
 	// 	newPeso= $(this).siblings('input.input_ingrediente').attr('data-peso')	
 
-	// 	console.log($(this).siblings('input.input_ingrediente').is(':checked'))	
+	// 	//console.log($(this).siblings('input.input_ingrediente').is(':checked'))	
 
 	// 	if ($(this).siblings('input.input_ingrediente').is(':checked'))
 	// 	{
-	// 		console.log("label")
+	// 		//console.log("label")
 	// 		carbohidratos-=parseFloat(newCarbohidrato);
 	// 		proteinas-=parseFloat(newProteina);
 	// 		grasas-=parseFloat(newGrasa);
@@ -355,7 +356,7 @@ $(document).ready(function(){
 	// 	}
 	// 	else
 	// 	{
-	// 		console.log("checked")
+	// 		//console.log("checked")
 	// 		carbohidratos+=parseFloat(newCarbohidrato);
 	// 		proteinas+=parseFloat(newProteina);
 	// 		grasas+=parseFloat(newGrasa);
@@ -365,14 +366,14 @@ $(document).ready(function(){
 	// 	}
 	// 	actualizarDatos(grasas, carbohidratos, proteinas, calorias, precios);
 
-	// 	console.log(newPrecio, newCarbohidrato, newProteina, newGrasa, newPeso)
-	// 	console.log(precios, carbohidratos, proteinas, grasas, pesos, calorias)
+	// 	//console.log(newPrecio, newCarbohidrato, newProteina, newGrasa, newPeso)
+	// 	//console.log(precios, carbohidratos, proteinas, grasas, pesos, calorias)
 	// })
 
 	$('.input_ingrediente').on('click', function(){
-		// console.log("input")
+		// //console.log("input")
 		var cant = parseInt($(this).siblings('.txt_cantidad').attr('data-cantidad'));
-		// console.log(cant)
+		// //console.log(cant)
 
 		newKcalCarbohidrato= (parseInt($(this).attr('data-carbohidrato'))*4)*cant;
 		newKcalProteina= (parseInt($(this).attr('data-proteina'))*4)*cant;
@@ -381,7 +382,7 @@ $(document).ready(function(){
 		newPeso= parseInt($(this).attr('data-peso'))*cant;
 		newPrecio= parseFloat($(this).attr('data-precio'))*cant;
 
-		// console.log($(this).is(':checked'))	
+		// //console.log($(this).is(':checked'))	
 
 		if ($(this).is(':checked'))
 		{			
@@ -397,7 +398,7 @@ $(document).ready(function(){
 			// objCantidades[nombre_ingrediente] = {anterior:cantidad, nuevo:cantidad};
 			// // objCantidades[nombre_ingrediente].nuevo = cantidad;
 			// // objCantidades[nombre_ingrediente];
-			// console.log(nombre_ingrediente, cantidad, objCantidades)
+			// //console.log(nombre_ingrediente, cantidad, objCantidades)
 
 			
 		}
@@ -413,7 +414,7 @@ $(document).ready(function(){
 			// // var cantidad = obj.siblings('input.input_cantidad').val();
 			// var nombre_ingrediente = $(this).attr('name')+'_'+$(this).attr('data-id');
 			// delete objCantidades[nombre_ingrediente]			
-			// console.log(nombre_ingrediente,objCantidades)
+			// //console.log(nombre_ingrediente,objCantidades)
 
 
 		}
@@ -422,8 +423,8 @@ $(document).ready(function(){
 
 		// actualizarDatos(kcalGrasas, kcalCarbohidratos, kcalProteinas, calorias, _precios);
 
-		// console.log(newPrecio, newCarbohidrato, newProteina, newGrasa, newPeso)
-		// console.log(precios, carbohidratos, proteinas, grasas, pesos, calorias)
+		// //console.log(newPrecio, newCarbohidrato, newProteina, newGrasa, newPeso)
+		// //console.log(precios, carbohidratos, proteinas, grasas, pesos, calorias)
 	})
 
 	$('.btn_control_cantidad_mas').on('click', function(){
@@ -485,7 +486,7 @@ $(document).ready(function(){
 
 
 	$('.input_cantidad').on('change', function(){
-		// console.log('changee'+ $(this).val());
+		// //console.log('changee'+ $(this).val());
 
 		var ingrediente = $(this).siblings('.input_ingrediente');
 
@@ -519,7 +520,7 @@ $(document).ready(function(){
 
 	var ingredientes;
 	$('.boton_ensalada_continuar').on('click', function(){
-		// console.log('boton_ensalada_continuar')
+		// //console.log('boton_ensalada_continuar')
 		ingredientes="";
 		$('.input_ingrediente').each(function(){
 			var t = $(this);
@@ -527,7 +528,7 @@ $(document).ready(function(){
 			{
 				ingredientes+=t.attr('name')+'('+t.siblings('.txt_cantidad').attr('data-cantidad')+'),';
 			}
-			// console.log('aaa')
+			// //console.log('aaa')
 		})
 
 		$('#descripcion').attr('value',ingredientes);
@@ -554,6 +555,7 @@ $(document).ready(function(){
 
 
 	$('label.lbl_ingrediente').on('mouseover', function(){
+		// //console.log('oveeer')
 		var t = $(this);
 		t.children('.tooltip_ingrediente').css({
 			display:'block'
@@ -561,17 +563,30 @@ $(document).ready(function(){
 	})
 
 	$('label.lbl_ingrediente').on('mouseout', function(){
+		// //console.log('out oveeer')
 		var t = $(this);
 		t.children('.tooltip_ingrediente').hide();
 	})
 
 
+	$('.input_ingrediente, .txt_peso').on('mouseover', function(){
+		// //console.log('oveeer')
+		var t = $(this).siblings('.lbl_ingrediente');
+		t.children('.tooltip_ingrediente').css({
+			display:'block'
+		})
+	})
+
+	$('.input_ingrediente, .txt_peso').on('mouseout', function(){
+		// //console.log('out oveeer')
+		var t = $(this).siblings('.lbl_ingrediente');
+		t.children('.tooltip_ingrediente').hide();
+	})
 
 	var tutorial = true;
-	$('.lbl_ingrediente, .input_ingrediente').on('click', function(){
+	$('.input_ingrediente').on('click', function(){
 		if(tutorial)
 		{
-			console.log('aaaaaaaa')
 			$('.selec_ingrediente').fadeOut(300)
 			$('.selec_cantidad').show();
 		}
@@ -641,7 +656,7 @@ $(document).ready(function(){
 
 	function actualizarDatos(grasa, carbohidrato, proteina, caloria, precio)
 	{
-		// console.log("actualizado")
+		// //console.log("actualizado")
 		var _grasa;
 		var _carbohidrato;
 		var _proteina;
@@ -682,7 +697,7 @@ $(document).ready(function(){
 		$('.total_calorias').html('Total Calorias: '+calorias)
 
 
-		// console.log(precio)
+		// //console.log(precio)
 
 		if(precio >10)
 		{
@@ -694,7 +709,7 @@ $(document).ready(function(){
 			$('.txt_monto').html('S/. 10.00');
 			$('#precio').attr('value','10.00');
 		}
-		console.log(precio)
+		//console.log(precio)
 
 	}
 

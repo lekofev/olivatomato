@@ -5,10 +5,10 @@
 
 		.info_ensalada
 			h2.ensalada_titulo
-				= @ensalada_popup.titulo
+				= sanitize(@ensalada_popup.titulo)
 			p.ensalada_descripcion
 				/ | is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text e
-				= @ensalada_popup.descripcion
+				= sanitize(@ensalada_popup.descripcion)
 
 			table.informacion_nutricional
 				tr.table_titulo
@@ -17,25 +17,25 @@
 				tr.minerales.even
 					td.mineral
 						/ | Calorías
-						= @mineral_1[0]
+						= sanitize(@mineral_1[0])
 					td.porcentaje
 						/ | 20%
-						= @mineral_1[1]
+						= sanitize(@mineral_1[1])
 				tr.minerales.odd
 					td.mineral
-						= @mineral_2[0]
+						= sanitize(@mineral_2[0])
 					td.porcentaje
-						= @mineral_2[1]
+						= sanitize(@mineral_2[1])
 				tr.minerales.even
 					td.mineral
-						= @mineral_3[0]
+						= sanitize(@mineral_3[0])
 					td.porcentaje
-						= @mineral_3[1]
+						= sanitize(@mineral_3[1])
 				tr.minerales.odd
 					td.mineral
-						= @mineral_4[0]
+						= sanitize(@mineral_4[0])
 					td.porcentaje
-						= @mineral_4[1]
+						= sanitize(@mineral_4[1])
 
 			= link_to "", "/pedido/#{@ensalada_popup.id}", class:"btns btn_comprar_ensalada"
 			/ = link_to "", :controller => "pedido", :action => "formulario_compra", :id => @ensalada_popup.id, :class=>"btns btn_comprar_ensalada"
@@ -44,4 +44,4 @@
 					| Costo:
 				.txt_monto
 					/ | S/.15.00
-					= @ensalada_popup.precio
+					= sanitize(@ensalada_popup.precio)

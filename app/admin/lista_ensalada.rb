@@ -27,5 +27,21 @@ ActiveAdmin.register ListaEnsalada do
 		f.actions
 	end
 
+    show do |ad|
+      attributes_table do
+        row :titulo
+        row :descripcion
+        row :img_grande do
+          image_tag(ad.img_grande.url)
+        end
+        row :img_chica do
+          image_tag(ad.img_chica.url)
+        end
+        row :precio
+        row :orden
+        row :visible
+      end
+    end
+
 
 end

@@ -30,6 +30,13 @@ ActiveAdmin.register Imagen do
 		f.actions
 	end
 
-
+    show do |ad|
+      attributes_table do
+        row :foto_titulo 
+        row :foto_descripcion
+        row :video_titulo
+        row :video_descripcion
+      end
+    end
 
 end

@@ -46,10 +46,10 @@ function pullHistory(url)
 		case 'ensaladas':
 			bloque=1;
 		break
-		case 'historia':
+		case 'nutricion':
 			bloque=2;
 		break
-		case 'nutricion':
+		case 'historia':
 			bloque=3;
 		break
 		case 'galeria':
@@ -225,6 +225,11 @@ $(document).ready(function(){
 	var bloqueVisible=0;
 
 
+	setTimeout(function(){
+		$('.landing .bloques').css('visibility','visible')
+
+	},1000)
+		
 
 
 	Cufon.replace('.titulo H2, .titulo_sabias_que,  .ensalada_titulo, .ensalada_desc, .telefono, .precio_cont, .table_titulo, .textos_adicionales h3, .slide_contenedor_galeria_foto p.foto_titulo, .slide_contenedor_galeria_video p.foto_titulo', { fontFamily: 'Ponsi Rounded Slab' });
@@ -237,22 +242,22 @@ $(document).ready(function(){
     $('.jcarousel').jcarousel({
         // Configuration goes here
     });
-    $('.flecha_left').jcarouselControl({
+    $('.flecha_left_carrousel').jcarouselControl({
             target: '-=1'
     });
-    $('.flecha_right').jcarouselControl({
+    $('.flecha_right_carrousel').jcarouselControl({
             target: '+=1'
     });
 
 	$('.jcarousel').on('jcarousel:firstin', 'li', function(event, carousel) {
 
-	    console.log("first in")
+	    //console.log("first in")
 	});
 
 
 	$('.jcarousel').on('jcarousel:firstout', 'li', function(event, carousel) {
 
-	    console.log("first out")
+	    //console.log("first out")
 	});  
 
 
@@ -290,19 +295,23 @@ $(document).ready(function(){
 
 
 	//Con esto hago que la pagina haga un scroll automatico en caso de te tenga un "#", por ejemplo #familia
+	
 	if(urlHash!="")
 	{
 		var scrollInicial = getAltoVentana()*pullHistory(urlHash).bloque;
-		$.scrollTo({top:scrollInicial, left:0}, 800,
-				{
-						onAfter:function(){
-							bloqueVisible=pullHistory(urlHash).bloque;
-							// console.log(bloqueVisible)
-							primeraVez=false;
-						}
+		// //console.log(scrollInicial, pullHistory(urlHash).bloque)
+		
+		// $.scrollTo({top:scrollInicial, left:0}, 800,
+		// 		{
+		// 				onAfter:function(){
+		// 					bloqueVisible=pullHistory(urlHash).bloque;
+		// 					// //console.log(bloqueVisible)
+		// 					primeraVez=false;
+		// 				}
 
-				}
-			)
+		// 		}
+		// )
+
 		$('.menu_principal a').removeClass('activo');
 		$('.menu_principal .menu_item_'+pullHistory(urlHash).bloque+' a').addClass('activo')
 	}
@@ -391,13 +400,19 @@ $(document).ready(function(){
 
 	//aqui uso unas llaves que me permiten cambiar la URL del navegador mientras hago un scroll con la barrita lateral
 	//con esto evito que se haga un evento cada vez que se hace un scroll y optimizo el site
+	
+	var optScroll=0;
+
 	$( window ).scroll(function() {
+		optScroll++;
 		primeraVez=false;
 		//aqui uso la varialbe "boton_menu_clicked" en modo false
-		if(!boton_menu_clicked)
+		if(!boton_menu_clicked && optScroll>=30)
 		{
+			optScroll= 0;
 			var st=$( window ).scrollTop()
 			var alto=getAltoVentana();
+
 			if(st<alto*0.5)
 			{
 				if(_inicio)
@@ -481,6 +496,8 @@ $(document).ready(function(){
 					bloqueVisible=4;
 				}	
 			}
+
+
 		}
 	});
 

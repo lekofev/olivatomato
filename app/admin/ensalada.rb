@@ -24,4 +24,11 @@ ActiveAdmin.register Ensalada do
 		f.actions
 	end
 
+    show do |ad|
+      attributes_table do
+        row :titulo
+        row :parrafo
+      end
+    end
+    
 end

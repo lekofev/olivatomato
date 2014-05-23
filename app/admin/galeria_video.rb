@@ -25,5 +25,17 @@ ActiveAdmin.register GaleriaVideo do
 		f.actions
 	end
 
+    show do |ad|
+      attributes_table do
+        row :titulo 
+        row :descripcion
+        row :miniatura do
+          image_tag(ad.miniatura.url)
+        end
+        row :url_video
+        row :orden
+        row :visible
+      end
+    end
 
 end

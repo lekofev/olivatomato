@@ -5,7 +5,7 @@
 		.formulario_contenedor
 			h1 Asesoramiento Nutricional
 			p.parrafo_titulo Marque las enfermedades de las que padece para filtrar los ingredientes.
-			form.form_asesoramiento(action="/arma-tu-ensalada" method="get")
+			form.form_asesoramiento(action="/arma-tu-ensalada" method="post")
 				.contendor_enfermedades
 					.bloques_enfermedad
 						h2.titulo_enfermedad.font_ponsi_rounded_slab.web_marron Alergias.
@@ -16,9 +16,9 @@
 										.contenedor_enfermedad								
 											input(type="checkbox" name="#{alergia.text_1}" id="#{alergia.text_1}" class="input_enfermedad")
 											label(for="#{alergia.text_1}" alt="#{alergia.text_1}" class="lbl_enfermedad")
-												= alergia.nombre
+												= sanitize(alergia.nombre)
 												.tooltip_enfermedad
-													= alergia.descripcion												
+													= sanitize(alergia.descripcion)												
 													.tooltip_flecha
 											
 						    - else
@@ -33,9 +33,9 @@
 										.contenedor_enfermedad											
 											input(type="checkbox" name="#{enfermedad.text_1}" id="#{enfermedad.text_1}" class="input_enfermedad")
 											label(for="#{enfermedad.text_1}" alt="#{enfermedad.text_1}" class="lbl_enfermedad") 
-												= enfermedad.nombre
+												= sanitize(enfermedad.nombre)
 												.tooltip_enfermedad
-													= alergia.descripcion												
+													= sanitize(alergia.descripcion)											
 													.tooltip_flecha
 						    - else
 								p No items found Please add some inventory. Thank you!

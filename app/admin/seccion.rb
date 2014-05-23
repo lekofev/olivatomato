@@ -10,17 +10,25 @@ ActiveAdmin.register Seccion do
 
 	index do  
 		column :id                            
-		column "Titulo", :titulo                     
+		column "Titulo", :titulo                 
 		column "Parrafo", :parrafo             
 		default_actions                   
 	end  
 
 	form do |f|                         
 		f.inputs "Formulario Inicio" do      
-		  f.input :parrafo, :label => "Titulo"
+		  f.input :titulo, :label => "Titulo"
+		  f.input :parrafo, :label => "Parrafo"
 		end                               
 		f.actions
 	end
+
+    show do |ad|
+      attributes_table do
+        row :titulo
+        row :parrafo
+      end
+    end
 
 
 end

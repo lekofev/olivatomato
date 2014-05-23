@@ -409,6 +409,7 @@ body,html{
     position: relative;
     overflow: hidden;
     min-width: 960px;
+    visibility: hidden;
     img.bg{
         height: 100%;
         position: absolute;
@@ -537,6 +538,25 @@ body,html{
         margin: auto;
         width: 100%;
         height: 100%;
+    }
+    .banner_descripcion{
+        position: absolute;
+        font-size: 18px;
+        min-height: 80px;
+        font-family: 'open_sansregular';
+        line-height: 1.2;
+        top: 110px;
+        left: 20px;
+        width: 170px;
+        padding: 10px;
+        color: #c94f49;
+        background-image: image-url('px_png_blanco.png');
+        background-repeat: repeat;
+        display: table;
+        .txt{
+            display: table-cell;
+            vertical-align: middle;
+        }
     }
     .flechas{
         width: 26px;
@@ -1617,8 +1637,8 @@ body,html{
     }
     ul.campos label.error[for="monto"]
     {
-        top: 32px;
-        right: -210px;
+        top: 62px;
+        right: -100px;
     }
 
 
@@ -1630,7 +1650,17 @@ body,html{
     height: 150px;
     background-color: #c6c6c6;
     float: left;
-
+    width: 100%;
+    p.error{
+        text-align: center;
+        padding-top: 20px;
+        a.link_volver_error{
+            text-decoration: none;
+        }
+        a.link_volver_error:hover{
+            text-decoration: underline;
+        }
+    }
     .pedido_cont{
         float: left;
     }
@@ -2210,6 +2240,21 @@ body,html{
     }
 }
 
+.contact_loading{
+    width: 778px;
+    height: 495px;
+    padding-top: 180px;
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    left: -9px;
+    background-color: #ffffff;
+    background-image: url(/assets/loading.gif);
+    background-repeat: no-repeat;
+    background-position: center 200px;
+    text-align: center;
+
+}
 
 
 .popup_resumen_pedido{

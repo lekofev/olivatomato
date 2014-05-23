@@ -28,4 +28,22 @@ ActiveAdmin.register Nutricion do
 		f.actions
 	end
 
+    show do |ad|
+      attributes_table do
+        row :titulo
+        row :parrafo
+        row :nombre_producto
+        row :img_producto do
+          image_tag(ad.img_producto.url)
+        end
+        row :mineral_1
+        row :mineral_2
+        row :mineral_3
+        row :mineral_4
+        row :mineral_5
+        row :sabias_que
+        row :fuente
+      end
+    end
+
 end

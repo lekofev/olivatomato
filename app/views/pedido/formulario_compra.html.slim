@@ -57,7 +57,7 @@
 									select(id="tipo_moneda" name="tipo_moneda")
 										option(value="soles") S/.
 										option(value="dolares") US$/.
-									input(type="text" id="monto" name="monto" maxlength="10" value="0")
+									input(type="text" id="monto" name="monto" maxlength="10" value="")
 
 								.pagos.cont_pago_tarjeta
 									input(type="radio" name="tarjeta" value="visa" id="visa" class="db_inline"  checked="checked")
@@ -71,45 +71,44 @@
 					.rango_pedidos
 						.rango_pedidos_titulo
 							| Delivery solo en los distritos de <span class="bold">San Isidro y Miraflores</span>, próximamente más distritos.
-						/ ul.lista_distritos
-						/ 	li San Isidro
-						/ 	li Miraflores
-						/ .msj_mas_distritos
-						/ 	| Próximamente más distritos
 						.msj_horario
 							| Todo pedido que se haga antes de las 10:30, será entregado antes de la 1pm
 
 					.cont_pedido
-						.pedido_imagen.pedido_cont
-							- if @pedido
-								= image_tag(@pedido.img_chica)
-							- else
-								| 
-						.pedido_detalles.pedido_cont
-							h2.web_marron
+						- if @parametros['descripcion'] || @pedido
+							.pedido_imagen.pedido_cont
 								- if @pedido
-									= @pedido.titulo
-
-								- elsif @parametros
-									= @parametros['titulo']
-							p
-								- if @pedido
-									= @pedido.descripcion
-
-								- elsif @parametros
-									= @parametros['descripcion']
-
-						.pedido_datos.pedido_cont
-							input.btns.btn_hacer_pedido(type="button" value="")
-							.precio.sprite
-								.txt_costo
-									| Costo:
-								.txt_monto
+									= image_tag(@pedido.img_chica)
+								- else
+									= image_tag("custom_salad.png")
+							.pedido_detalles.pedido_cont
+								h2.web_marron
 									- if @pedido
-										| #{@pedido.precio}
+										= sanitize(@pedido.titulo)
 
 									- elsif @parametros
-										| S/.#{@parametros['precio']}
+										= sanitize(@parametros['titulo'])
+								p
+									- if @pedido
+										= sanitize(@pedido.descripcion)
+
+									- elsif @parametros
+										= sanitize(@parametros['descripcion'])
+							.pedido_datos.pedido_cont
+								input.btns.btn_hacer_pedido(type="button" value="")
+								.precio.sprite
+									.txt_costo
+										| Costo:
+									.txt_monto
+										- if @pedido
+											| S/.#{sanitize(@pedido.precio)}
+
+										- elsif @parametros
+											| S/.#{sanitize(@parametros['precio'])}
+						- else
+							p.error
+								| Por favor vuelve a seleccionar o armar su ensalada <br><br>
+								= link_to "Volver", "/", class:"web_marron link_volver_error"
 
 
 

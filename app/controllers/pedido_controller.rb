@@ -7,6 +7,7 @@ class PedidoController < ApplicationController
 		@siteinfo = SiteInfo.find(1)
 		if params[:id]
 			@pedido=ListaEnsalada.find(params[:id])
+			@parametros =""
 		else
 			@parametros = params
 		end

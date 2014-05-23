@@ -43,6 +43,7 @@ GEM
       activesupport (>= 3.0.0)
     arel (3.0.3)
     bcrypt (3.1.7)
+    bcrypt (3.1.7-x86-mingw32)
     bourbon (3.1.8)
       sass (>= 3.2.0)
       thor
@@ -68,6 +69,7 @@ GEM
       warden (~> 1.2.3)
     erubis (2.7.0)
     eventmachine (1.0.3)
+    eventmachine (1.0.3-x86-mingw32)
     execjs (2.0.2)
     formtastic (2.2.1)
       actionpack (>= 3.0)
@@ -162,6 +164,7 @@ GEM
 
 PLATFORMS
   ruby
+  x86-mingw32
 
 DEPENDENCIES
   activeadmin
