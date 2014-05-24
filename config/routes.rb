@@ -1,7 +1,28 @@
 Olivdaytomato::Application.routes.draw do
 
-  # root :to => "landings#index"
-  root :to => "trabajando#index"
+  root :to => "landings#index"
+  # root :to => "trabajando#index"
+  match 'home/:id' => 'landings#index'
+  # match 'popup/:id' => 'ensaladas#popup'
+  # match 'galeriapopup/:id' => 'galeriapopup#index'
+
+
+  match 'ensalada/:id' => 'vistaspopup#ensalada'
+  match 'foto/:id' => 'vistaspopup#foto'
+  match 'video/:id' => 'vistaspopup#video'
+
+
+  match 'pedido' => 'pedido#formulario_compra'
+  match 'pedido/:id' => 'pedido#formulario_compra'  
+  match 'asesoramiento' => 'pedido#asesoramiento'
+  match 'arma-tu-ensalada' => 'pedido#ensalada'
+
+  match 'check' => 'check#crear_pedido'
+
+  
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

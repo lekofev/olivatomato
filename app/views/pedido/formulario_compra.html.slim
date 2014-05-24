@@ -1,0 +1,136 @@
+#fb-root.fb_reset
+.page.formulario_pedido.staticos
+	= render "shared/menu"
+	.container
+		.formulario_contenedor
+			h1 Formulario de compra
+			p.parrafo_titulo Complete el formulario para hacerle llegar el pedido.
+
+			.cont_formulario.clearfix
+
+				form.form_pedido.clearfix
+					ul.campos
+						li
+							label(for="nombre") Nombre:
+							input(type="text" id="nombre" name="nombre" maxlength="40")
+						li
+							label(for="apellido") Apellido:
+							input(type="text" id="apellido" name="apellido" maxlength="40")
+						li
+							label(for="email") E-mail:
+							input(type="text" id="email" name="email" maxlength="200")
+						li
+							label(for="telefono") Teléfono:
+							input(type="text" id="telefono" name="telefono" maxlength="12")
+						li
+							label(for="direccion") Dirección:
+							input(type="text" id="direccion" name="direccion" maxlength="200")
+						li.li_referencia.span_bajada
+							label(for="referencia") Referencia: <span class="">Nombre de la empresa o calle conocida</span>
+							input(type="text" id="referencia" name="referencia" maxlength="200")
+
+						/ li
+						/ 	label Cancelar con:
+						/ 	input(type="radio" id="efectivo" name="tipo_de_pago")
+						/ 	label(for="efectivo") Efectivo:
+						/ 	input(type="radio" id="tarjeta" name="tipo_de_pago")
+						/ 	label(for="tarjeta") Tarjeta:
+
+						li.txt_area.span_bajada
+							label(for="mensaje") Mensaje <span class="">Si deseas cambiar de Aliño, escríbelo aquí.</span>
+							textarea(id="mensaje" name="mensaje" maxlength="300")
+
+						li.tipo_pago
+							label.txt_tipo_pago.font_ponsi_rounded_slab Método de pago:
+							.cont_tipo_pagos
+								.cont_tipo_pago
+									input(type="radio" name="tipo_de_pago" value="efectivo" id="pago_efectivo" checked="checked" class="radios_card")
+									label(for="pago_efectivo"  class="radios_card") Efectivo
+
+								.cont_tipo_pago
+									input(type="radio" name="tipo_de_pago" value="tarjeta" id="pago_tarjeta" class="radios_card")
+									label(for="pago_tarjeta"  class="radios_card") Tarjeta
+
+							.cont_pagos
+								.pagos.cont_pago_efectivo
+									label Pagaré con:
+									select(id="tipo_moneda" name="tipo_moneda")
+										option(value="soles") S/.
+										option(value="dolares") US$/.
+									input(type="text" id="monto" name="monto" maxlength="10" value="")
+
+								.pagos.cont_pago_tarjeta
+									input(type="radio" name="tarjeta" value="visa" id="visa" class="db_inline"  checked="checked")
+									label(for="visa" id="visa" class="db_inline" checked="checked") Visa
+									input(type="radio" name="tarjeta" value="mastarcard" id="mastercard" class="db_inline")
+									label(for="mastercard" id="visa" class="db_inline") Master Card
+
+
+
+					
+					.rango_pedidos
+						.rango_pedidos_titulo
+							| Delivery solo en los distritos de <span class="bold">San Isidro y Miraflores</span>, próximamente más distritos.
+						.msj_horario
+							| Todo pedido que se haga antes de las 10:30, será entregado antes de la 1pm
+
+					.cont_pedido
+						- if @parametros['descripcion'] || @pedido
+							.pedido_imagen.pedido_cont
+								- if @pedido
+									= image_tag(@pedido.img_chica)
+								- else
+									= image_tag("custom_salad.png")
+							.pedido_detalles.pedido_cont
+								h2.web_marron
+									- if @pedido
+										= sanitize(@pedido.titulo)
+
+									- elsif @parametros
+										= sanitize(@parametros['titulo'])
+								p
+									- if @pedido
+										= sanitize(@pedido.descripcion)
+
+									- elsif @parametros
+										= sanitize(@parametros['descripcion'])
+							.pedido_datos.pedido_cont
+								input.btns.btn_hacer_pedido(type="button" value="")
+								.precio.sprite
+									.txt_costo
+										| Costo:
+									.txt_monto
+										- if @pedido
+											| S/.#{sanitize(@pedido.precio)}
+
+										- elsif @parametros
+											| S/.#{sanitize(@parametros['precio'])}
+						- else
+							p.error
+								| Por favor vuelve a seleccionar o armar su ensalada <br><br>
+								= link_to "Volver", "/", class:"web_marron link_volver_error"
+
+
+
+					- if @pedido
+						input(type="hidden" value="#{@pedido.id}" name="ensalada_id")
+						input(type="hidden" value="#{@pedido.titulo}" name="ensalada_nombre")
+						input(type="hidden" value="#{@pedido.precio}" name="ensalada_precio")
+					- elsif @parametros
+						input(type="hidden" value="null" name="ensalada_id")
+						input(type="hidden" value="#{@parametros['titulo']}: #{@parametros['descripcion']}" name="ensalada_nombre")
+						input(type="hidden" value="#{@parametros['precio']}" name="ensalada_precio")
+
+
+
+
+			/ .msj_gracias
+			/ 	h3.web_marron ¡Muchas gracias por su compra!
+			/ 	p Le haremos llegar su pedido lo más pronto posible
+			/ 	= link_to "","/", class:"btns btn_inicio"
+			/ = @pedido.inspect
+			/ br
+			/ br
+			/ = @parametros.inspect
+
+	= render "shared/footer"

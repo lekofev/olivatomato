@@ -1,0 +1,58 @@
+#fb-root.fb_reset
+.page.asesoramiento.staticos
+	= render "shared/menu"
+	.container
+		.formulario_contenedor
+			h1 Asesoramiento Nutricional
+			p.parrafo_titulo Marque las enfermedades de las que padece para filtrar los ingredientes.
+			form.form_asesoramiento(action="/arma-tu-ensalada" method="post")
+				.contendor_enfermedades
+					.bloques_enfermedad
+						h2.titulo_enfermedad.font_ponsi_rounded_slab.web_marron Alergias.
+						ul.lista_enfermedades	    
+						    - if @alergias.any?								
+								- for alergia in @alergias
+									li.enfermedad_item
+										.contenedor_enfermedad								
+											input(type="checkbox" name="#{alergia.text_1}" id="#{alergia.text_1}" class="input_enfermedad")
+											label(for="#{alergia.text_1}" alt="#{alergia.text_1}" class="lbl_enfermedad")
+												= sanitize(alergia.nombre)
+												.tooltip_enfermedad
+													= sanitize(alergia.descripcion)												
+													.tooltip_flecha
+											
+						    - else
+								p No items found Please add some inventory. Thank you!
+
+					.bloques_enfermedad
+						h2.titulo_enfermedad.font_ponsi_rounded_slab.web_marron  Enfermedades
+						ul.lista_enfermedades
+						    - if @enfermedades.any?								
+								- for enfermedad in @enfermedades
+									li.enfermedad_item
+										.contenedor_enfermedad											
+											input(type="checkbox" name="#{enfermedad.text_1}" id="#{enfermedad.text_1}" class="input_enfermedad")
+											label(for="#{enfermedad.text_1}" alt="#{enfermedad.text_1}" class="lbl_enfermedad") 
+												= sanitize(enfermedad.nombre)
+												.tooltip_enfermedad
+													= sanitize(alergia.descripcion)											
+													.tooltip_flecha
+						    - else
+								p No items found Please add some inventory. Thank you!
+
+					.bloques_enfermedad
+						h2.titulo_enfermedad.font_ponsi_rounded_slab.web_marron  Calcula tu índice de masa corporal
+						ul.lista_enfermedades
+							li
+								label(for="imc_peso" class="lbl_imc lbl_peso") Peso
+								input(type="text" id="imc_peso" name="imc_peso" class="imc input_imc input_peso" value="")
+								span.imc_units Kg.
+							li
+								label(for="imc_talla" class="lbl_imc lbl_talla") Talla
+								input(type="text" id="imc_talla" name="imc_talla" class="imc input_imc input_talla" value="")
+								span.imc_units mts.
+				
+				input(type="submit" value="" class="btns enviar_enfermedades")
+
+
+	= render "shared/footer"

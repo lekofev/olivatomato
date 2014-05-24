@@ -1,0 +1,187 @@
+#fb-root.fb_reset
+.page.arma_tu_ensalada.staticos
+	= render "shared/menu"
+	.container
+		.formulario_contenedor
+			h1 Arma tu ensalada
+			p.parrafo_titulo Seleccina los ingredientes para tu ensalada
+			= sanitize(@fff)
+			.contendor_ingredientes
+
+				form.form_ensalada.form_arma_ensalada(method="post" action="/pedido")
+					.cuadro_estadistico.web_marron
+						.cabecera
+							.tit.font_ponsi_rounded_slab Cuadro Nutricional
+							p Muestra el total de calorías consumidas de acuerdo a los ingredientes seleccionados.
+
+						p.descripcion
+							/ | Pellentesque a convallis leo, at faucibus lorem. Sed vel ante in tortor volutpat
+
+						.chart
+							.numeros
+								.numero.numero_0
+									.num 
+										|2000
+										span kcal.
+								.numero.numero_1
+									.num 
+										|1750
+										span kcal..
+								.numero.numero_2
+									.num 
+										|1500
+										span kcal.
+								.numero.numero_3
+									.num 
+										|1250
+										span kcal.
+								.numero.numero_4
+									.num 
+										|1000
+										span kcal.
+								.numero.numero_5
+									.num 
+										|750
+										span kcal.
+								.numero.numero_6
+									.num 
+										|500
+										span kcal.
+								.numero.numero_7
+									.num 
+										|250
+										span kcal.
+								.numero.numero_8
+									.num 
+										|0
+										span kcal.
+							.barras_contenedor
+								.barra.barra_0
+									.valor_numerico
+										|0
+								.barra.barra_1
+									.valor_numerico
+										|0
+								.barra.barra_2
+									.valor_numerico
+										|0
+							.nombres
+								.nombre.nombre_0
+									|Proteínas
+								.nombre.nombre_1
+									|Carbohidratos
+								.nombre.nombre_2
+									|Grasas 
+						.total_calorias Total Calorias: 0
+
+						- if @imc !=false
+							p.descripcion.msj_imc
+								| Su índice de masa corporal es: #{@imc}
+								- if @imc.to_f < 18
+									span.imc_cuidado  Peso bajo
+								- elsif @imc.to_f >= 18 && @imc.to_f <25
+									span.imc_normal  Normal
+								- elsif @imc.to_f >= 25 && @imc.to_f <27
+									span.imc_cuidado Sobrepeso
+								- elsif @imc.to_f >= 27
+									span.imc_cuidado ¡Obesidad!
+
+						input.btns.boton_ensalada_continuar(type="button" value="")
+						.precio_ensalada.sprite
+							.txt_costo.font_ponsi_rounded_slab
+								| Costo:
+							.txt_monto
+								| S/.10.00
+
+						.tooltip_tutorial_chart.info_chart
+							.flechita
+							|El cuadro muestra la cantidad de calorias que contiene la ensalada.
+						.tooltip_tutorial_chart.info_precio
+							.flechita
+							|El costo de la ensalada <br>
+							|costo mínimo S/.10.00
+
+					.tooltip_tutorial.selec_ingrediente
+						.flechita
+						|Selecciona el ingrediente que deseas
+					.tooltip_tutorial.selec_cantidad
+						.flechita
+						|Indica la cantidad
+
+				    - if @categoriaIngredientes.any?								
+						- for cat in @categoriaIngredientes
+							.bloques_ingrediente
+								h2.titulo_ingrediente.web_marron 
+									.nombre_categoria.font_ponsi_rounded_slab
+										= sanitize(cat.nombre)
+									.precio_categoria 
+										|(S/.#{cat.precio} por ingrediente)
+
+
+								ul.lista_ingredientes
+								    - if @ingredientes.any?								
+										- for ingre in @ingredientes
+											- if cat.id.to_i == ingre.cat_ingrediente_id.to_i
+
+												- new_enfermedades = ingre.text_1.split(',')
+												- if new_enfermedades.count > 0
+													- new_enfermedades.each do |enfermedad|
+														- @parametros.each do |parametro|							
+															- if enfermedad == parametro
+																- @match = true
+												- if @match == true
+													li.ingrediente_item
+														.cont_ingredientes
+															input(type="checkbox" name="#{ingre.text_2}" id="#{ingre.text_2}" class="input_ingrediente" data-precio="#{cat.precio}" data-peso="#{ingre.peso}" data-grasa="#{ingre.grasas}" data-proteina="#{ingre.protehinas}" data-carbohidrato="#{ingre.carbohidratos}" data-id="#{ingre.id}")
+
+															label( alt="#{ingre.descripcion}" class="no_recomendado lbl_ingrediente") 
+																= sanitize(ingre.nombre)
+																.tooltip_ingrediente
+																	= sanitize(ingre.descripcion)												
+																	.tooltip_flecha
+
+															.txt_peso 
+																|(#{ingre.peso} gr.)
+
+															.txt_cantidad.txt_disabled(data-cantidad="1") 0
+
+															input(type="button" class="btns btn_control_cantidad btn_control_cantidad_mas btn_disabled" value="" disabled="disabled")
+															input(type="button" class="btns btn_control_cantidad btn_control_cantidad_menos btn_disabled" value="" disabled="disabled")
+
+															input(type="hidden" value="1" class="input_hidden_cantidad")
+												- else
+													li.ingrediente_item
+														.cont_ingredientes
+															input(type="checkbox" name="#{ingre.text_2}" id="#{ingre.text_2}" class="input_ingrediente" data-precio="#{cat.precio}" data-peso="#{ingre.peso}" data-grasa="#{ingre.grasas}" data-proteina="#{ingre.protehinas}" data-carbohidrato="#{ingre.carbohidratos}" data-id="#{ingre.id}")
+
+															label( alt="#{ingre.descripcion}" class="lbl_ingrediente") 
+																= sanitize(ingre.nombre)
+																.tooltip_ingrediente
+																	= sanitize(ingre.descripcion)												
+																	.tooltip_flecha
+
+															.txt_peso 
+																|(#{ingre.peso} gr.)
+
+															.txt_cantidad.txt_disabled(data-cantidad="1") 0
+
+															input(type="button" class="btns btn_control_cantidad btn_control_cantidad_mas btn_disabled" value="" disabled="disabled")
+															input(type="button" class="btns btn_control_cantidad btn_control_cantidad_menos btn_disabled" value="" disabled="disabled")
+
+															input(type="hidden" value="1" class="input_hidden_cantidad")
+												- @match = false
+
+
+								    - else
+										p No items found Please add some inventory. Thank you!
+				    - else
+						p No items found Please add some inventory. Thank you!
+
+					input(type="hidden" value="10.00" name="precio" id="precio")
+					input(type="hidden" value="Ensalada Personalizada" name="titulo" id="titulo")
+					input(type="hidden" value="" name="descripcion" id="descripcion")
+
+	div(style="display:none")
+		#resumen_pedido.popup_resumen_pedido Hola mundo
+
+	= render "shared/footer"
