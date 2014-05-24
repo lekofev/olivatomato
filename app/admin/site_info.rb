@@ -11,6 +11,8 @@ ActiveAdmin.register SiteInfo do
 		column "Twitter Link", :twitter_link
 		column "Email Link", :email_link
 		column "Telefono", :telefono
+		column "Email alertas", :texto_adicional_1
+		column "Email empresa", :texto_adicional_2
 		column "Titulo(google)", :site_title
 		column "Descripcion(google)", :site_desc
 		column "Keywords(google)", :site_keywords
@@ -29,6 +31,8 @@ ActiveAdmin.register SiteInfo do
 		  f.input :twitter_link, :label => "Twitter Link"
 		  f.input :email_link, :label => "Email Link"
 		  f.input :telefono, :label => "Telefono"
+		  f.input :texto_adicional_1, :label => "Email alertas"
+		  f.input :texto_adicional_2, :label => "Email empresa"
 		  f.input :site_title, :label => "Titulo(google)"
 		  f.input :site_desc, :label => "Descripcion(google)"
 		  f.input :site_keywords, :label => "Keywords(google)"
@@ -48,6 +52,8 @@ ActiveAdmin.register SiteInfo do
         row :twitter_link
         row :email_link
         row :telefono
+        row :texto_adicional_1
+        row :texto_adicional_2
         row :site_title
         row :site_desc
         row :site_keywords
