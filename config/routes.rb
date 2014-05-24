@@ -1,8 +1,9 @@
 Olivdaytomato::Application.routes.draw do
 
-  root :to => "landings#index"
-  # root :to => "trabajando#index"
-  match 'home/:id' => 'landings#index'
+  # root :to => "landings#index"
+  root :to => 'trabajando#index'
+  match 'inicio' => 'landings#index'
+  
   # match 'popup/:id' => 'ensaladas#popup'
   # match 'galeriapopup/:id' => 'galeriapopup#index'
 

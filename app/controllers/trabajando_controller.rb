@@ -1,7 +1,7 @@
 class TrabajandoController < ApplicationController
-	layout "page"
+	layout "application"
 
 	def index
-		render "trabajando/index"				
+				
 	end
 end
