@@ -38,5 +38,5 @@ production:
   database: olivdaytomato_production
   pool: 5
   username: root
-  password:
+  password: "rrodriguez"
   host: localhost
