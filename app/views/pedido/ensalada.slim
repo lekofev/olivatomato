@@ -14,44 +14,25 @@
 							.tit.font_ponsi_rounded_slab Cuadro Nutricional
 							p Muestra el total de calorías consumidas de acuerdo a los ingredientes seleccionados.
 
-						p.descripcion
-							/ | Pellentesque a convallis leo, at faucibus lorem. Sed vel ante in tortor volutpat
-
 						.chart
 							.numeros
 								.numero.numero_0
 									.num 
-										|2000
+										|1000
 										span kcal.
 								.numero.numero_1
 									.num 
-										|1750
-										span kcal..
-								.numero.numero_2
-									.num 
-										|1500
-										span kcal.
-								.numero.numero_3
-									.num 
-										|1250
-										span kcal.
-								.numero.numero_4
-									.num 
-										|1000
-										span kcal.
-								.numero.numero_5
-									.num 
 										|750
 										span kcal.
-								.numero.numero_6
+								.numero.numero_2
 									.num 
 										|500
 										span kcal.
-								.numero.numero_7
+								.numero.numero_3
 									.num 
 										|250
 										span kcal.
-								.numero.numero_8
+								.numero.numero_4
 									.num 
 										|0
 										span kcal.
@@ -67,15 +48,26 @@
 										|0
 							.nombres
 								.nombre.nombre_0
-									|Proteínas
+									|Grasas 
 								.nombre.nombre_1
 									|Carbohidratos
 								.nombre.nombre_2
-									|Grasas 
-						.total_calorias Total Calorias: 0
+									|Proteínas
+						.calorias_recomendado 
+							- if @imc !=false
+									- if @imc.to_f < 18
+										| Calorías recomendadas: #{(@peso*30*0.35)}
+									- elsif @imc.to_f >= 18 && @imc.to_f <25
+										| Calorías recomendadas: #{((@peso*30)*0.35)}
+									- elsif @imc.to_f >= 25 && @imc.to_f <27
+										| Calorías recomendadas: #{((@peso*20)*0.35)}
+									- elsif @imc.to_f >= 27
+										| Calorías recomendadas: #{(@peso*20)*0.35}
 
+
+						.total_calorias Total Calorias: 0
 						- if @imc !=false
-							p.descripcion.msj_imc
+							p.descripcion.msj_imc(data-imc="#{@imc}")
 								| Su índice de masa corporal es: #{@imc}
 								- if @imc.to_f < 18
 									span.imc_cuidado  Peso bajo
@@ -92,6 +84,8 @@
 								| Costo:
 							.txt_monto
 								| S/.10.00
+							.incluye
+								| El precio mínimo incluye una base de ensalada y el aliño.
 
 						.tooltip_tutorial_chart.info_chart
 							.flechita
@@ -156,9 +150,10 @@
 
 															label( alt="#{ingre.descripcion}" class="lbl_ingrediente") 
 																= sanitize(ingre.nombre)
-																.tooltip_ingrediente
-																	= sanitize(ingre.descripcion)												
-																	.tooltip_flecha
+																
+																/ .tooltip_ingrediente
+																/ 	= sanitize(ingre.descripcion)												
+																/ 	.tooltip_flecha
 
 															.txt_peso 
 																|(#{ingre.peso} gr.)

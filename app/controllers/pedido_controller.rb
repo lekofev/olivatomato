@@ -46,9 +46,9 @@ class PedidoController < ApplicationController
 
 		if params[:imc_peso]!="" && params[:imc_talla]!=""
 		# if (defined? params[:imc_peso]) && (defined? params[:imc_talla])
-			p = params[:imc_peso].to_f
+			@peso = params[:imc_peso].to_f
 			t = params[:imc_talla].to_f*params[:imc_talla].to_f
-			r = p/t
+			r = @peso/t
 			@imc = number_with_precision(r, :precision => 1)
 		else
 			@imc = false

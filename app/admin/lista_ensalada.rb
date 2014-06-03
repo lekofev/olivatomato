@@ -20,6 +20,10 @@ ActiveAdmin.register ListaEnsalada do
 		  f.input :descripcion, :label => "Descripcion"
 		  f.input :img_grande, :label => "Imagen Grande"
 		  f.input :img_chica, :label => "Imagen Miniatura"
+		  f.input :mineral_1, :label => "Mineral 1(Separar por coma ' , ')"
+		  f.input :mineral_2, :label => "Mineral 2(Separar por coma ' , ' )"
+		  f.input :mineral_3, :label => "Mineral 3(Separar por coma ' , ' )"
+		  f.input :mineral_4, :label => "Mineral 4(Separar por coma ' , ' )"
 		  f.input :precio
 		  f.input :orden
 		  f.input :visible
@@ -37,6 +41,10 @@ ActiveAdmin.register ListaEnsalada do
         row :img_chica do
           image_tag(ad.img_chica.url)
         end
+        row :mineral_1
+        row :mineral_2
+        row :mineral_3
+        row :mineral_4
         row :precio
         row :orden
         row :visible
