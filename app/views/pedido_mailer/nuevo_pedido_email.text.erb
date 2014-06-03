@@ -9,6 +9,8 @@ Total: S/. <%= @user['ensalada_precio'] %>
 Dirección de entrega: <%= @user['direccion'] %>
 Referencia: <%= @user['referencia'] %> 
 
+En pocos minutos nos comunicaremos contigo para confirmar tu pedido.
+
 Para dudas y consultas
-Teléfono: 999888777
-e-mail: consultas@olivaytomato.com
+Teléfono: <%= @siteinfo.telefono %>
+e-mail: c<%= @siteinfo.texto_adicional_2 %>

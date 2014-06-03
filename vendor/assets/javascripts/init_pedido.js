@@ -170,10 +170,6 @@ $(document).ready(function(){
 					required: true,
 					rangelength: [2,200]
 				},
-				mensaje: {
-					required: true,
-					rangelength: [2,300]
-				},
 				monto: {
 					required: true,
 					rangelength: [1,10]
@@ -210,10 +206,6 @@ $(document).ready(function(){
 				referencia:{
 					required: 'Debes escribir tu dirección.',
 					rangelength: '200 carácteres como máximo.'
-				},
-				mensaje:{
-					required: 'Debes escribir tu dirección.',
-					rangelength: '300 carácteres como máximo.'
 				},
 				monto:{
 					required: 'Debes ingresar una cantidad.',
@@ -313,62 +305,10 @@ $(document).ready(function(){
 
 
 	var pesos=0;
-	var precios=0;
+	var precios=10;
 	var calorias= 0;
 
 	var objCantidades={};
-	// var escala = (150*a)/2000;
-		// //console.log(precios, pesos, carbohidratos, proteinas, grasas, calorias)
-
-
-	// $('.lbl_ingrediente, .input_ingrediente').each(function(){
-	// 	$(this).on('click', function(){
-	// 		precio= $(this).attr('data-precio')
-	// 		carbohidratos= $(this).attr('data-precio')
-	// 		protehinas= $(this).attr('data-protehina')
-	// 		grasas= $(this).attr('data-grasa')
-	// 		peso= $(this).attr('data-peso')
-
-	// 		//console.log(precio, carbohidratos, protehinas, grasas, peso)			
-	// 	})
-	// })
-
-	// $('.lbl_ingrediente').on('click', function(){
-	// 	//console.log("label")
-	// 	newPrecio= $(this).siblings('input.input_ingrediente').attr('data-precio')
-	// 	newCarbohidrato= $(this).siblings('input.input_ingrediente').attr('data-carbohidrato')
-	// 	newProteina= $(this).siblings('input.input_ingrediente').attr('data-proteina')
-	// 	newGrasa= $(this).siblings('input.input_ingrediente').attr('data-grasa')
-	// 	newPeso= $(this).siblings('input.input_ingrediente').attr('data-peso')	
-
-	// 	//console.log($(this).siblings('input.input_ingrediente').is(':checked'))	
-
-	// 	if ($(this).siblings('input.input_ingrediente').is(':checked'))
-	// 	{
-	// 		//console.log("label")
-	// 		carbohidratos-=parseFloat(newCarbohidrato);
-	// 		proteinas-=parseFloat(newProteina);
-	// 		grasas-=parseFloat(newGrasa);
-	// 		pesos-=parseFloat(newPeso);
-	// 		precios-=parseFloat(newPrecio);
-	// 		calorias -= (carbohidratos*4) + (proteinas*4) + (grasas*9);
-
-	// 	}
-	// 	else
-	// 	{
-	// 		//console.log("checked")
-	// 		carbohidratos+=parseFloat(newCarbohidrato);
-	// 		proteinas+=parseFloat(newProteina);
-	// 		grasas+=parseFloat(newGrasa);
-	// 		pesos+=parseFloat(newPeso);
-	// 		precios+=parseFloat(newPrecio);
-	// 		calorias += (carbohidratos*4) + (proteinas*4) + (grasas*9);
-	// 	}
-	// 	actualizarDatos(grasas, carbohidratos, proteinas, calorias, precios);
-
-	// 	//console.log(newPrecio, newCarbohidrato, newProteina, newGrasa, newPeso)
-	// 	//console.log(precios, carbohidratos, proteinas, grasas, pesos, calorias)
-	// })
 
 	$('.input_ingrediente').on('click', function(){
 		// //console.log("input")
@@ -609,6 +549,43 @@ $(document).ready(function(){
 	})
 
 
+	$('.btn_calcular_imc').on('click', function(){
+		var p = parseFloat($('#imc_peso').attr('value'));
+		var t = parseFloat($('#imc_talla').attr('value'));
+		var imc = parseFloat(p/(t*t)).toFixed(2)
+		// console.log(p,t,imc)
+		$('.restultadoimc').removeClass('pesobajo pesonormal pesosobrepeso pesoobesidad')
+		if (imc<18)
+		{
+			$('.restultadoimc').addClass('pesobajo')
+			$('.restultadoimc').html('Su Índice de masa corporal es: '+imc+' Peso bajo')
+		}
+		else if (imc>=18 && imc<25)
+		{
+			$('.restultadoimc').addClass('pesonormal')
+			$('.restultadoimc').html('Su Índice de masa corporal es: '+imc+' Normal')
+		}
+		else if (imc >= 25 && imc < 27)
+		{
+			$('.restultadoimc').addClass('pesosobrepeso')
+			$('.restultadoimc').html('Su Índice de masa corporal es: '+imc+' Sobrepeso')
+		}
+		else if (imc >=27)
+		{
+			$('.restultadoimc').addClass('pesoobesidad')
+			$('.restultadoimc').html('Su Índice de masa corporal es: '+imc+' ¡Obesidad!')
+		};
+
+		
+
+	})
+
+
+	if($('.msj_imc').attr('data-imc') == "NaN")
+	{
+		$('.msj_imc').hide()
+		$('.calorias_recomendado').hide()
+	}
 
 	function agregarDatos(obj)
 	{
@@ -649,7 +626,7 @@ $(document).ready(function(){
 
 	function escala(valor)
 	{
-		return parseInt((150*valor)/2000);
+		return parseInt((150*valor)/1000);
 
 	}
 
@@ -660,7 +637,7 @@ $(document).ready(function(){
 		var _grasa;
 		var _carbohidrato;
 		var _proteina;
-		if(grasa>=2000)
+		if(grasa>=1000)
 		{
 			_grasa = 150;
 		}
@@ -669,7 +646,7 @@ $(document).ready(function(){
 			_grasa =escala(grasa);
 		}
 
-		if(carbohidrato>=2000)
+		if(carbohidrato>=1000)
 		{
 			_carbohidrato = 150;
 		}
@@ -678,7 +655,7 @@ $(document).ready(function(){
 			_carbohidrato =escala(carbohidrato);
 		}		
 
-		if(proteina>=2000)
+		if(proteina>=1000)
 		{
 			_proteina = 150;
 		}
@@ -699,17 +676,36 @@ $(document).ready(function(){
 
 		// //console.log(precio)
 
-		if(precio >10)
-		{
-			$('.txt_monto').html('S/.'+precio)
-			$('#precio').attr('value',precio)
-		}
-		else if(precio <=10)
+		// if(precio >10)
+		// {
+		// 	$('.txt_monto').html('S/.'+precio)
+		// 	$('#precio').attr('value',precio)
+		// }
+		// else if(precio <=10)
+		// {
+		// 	$('.txt_monto').html('S/. 10.00');
+		// 	$('#precio').attr('value','10.00');
+		// }
+		//console.log(precio)
+
+
+		// if (precio <=10)
+		// {
+		// 	$('.txt_monto').html('S/. 10.00');
+		// 	$('#precio').attr('value','10.00');			
+		// }
+		// else if (true) {};
+
+		// console.log(precio)
+		if(precio <=10)
 		{
 			$('.txt_monto').html('S/. 10.00');
 			$('#precio').attr('value','10.00');
 		}
-		//console.log(precio)
+		else{
+			$('.txt_monto').html('S/.'+precio)
+			$('#precio').attr('value',precio)
+		}		
 
 	}
 

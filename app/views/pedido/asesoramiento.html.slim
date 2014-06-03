@@ -42,7 +42,7 @@
 
 					.bloques_enfermedad
 						h2.titulo_enfermedad.font_ponsi_rounded_slab.web_marron  Calcula tu índice de masa corporal
-						ul.lista_enfermedades
+						ul.lista_enfermedades.bloque_imc
 							li
 								label(for="imc_peso" class="lbl_imc lbl_peso") Peso
 								input(type="text" id="imc_peso" name="imc_peso" class="imc input_imc input_peso" value="")
@@ -51,6 +51,12 @@
 								label(for="imc_talla" class="lbl_imc lbl_talla") Talla
 								input(type="text" id="imc_talla" name="imc_talla" class="imc input_imc input_talla" value="")
 								span.imc_units mts.
+
+							li.restultadoimc
+								
+							li 
+								input(type="button" value="" class="btns btn_calcular_imc")
+
 				
 				input(type="submit" value="" class="btns enviar_enfermedades")
 
