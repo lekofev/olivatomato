@@ -10,7 +10,6 @@ class Pedido < ActiveRecord::Base
 	validates :email, presence: true
 	validates :direccion, presence: true
 	validates :referencia, presence: true
-	validates :mensaje, presence: true
 	validates :tipo_de_pago, presence: true
 
 end
