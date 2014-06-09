@@ -1,0 +1,51 @@
+#fb-root.fb_reset
+.page.formulario_pedido.staticos
+	= render "shared/menu"
+	.container
+		.formulario_contenedor
+			h1 Tu opinión es importante !
+			p.parrafo_titulo Envíanos tus comentarios, dudas o sugerencias.
+
+			.cont_formulario.clearfix
+
+				form.form_pedido.form_formulario_contacto.clearfix(method="post" action="/confirmacion")
+					ul.campos
+						li
+							label(for="nombre") Nombre:
+							input(type="text" id="nombre" name="nombre" maxlength="40")
+						li
+							label(for="apellido") Apellido:
+							input(type="text" id="apellido" name="apellido" maxlength="40")
+						li
+							label(for="email") E-mail:
+							input(type="text" id="email" name="email" maxlength="200")
+						li
+							label(for="telefono") Teléfono:
+							input(type="text" id="telefono" name="telefono" maxlength="12")
+						/ li
+						/ 	label(for="direccion") Dirección:
+						/ 	input(type="text" id="direccion" name="direccion" maxlength="200")
+						/ li.li_referencia.span_bajada
+						/ 	label(for="referencia") Referencia: <span class="">Nombre de la empresa o calle conocida</span>
+						/ 	input(type="text" id="referencia" name="referencia" maxlength="200")
+
+
+						li.txt_area.span_bajada
+							label(for="mensaje") Mensaje
+							textarea(id="mensaje" name="mensaje" maxlength="500")
+
+						li
+							input.btns.btn_contacto.btn_enviar_contacto(type="submit")
+							input(type="hidden" name="tipo_mensaje" value="formulario_contacto")
+						li
+
+
+						/ li.boletin
+						/ 	input(type="checkbox" id="boletin" name="boletin")
+						/ 	label(for="boletin") Deseo recibir Promociones y Ofertas de Oliva y Tomato
+
+
+
+
+
+	= render "shared/footer"

@@ -13,12 +13,72 @@ class PedidoController < ApplicationController
 		end
 		
 	end
+	def formulario_contacto
+		@siteinfo = SiteInfo.find(1)
+		
+	end
+	def formulario_reclamo
+		@siteinfo = SiteInfo.find(1)
+		
+	end
+	def confirmacion
+		@siteinfo = SiteInfo.find(1)
 
+		nombre = params[:nombre]
+		apellido = params[:apellido]
+		email = params[:email]
+		telefono = params[:telefono]
+		mensaje = params[:mensaje]
+		tipo_mensaje = params[:tipo_mensaje]
+
+		if tipo_mensaje == "formulario_contacto"
+			c = Contacto.new(
+				:nombre=>nombre, 
+				:apellido=>apellido, 
+				:email=>email, 
+				:telefono=>telefono,  
+				:mensaje=>mensaje
+				)
+
+			if 	c.save
+				ContactoMailer.nuevo_contacto_email(c).deliver
+				AlertaContactoMailer.alerta_contacto_email(c).deliver
+				@nom = "Gracias "+nombre
+				@msj = "Tu cometario ha sido enviado."
+			else
+				@nom = "Oh no"
+				# @msj = "Hubo un error al hacer el envio, por favor vuelve a intentarlo."
+			end
+		elsif tipo_mensaje == "libro_reclamaciones"
+			l = Libro.new(
+				:nombre=>nombre, 
+				:apellido=>apellido, 
+				:email=>email, 
+				:telefono=>telefono,  
+				:mensaje=>mensaje,  
+				:text_1=>"pendiente",
+				:text_2 => rand(1000000 .. 10000000)
+				)
+
+			if 	l.save
+				LibroMailer.nuevo_libro_email(l).deliver
+				AlertaLibroMailer.alerta_libro_email(l).deliver
+				@nom = "Gracias "+nombre
+				@msj = "Tu reclamo a sido registrado, en breve nos comunicaremos contigo."
+			else
+				@nom = "Oh no"
+				@msj = "Hubo un error al hacer el envio, vuelve a intentarlo."
+
+			end
+		end
+
+	end
 	def asesoramiento
 		@siteinfo = SiteInfo.find(1)
 
 		@alergias = Enfermedad.where(visible:true).where(tipo:'alergia').order("orden ASC")
 		@enfermedades = Enfermedad.where(visible:true).where(tipo:'enfermedad').order("orden ASC")
+		@afeccion = Enfermedad.where(visible:true).where(tipo:'afeccion').order("orden ASC")
 		
 	end
 

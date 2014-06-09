@@ -5,7 +5,7 @@ ActiveAdmin.register Enfermedad do
 	index do                          
 		column :id                  
 		column "Nombre", :nombre
-		column "Nombre digital( _ )", :text_1
+		# column "Nombre digital( _ )", :text_1
 		column "Categoria", :tipo
 		column "Descripcion", :descripcion
 		column "Orden", :orden
@@ -16,7 +16,7 @@ ActiveAdmin.register Enfermedad do
 	form do |f|                         
 		f.inputs "Formulario Galeria de Videos" do    
 			f.input :nombre, :label=>"Nombre"
-			f.input :text_1, :label=>"Nombre digital( _ )"
+			# f.input :text_1, :label=>"Nombre digital( _ )"
 			f.input :tipo, :label=>"Categoria"
 			f.input :descripcion, :label=>"Descripcion"
 			f.input :orden, :label=>"Orden"

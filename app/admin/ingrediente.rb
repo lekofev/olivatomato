@@ -4,7 +4,7 @@ ActiveAdmin.register Ingrediente do
 	index do                          
 		column :id                  
 		column "Nombre de Ingrediente", :nombre
-		column "Nombre de Ingrediente para pc( _ )", :text_2
+		# column "Nombre de Ingrediente para pc( _ )", :text_2
 		column "Peso", :peso
 		column "Descripcion", :descripcion
 		column "Grasas", :grasas
@@ -19,7 +19,7 @@ ActiveAdmin.register Ingrediente do
 	form do |f|                         
 		f.inputs "Formulario Galeria de Videos" do    
 			f.input :nombre, :label=>"Nombre de Ingrediente"
-			f.input :text_2, :label=>"Nombre de Ingrediente para pc( _ )"
+			# f.input :text_2, :label=>"Nombre de Ingrediente para pc( _ )"
 			f.input :peso, :label=>"Peso"
 			f.input :descripcion, :label=>"Descripcion"
 			f.input :grasas, :label=>"Grasas"

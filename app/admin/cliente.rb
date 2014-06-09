@@ -13,6 +13,7 @@ ActiveAdmin.register Cliente do
 		column :email
 		column :direccion
 		column :referencia
+		column "Recibir Boletin OT", :text_1
 		default_actions                   
 	end 
 
@@ -24,6 +25,7 @@ ActiveAdmin.register Cliente do
 		  f.input :email
 		  f.input :direccion
 		  f.input :referencia
+		  f.input :text_1, :label=>"Recibir Boletin OT" 
 		end                               
 		f.actions
 	end
@@ -36,6 +38,7 @@ ActiveAdmin.register Cliente do
         row :email
         row :direccion
         row :referencia
+        row :text_1
       end
     end
 

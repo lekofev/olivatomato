@@ -5,6 +5,6 @@ class PedidoMailer < ActionMailer::Base
   def nuevo_pedido_email(user)
   	@siteinfo = SiteInfo.find(1)
     @user = user
-    mail(to: @user.email, subject: 'Oliva y Tomato : Resumen de pedido')
+    mail(to: @user.email, subject: 'Oliva y Tomato: Resumen de pedido')
   end
 end

@@ -31,11 +31,27 @@
 								- for enfermedad in @enfermedades
 									li.enfermedad_item
 										.contenedor_enfermedad											
-											input(type="checkbox" name="#{enfermedad.text_1}" id="#{enfermedad.text_1}" class="input_enfermedad")
-											label(for="#{enfermedad.text_1}" alt="#{enfermedad.text_1}" class="lbl_enfermedad") 
+											input(type="checkbox" name="#{enfermedad.nombre}" id="#{enfermedad.nombre}" class="input_enfermedad")
+											label(for="#{enfermedad.nombre}" alt="#{enfermedad.nombre}" class="lbl_enfermedad") 
 												= sanitize(enfermedad.nombre)
 												.tooltip_enfermedad
 													= sanitize(alergia.descripcion)											
+													.tooltip_flecha
+						    - else
+								p No items found Please add some inventory. Thank you!
+
+					.bloques_enfermedad
+						h2.titulo_enfermedad.font_ponsi_rounded_slab.web_marron  Afección
+						ul.lista_enfermedades
+						    - if @afeccion.any?								
+								- for afeccion in @afeccion
+									li.enfermedad_item
+										.contenedor_enfermedad											
+											input(type="checkbox" name="#{afeccion.nombre}" id="#{afeccion.nombre}" class="input_enfermedad")
+											label(for="#{afeccion.nombre}" alt="#{afeccion.nombre}" class="lbl_enfermedad") 
+												= sanitize(afeccion.nombre)
+												.tooltip_enfermedad
+													= sanitize(afeccion.descripcion)											
 													.tooltip_flecha
 						    - else
 								p No items found Please add some inventory. Thank you!

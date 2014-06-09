@@ -5,6 +5,7 @@ ActiveAdmin.register ListaEnsalada do
 	index do        
 		column :id                          
 		column "Titulo", :titulo
+		column "Resumen", :txt_adicional_1
 		column "Descripcion", :descripcion
 		column "Imagen Grande", :img_grande
 		column "Imagen Miniatura", :img_chica
@@ -17,6 +18,7 @@ ActiveAdmin.register ListaEnsalada do
 	form do |f|                         
 		f.inputs "Formulario Lista de ensaladas" do      
 		  f.input :titulo, :label => "Titulo"
+		  f.input :txt_adicional_1, :label => "Resumen"
 		  f.input :descripcion, :label => "Descripcion"
 		  f.input :img_grande, :label => "Imagen Grande"
 		  f.input :img_chica, :label => "Imagen Miniatura"
@@ -34,6 +36,7 @@ ActiveAdmin.register ListaEnsalada do
     show do |ad|
       attributes_table do
         row :titulo
+        row :txt_adicional_1
         row :descripcion
         row :img_grande do
           image_tag(ad.img_grande.url)

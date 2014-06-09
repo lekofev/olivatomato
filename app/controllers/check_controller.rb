@@ -20,12 +20,18 @@ class CheckController < ApplicationController
 		direccion = params[:direccion]
 		referencia = params[:referencia]
 		mensaje = params[:mensaje]
+
+		if params[:boletin]!="on"
+			boletin = "No"
+		elsif params[:boletin]=="on"
+			boletin = "Si"
+		end
 		tipo_de_pago = params[:tipo_de_pago]
 		if  tipo_de_pago == "efectivo"
-			tipo_de_pago = tipo_de_pago + " " +params[:tipo_moneda]+" "+params[:monto]
+			tipo_de_pago = tipo_de_pago + " " +params[:tipo_moneda]+" "+params[:monto] +" - " +params[:recibo]  
 			# monto = params[:monto]
 		elsif tipo_de_pago == "tarjeta"
-			tipo_de_pago = tipo_de_pago + " " +params[:tarjeta]
+			tipo_de_pago = tipo_de_pago + " " +params[:tarjeta] +" - " +params[:recibo]  
 		end
 		# tarjeta = params[:tarjeta]
 		ensalada_id = params[:ensalada_id]
@@ -41,7 +47,8 @@ class CheckController < ApplicationController
 			:email=>email, 
 			:telefono=>telefono, 
 			:direccion=>direccion, 
-			:referencia=>referencia
+			:referencia=>referencia, 
+			:text_1=>boletin
 			)
 			if t.save
 				nu = true

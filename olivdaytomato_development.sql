@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 26, 2014 at 04:47 AM
+-- Generation Time: Jun 09, 2014 at 07:34 PM
 -- Server version: 5.5.24-log
 -- PHP Version: 5.3.13
 
@@ -65,14 +65,16 @@ CREATE TABLE IF NOT EXISTS `admin_users` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `index_admin_users_on_email` (`email`),
   UNIQUE KEY `index_admin_users_on_reset_password_token` (`reset_password_token`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Dumping data for table `admin_users`
 --
 
 INSERT INTO `admin_users` (`id`, `email`, `encrypted_password`, `reset_password_token`, `reset_password_sent_at`, `remember_created_at`, `sign_in_count`, `current_sign_in_at`, `last_sign_in_at`, `current_sign_in_ip`, `last_sign_in_ip`, `created_at`, `updated_at`) VALUES
-(1, 'admin@example.com', '$2a$10$zlTSFoQgsffDHg5ktaFMOuPfY55CcpraF/M9gaq7mSX.pfiPycLtG', NULL, NULL, NULL, 49, '2014-05-24 16:11:37', '2014-05-23 17:15:03', '127.0.0.1', '127.0.0.1', '2014-04-03 01:16:47', '2014-05-24 16:11:37');
+(1, 'admin@example.com', '$2a$10$zp5FZ/5jV9qEdAg8qprm8.PvPdKfohIhrOSMXZfB6bAsWeGmaFrj6', NULL, NULL, NULL, 55, '2014-06-09 19:29:31', '2014-06-03 22:38:41', '127.0.0.1', '127.0.0.1', '2014-04-03 01:16:47', '2014-06-09 19:29:31'),
+(2, 'andreachiappori13@gmail.com', '$2a$10$lqc5gxEAlrmjpbh.7IpNE.b.ldQAXdmAfpfLKH/RRCphNQ0Y8nrAm', NULL, NULL, NULL, 9, '2014-06-05 00:27:17', '2014-05-29 03:30:01', '127.0.0.1', '127.0.0.1', '2014-05-26 16:41:15', '2014-06-05 00:29:44'),
+(3, 'jamie.crosby241@gmail.com', '$2a$10$w5Ammli64cq2t0TrgHp0rOX3S3sVOv2LP.Imf/ZzpRapKbbzyOcNi', NULL, NULL, NULL, 1, '2014-06-05 00:30:44', '2014-06-05 00:30:44', '127.0.0.1', '127.0.0.1', '2014-06-05 00:29:10', '2014-06-05 00:30:44');
 
 -- --------------------------------------------------------
 
@@ -103,7 +105,7 @@ INSERT INTO `banner_inicios` (`id`, `img_titulo`, `img_parrafo`, `img_url`, `img
 (2, 'Ensalada Chilena', 'Ensalada Chilena', 'ensalada.jpg', '', 5, 1, '2014-04-09 01:55:55', '2014-04-26 21:29:06', '1'),
 (3, 'Ensalada Peruana', 'Ensalada Peruana', 'ensalada.jpg', 'nolink', 2, 1, '2014-04-09 01:56:20', '2014-04-09 01:56:29', '1'),
 (4, 'Ensalada Rusa', 'Ensalada Rusa', 'ensalada.jpg', 'https://www.facebook.com/', 3, 1, '2014-04-09 01:56:55', '2014-04-09 01:56:55', '1'),
-(5, 'Lorem ipsum dolor sit amet, consectetur adipiscing', NULL, 'ensalada.jpg', 'https://www.google.com.pe', 1, 1, '2014-04-26 21:28:01', '2014-05-23 01:34:36', '1');
+(5, 'Lorem ipsum dolor sit amet, consectetur adipiscing', NULL, 'ensalada.jpg', 'https://www.google.com.pe', 1, 0, '2014-04-26 21:28:01', '2014-05-29 00:50:11', '1');
 
 -- --------------------------------------------------------
 
@@ -136,7 +138,7 @@ CREATE TABLE IF NOT EXISTS `cat_ingredientes` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
 -- Dumping data for table `cat_ingredientes`
@@ -145,7 +147,8 @@ CREATE TABLE IF NOT EXISTS `cat_ingredientes` (
 INSERT INTO `cat_ingredientes` (`id`, `nombre`, `precio`, `descripcion`, `text_1`, `text_2`, `orden`, `visible`, `created_at`, `updated_at`) VALUES
 (1, 'Frutas', '2.30', '', '', '', 0, 1, '2014-05-13 20:08:12', '2014-05-16 17:45:37'),
 (2, 'Verduras', '3.50', '', '', '', 0, 1, '2014-05-13 20:08:35', '2014-05-16 17:45:29'),
-(3, 'Protehínas', '3.50', '', '', '', 0, 1, '2014-05-13 21:46:07', '2014-05-16 17:45:21');
+(3, 'Protehínas', '3.50', '', '', '', 0, 1, '2014-05-13 21:46:07', '2014-05-16 17:45:21'),
+(4, 'almidon', '3.5', NULL, NULL, NULL, 0, 1, '2014-05-29 01:03:34', '2014-05-29 01:03:34');
 
 -- --------------------------------------------------------
 
@@ -200,19 +203,24 @@ CREATE TABLE IF NOT EXISTS `enfermedads` (
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=12 ;
 
 --
 -- Dumping data for table `enfermedads`
 --
 
 INSERT INTO `enfermedads` (`id`, `nombre`, `tipo`, `descripcion`, `text_1`, `text_2`, `orden`, `visible`, `created_at`, `updated_at`) VALUES
-(1, 'Lácteos', 'alergia', 'Aliquam eget viverra elit. Nulla dictum placerat velit convallis dignissim. In hac', 'lacteos', '', 0, 1, '2014-05-13 03:39:44', '2014-05-13 22:11:26'),
-(2, 'Huevos', 'alergia', 'Viverra elit. Nulla dictum placerat velit convallis dignissim. In hac', 'huevos', '', 0, 1, '2014-05-13 03:40:05', '2014-05-13 22:11:12'),
-(3, 'Hipertensión', 'enfermedad', 'In hac habitasse platea dictumst. Fusce commodo auctor urna. ', 'hipertencion', '', 0, 1, '2014-05-13 03:46:04', '2014-05-13 22:11:00'),
-(4, 'Obesidad', 'enfermedad', 'Dd vestibulum libero at suscipit viverra. Nunc condimentum nulla eu quam vehicula bibendum.', 'obesidad', '', 0, 1, '2014-05-13 03:46:32', '2014-05-13 22:10:42'),
-(5, 'Obesidad camión', 'enfermedad', 'sdf sfdsfdsfdsf sdf sfsdf ', 'obesidad_camion', '', 0, 1, '2014-05-13 22:04:11', '2014-05-13 22:10:15'),
-(6, 'Gastritis', 'EnFermeDad', 'onec lobortis faucibus lacus sit amet malesuada. Sed quis tellus cursus, fermentum quam quis, sollicitudin metus', 'gastritis', '', 0, 1, '2014-05-14 19:44:35', '2014-05-14 19:44:35');
+(1, 'Hipertensión', 'Enfermedad', 'Es una condición en la cual la presión arterial se encuentra persistentemente alta (presión asistólica > 140mmHg o presión diastólica > 90mmHg o ambas a la vez). ', 'hipertension', '', 7, 1, '2014-05-13 03:39:44', '2014-06-05 01:40:59'),
+(2, 'A la Lactosa', 'Intolerancia', 'La deficiencia de lactasa es la deficiencia enzimática mas común. Los que padecen de esta deficiencia, tienen menos capacidad para digerir la lactosa, el cual es el principal carbohidrato en la leche.', 'a_la_lactosa', '', 6, 1, '2014-05-13 03:40:05', '2014-06-05 01:36:46'),
+(3, 'Al Trigo', 'Alergia', 'En la alergia al trigo, todas las proteínas que forman parte de su composición son capaces de estimular la reacción alérgica, lo que hace que debamos excluir tanto el trigo, como los productos que la contienen. ', 'al_trigo', '', 5, 1, '2014-05-13 03:46:04', '2014-06-05 01:29:07'),
+(4, 'A la Soya y Oleaginosas', 'Alergia', 'Ambas son leguminosas altamente alergenas, sin embargo, no es necesario excluir de la alimentación, la totalidad de la familia de leguminosas. (Oleaginosas: almendras, nueces, pecanas, etc)', 'a_la_soya_y_oleaginosas', '', 4, 1, '2014-05-13 03:46:32', '2014-06-05 01:33:06'),
+(5, 'Al Maiz', 'Alergia', 'Es una alergia sumamente rara. La exclusión de la dieta puede ser muy difícil, ya que el azúcar, el jarabe y el almidón de maíz, se utilizan ampliamente en los productos procesados. ', 'al_maiz', '', 3, 1, '2014-05-13 22:04:11', '2014-06-05 01:25:30'),
+(6, 'A los Pescados y Mariscos', 'Alergia', 'El pescado y los mariscos son sumamente alergenos, por lo que aquellos que lo padecen, deberían evitar el consumo de todas sus especies. Estos alimentos contienen proteínas que causan una reacción adversa en el organismo.', 'a_los_pescados_y_mariscos', '', 2, 1, '2014-05-14 19:44:35', '2014-06-05 01:23:48'),
+(7, 'Al Huevo', 'Alergia', 'El huevo contiene diversas proteínas que pueden actuar como alergenos, tanto en la yema como en la clara.', 'al_huevo', NULL, 1, 1, '2014-05-29 01:01:53', '2014-06-05 01:08:45'),
+(8, 'Dislipidemias', 'Enfermedad', 'La dislipidemia es un conjunto de condiciones patológicas que se caracterizan por una alteración en el metabolismo de los lípidos, causando un incremento anormal de los mismos en sangre. ', 'Dislipidemias', NULL, 8, 1, '2014-06-05 01:49:46', '2014-06-05 01:49:46'),
+(9, 'Meteorismo y Gases', 'Afección', 'La producción aumentada de gas se debe con frecuencia a algún trastorno de mala absorción o a la ingestión de alimentos que contienen carbohidratos no absorbibles, los cuales por acción bacteriana se fermentan.', 'meteorismo_y_gases', NULL, 9, 1, '2014-06-05 01:58:04', '2014-06-05 01:58:09'),
+(10, 'Reflujo Gastroesofágico', 'Afección', 'Consiste en la regurgitación de contenidos gástricos hacia el esófago. ', 'reflujo_gastroesofágico', NULL, 10, 1, '2014-06-05 01:59:22', '2014-06-05 01:59:22'),
+(11, 'Diabetes Mellitus', 'Enfermedad', '', 'diabetes_mellitus', NULL, 0, 1, '2014-06-05 02:18:07', '2014-06-05 02:18:07');
 
 -- --------------------------------------------------------
 
@@ -299,7 +307,7 @@ CREATE TABLE IF NOT EXISTS `galeria_videos` (
 --
 
 INSERT INTO `galeria_videos` (`id`, `titulo`, `descripcion`, `url_video`, `miniatura`, `txt_adicional_1`, `txt_adicional_2`, `orden`, `visible`, `created_at`, `updated_at`, `imagen_id`) VALUES
-(1, 'Salud y ensalada', 'ue orci massa, tempus a purus ut, porta aliquet quam. Ut placerat posuere purus, et interdum massa pulvinar sed. Maecenas tincidunt', 'T5tqplipU7Y', 'otro_c.jpg', '', '', 0, 1, '2014-04-16 02:19:30', '2014-05-23 04:47:00', '1');
+(1, 'Salud y ensalada', 'ue orci massa, tempus a purus ut, porta aliquet quam. Ut placerat posuere purus, et interdum massa pulvinar sed. Maecenas tincidunt', 'PqThMLOvp9U', 'otro_c.jpg', '', '', 0, 1, '2014-04-16 02:19:30', '2014-05-29 00:58:52', '1');
 
 -- --------------------------------------------------------
 
@@ -388,11 +396,11 @@ CREATE TABLE IF NOT EXISTS `ingredientes` (
 --
 
 INSERT INTO `ingredientes` (`id`, `nombre`, `peso`, `descripcion`, `calorias`, `grasas`, `protehinas`, `carbohidratos`, `text_1`, `text_2`, `orden`, `visible`, `created_at`, `updated_at`, `cat_ingrediente_id`) VALUES
-(1, 'Apio', '80', 'Maecenas felis purus, consequat eu aliquet eu, gravida eu ipsum', '130', '80', '120', '40', 'hipertencion', 'apio', 0, 1, '2014-05-13 20:13:15', '2014-05-16 20:05:13', '2'),
-(2, 'Tomate', '150', 'pellentesque. Mauris scelerisque, nisi sodales imperdiet bibendum,', '80', '10', '130', '150', 'hipertencion', 'tomate', 0, 1, '2014-05-13 20:14:16', '2014-05-16 20:05:01', '2'),
+(1, 'Apio', '80', 'Maecenas felis purus, consequat eu aliquet eu, gravida eu ipsum', '130', '80', '120', '40', 'Hipertensión', 'apio', 0, 1, '2014-05-13 20:13:15', '2014-05-16 20:05:13', '2'),
+(2, 'Tomate', '150', 'pellentesque. Mauris scelerisque, nisi sodales imperdiet bibendum,', '80', '10', '130', '150', 'Hipertensión,Diabetes Mellitus', 'tomate', 0, 1, '2014-05-13 20:14:16', '2014-06-09 19:31:43', '2'),
 (3, 'Naranja', '90', 'pellentesque. Mauris scelerisque, nisi sodales imperdiet bibendum,', '20', '10', '80', '120', 'gastritis', 'naranja', 0, 1, '2014-05-13 20:14:55', '2014-05-16 20:04:35', '1'),
 (4, 'Pera', '30', 'Mauris scele pellentesque pellentesque.. risque, nisi sodales imperdiet bibendum,', '30', '10', '30', '115', '', 'pera', 0, 1, '2014-05-13 20:15:54', '2014-05-16 20:04:14', '1'),
-(5, 'Carne', '85', 'e, nisi sodales imperdiet bib pellentesque. Mauris scelerisquendum,', '0', '65', '20', '35', 'obesidad, hipertencion', 'carne', 0, 1, '2014-05-13 21:46:46', '2014-05-17 20:13:01', '3');
+(5, 'Carne', '85', 'e, nisi sodales imperdiet bib pellentesque. Mauris scelerisquendum,', '0', '65', '20', '35', 'Hipertensión', 'carne', 0, 1, '2014-05-13 21:46:46', '2014-05-17 20:13:01', '3');
 
 -- --------------------------------------------------------
 
@@ -433,7 +441,7 @@ INSERT INTO `lista_ensaladas` (`id`, `titulo`, `descripcion`, `txt_adicional_1`,
 (3, 'Pardo de Tomato', 'make a type specimen book. It has survived not only five centuries, but also the leap ', '', '', 'salad_g.jpg', 'salad_s.jpg', '20.50', 'Proteinas1, 20%', 'Proteinas2, 20%', 'Proteinas3, 20%', 'Proteinas4, 20%', '', '', '', 1, 1, '2014-04-12 21:18:58', '2014-04-12 21:19:49', '1'),
 (4, 'Tomate al Pesto', 's that it has a more-or-less normal distribution of letters, as opposed to using ''Content here, content here'', making it look like readable English. Many des\r\n', '', '', 'ensalada.jpg', 'salad_s.jpg', '17.5', 'energía, 10%', 'energía, 10%', 'energía, 10%', 'energía, 10%', '', '', '', 4, 1, '2014-04-12 21:20:01', '2014-05-19 17:28:43', '1'),
 (5, 'Papa y Camote', 's, as opposed to using ''Content here, content here'', making ', '', '', 'salad_g.jpg', 'salad_s.jpg', '20.50', 'Carbohidraots, 12%', 'Carbohidraots, 12%', 'Carbohidraots, 12%', 'Carbohidraots, 12%', '', '', '', 3, 1, '2014-04-12 21:21:45', '2014-05-19 17:28:59', '1'),
-(6, 'Ensalada Rusa', ' been the industry''s standard dummy text ever since the 1500s, when an unknown printer took a galley', '', '', 'salad_g.jpg', 'salad_s.jpg', '10.30', 'Calorías,20% ', 'Calorías,20% ', 'Calorías,20% ', 'Calorías,20% ', '', '', '', 0, 1, '2014-04-12 21:23:41', '2014-05-19 17:29:09', '1');
+(6, 'La de... Quinua', 'Una divertida y fresca combinación de quinua con verduras y queso fresco light. \r\n', '', '', 'IMG_7919.jpg', 'Quinua.png', '10.30', 'Calorías,20% ', 'Calorías,20% ', 'Calorías,20% ', 'Calorías,20% ', '', '', '', 0, 1, '2014-04-12 21:23:41', '2014-06-05 01:02:26', '1');
 
 -- --------------------------------------------------------
 
@@ -500,7 +508,7 @@ CREATE TABLE IF NOT EXISTS `pedidos` (
   `pago` varchar(255) DEFAULT NULL,
   `estado` varchar(255) DEFAULT 'Pendiente',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=49 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=57 ;
 
 --
 -- Dumping data for table `pedidos`
@@ -539,7 +547,15 @@ INSERT INTO `pedidos` (`id`, `nombre`, `telefono`, `ensalada_id`, `ensalada_nomb
 (45, 'hhh', '324234234324', '1', 'Del cesar', '15.30', 0, 1, '2014-05-23 16:18:46', '2014-05-23 16:18:46', 'jjgj', 'rodrigzer@gmail.com', 'sdffsdf sdfds', ' dsfsd ', 'fsd fsdf', 'efectivo dolares 35', NULL, NULL, NULL, 'Pendiente'),
 (46, 'fhgh', '23432424', '1', 'Del cesar', '15.30', 0, 1, '2014-05-23 16:20:33', '2014-05-23 16:20:33', 'fdghfgh', 'rodrigzer@gmail.com', '32424', '324324', '324324', 'tarjeta visa', NULL, NULL, NULL, 'Pendiente'),
 (47, 'ggggf', '32424333', '1', 'Del cesar', '15.30', 0, 1, '2014-05-23 16:26:37', '2014-05-23 16:26:37', 'dfsdf', 'rodrigzer@gmail.com', '324432', '4234', '23432', 'tarjeta mastarcard', NULL, NULL, NULL, 'Pendiente'),
-(48, 'jujujujuj', '3245324324', '3', 'Pardo de Tomato', '20.50', 0, 1, '2014-05-23 17:14:53', '2014-05-23 17:14:53', 'ujujuju', 'sdf@dddddd.c', '44423', '4234234', '2432', 'tarjeta mastarcard', NULL, NULL, NULL, 'Pendiente');
+(48, 'jujujujuj', '3245324324', '3', 'Pardo de Tomato', '20.50', 0, 1, '2014-05-23 17:14:53', '2014-05-23 17:14:53', 'ujujuju', 'sdf@dddddd.c', '44423', '4234234', '2432', 'tarjeta mastarcard', NULL, NULL, NULL, 'Pendiente'),
+(49, 'rooollyy', '213421344324', '3', 'Pardo de Tomato', '20.50', 0, 1, '2014-05-26 16:15:48', '2014-05-26 16:15:48', 'errrockson', 'rodrigzer@gmail.com', '23423 ', 'dfg dg', 'df gfd', 'efectivo soles 40', NULL, NULL, NULL, 'Pendiente'),
+(50, 'roolyyyy', '223232323', '4', 'Tomate al Pesto', '17.5', 0, 1, '2014-05-26 16:18:51', '2014-05-26 16:18:51', 'rodriiggg', 'rodrigzer@gmail.com', 'dg dfg dfgf', 'd fg df', 'g dfg dgdfg', 'efectivo soles 30', NULL, NULL, NULL, 'Pendiente'),
+(51, 'rodefffoooly', '343435454', '4', 'Tomate al Pesto', '17.5', 0, 1, '2014-05-26 16:36:15', '2014-05-26 16:36:15', 'rtr', 'rodrigzer@gmail.com', '54353453', '45344353', '4534534534543', 'tarjeta mastarcard', NULL, NULL, NULL, 'Pendiente'),
+(52, 'trtrtr', '7676767', '6', 'Ensalada Rusa', '10.30', 0, 1, '2014-05-29 00:07:20', '2014-05-29 00:07:20', 'rtrtrt', 'rodrigzer@gmail.com', 'gjh', 'fghgfh', 'ghjkjkj', 'efectivo soles 20', NULL, NULL, NULL, 'Pendiente'),
+(53, 'ooooooooooooooo', '6767567657', 'null', 'Ensalada Personalizada: pera(2),apio(3),carne(2),', '22.10', 0, 1, '2014-05-29 00:39:52', '2014-05-29 00:39:52', 'ghjghg', 'rodrigzer@gmail.com', 'jghjgjgh', 'tutyutyu', 'jgyjyj', 'efectivo dolares 100', NULL, NULL, NULL, 'Pendiente'),
+(54, 'rolly', '952525625', 'null', 'Ensalada Personalizada: naranja(1),apio(1),tomate(1),', '19.30', 0, 1, '2014-06-04 00:09:57', '2014-06-04 00:09:57', 'rodriguez', 'rodrigzer@gmail.com', 'chorrillos', 'av el sol', '', 'efectivo soles 50', NULL, NULL, NULL, 'Pendiente'),
+(55, 'rolyyy', '434543545435', 'null', 'Ensalada Personalizada: naranja(1),apio(1),tomate(1),', '19.30', 0, 1, '2014-06-04 00:14:21', '2014-06-04 00:14:21', 'rodrig', 'rodrigzer@gmail.com', 'dsfgdfg', 'fdgfdgf', 'dgfdgfdg', 'tarjeta mastarcard', NULL, NULL, NULL, 'Pendiente'),
+(56, 'marco', '952525625', 'null', 'Ensalada Personalizada: naranja(1),apio(1),', '15.80', 0, 1, '2014-06-04 00:16:57', '2014-06-04 00:16:57', 'guuu', 'rodrigzer@gmail.com', 'dfg fdg df', 'g dfg', ' fd dfg df', 'tarjeta visa', NULL, NULL, NULL, 'Pendiente');
 
 -- --------------------------------------------------------
 
@@ -648,7 +664,7 @@ CREATE TABLE IF NOT EXISTS `site_infos` (
 --
 
 INSERT INTO `site_infos` (`id`, `doc_title`, `facebook_link`, `twitter_link`, `email_link`, `telefono`, `site_title`, `site_desc`, `site_keywords`, `og_title`, `og_desc`, `og_url`, `og_image`, `og_site_name`, `texto_adicional_1`, `texto_adicional_2`, `texto_adicional_3`, `texto_adicional_4`, `created_at`, `updated_at`) VALUES
-(1, 'Oliva y Tomato', 'https://www.facebook.com/', 'https://twitter.com/', 'https://mail.google.com/', '987987987', 'Oliva y Tomato', 'Prepara tus ensaladas muy ricas', 'ensaladas preparadas, menu de ensaladas, ensaladas', 'Oliva y Tomato', 'Prepara tus ensaladas muy ricas', 'http://ol.bot-ga.com/', 'face.jpg', 'Oliva y Tomato', 'rodrigzer@gmail.com', 'info@olivaytomato.com', '', '', '2014-04-10 04:51:33', '2014-05-24 16:17:33');
+(1, 'Oliva y Tomato', 'https://www.facebook.com/olivaytomato', 'https://twitter.com/', 'https://mail.google.com/', '971161039', 'Oliva y Tomato', 'Prepara tus ensaladas nutritivas', 'ensaladas preparadas, menu de ensaladas, ensaladas, nutrición, salud, comida rápida, saludable', 'Oliva & Tomato', 'Prepara tus almuerzos de una forma divertida, rica y sobretodo muy saludables', 'https://www.facebook.com/olivaytomato', '_Logo_personajes_ok.jpg', 'Oliva & Tomato', 'andreachiappori13@gmail.com', 'olivaytomato@gmail.com', '', '', '2014-04-10 04:51:33', '2014-06-05 00:39:28');
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

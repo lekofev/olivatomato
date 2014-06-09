@@ -5,6 +5,9 @@
 		.logo
 			= link_to image_tag("logo_ol.jpg", class:"").html_safe, '/'
 		.personajes.sprite.oliva
+			ul.menu_sociales
+				li
+					= link_to "", "/libro-de-reclamaciones", class:"btns icon_sociales libro"
 		.personajes.sprite.tomato
 			ul.menu_sociales
 				li
@@ -12,7 +15,7 @@
 				li
 					= link_to "", @siteinfo.twitter_link, class:"btns icon_sociales tw", target:"_blank"
 				li
-					= link_to "", @siteinfo.email_link, class:"btns icon_sociales email", target:"_blank"
+					= link_to "", "/escribenos", class:"btns icon_sociales email"
 
 		ul.menu_list.clear_block
 			li.menu_items.menu_item_0

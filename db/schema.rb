@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140519200753) do
+ActiveRecord::Schema.define(:version => 20140608065613) do
 
   create_table "active_admin_comments", :force => true do |t|
     t.string   "resource_id",   :null => false
@@ -85,6 +85,23 @@ ActiveRecord::Schema.define(:version => 20140519200753) do
     t.string   "text_1"
     t.string   "text_2"
     t.string   "text_3"
+    t.integer  "orden",      :default => 0
+    t.boolean  "visible",    :default => true
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
+  end
+
+  create_table "contactos", :force => true do |t|
+    t.string   "nombre"
+    t.string   "apellido"
+    t.string   "telefono"
+    t.string   "email"
+    t.string   "mensaje"
+    t.string   "text_1"
+    t.string   "text_2"
+    t.string   "text_3"
+    t.string   "text_4"
+    t.string   "text_5"
     t.integer  "orden",      :default => 0
     t.boolean  "visible",    :default => true
     t.datetime "created_at",                   :null => false
@@ -181,6 +198,23 @@ ActiveRecord::Schema.define(:version => 20140519200753) do
     t.datetime "created_at",                           :null => false
     t.datetime "updated_at",                           :null => false
     t.string   "cat_ingrediente_id"
+  end
+
+  create_table "libros", :force => true do |t|
+    t.string   "nombre"
+    t.string   "apellido"
+    t.string   "telefono"
+    t.string   "email"
+    t.string   "mensaje"
+    t.string   "text_1"
+    t.string   "text_2"
+    t.string   "text_3"
+    t.string   "text_4"
+    t.string   "text_5"
+    t.integer  "orden",      :default => 0
+    t.boolean  "visible",    :default => true
+    t.datetime "created_at",                   :null => false
+    t.datetime "updated_at",                   :null => false
   end
 
   create_table "lista_ensaladas", :force => true do |t|

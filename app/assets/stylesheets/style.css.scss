@@ -361,7 +361,7 @@ body,html{
 }
 
 .menu_sociales{
-    width: 18px;
+    width: 21px;
     height: 65px;
     position: absolute;
     top: 98px;
@@ -394,6 +394,12 @@ body,html{
     }
     .email:hover{
         background-position: -60px -133px;
+    }
+    .libro{
+        background-position: -5px -480px;
+    }
+    .libro:hover{
+        background-position: -5px -506px;
     }
 
 }
@@ -2320,4 +2326,60 @@ label.match{
 }
 .pesoobesidad{
     color: #ff0000;
+}
+
+.asterico{
+    font-size: 10px;
+    text-align: left;
+    color: #4a2b0b;
+}
+#boletin{
+    float: left;
+}
+.form_pedido ul.campos .boletin label{
+    float: left;
+    width: 380px;
+    margin-top: -3px;
+}
+
+.btn_enviar_contacto{
+    width: 98px;
+    height: 34px;
+    background-position: -311px -648px;
+    float: right;
+    margin-right: 8px;
+    margin-top: 5px;
+    text-indent: -3000px;
+}
+.btn_enviar_contacto:hover{
+    background-position: -311px -689px;
+}
+
+
+
+.confirmacion .formulario_contenedor{
+    text-align: center;
+
+}
+
+a.btn_confirmacion_inicio {
+    display: block;
+    width: 158px;
+    height: 46px;
+    background-position: -2px -530px;
+    margin: 40px auto;
+}
+a.btn_confirmacion_inicio:hover{
+    
+    background-position: -2px -580px;
+}
+
+.form_pedido ul.campos .cont_recibo input{
+    float: left;
+
+}
+.form_pedido ul.campos .cont_recibo label{
+    float: left;    
+    margin-top: -4px;
+    margin-left: 5px;
 }
