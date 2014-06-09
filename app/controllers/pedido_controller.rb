@@ -30,6 +30,7 @@ class PedidoController < ApplicationController
 		telefono = params[:telefono]
 		mensaje = params[:mensaje]
 		tipo_mensaje = params[:tipo_mensaje]
+		pendiente = "pendiente"
 
 		if tipo_mensaje == "formulario_contacto"
 			c = Contacto.new(
@@ -46,8 +47,8 @@ class PedidoController < ApplicationController
 				@nom = "Gracias "+nombre
 				@msj = "Tu cometario ha sido enviado."
 			else
-				@nom = "Oh no"
-				# @msj = "Hubo un error al hacer el envio, por favor vuelve a intentarlo."
+				@nom = "Oh no contacto"
+				@msj = "Hubo un error al hacer el envio, por favor vuelve a intentarlo."
 			end
 		elsif tipo_mensaje == "libro_reclamaciones"
 			l = Libro.new(
@@ -56,7 +57,7 @@ class PedidoController < ApplicationController
 				:email=>email, 
 				:telefono=>telefono,  
 				:mensaje=>mensaje,  
-				:text_1=>"pendiente"
+				:text_1=>pendiente
 				)
 
 			if 	l.save
@@ -65,7 +66,7 @@ class PedidoController < ApplicationController
 				@nom = "Gracias "+nombre
 				@msj = "Tu reclamo a sido registrado, en breve nos comunicaremos contigo."
 			else
-				@nom = "Oh no"
+				@nom = "Oh no Libro"
 				@msj = "Hubo un error al hacer el envio, vuelve a intentarlo."
 
 			end
