@@ -78,6 +78,7 @@ class PedidoController < ApplicationController
 
 		@alergias = Enfermedad.where(visible:true).where(tipo:'alergia').order("orden ASC")
 		@enfermedades = Enfermedad.where(visible:true).where(tipo:'enfermedad').order("orden ASC")
+		@afeccion = Enfermedad.where(visible:true).where(tipo:'afeccion').order("orden ASC")
 		
 	end
 
