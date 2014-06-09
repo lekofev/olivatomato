@@ -7,5 +7,4 @@ class Libro < ActiveRecord::Base
 	validates :email, presence: true
 	validates :mensaje, presence: true
 	validates :text_1, presence: true
-	validates :text_2, presence: true
 end
