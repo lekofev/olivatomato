@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: Jun 09, 2014 at 07:34 PM
+-- Generation Time: Jun 09, 2014 at 07:56 PM
 -- Server version: 5.5.24-log
 -- PHP Version: 5.3.13
 
@@ -184,6 +184,31 @@ INSERT INTO `clientes` (`id`, `nombre`, `apellido`, `telefono`, `email`, `direcc
 (3, 'roly', 'rodrig', '123242443342', 'ee@dd.cc', 'dfdsf', 'wfsf', NULL, NULL, NULL, 0, 1, '2014-05-23 15:40:00', '2014-05-23 15:40:00'),
 (4, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 0, 1, '2014-05-23 15:46:03', '2014-05-23 15:46:03'),
 (5, 'jujujujuj', 'ujujuju', '3245324324', 'sdf@dddddd.c', '44423', '4234234', NULL, NULL, NULL, 0, 1, '2014-05-23 17:14:53', '2014-05-23 17:14:53');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `contactos`
+--
+
+CREATE TABLE IF NOT EXISTS `contactos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(255) DEFAULT NULL,
+  `apellido` varchar(255) DEFAULT NULL,
+  `telefono` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `mensaje` varchar(255) DEFAULT NULL,
+  `text_1` varchar(255) DEFAULT NULL,
+  `text_2` varchar(255) DEFAULT NULL,
+  `text_3` varchar(255) DEFAULT NULL,
+  `text_4` varchar(255) DEFAULT NULL,
+  `text_5` varchar(255) DEFAULT NULL,
+  `orden` int(11) DEFAULT '0',
+  `visible` tinyint(1) DEFAULT '1',
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -405,6 +430,31 @@ INSERT INTO `ingredientes` (`id`, `nombre`, `peso`, `descripcion`, `calorias`, `
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `libros`
+--
+
+CREATE TABLE IF NOT EXISTS `libros` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(255) DEFAULT NULL,
+  `apellido` varchar(255) DEFAULT NULL,
+  `telefono` varchar(255) DEFAULT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `mensaje` varchar(255) DEFAULT NULL,
+  `text_1` varchar(255) DEFAULT NULL,
+  `text_2` varchar(255) DEFAULT NULL,
+  `text_3` varchar(255) DEFAULT NULL,
+  `text_4` varchar(255) DEFAULT NULL,
+  `text_5` varchar(255) DEFAULT NULL,
+  `orden` int(11) DEFAULT '0',
+  `visible` tinyint(1) DEFAULT '1',
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `lista_ensaladas`
 --
 
@@ -602,7 +652,9 @@ INSERT INTO `schema_migrations` (`version`) VALUES
 ('20140513172637'),
 ('20140513172745'),
 ('20140513174552'),
-('20140519200753');
+('20140519200753'),
+('20140608065421'),
+('20140608065613');
 
 -- --------------------------------------------------------
 
