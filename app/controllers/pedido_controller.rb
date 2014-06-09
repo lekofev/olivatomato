@@ -57,7 +57,7 @@ class PedidoController < ApplicationController
 				:telefono=>telefono,  
 				:mensaje=>mensaje,  
 				:text_1=>"pendiente",
-				:text_2 => rand(1000000 .. 10000000)
+				:text_2 => rand(1000000 .. 10000000).to_s
 				)
 
 			if 	l.save
