@@ -5,6 +5,6 @@ class AvisoMailer < ActionMailer::Base
   def aviso_email(user)
   	@siteinfo = SiteInfo.find(1)
     @user = user
-    mail(to: @siteinfo.texto_adicional_1, subject: 'Oliva y Tomato : Aviso de nuevo pedido')
+    mail(to: @siteinfo.texto_adicional_1, subject: 'Oliva y Tomato: Aviso de nuevo pedido')
   end
 end

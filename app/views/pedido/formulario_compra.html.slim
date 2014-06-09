@@ -8,7 +8,7 @@
 
 			.cont_formulario.clearfix
 
-				form.form_pedido.clearfix
+				form.form_pedido.form_formulario_pedido.clearfix
 					ul.campos
 						li
 							label(for="nombre") Nombre:
@@ -64,6 +64,16 @@
 									label(for="visa" id="visa" class="db_inline" checked="checked") Visa
 									input(type="radio" name="tarjeta" value="mastarcard" id="mastercard" class="db_inline")
 									label(for="mastercard" id="visa" class="db_inline") Master Card
+						li
+							.cont_recibo
+								input(type="radio" name="recibo" value="boleta" id="boleta" class="db_inline"  checked="checked")
+								label(for="boleta" id="lbl_boleta" class="db_inline" ) Boleta
+								input(type="radio" name="recibo" value="factura" id="factura" class="db_inline")
+								label(for="factura" id="lbl_factura" class="db_inline") Factura
+
+						li.boletin
+							input(type="checkbox" id="boletin" name="boletin")
+							label(for="boletin") Deseo recibir Promociones y Ofertas de Oliva y Tomato
 
 
 

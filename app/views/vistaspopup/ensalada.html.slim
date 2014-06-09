@@ -36,7 +36,8 @@
 						= sanitize(@mineral_4[0])
 					td.porcentaje
 						= sanitize(@mineral_4[1])
-
+			.asterico
+				|* No incluye calorias del aliño.
 			= link_to "", "/pedido/#{@ensalada_popup.id}", class:"btns btn_comprar_ensalada"
 			/ = link_to "", :controller => "pedido", :action => "formulario_compra", :id => @ensalada_popup.id, :class=>"btns btn_comprar_ensalada"
 			.precio_cont.sprite

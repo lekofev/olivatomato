@@ -15,8 +15,11 @@ Olivdaytomato::Application.routes.draw do
 
   match 'pedido' => 'pedido#formulario_compra'
   match 'pedido/:id' => 'pedido#formulario_compra'  
+  match 'escribenos' => 'pedido#formulario_contacto' 
+  match 'libro-de-reclamaciones' => 'pedido#formulario_reclamo' 
   match 'asesoramiento' => 'pedido#asesoramiento'
   match 'arma-tu-ensalada' => 'pedido#ensalada'
+  match 'confirmacion' => 'pedido#confirmacion'
 
   match 'check' => 'check#crear_pedido'
 

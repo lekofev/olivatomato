@@ -140,22 +140,22 @@ $(document).ready(function(){
 
 
 
-	$(".form_pedido").validate({
+	$(".form_formulario_pedido").validate({
 			rules:{
 				nombre: {
 					required: true,
-					rangelength: [2,40],
+					rangelength: [1,40],
 					nombre_valido:true			
 				},
 				apellido: {
 					required: true,
-					rangelength: [2,40],
+					rangelength: [1,40],
 					nombre_valido:true
 				},
 				email: {
 					required: true,
 					email: true,
-					rangelength: [2,200]
+					rangelength: [1,200]
 				},
 				telefono: {
 					required: true,
@@ -164,11 +164,11 @@ $(document).ready(function(){
 				},
 				direccion: {
 					required: true,
-					rangelength: [2,200]
+					rangelength: [1,200]
 				},
 				referencia: {
 					required: true,
-					rangelength: [2,200]
+					rangelength: [1,200]
 				},
 				monto: {
 					required: true,
@@ -204,7 +204,7 @@ $(document).ready(function(){
 					rangelength: '200 carácteres como máximo.'
 				},
 				referencia:{
-					required: 'Debes escribir tu dirección.',
+					required: 'Debes escribir una referencia de tu ubicación.',
 					rangelength: '200 carácteres como máximo.'
 				},
 				monto:{
@@ -224,9 +224,9 @@ $(document).ready(function(){
 
 
 	$(".btn_hacer_pedido").click(function(){
-			if($(".form_pedido").valid() == true){	
-				$('.form_pedido').append('<div class="contact_loading">Procesando Pedido...</div>')	
-				$.post("/check.jsonr", $(".form_pedido").serialize(), function(data){
+			if($(".form_formulario_pedido").valid() == true){	
+				$('.form_formulario_pedido').append('<div class="contact_loading">Procesando Pedido...</div>')	
+				$.post("/check.jsonr", $(".form_formulario_pedido").serialize(), function(data){
 
 					if(data.ok)
 					{
@@ -249,6 +249,144 @@ $(document).ready(function(){
 
 
 	});	//end #btn-continuar.click
+
+
+
+
+
+
+
+	$(".form_formulario_contacto").validate({
+			rules:{
+				nombre: {
+					required: true,
+					rangelength: [1,40],
+					nombre_valido:true			
+				},
+				apellido: {
+					required: true,
+					rangelength: [1,40],
+					nombre_valido:true
+				},
+				email: {
+					required: true,
+					email: true,
+					rangelength: [1,200]
+				},
+				telefono: {
+					required: true,
+					digits: true,
+					rangelength: [7,12]
+				},
+				mensaje: {
+					required: true,
+					rangelength: [1,500]
+				}
+	
+			},//End rules 
+			messages: {
+				nombre:{
+					required: 'Ingrese un nombre.',
+					rangelength: '40 carácteres como máximo.',
+					nombre_valido:'EL nombre es inválido.'
+				},
+				apellido:{
+					required: 'Ingrese un apellido.',
+					rangelength: '40 carácteres como máximo.',
+					nombre_valido:'EL apellido es inválido.'
+				},
+				email: {
+					required: 'Debes ingresar un email.',
+					email: 'Ingresa un email válido.',
+					rangelength: '200 carácteres como máximo.',
+					nombre_valido:'Ingresa un email válido.'
+				},
+				telefono:{
+					required: 'El teléfono es requerido.',
+					digits: 'Solo se permiten números.',
+					rangelength: 'De 7 a 9 digitos máximo.',
+					nombre_valido:'Ingresa un número válido'
+				},
+				mensaje:{
+					required: 'Es necesario un mensaje',
+					rangelength: 'De 1 a 500 caracteres'
+				}
+			}
+		});	// End Validate
+
+
+
+
+	$(".form_formulario_reclamo").validate({
+			rules:{
+				nombre: {
+					required: true,
+					rangelength: [1,40],
+					nombre_valido:true			
+				},
+				apellido: {
+					required: true,
+					rangelength: [1,40],
+					nombre_valido:true
+				},
+				email: {
+					required: true,
+					email: true,
+					rangelength: [1,200]
+				},
+				telefono: {
+					required: true,
+					digits: true,
+					rangelength: [7,12]
+				},
+				mensaje: {
+					required: true,
+					rangelength: [1,500]
+				}
+	
+			},//End rules 
+			messages: {
+				nombre:{
+					required: 'Ingrese un nombre.',
+					rangelength: '40 carácteres como máximo.',
+					nombre_valido:'EL nombre es inválido.'
+				},
+				apellido:{
+					required: 'Ingrese un apellido.',
+					rangelength: '40 carácteres como máximo.',
+					nombre_valido:'EL apellido es inválido.'
+				},
+				email: {
+					required: 'Debes ingresar un email.',
+					email: 'Ingresa un email válido.',
+					rangelength: '200 carácteres como máximo.',
+					nombre_valido:'Ingresa un email válido.'
+				},
+				telefono:{
+					required: 'El teléfono es requerido.',
+					digits: 'Solo se permiten números.',
+					rangelength: 'De 7 a 9 digitos máximo.',
+					nombre_valido:'Ingresa un número válido'
+				},
+				mensaje:{
+					required: 'Es necesario un mensaje',
+					rangelength: 'De 1 a 500 caracteres'
+				}
+			}
+		});	// End Validate
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 	$('.radios_card').on('click', function(){
